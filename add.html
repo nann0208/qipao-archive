@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>添加史料 - 海派旗袍史料库</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">海派旗袍史料库</h1>
+      <span class="site-subtitle">SHANGHAI QIPAO ARCHIVE</span>
+      <div style="flex: 1;"></div>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">← 返回列表</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="form-container">
+    <h2 id="form-title" class="form-title">添加新史料</h2>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label required">史料类型</label>
+        <select id="field-type" class="form-select">
+          <option value="报刊文章">📰 报刊文章</option>
+          <option value="专著">📖 专著</option>
+          <option value="档案文件">📜 档案文件</option>
+          <option value="图像">🖼️ 图像</option>
+          <option value="文学作品">✒️ 文学作品</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" id="source-field-label">来源</label>
+        <select id="field-source-select" class="form-select" style="margin-bottom: 6px;">
+          <option value="">— 从已有来源中选择 —</option>
+        </select>
+        <input id="field-source" class="form-input" placeholder="或输入新来源（如：申报 / 商务印书馆）" />
+        <div id="source-field-help" class="form-help" style="display: none;">「来源」对档案文件而言通常指发起人/责任方</div>
+      </div>
+    </div>
+
+    <div id="archive-holder-row" class="form-group" style="display: none;">
+      <label class="form-label">收藏机构（档案馆）</label>
+      <select id="field-archive-holder-select" class="form-select" style="margin-bottom: 6px;">
+        <option value="">— 从已有档案馆中选择 —</option>
+      </select>
+      <input id="field-archive-holder" class="form-input" placeholder="如：上海市档案馆 / 国家图书馆" value="上海市档案馆" />
+      <div class="form-help">档案的实际收藏机构，将用于首页「档案来源」筛选</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label required">题名</label>
+      <input id="field-title" class="form-input" placeholder="文章标题、书名或档案名称" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">作者/责任人</label>
+      <input id="field-author" class="form-input" placeholder="如：仲寅 / 张爱玲 / 上海市社会局" />
+      <div class="form-help">报刊文章的作者、专著的主要责任者、档案的责任方等；用于自动生成引用格式</div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">时间</label>
+        <input id="field-time" class="form-input" placeholder="如：1925 / 1925年3月 / 1925-03-15" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">版次/期号/档案号/页码</label>
+        <input id="field-version" class="form-input" placeholder="如：第3版 / 第5卷-第2期 / 第168页" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">研究议题（可多选）</label>
+      <div id="topics-chips" class="checkbox-group"></div>
+      <div class="form-help">点击议题卡片加入或取消选择</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">重要程度</label>
+      <div id="importance-chips" class="checkbox-group"></div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">核心内容</label>
+      <textarea id="field-core" class="form-textarea" placeholder="摘录或概述这条史料的主要信息..." rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">个人分析</label>
+      <textarea id="field-analysis" class="form-textarea" placeholder="这条史料对你的论文意味着什么？可以用在哪一章？说明了什么问题？" rows="4"></textarea>
+      <div class="form-help">这是你的论文写作思考，会在搜索时被全文检索</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">关键词标签</label>
+      <div id="keyword-chips" class="checkbox-group" style="margin-bottom: 8px;"></div>
+      <input id="field-custom-keywords" class="form-input" placeholder="自定义标签，多个用逗号分隔" />
+      <div class="form-help">可以选择常用标签，也可以输入自定义关键词</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Word 文档文字提取（可选）</label>
+      <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <input id="docx-file-input" type="file" accept=".docx" class="form-input" style="flex: 1;" />
+        <button id="btn-extract-docx" class="btn" style="padding: 8px 16px;">提取文字</button>
+      </div>
+      <textarea id="field-docx-preview" class="form-textarea" placeholder="提取的 Word 文档文字内容将显示在这里（可编辑）" rows="4"></textarea>
+      <div class="form-help">选择本地 .docx 文件，点击「提取文字」按钮自动提取内容。可直接编辑修改</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">关联原文档案路径</label>
+      <textarea id="field-docs" class="form-textarea" placeholder="文件相对路径，每行一个，如：&#10;../《申报》/1925年3月15日-第3版-旗袍杂谈.pdf&#10;../《申报》/1925年3月15日-第3版-旗袍杂谈.jpg" rows="3"></textarea>
+      <div class="form-help">使用相对路径（"../" 表示上一级目录），可同时关联多个文件（PDF/JPG/DOCX 等）</div>
+    </div>
+
+    <div class="form-actions">
+      <button id="btn-cancel" class="btn">取消</button>
+      <button id="btn-submit" class="btn primary">💾 保存</button>
+    </div>
+  </div>
+
+  <script src="data/data.js"></script>
+  <script src="assets/storage.js"></script>
+  <script src="assets/add.js"></script>
+</body>
+</html>

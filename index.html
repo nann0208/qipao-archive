@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>民国海派旗袍史料库</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- 只读模式开关：公开部署时改为 true，本地开发保持 false -->
+  <script>window.READ_ONLY = false;</script>
+
+  <!-- 🛡️ 未导出数据警示横幅 -->
+  <div id="unsaved-banner" class="unsaved-banner" style="display: none;">
+    <span class="unsaved-icon">⚠️</span>
+    <span class="unsaved-text">
+      你有 <strong id="unsaved-count">0</strong> 条本地数据未保存到 data.js
+      &nbsp;·&nbsp;
+      上次导出：<strong id="unsaved-last">从未</strong>
+    </span>
+    <button id="banner-export-btn" class="banner-btn">⬇ 立即导出</button>
+    <span class="unsaved-tip">（关闭浏览器前请务必导出！否则数据可能丢失）</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">海派旗袍史料库</h1>
+      <span class="site-subtitle">SHANGHAI QIPAO ARCHIVE</span>
+      <div class="search-box">
+        <input id="search-input" type="text" placeholder="全文搜索：题名、内容、关键词..." autocomplete="off" />
+        <button id="search-clear" class="search-clear" type="button" title="清除搜索" style="display: none;">×</button>
+      </div>
+      <div class="header-actions">
+        <a href="stats.html" class="btn-header">📊 可视化</a>
+        <a href="add.html" class="btn-header">＋ 添加史料</a>
+        <button id="btn-export" class="btn-header" title="下载 data.js 备份">⬇ 导出</button>
+        <button id="btn-reset" class="btn-header" title="替换 data.js 后清除浏览器缓存">↻ 重置</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="filter-bar">
+    <div class="filter-row" style="margin-bottom: 8px;">
+      <span class="filter-label">类型</span>
+      <div id="type-filters" style="display: contents;"></div>
+    </div>
+    <div id="source-filter-row" class="filter-row" style="margin-bottom: 8px; display: none;">
+      <span class="filter-label" id="source-filter-label">刊物名称</span>
+      <button id="btn-source-filter" class="btn-year"><span id="btn-source-text">选择刊物</span><span id="source-count" class="year-count"></span></button>
+    </div>
+    <div class="filter-row" style="margin-bottom: 8px;">
+      <span class="filter-label">议题</span>
+      <div id="topic-filters" style="display: contents;"></div>
+    </div>
+    <div class="filter-row" style="margin-bottom: 8px;">
+      <span class="filter-label">重要程度</span>
+      <div id="importance-filters" style="display: contents;"></div>
+    </div>
+    <div class="filter-row" style="margin-bottom: 8px;">
+      <span class="filter-label">年度</span>
+      <button id="btn-year-filter" class="btn-year">筛选年份<span id="year-count" class="year-count"></span></button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">排序</span>
+      <select id="sort-select" class="sort-select">
+        <option value="">默认顺序</option>
+        <option value="asc">时间正序（早 → 晚）</option>
+        <option value="desc">时间倒序（晚 → 早）</option>
+      </select>
+      <div class="view-toggle" style="margin-left: auto;">
+        <button id="view-card" class="view-btn active" title="卡片视图">▦ 卡片</button>
+        <button id="view-list" class="view-btn" title="列表视图">☰ 列表</button>
+      </div>
+    </div>
+    <div class="filter-collapse-row">
+      <button id="btn-filter-collapse" class="filter-collapse-btn" title="收起筛选栏">↑</button>
+    </div>
+  </div>
+
+  <main class="main-container">
+    <div id="results-meta" class="results-meta"></div>
+    <div id="cards-grid" class="cards-grid"></div>
+    <div id="pagination" class="pagination"></div>
+
+    <section id="incomplete-section" class="incomplete-section">
+      <div class="incomplete-header">
+        <h2 class="incomplete-title">尚未完善史料 🆘 <span id="incomplete-count" class="incomplete-count">0</span></h2>
+        <span class="incomplete-hint">你今天整理史料了吗（指指点点）(╯▔皿▔)╯？</span>
+        <button id="btn-incomplete-toggle" class="incomplete-toggle-btn">收起</button>
+      </div>
+      <div id="incomplete-grid" class="incomplete-grid"></div>
+    </section>
+  </main>
+
+  <!-- 公开版版权声明（只读模式下显示） -->
+  <footer id="public-footer" style="display:none;">
+    <p class="public-footer-text">仅限学术研究，禁止转载商用 · 海派旗袍史料库 Shanghai Qipao Archive</p>
+  </footer>
+
+  <!-- 浮动按钮：回到顶部 -->
+  <button id="jump-to-top" class="jump-top-btn" style="display: none;" title="回到顶部">
+    ↑ TOP
+  </button>
+
+  <!-- 浮动按钮：跳转到「尚未完善史料」 -->
+  <button id="jump-to-incomplete" class="jump-incomplete-btn" style="display: none;" title="跳转到「尚未完善史料」">
+    🆘 <span id="jump-incomplete-count">0</span>
+  </button>
+
+  <!-- 年度筛选 modal -->
+  <div id="year-modal" class="year-modal">
+    <div class="year-modal-overlay"></div>
+    <div class="year-modal-content">
+      <div class="year-modal-header">
+        <h3>选择年份</h3>
+        <button id="btn-year-close" class="btn-close">&times;</button>
+      </div>
+      <div class="year-range-row">
+        <span class="year-range-label">按区间选择：</span>
+        <input id="year-range-start" class="year-range-input" type="number" placeholder="起始年" />
+        <span class="year-range-dash">—</span>
+        <input id="year-range-end" class="year-range-input" type="number" placeholder="结束年" />
+        <button id="btn-year-range-apply" class="btn primary year-range-btn">选中区间</button>
+      </div>
+      <div id="year-modal-chips" class="year-modal-chips"></div>
+      <div class="year-modal-footer">
+        <button id="btn-year-clear" class="btn">清除所有</button>
+        <button id="btn-year-confirm" class="btn primary">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 来源筛选 modal（用于报刊文章/档案文件） -->
+  <div id="source-modal" class="year-modal">
+    <div class="year-modal-overlay"></div>
+    <div class="year-modal-content">
+      <div class="year-modal-header">
+        <h3 id="source-modal-title">选择刊物名称（按拼音排序）</h3>
+        <button id="btn-source-close" class="btn-close">&times;</button>
+      </div>
+      <div id="source-modal-list" class="source-modal-list"></div>
+      <div class="year-modal-footer">
+        <button id="btn-source-clear" class="btn">清除所有</button>
+        <button id="btn-source-confirm" class="btn primary">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/data.js"></script>
+  <script src="assets/storage.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

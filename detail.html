@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>史料详情 - 海派旗袍史料库</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">海派旗袍史料库</h1>
+      <span class="site-subtitle">SHANGHAI QIPAO ARCHIVE</span>
+      <div style="flex: 1;"></div>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">← 返回首页</a>
+        <a href="add.html" class="btn-header">＋ 添加史料</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="detail-layout">
+    <div id="detail-info" class="detail-info">
+      <div style="padding: 40px; text-align: center; color: var(--color-text-muted);">加载中...</div>
+    </div>
+    <div class="detail-preview">
+      <div id="preview-toolbar" class="preview-toolbar">
+        <span>原文档案</span>
+      </div>
+      <div id="preview-area" class="preview-content"></div>
+    </div>
+  </div>
+
+  <script src="data/data.js"></script>
+  <script src="assets/storage.js"></script>
+  <script src="assets/detail.js"></script>
+</body>
+</html>

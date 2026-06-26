@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>统计图表 - 民国海派旗袍史料库</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">海派旗袍史料库</h1>
+      <span class="site-subtitle">统计图表 / VISUALIZATION</span>
+      <div class="header-actions" style="margin-left: auto;">
+        <a href="index.html" class="btn-header">← 返回首页</a>
+        <a href="add.html" class="btn-header">＋ 添加史料</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="filter-bar">
+    <div class="filter-row" style="margin-bottom: 8px;">
+      <span class="filter-label">类型</span>
+      <div id="type-filters" style="display: contents;"></div>
+    </div>
+    <div class="filter-row" style="margin-bottom: 8px;">
+      <span class="filter-label">议题</span>
+      <div id="topic-filters" style="display: contents;"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">时间段</span>
+      <input id="year-start" type="number" class="year-input" placeholder="起始年" />
+      <span style="color: var(--color-text-muted);">—</span>
+      <input id="year-end" type="number" class="year-input" placeholder="结束年" />
+      <button id="btn-apply-year" class="btn primary" style="padding: 6px 16px;">筛选</button>
+      <button id="btn-reset-year" class="btn" style="padding: 6px 16px;">重置时间段</button>
+    </div>
+  </div>
+
+  <main class="main-container">
+    <div id="stats-summary" class="stats-summary"></div>
+
+    <section class="chart-card">
+      <h2 class="chart-title" id="line-title">年度分布折线图</h2>
+      <div id="chart-line" class="chart-body"></div>
+    </section>
+
+    <section class="chart-card">
+      <h2 class="chart-title">史料类型分布</h2>
+      <div id="chart-type" class="chart-body"></div>
+    </section>
+
+    <section class="chart-card">
+      <h2 class="chart-title">研究议题分布</h2>
+      <div id="chart-topic" class="chart-body"></div>
+    </section>
+  </main>
+
+  <script src="data/data.js"></script>
+  <script src="assets/storage.js"></script>
+  <script src="assets/stats.js"></script>
+</body>
+</html>
