@@ -8,8 +8,10 @@
 </head>
 <body>
 
-  <!-- 只读模式开关：与 index.html 保持一致 -->
-  <script>window.READ_ONLY = false;</script>
+  <!-- 只读模式自动判断：localhost = false（编辑模式），github.io = true（只读模式） -->
+  <script>
+    window.READ_ONLY = !location.hostname.includes('localhost') && !location.hostname.includes('127.0.0.1');
+  </script>
 
   <header class="site-header">
     <div class="header-inner">
