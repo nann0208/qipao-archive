@@ -8,8 +8,10 @@
 </head>
 <body>
 
-  <!-- 只读模式开关：公开部署时改为 true，本地开发保持 false -->
-  <script>window.READ_ONLY = true;</script>
+  <!-- 只读模式自动判断：localhost = false（编辑模式），github.io = true（只读模式） -->
+  <script>
+    window.READ_ONLY = !location.hostname.includes('localhost') && !location.hostname.includes('127.0.0.1');
+  </script>
 
   <!-- 🛡️ 未导出数据警示横幅 -->
   <div id="unsaved-banner" class="unsaved-banner" style="display: none;">
