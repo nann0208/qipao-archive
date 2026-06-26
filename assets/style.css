@@ -1621,33 +1621,36 @@ body {
 }
 
 .complete-cat-img {
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
 }
 
 .complete-congrats {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   color: #6B4144;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  max-width: 400px;
 }
 
 .incomplete-empty {
   text-align: center;
-  padding: 32px 20px;
+  padding: 40px 32px;
   color: #6B4144;
   font-size: 14px;
   background: #FFFDF8;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px dashed #C97B89;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
   font-family: "STSong", "Songti SC", serif;
 }
 
