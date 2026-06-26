@@ -929,7 +929,7 @@ function renderIncompleteSection() {
     gridEl.innerHTML = `
       <div class="incomplete-empty">
         <img src="assets/cat-thumbsup.jpeg" alt="猫猫比大拇指" class="complete-cat-img" />
-        <div class="complete-congrats">🎉🎉🎉 目前所有史料信息已全部完善！🎉🎉🎉</div>
+        <div class="complete-congrats">🎉🎉 伟大！🎉🎉</div>
       </div>`;
     return;
   }
