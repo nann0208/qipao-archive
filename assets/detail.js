@@ -130,10 +130,10 @@ function renderDetail() {
       <div class="form-help" style="margin-top: 8px;">选择 .docx 文件并点击「提取」，文字内容会保存到此史料并支持全文搜索</div>
     </div>` : ''}
 
-    <div class="detail-actions">
+    ${window.READ_ONLY ? '' : `<div class="detail-actions">
       <a href="add.html?id=${encodeURIComponent(r.shiliao_id)}" class="btn primary">✏️ 编辑</a>
       <button class="btn danger" id="btn-delete">🗑️ 删除</button>
-    </div>
+    </div>`}
   `;
 
   document.getElementById('detail-info').innerHTML = html;
@@ -148,14 +148,16 @@ function renderDetail() {
     });
   });
 
-  // 删除按钮
-  document.getElementById('btn-delete').addEventListener('click', () => {
+  // 删除按钮（只读模式下不存在此元素）
+  const delBtn = document.getElementById('btn-delete');
+  if (delBtn) delBtn.addEventListener('click', () => {
     if (confirm(`确定要删除「${r.title}」吗？\n\n删除是本地操作，可以通过浏览器缓存重置恢复。`)) {
       deleteRecord(r.shiliao_id);
       alert('已删除');
       location.href = 'index.html';
     }
   });
+
 
   // 引用按钮
   const btnCite = document.getElementById('btn-cite');
@@ -214,7 +216,7 @@ function renderPreview(index) {
     // 优先显示提取保存的文字，否则尝试加载原文件
     if (currentRecord.docx_preview_text) {
       preview.innerHTML = renderDocxPanel(currentRecord);
-      bindDocxAnnotationEvents(currentRecord, preview);
+      if (!window.READ_ONLY) bindDocxAnnotationEvents(currentRecord, preview);
       // 若有关键词，自动滚动到第一个搜索高亮处
       if (searchKeyword) {
         setTimeout(() => {
@@ -399,10 +401,10 @@ function renderDocxPanel(record) {
     <div class="annot-item" data-id="${ann.id}">
       <div class="annot-quote">"${escapeHtml(ann.text.length > 40 ? ann.text.slice(0, 40) + '…' : ann.text)}"</div>
       <div class="annot-note">${ann.note ? escapeHtml(ann.note) : '<em style="color:#aaa;">（无批注，点击编辑）</em>'}</div>
-      <div class="annot-actions">
+      ${window.READ_ONLY ? '' : `<div class="annot-actions">
         <button class="annot-btn annot-edit" data-id="${ann.id}" title="编辑">✏️</button>
         <button class="annot-btn annot-delete" data-id="${ann.id}" title="删除">🗑️</button>
-      </div>
+      </div>`}
     </div>
   `).join('');
 
@@ -412,7 +414,7 @@ function renderDocxPanel(record) {
       <div class="docx-annot-pane">
         <div class="docx-annot-header">📝 批注 <span style="color:#aaa;">(${annotations.length})</span></div>
         <div class="docx-annot-list" id="docx-annot-list">
-          ${annotItemsHtml || '<div class="docx-annot-empty">💡 在左侧选中文字后<br>点击「添加批注」即可记录</div>'}
+          ${annotItemsHtml || (window.READ_ONLY ? '<div class="docx-annot-empty">暂无批注</div>' : '<div class="docx-annot-empty">💡 在左侧选中文字后<br>点击「添加批注」即可记录</div>')}
         </div>
       </div>
     </div>
