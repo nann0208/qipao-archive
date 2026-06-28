@@ -1347,6 +1347,13 @@ body {
   fill: var(--color-text);
 }
 
+.chart-svg .pie-label {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
 .chart-empty {
   text-align: center;
   padding: 50px 20px;

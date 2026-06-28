@@ -11,7 +11,7 @@ const TYPE_COLORS = {
   '专著': '#2C3E5C',
   '档案文件': '#5D5D6E',
   '图像': '#A0573B',
-  '文学作品': '#34F0B1'
+  '文学作品': '#67A949'
 };
 
 function statsInit() {
@@ -103,6 +103,7 @@ function renderAll() {
   renderLineChart();
   renderBarChart('chart-type', countByType(getRecords(false, true)), '篇');
   renderBarChart('chart-topic', countByTopic(getRecords(true, false)), '篇');
+  renderSourcePie();
 }
 
 function renderSummary() {
@@ -146,6 +147,28 @@ function countByTopic(recs) {
     color: getTopicColor(t)
   }));
 }
+
+// 统计报刊文章的来源分布
+function countBySource(recs) {
+  const sources = {};
+  recs
+    .filter(r => r.type === '报刊文章' && r.source)
+    .forEach(r => {
+      sources[r.source] = (sources[r.source] || 0) + 1;
+    });
+
+  return Object.entries(sources)
+    .map(([label, value]) => ({ label, value }))
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 12); // 只取前 12 个
+}
+
+// 饼图配色方案（和谐的渐变色调）
+const SOURCE_COLORS = [
+  '#8B4789', '#C85A7C', '#E07C6B', '#E5A55B', '#D8C34A',
+  '#A8C562', '#6FB882', '#4A9B8E', '#3A7FA8', '#4A6FA5',
+  '#6B5B95', '#D4A5A5'
+];
 
 /* ---------- 折线图：年度分布 ---------- */
 
@@ -280,6 +303,154 @@ function buildBarSVG(data, unit) {
 
   svg += `</svg>`;
   return svg;
+}
+
+/* ---------- 饼图：报刊来源分布 ---------- */
+
+function renderSourcePie() {
+  const recs = getRecords(true, true);
+  const data = countBySource(recs);
+  const container = document.getElementById('chart-source');
+
+  if (data.length === 0) {
+    container.innerHTML = emptyMsg('当前筛选条件下没有报刊文章');
+    return;
+  }
+
+  container.innerHTML = buildPieSVG(data);
+  bindPieEvents(data);
+}
+
+function buildPieSVG(data) {
+  const W = 900;
+  const legendCols = 4;
+  const legendColW = W / legendCols;
+  const legendRowH = 28;
+  const legendRows = Math.ceil(data.length / legendCols);
+  const legendTop = 20;
+  const legendH = legendRows * legendRowH + 16;
+
+  const r = 155;
+  const cx = W / 2;
+  const cy = legendTop + legendH + r + 20;
+  const H = cy + r + 30;
+
+  const total = data.reduce((s, d) => s + d.value, 0);
+
+  let svg = `<svg id="source-pie-svg" viewBox="0 0 ${W} ${H}" class="chart-svg" preserveAspectRatio="xMidYMid meet">`;
+
+  // 图例（顶部）
+  data.forEach((d, i) => {
+    const col = i % legendCols;
+    const row = Math.floor(i / legendCols);
+    const lx = col * legendColW + 18;
+    const ly = legendTop + row * legendRowH + legendRowH / 2;
+    const color = SOURCE_COLORS[i % SOURCE_COLORS.length];
+    svg += `<g id="pie-legend-${i}" class="pie-legend-item" data-index="${i}" style="cursor:pointer">`;
+    svg += `<circle id="pie-legend-dot-${i}" cx="${lx + 7}" cy="${ly}" r="6" fill="${color}"/>`;
+    svg += `<text id="pie-legend-text-${i}" x="${lx + 20}" y="${ly + 5}" class="axis-text" font-size="12.5">${d.label} (${d.value})</text>`;
+    svg += `</g>`;
+  });
+
+  // 分隔线
+  svg += `<line x1="24" y1="${legendTop + legendH - 6}" x2="${W - 24}" y2="${legendTop + legendH - 6}" stroke="#E8E0D5" stroke-width="1"/>`;
+
+  // 饼图切片
+  let angle = -Math.PI / 2;
+  data.forEach((d, i) => {
+    const sliceAngle = (d.value / total) * 2 * Math.PI;
+    const midAngle = angle + sliceAngle / 2;
+    const endAngle = angle + sliceAngle;
+
+    const x1 = (cx + r * Math.cos(angle)).toFixed(2);
+    const y1 = (cy + r * Math.sin(angle)).toFixed(2);
+    const x2 = (cx + r * Math.cos(endAngle)).toFixed(2);
+    const y2 = (cy + r * Math.sin(endAngle)).toFixed(2);
+    const largeArc = sliceAngle > Math.PI ? 1 : 0;
+
+    const color = SOURCE_COLORS[i % SOURCE_COLORS.length];
+    const ex = (20 * Math.cos(midAngle)).toFixed(2);
+    const ey = (20 * Math.sin(midAngle)).toFixed(2);
+
+    svg += `<g id="pie-slice-${i}" class="pie-slice-group" data-index="${i}" data-ex="${ex}" data-ey="${ey}" style="cursor:pointer">`;
+    svg += `<path id="pie-path-${i}" d="M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z" fill="${color}" stroke="#fff" stroke-width="2" opacity="0.88"/>`;
+
+    // 切片内数字标签（切片够大才显示）
+    if (d.value / total > 0.04) {
+      const labelR = r * 0.66;
+      const lx2 = (cx + labelR * Math.cos(midAngle)).toFixed(2);
+      const ly2 = (cy + labelR * Math.sin(midAngle) + 5).toFixed(2);
+      svg += `<text x="${lx2}" y="${ly2}" text-anchor="middle" class="pie-label">${d.value}</text>`;
+    }
+    svg += `</g>`;
+    angle = endAngle;
+  });
+
+  svg += `</svg>`;
+  return svg;
+}
+
+function bindPieEvents(data) {
+  let activeSlice = null;
+
+  const highlight = (i, on) => {
+    const path = document.getElementById(`pie-path-${i}`);
+    const text = document.getElementById(`pie-legend-text-${i}`);
+    const dot  = document.getElementById(`pie-legend-dot-${i}`);
+    if (!path) return;
+    if (on) {
+      path.style.stroke = '#8B2C3C';
+      path.style.strokeWidth = '3.5';
+      path.style.opacity = '1';
+      if (text) { text.style.fontWeight = '700'; text.style.fill = '#8B2C3C'; }
+      if (dot)  { dot.setAttribute('r', '8'); }
+    } else if (activeSlice !== i) {
+      path.style.stroke = '#fff';
+      path.style.strokeWidth = '2';
+      path.style.opacity = '0.88';
+      if (text) { text.style.fontWeight = ''; text.style.fill = ''; }
+      if (dot)  { dot.setAttribute('r', '6'); }
+    }
+  };
+
+  const explode = (i) => {
+    const g = document.getElementById(`pie-slice-${i}`);
+    if (!g) return;
+    g.style.transform = `translate(${g.dataset.ex}px, ${g.dataset.ey}px)`;
+    g.style.transition = 'transform 0.22s ease';
+  };
+
+  const collapse = (i) => {
+    const g = document.getElementById(`pie-slice-${i}`);
+    if (!g) return;
+    g.style.transform = '';
+  };
+
+  data.forEach((_, i) => {
+    const sliceGroup  = document.getElementById(`pie-slice-${i}`);
+    const legendGroup = document.getElementById(`pie-legend-${i}`);
+
+    [sliceGroup, legendGroup].forEach(el => {
+      if (!el) return;
+      el.addEventListener('mouseenter', () => highlight(i, true));
+      el.addEventListener('mouseleave', () => highlight(i, false));
+    });
+
+    if (sliceGroup) {
+      sliceGroup.addEventListener('click', () => {
+        if (activeSlice === i) {
+          collapse(i);
+          highlight(i, false);
+          activeSlice = null;
+        } else {
+          if (activeSlice !== null) { collapse(activeSlice); highlight(activeSlice, false); }
+          explode(i);
+          highlight(i, true);
+          activeSlice = i;
+        }
+      });
+    }
+  });
 }
 
 /* ---------- 工具 ---------- */
