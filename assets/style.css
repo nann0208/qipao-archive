@@ -244,6 +244,18 @@ body {
   border-left-width: 3px;
 }
 
+.filter-chip[data-opinion] {
+  border-left: 3px solid var(--chip-color, var(--color-border));
+  padding-left: 12px;
+}
+
+.filter-chip.active[data-opinion] {
+  background: var(--chip-color, var(--color-accent));
+  border-color: var(--chip-color, var(--color-accent));
+  color: #fff;
+  border-left-width: 3px;
+}
+
 .filter-divider {
   width: 1px;
   height: 18px;
@@ -302,6 +314,21 @@ body {
   align-items: flex-start;
   gap: 8px;
   margin-bottom: 10px;
+}
+
+.card-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.card-opinion-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 .card-type {

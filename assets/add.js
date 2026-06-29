@@ -27,7 +27,26 @@ function init() {
   renderTopicChips();
   renderImportance();
   renderKeywordSuggestions();
+  renderOpinionTypeChips();
   bindEvents();
+  updateOpinionTypeVisibility(); // 确保初始状态正确显示/隐藏
+}
+
+function renderOpinionTypeChips() {
+  const container = document.getElementById('opinion-type-chips');
+  if (!container) return;
+  container.innerHTML = '';
+  OPINION_TYPES.forEach(t => {
+    const chip = document.createElement('span');
+    chip.className = 'checkbox-chip';
+    chip.textContent = t;
+    chip.dataset.value = t;
+    chip.style.setProperty('--chip-color', getOpinionTypeColor(t));
+    chip.addEventListener('click', () => {
+      chip.classList.toggle('checked');
+    });
+    container.appendChild(chip);
+  });
 }
 
 function renderTopicChips() {
@@ -101,6 +120,10 @@ function fillForm(r) {
 
   // 等渲染完后再选择
   setTimeout(() => {
+    const opinionTypes = Array.isArray(r.opinion_types) ? r.opinion_types : (r.opinion_types ? [r.opinion_types] : []);
+    document.querySelectorAll('#opinion-type-chips .checkbox-chip').forEach(c => {
+      c.classList.toggle('checked', opinionTypes.includes(c.dataset.value));
+    });
     document.querySelectorAll('#topics-chips .checkbox-chip').forEach(c => {
       if ((r.topics || []).includes(c.dataset.value)) c.classList.add('checked');
     });
@@ -130,11 +153,12 @@ function bindEvents() {
   // Word 文件提取按钮
   document.getElementById('btn-extract-docx').addEventListener('click', extractDocxFile);
 
-  // 类型变化时，重新填充来源下拉 + 切换档案馆字段显隐
+  // 类型变化时，重新填充来源下拉 + 切换档案馆字段显隐 + 切换舆论类型字段显隐
   const typeSelect = document.getElementById('field-type');
   typeSelect.addEventListener('change', () => {
     populateSourceSelect();
     updateArchiveHolderVisibility();
+    updateOpinionTypeVisibility();
   });
 
   // 来源下拉变化时，自动填入输入框
@@ -159,6 +183,13 @@ function bindEvents() {
   populateSourceSelect();
   populateArchiveHolderSelect();
   updateArchiveHolderVisibility();
+  updateOpinionTypeVisibility();
+}
+
+function updateOpinionTypeVisibility() {
+  const type = document.getElementById('field-type').value;
+  const row = document.getElementById('opinion-type-row');
+  if (row) row.style.display = type === '报刊文章' ? '' : 'none';
 }
 
 // 控制「收藏机构」字段的显隐（仅在档案文件时显示）
@@ -239,6 +270,12 @@ function submit() {
     return;
   }
 
+  // 收集舆论类型（多选，仅报刊文章）
+  const opinionTypes = [];
+  document.querySelectorAll('#opinion-type-chips .checkbox-chip.checked').forEach(c => {
+    opinionTypes.push(c.dataset.value);
+  });
+
   // 收集议题
   const topics = [];
   document.querySelectorAll('#topics-chips .checkbox-chip.checked').forEach(c => topics.push(c.dataset.value));
@@ -275,6 +312,7 @@ function submit() {
   const recordType = document.getElementById('field-type').value;
   const record = {
     type: recordType,
+    opinion_types: recordType === '报刊文章' ? opinionTypes : [],
     topics,
     source: document.getElementById('field-source').value.trim(),
     title,

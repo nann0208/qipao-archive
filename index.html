@@ -51,6 +51,10 @@
       <span class="filter-label" id="source-filter-label">刊物名称</span>
       <button id="btn-source-filter" class="btn-year"><span id="btn-source-text">选择刊物</span><span id="source-count" class="year-count"></span></button>
     </div>
+    <div id="opinion-filter-row" class="filter-row" style="margin-bottom: 8px; display: none;">
+      <span class="filter-label">舆论类型</span>
+      <div id="opinion-filters" style="display: contents;"></div>
+    </div>
     <div class="filter-row" style="margin-bottom: 8px;">
       <span class="filter-label">议题</span>
       <div id="topic-filters" style="display: contents;"></div>
@@ -124,6 +128,12 @@
         <span class="year-range-dash">—</span>
         <input id="year-range-end" class="year-range-input" type="number" placeholder="结束年" />
         <button id="btn-year-range-apply" class="btn primary year-range-btn">选中区间</button>
+      </div>
+      <div class="year-range-row">
+        <span class="year-range-label">史期预设：</span>
+        <button id="btn-period-classic" class="btn year-range-btn">古典期（1921—1925）</button>
+        <button id="btn-period-reform" class="btn year-range-btn">改良期（1926—1929）</button>
+        <button id="btn-period-loose" class="btn year-range-btn">舒体期（1930—1935）</button>
       </div>
       <div id="year-modal-chips" class="year-modal-chips"></div>
       <div class="year-modal-footer">

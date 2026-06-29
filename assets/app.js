@@ -9,6 +9,7 @@ let tempYears = []; // Modal 中临时修改的年份
 let currentImportance = '';
 let currentSources = []; // 选中的刊物名称
 let tempSources = []; // Modal 中临时修改的刊物名称
+let currentOpinionFilters = []; // 舆论类型筛选（仅报刊文章，多选）
 
 const PAGE_SIZE = 40;     // 每页显示数量
 let currentPage = 1;      // 当前页码
@@ -44,6 +45,7 @@ function init() {
   updateYearFilterDisplay();
   updateSourceFilterDisplay();
   updateSourceFilterVisibility();
+  updateOpinionFilterVisibility();
 
   // 恢复搜索框和排序下拉框
   if (currentKeyword) document.getElementById('search-input').value = currentKeyword;
@@ -187,6 +189,7 @@ function saveState() {
     years: currentYears,
     sort: currentSort,
     sources: currentSources,
+    opinions: currentOpinionFilters,
     page: currentPage,
     view: currentView
   };
@@ -206,6 +209,7 @@ function restoreState() {
     currentYears = state.years || [];
     currentSort = state.sort || '';
     currentSources = state.sources || [];
+    currentOpinionFilters = state.opinions || [];
     currentPage = state.page || 1;
     currentView = state.view || 'card';
   } catch (e) {
@@ -370,6 +374,22 @@ function renderFilters() {
     if (currentImportance === value) chip.classList.add('active');
     importanceBar.appendChild(chip);
   });
+
+  // 舆论类型筛选（仅报刊文章时渲染，多选）
+  const opinionBar = document.getElementById('opinion-filters');
+  if (opinionBar) {
+    opinionBar.innerHTML = '';
+    const opAll = createChip('全部', '', () => setOpinionFilter(''));
+    if (currentOpinionFilters.length === 0) opAll.classList.add('active');
+    opinionBar.appendChild(opAll);
+    OPINION_TYPES.forEach(t => {
+      const chip = createChip(t, '', () => setOpinionFilter(t));
+      chip.style.setProperty('--chip-color', getOpinionTypeColor(t));
+      chip.dataset.opinion = t;
+      if (currentOpinionFilters.includes(t)) chip.classList.add('active');
+      opinionBar.appendChild(chip);
+    });
+  }
 }
 
 function createChip(label, classes, onClick) {
@@ -385,10 +405,40 @@ function setTypeFilter(type) {
   if (type !== currentTypeFilter) {
     currentSources = [];
     updateSourceFilterDisplay();
+    // 离开「报刊文章」时清空舆论类型筛选
+    if (type !== '报刊文章') {
+      currentOpinionFilters = [];
+    }
   }
   currentTypeFilter = type;
   resetPage();
   updateSourceFilterVisibility();
+  updateOpinionFilterVisibility();
+  renderFilters();
+  render();
+}
+
+// 舆论类型筛选行的显隐控制（仅「报刊文章」时显示）
+function updateOpinionFilterVisibility() {
+  const row = document.getElementById('opinion-filter-row');
+  if (!row) return;
+  row.style.display = currentTypeFilter === '报刊文章' ? '' : 'none';
+}
+
+function setOpinionFilter(opinion) {
+  // 清空：点击「全部」
+  if (opinion === '') {
+    currentOpinionFilters = [];
+  } else {
+    // 多选：切换该类型的选中状态
+    const idx = currentOpinionFilters.indexOf(opinion);
+    if (idx >= 0) {
+      currentOpinionFilters.splice(idx, 1);
+    } else {
+      currentOpinionFilters.push(opinion);
+    }
+  }
+  resetPage();
   renderFilters();
   render();
 }
@@ -550,6 +600,22 @@ function bindYearModal() {
       renderYearModal();
     });
   }
+
+  // 史期预设按钮
+  function applyPeriod(lo, hi) {
+    const allYears = getAllYears(loadAllRecords());
+    tempYears = allYears.filter(y => y >= lo && y <= hi);
+    renderYearModal();
+  }
+  const periodBtns = [
+    { id: 'btn-period-classic', lo: 1921, hi: 1925 },
+    { id: 'btn-period-reform',  lo: 1926, hi: 1929 },
+    { id: 'btn-period-loose',   lo: 1930, hi: 1935 }
+  ];
+  periodBtns.forEach(({ id, lo, hi }) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', () => applyPeriod(lo, hi));
+  });
 }
 
 function updateYearFilterDisplay() {
@@ -732,6 +798,7 @@ function render() {
   records = filterByTopic(records, currentTopicFilter);
   records = filterByImportance(records, currentImportance);
   records = filterByYears(records, currentYears);
+  records = filterByOpinionType(records, currentOpinionFilters);
   // 应用来源筛选：报刊文章/图像用 source，档案文件用 archive_holder，文学作品用 author
   if (currentTypeFilter === '报刊文章' || currentTypeFilter === '图像') {
     records = filterBySources(records, currentSources);
@@ -1049,10 +1116,18 @@ function createCard(record) {
   // 带关键词的详情链接
   const kwParam = kw ? `&kw=${encodeURIComponent(kw)}` : '';
 
+  const opinionTypes = Array.isArray(record.opinion_types) ? record.opinion_types : (record.opinion_types ? [record.opinion_types] : []);
+  const opinionDots = opinionTypes.map(t =>
+    `<span class="card-opinion-dot" style="background:${getOpinionTypeColor(t)};" title="${escapeHtml(t)}"></span>`
+  ).join('');
+
   card.innerHTML = `
     <div class="card-header">
       <span class="card-type">${typeIcon} ${escapeHtml(record.type)}</span>
-      <span class="card-importance">${importance}</span>
+      <span class="card-header-right">
+        <span class="card-importance">${importance}</span>
+        ${opinionDots}
+      </span>
     </div>
     ${topics ? `<div class="card-topics">${topics}</div>` : ''}
     <h3 class="card-title">${titleText}</h3>

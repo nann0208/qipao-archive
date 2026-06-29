@@ -14,6 +14,13 @@ const TYPE_COLORS = {
   '文学作品': '#67A949'
 };
 
+// 舆论类型配色
+const OPINION_LINE_COLORS = {
+  '规范约束型': '#0495C8',
+  '体验反馈型': '#C370CE',
+  '价值重构型': '#E74583'
+};
+
 function statsInit() {
   renderFilters();
   bindEvents();
@@ -101,6 +108,7 @@ function getRecords(applyType, applyTopic) {
 function renderAll() {
   renderSummary();
   renderLineChart();
+  renderOpinionLineChart();
   renderBarChart('chart-type', countByType(getRecords(false, true)), '篇');
   renderBarChart('chart-topic', countByTopic(getRecords(true, false)), '篇');
   renderSourcePie();
@@ -200,6 +208,148 @@ function renderLineChart() {
   for (let y = lo; y <= hi; y++) points.push({ label: String(y), value: counts[y] });
 
   container.innerHTML = buildLineSVG(points);
+}
+
+/* ---------- 多线折线图：舆论类型年度走向 ---------- */
+
+function renderOpinionLineChart() {
+  const recs = getRecords(true, true);
+  const titleEl = document.getElementById('opinion-line-title');
+  const container = document.getElementById('chart-opinion-line');
+
+  // 筛选仅报刊文章（仅报刊文章有舆论类型字段）
+  const paperRecs = recs.filter(r => r.type === '报刊文章');
+  const years = paperRecs.map(r => parseYear(r.time)).filter(y => y !== null);
+
+  if (years.length === 0) {
+    titleEl.textContent = '舆论类型年度走向';
+    container.innerHTML = emptyMsg('当前筛选条件下没有符合条件的报刊文章');
+    return;
+  }
+
+  const lo = yearStart !== null ? yearStart : Math.min(...years);
+  const hi = yearEnd !== null ? yearEnd : Math.max(...years);
+
+  titleEl.textContent = `${lo}-${hi}年 报刊文章舆论类型分布折线图`;
+
+  // 按年份和舆论类型统计
+  const dataByOpinionAndYear = countOpinionTypeByYear(paperRecs, lo, hi);
+
+  if (Object.keys(dataByOpinionAndYear).length === 0) {
+    container.innerHTML = emptyMsg('当前筛选条件下的报刊文章没有舆论类型标注');
+    return;
+  }
+
+  container.innerHTML = buildMultiLineSVG(dataByOpinionAndYear, lo, hi);
+}
+
+// 统计各舆论类型按年份的数量
+function countOpinionTypeByYear(recs, lo, hi) {
+  const result = {};
+
+  // 初始化每个舆论类型的数据
+  OPINION_TYPES.forEach(t => {
+    result[t] = {};
+    for (let y = lo; y <= hi; y++) result[t][y] = 0;
+  });
+
+  // 遍历记录，累计统计
+  recs.forEach(r => {
+    const y = parseYear(r.time);
+    if (y === null || y < lo || y > hi) return;
+
+    const types = Array.isArray(r.opinion_types) ? r.opinion_types : (r.opinion_types ? [r.opinion_types] : []);
+    types.forEach(t => {
+      if (result[t]) result[t][y] = (result[t][y] || 0) + 1;
+    });
+  });
+
+  return result;
+}
+
+// 多线折线图 SVG 生成
+function buildMultiLineSVG(dataByOpinionAndYear, lo, hi) {
+  const W = 900, H = 420;
+  const mL = 50, mR = 24, mT = 30, mB = 92;
+  const pw = W - mL - mR, ph = H - mT - mB;
+
+  // 找出最大值
+  let maxV = 1;
+  Object.values(dataByOpinionAndYear).forEach(yearData => {
+    Object.values(yearData).forEach(v => {
+      maxV = Math.max(maxV, v);
+    });
+  });
+  maxV = niceMax(maxV);
+
+  const n = hi - lo + 1;
+  const x = i => mL + (n === 1 ? pw / 2 : (pw * i) / (n - 1));
+  const y = v => mT + ph - (ph * v) / maxV;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" class="chart-svg" preserveAspectRatio="xMidYMid meet">`;
+
+  // y 轴网格 + 刻度
+  const ticks = tickCount(maxV);
+  for (let t = 0; t <= ticks; t++) {
+    const v = (maxV / ticks) * t;
+    const yy = y(v);
+    svg += `<line x1="${mL}" y1="${yy}" x2="${W - mR}" y2="${yy}" stroke="#E8E0D5" stroke-width="1"/>`;
+    svg += `<text x="${mL - 8}" y="${yy + 4}" text-anchor="end" class="axis-text">${fmtNum(v)}</text>`;
+  }
+  // x 轴
+  svg += `<line x1="${mL}" y1="${mT + ph}" x2="${W - mR}" y2="${mT + ph}" stroke="#9C948B" stroke-width="1"/>`;
+
+  // x 标签（年份多时隔位显示）
+  const step = n > 40 ? 10 : (n > 20 ? 5 : (n > 12 ? 2 : 1));
+  for (let i = 0; i < n; i++) {
+    const year = lo + i;
+    if (i % step === 0 || i === n - 1) {
+      svg += `<text x="${x(i)}" y="${mT + ph + 18}" text-anchor="end" class="axis-text" ` +
+             `transform="rotate(-45 ${x(i)} ${mT + ph + 18})">${year}</text>`;
+    }
+  }
+
+  // 为每个舆论类型绘制折线
+  OPINION_TYPES.forEach(opinionType => {
+    const color = OPINION_LINE_COLORS[opinionType];
+    const yearData = dataByOpinionAndYear[opinionType];
+
+    // 生成路径数据
+    const points = [];
+    for (let i = 0; i < n; i++) {
+      const year = lo + i;
+      const v = yearData[year] || 0;
+      points.push({ year, value: v, x: x(i), y: y(v) });
+    }
+
+    // 绘制折线
+    const path = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+    svg += `<path d="${path}" fill="none" stroke="${color}" stroke-width="2.3" stroke-linejoin="round" opacity="0.85"/>`;
+
+    // 绘制数据点
+    points.forEach((p, i) => {
+      if (p.value > 0) {
+        svg += `<circle cx="${p.x}" cy="${p.y}" r="3" fill="${color}"/>`;
+      }
+    });
+  });
+
+  // 图例（右侧或底部）
+  const legendY = mT + 12;
+  let legendX = mL + pw - 120;
+  OPINION_TYPES.forEach((t, idx) => {
+    const color = OPINION_LINE_COLORS[t];
+    const ly = legendY + idx * 20;
+    svg += `<line x1="${legendX}" y1="${ly + 5}" x2="${legendX + 12}" y2="${ly + 5}" stroke="${color}" stroke-width="2.3"/>`;
+    svg += `<text x="${legendX + 18}" y="${ly + 9}" class="axis-text" font-size="12">${t}</text>`;
+  });
+
+  // y 轴标题
+  svg += `<text x="14" y="${mT + ph / 2}" text-anchor="middle" class="axis-title" ` +
+         `transform="rotate(-90 14 ${mT + ph / 2})">资料数量（篇）</text>`;
+
+  svg += `</svg>`;
+  return svg;
 }
 
 function buildLineSVG(points) {
