@@ -1159,15 +1159,6 @@ function createCard(record) {
   return card;
 }
 
-function escapeHtml(s) {
-  if (s === null || s === undefined) return '';
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
 // 对文本进行关键词高亮（黄色背景）
 function highlightText(text, keyword) {
   if (!text || !keyword) return escapeHtml(text || '');

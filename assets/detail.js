@@ -317,15 +317,6 @@ function renderPreview(index) {
   }
 }
 
-function escapeHtml(s) {
-  if (s === null || s === undefined) return '';
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
 function escapeAttr(s) {
   return escapeHtml(s);
 }

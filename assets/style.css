@@ -2327,3 +2327,73 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ── 词云图例 ── */
+.wc-legend {
+  margin-top: 20px;
+  padding: 0 4px;
+}
+
+.wc-legend-hd {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.wc-legend-note {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.wc-row {
+  display: grid;
+  grid-template-columns: 24px 100px 1fr 54px 48px;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+}
+
+.wc-rank {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.wc-kw {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wc-bar-bg {
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.wc-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  opacity: 0.75;
+  transition: width 0.4s ease;
+}
+
+.wc-count {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.wc-pct {
+  font-size: 11px;
+  color: var(--color-text-soft);
+  text-align: right;
+  white-space: nowrap;
+}

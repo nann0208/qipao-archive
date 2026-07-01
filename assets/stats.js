@@ -107,6 +107,7 @@ function getRecords(applyType, applyTopic) {
 
 function renderAll() {
   renderSummary();
+  renderWordCloud();
   renderLineChart();
   renderOpinionLineChart();
   renderBarChart('chart-type', countByType(getRecords(false, true)), '篇');
@@ -628,6 +629,140 @@ function fmtNum(v) {
 
 function emptyMsg(text) {
   return `<div class="chart-empty">📭 ${text}</div>`;
+}
+
+/* ---------- 词云 ---------- */
+
+function renderWordCloud() {
+  const container = document.getElementById('chart-wordcloud');
+  if (!container) return;
+
+  // 用当前筛选条件下的记录统计关键词频率
+  const recs = getRecords(true, true);
+  const freq = {};
+  recs.forEach(r => {
+    (r.keywords || []).forEach(kw => {
+      const k = kw.trim();
+      if (k) freq[k] = (freq[k] || 0) + 1;
+    });
+  });
+
+  const sorted = Object.entries(freq).sort((a, b) => b[1] - a[1]);
+
+  if (sorted.length === 0) {
+    container.innerHTML = '<div class="chart-empty">📭 当前筛选条件下暂无关键词数据</div>';
+    return;
+  }
+
+  // 民国海派淡雅配色（10色循环）
+  const PALETTE = [
+    '#8B2C3C', '#2C3E5C', '#3E5641', '#A0573B',
+    '#6B4F78', '#3A78BC', '#7A5C38', '#5D7A6E',
+    '#B08040', '#C97B89'
+  ];
+
+  const top = sorted.slice(0, 60);
+  const maxF = top[0][1];
+  const minF = top[top.length - 1][1];
+
+  function fontSize(f) {
+    // 平方根压缩，避免高频词过于庞大
+    const lo = 12, hi = 52;
+    if (maxF === minF) return (lo + hi) / 2;
+    const norm = (Math.sqrt(f) - Math.sqrt(minF)) / (Math.sqrt(maxF) - Math.sqrt(minF));
+    return lo + norm * (hi - lo);
+  }
+
+  // 用隐藏 canvas 测量每个词的像素宽度
+  const cvs = document.createElement('canvas');
+  const cx2d = cvs.getContext('2d');
+
+  const W = 520, H = 220, CX = W / 2, CY = H / 2;
+
+  function measure(text, size, bold) {
+    cx2d.font = `${bold ? 'bold' : 'normal'} ${size}px "PingFang SC","Microsoft YaHei",sans-serif`;
+    const tw = cx2d.measureText(text).width;
+    return { w: Math.ceil(tw) + 6, h: Math.ceil(size * 1.3) };
+  }
+
+  // 已占用矩形列表（用于碰撞检测）
+  const boxes = [];
+  function hits(x1, y1, x2, y2) {
+    for (const b of boxes) {
+      if (x1 < b.x2 + 2 && x2 > b.x1 - 2 && y1 < b.y2 + 2 && y2 > b.y1 - 2) return true;
+    }
+    return false;
+  }
+
+  const placed = [];
+
+  // Archimedean 螺旋布局：从中心螺旋向外依次尝试
+  top.forEach(([text, count], idx) => {
+    const size = fontSize(count);
+    const bold = size >= 22;
+    const { w, h } = measure(text, size, bold);
+    const color = PALETTE[idx % PALETTE.length];
+
+    const step = 0.18;
+    let θ = (idx % 8) * (Math.PI / 4); // 不同词从不同角度开始，减少聚集
+    for (let iter = 0; iter < 4000; iter++) {
+      const r = 2.8 * θ;
+      const px = CX + r * Math.cos(θ) - w / 2;
+      const py = CY + r * Math.sin(θ) - h / 2;
+
+      if (px >= 1 && py >= 1 && px + w <= W - 1 && py + h <= H - 1 && !hits(px, py, px + w, py + h)) {
+        boxes.push({ x1: px, y1: py, x2: px + w, y2: py + h });
+        placed.push({ px, py, w, h, text, size, bold, color, count });
+        break;
+      }
+      θ += step;
+    }
+  });
+
+  // 渲染 SVG 词云
+  const svgWords = placed.map(p => {
+    const tx = (p.px + p.w / 2).toFixed(1);
+    const ty = (p.py + p.h * 0.76).toFixed(1);
+    return `<text x="${tx}" y="${ty}" text-anchor="middle"
+      font-size="${p.size.toFixed(1)}"
+      font-weight="${p.bold ? 'bold' : 'normal'}"
+      fill="${p.color}"
+      font-family="'PingFang SC','Microsoft YaHei','Source Han Sans CN',sans-serif"
+      opacity="0.9"><title>${escapeHtml(p.text)}：出现 ${p.count} 次</title>${escapeHtml(p.text)}</text>`;
+  }).join('\n    ');
+
+  const cloudSvg = `<svg xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 ${W} ${H}" style="width:100%;display:block;">
+    <rect width="${W}" height="${H}" fill="var(--color-bg-card)" rx="6"/>
+    ${svgWords}
+  </svg>`;
+
+  // Top 10 图例
+  const top10 = sorted.slice(0, 10);
+  const totalCount = sorted.reduce((s, [, c]) => s + c, 0);
+  const maxCount = top10[0][1];
+
+  const legendRows = top10.map(([text, count], i) => {
+    const pct = totalCount > 0 ? (count / totalCount * 100).toFixed(1) : '0.0';
+    const barPct = maxCount > 0 ? (count / maxCount * 100).toFixed(1) : '0';
+    const color = PALETTE[i % PALETTE.length];
+    return `<div class="wc-row">
+      <span class="wc-rank">${i + 1}</span>
+      <span class="wc-kw" style="color:${color};font-weight:600;">${escapeHtml(text)}</span>
+      <div class="wc-bar-bg">
+        <div class="wc-bar-fill" style="width:${barPct}%;background:${color};"></div>
+      </div>
+      <span class="wc-count">${count} 次</span>
+      <span class="wc-pct">${pct}%</span>
+    </div>`;
+  }).join('');
+
+  container.innerHTML = cloudSvg + `
+    <div class="wc-legend">
+      <div class="wc-legend-hd">频率前十关键词</div>
+      <div class="wc-legend-note">（占全部关键词出现总次数 ${totalCount} 次的比例）</div>
+      ${legendRows}
+    </div>`;
 }
 
 document.addEventListener('DOMContentLoaded', statsInit);

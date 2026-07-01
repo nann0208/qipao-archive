@@ -772,3 +772,14 @@ function getRecordPrimaryColor(record) {
   if (!record.topics || record.topics.length === 0) return '#888';
   return getTopicColor(record.topics[0]);
 }
+
+// 工具函数：HTML 转义（供所有页面共用）
+function escapeHtml(s) {
+  if (s === null || s === undefined) return '';
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
