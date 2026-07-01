@@ -1,6 +1,7 @@
 // 添加/编辑表单逻辑
 
 let editingId = null;
+let relatedRecords = []; // [{id, relation}]
 
 const SUGGESTED_KEYWORDS = [
   '高开叉', '海派', '现代', '保守', '西化', '传统',
@@ -29,6 +30,7 @@ function init() {
   renderKeywordSuggestions();
   renderOpinionTypeChips();
   bindEvents();
+  bindRelatedSearch();
   updateOpinionTypeVisibility(); // 确保初始状态正确显示/隐藏
 }
 
@@ -112,6 +114,12 @@ function fillForm(r) {
   document.getElementById('field-docx-preview').value = r.docx_preview_text || '';
   document.getElementById('field-docs').value = (r.document_paths || []).join('\n');
   document.getElementById('field-custom-keywords').value = '';
+
+  // 关联史料
+  relatedRecords = (r.related_records || []).map(item =>
+    typeof item === 'string' ? { id: item, relation: '' } : { id: item.id || '', relation: item.relation || '' }
+  ).filter(item => item.id);
+  renderRelatedList();
 
   // 档案馆字段：编辑时若已存值则填入，否则按现有数据默认「上海市档案馆」
   if (r.type === '档案文件') {
@@ -310,6 +318,15 @@ function submit() {
   }
 
   const recordType = document.getElementById('field-type').value;
+  // 收集关联史料（同步最新的 relation 输入值）
+  const relatedInputs = document.querySelectorAll('#related-list .related-record-item');
+  relatedInputs.forEach(item => {
+    const id = item.dataset.id;
+    const rel = item.querySelector('.related-relation-input');
+    const found = relatedRecords.find(r => r.id === id);
+    if (found && rel) found.relation = rel.value.trim();
+  });
+
   const record = {
     type: recordType,
     opinion_types: recordType === '报刊文章' ? opinionTypes : [],
@@ -325,7 +342,8 @@ function submit() {
     importance,
     document_paths: docPaths,
     image_paths: [],
-    docx_preview_text: docxPreviewText
+    docx_preview_text: docxPreviewText,
+    related_records: relatedRecords.filter(r => r.id)
   };
 
   // 仅档案文件保存「收藏机构」字段
@@ -439,6 +457,89 @@ async function extractDocxFile() {
     document.getElementById('btn-extract-docx').disabled = false;
     fileInput.value = ''; // 重置文件输入
   }
+}
+
+// ── 关联史料 ──
+
+function renderRelatedList() {
+  const list = document.getElementById('related-list');
+  if (!list) return;
+  list.innerHTML = '';
+  relatedRecords.forEach(item => {
+    const rec = getRecord(item.id);
+    const title = rec ? rec.title : item.id;
+    const div = document.createElement('div');
+    div.className = 'related-record-item';
+    div.dataset.id = item.id;
+    div.innerHTML = `
+      <div class="ritem-info">
+        <span class="ritem-id">${escapeHtml(item.id)}</span>
+        <span class="ritem-title">${escapeHtml(title || '（已删除）')}</span>
+      </div>
+      <input class="related-relation-input" placeholder="关系（回复、引用…）" value="${escapeHtml(item.relation || '')}" />
+      <button class="related-remove-btn" title="移除">×</button>
+    `;
+    div.querySelector('.related-remove-btn').addEventListener('click', () => {
+      relatedRecords = relatedRecords.filter(r => r.id !== item.id);
+      renderRelatedList();
+    });
+    list.appendChild(div);
+  });
+}
+
+function bindRelatedSearch() {
+  const input = document.getElementById('related-search');
+  const dropdown = document.getElementById('related-dropdown');
+  if (!input || !dropdown) return;
+
+  let debounceTimer;
+
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      const q = input.value.trim();
+      if (!q) { dropdown.style.display = 'none'; return; }
+      const results = searchRecordsForRelated(q);
+      if (results.length === 0) { dropdown.style.display = 'none'; return; }
+      dropdown.innerHTML = '';
+      results.forEach(rec => {
+        const item = document.createElement('div');
+        item.className = 'related-dropdown-item';
+        item.innerHTML = `<span class="rdrop-id">${escapeHtml(rec.shiliao_id)}</span>${escapeHtml(rec.title || '无题')} <span class="rdrop-type">${escapeHtml(rec.type || '')}</span>`;
+        item.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          const alreadyAdded = relatedRecords.some(r => r.id === rec.shiliao_id);
+          if (!alreadyAdded) {
+            relatedRecords.push({ id: rec.shiliao_id, relation: '' });
+            renderRelatedList();
+          }
+          input.value = '';
+          dropdown.style.display = 'none';
+        });
+        dropdown.appendChild(item);
+      });
+      dropdown.style.display = '';
+    }, 200);
+  });
+
+  input.addEventListener('blur', () => {
+    setTimeout(() => { dropdown.style.display = 'none'; }, 150);
+  });
+
+  input.addEventListener('focus', () => {
+    if (input.value.trim()) input.dispatchEvent(new Event('input'));
+  });
+}
+
+function searchRecordsForRelated(query) {
+  const q = query.toLowerCase();
+  const all = loadAllRecords();
+  return all.filter(rec => {
+    if (rec.shiliao_id === editingId) return false; // 不能关联自己
+    return (rec.title || '').toLowerCase().includes(q) ||
+           (rec.shiliao_id || '').toLowerCase().includes(q) ||
+           (rec.source || '').toLowerCase().includes(q);
+  }).slice(0, 10);
 }
 
 document.addEventListener('DOMContentLoaded', init);

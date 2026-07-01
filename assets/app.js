@@ -304,6 +304,11 @@ function createListRow(record) {
 
   const docCount = (record.document_paths || []).length;
 
+  const opinionTypes = Array.isArray(record.opinion_types) ? record.opinion_types : (record.opinion_types ? [record.opinion_types] : []);
+  const opinionDots = opinionTypes.map(t =>
+    `<span class="card-opinion-dot" style="background:${getOpinionTypeColor(t)};" title="${escapeHtml(t)}"></span>`
+  ).join('');
+
   row.innerHTML = `
     <div class="list-color" style="background: ${color};"></div>
     <span class="list-type">${typeIcon}</span>
@@ -313,7 +318,7 @@ function createListRow(record) {
     <span class="list-meta">📍 ${escapeHtml(record.source || '—')}</span>
     <span class="list-meta">📅 ${escapeHtml(record.time || '—')}</span>
     <span class="list-meta">${record.version_info ? `📑 ${escapeHtml(record.version_info)}` : ''}</span>
-    <span class="list-importance">${importance}</span>
+    <span class="list-importance">${importance}${opinionDots ? `<span class="list-opinion-dots">${opinionDots}</span>` : ''}</span>
     <span class="list-docs">${docCount > 0 ? `📎${docCount}` : ''}</span>
   `;
 

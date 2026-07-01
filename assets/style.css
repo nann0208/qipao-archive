@@ -347,6 +347,155 @@ body {
   color: var(--color-text-muted);
 }
 
+/* ── 关联史料（表单）── */
+.related-search-wrapper {
+  position: relative;
+}
+
+.related-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-hover);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  z-index: 200;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.related-dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+}
+.related-dropdown-item:last-child { border-bottom: none; }
+.related-dropdown-item:hover { background: var(--color-bg); }
+.related-dropdown-item .rdrop-id {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-right: 6px;
+}
+.related-dropdown-item .rdrop-type {
+  font-size: 11px;
+  color: var(--color-accent-soft);
+  margin-left: 6px;
+}
+
+.related-records-list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.related-record-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+.related-record-item .ritem-info {
+  flex: 1;
+  min-width: 0;
+}
+.related-record-item .ritem-id {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  display: block;
+}
+.related-record-item .ritem-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.related-relation-input {
+  width: 120px;
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 12px;
+  background: var(--color-bg-card);
+  color: var(--color-text);
+}
+.related-remove-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.related-remove-btn:hover { color: var(--color-accent); }
+
+/* ── 关联史料（详情页）── */
+.related-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.related-detail-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color .15s, background .15s;
+  font-size: 13px;
+}
+.related-detail-card:hover {
+  border-color: var(--color-border-hover);
+  background: #F5EFE7;
+}
+.related-detail-card .rdc-relation {
+  flex-shrink: 0;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: var(--color-accent);
+  color: #fff;
+}
+.related-detail-card .rdc-type {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+.related-detail-card .rdc-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.related-detail-card .rdc-time {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+.related-detail-card .rdc-arrow {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+.related-backlink .rdc-relation {
+  background: var(--color-text-muted);
+}
+
 .card-topics {
   display: flex;
   flex-wrap: wrap;
@@ -478,7 +627,7 @@ body {
 
 .list-header {
   display: grid;
-  grid-template-columns: 5px 28px 120px 1fr 90px 90px 100px 90px 70px 40px;
+  grid-template-columns: 5px 28px 120px 1fr 90px 90px 140px 90px 70px 40px;
   gap: 6px;
   padding: 8px 14px;
   font-size: 11px;
@@ -494,7 +643,7 @@ body {
 
 .list-row {
   display: grid;
-  grid-template-columns: 5px 28px 120px 1fr 90px 90px 100px 90px 70px 40px;
+  grid-template-columns: 5px 28px 120px 1fr 90px 90px 140px 90px 70px 40px;
   gap: 6px;
   padding: 10px 14px;
   background: var(--color-bg-card);
@@ -556,7 +705,25 @@ body {
 .list-importance {
   font-size: 11px;
   color: var(--color-text-muted);
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.list-opinion-dots {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.list-opinion-dots .card-opinion-dot {
+  width: 10px;
+  height: 10px;
 }
 
 .list-docs {

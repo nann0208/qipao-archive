@@ -24,6 +24,54 @@ function init() {
   renderPreview(0);
 }
 
+function buildRelatedSection(r) {
+  const all = loadAllRecords();
+
+  // 正向关联：本条记录标记的
+  const forwardLinks = (r.related_records || []).map(item => {
+    const id = typeof item === 'string' ? item : item.id;
+    const relation = typeof item === 'string' ? '' : (item.relation || '');
+    const rec = all.find(x => x.shiliao_id === id);
+    return rec ? { rec, relation, direction: 'forward' } : null;
+  }).filter(Boolean);
+
+  // 反向关联：其他记录的 related_records 里包含本条
+  const backLinks = all.filter(rec => {
+    if (rec.shiliao_id === r.shiliao_id) return false;
+    return (rec.related_records || []).some(item => {
+      const id = typeof item === 'string' ? item : item.id;
+      return id === r.shiliao_id;
+    });
+  }).map(rec => {
+    const item = (rec.related_records || []).find(i => {
+      const id = typeof i === 'string' ? i : i.id;
+      return id === r.shiliao_id;
+    });
+    const relation = (item && typeof item !== 'string') ? (item.relation || '') : '';
+    return { rec, relation, direction: 'back' };
+  });
+
+  const all_links = [...forwardLinks, ...backLinks];
+  if (all_links.length === 0) return '';
+
+  const cards = all_links.map(({ rec, relation, direction }) => {
+    const relLabel = relation ? `<span class="rdc-relation${direction === 'back' ? ' related-backlink' : ''}">${escapeHtml(relation)}</span>` : '';
+    return `<a href="detail.html?id=${encodeURIComponent(rec.shiliao_id)}" class="related-detail-card">
+      ${relLabel}
+      <span class="rdc-type">${TYPE_ICONS[rec.type] || '📄'} ${escapeHtml(rec.type || '')}</span>
+      <span class="rdc-title">${escapeHtml(rec.title || '(无标题)')}</span>
+      <span class="rdc-time">${escapeHtml(rec.time || '')}</span>
+      <span class="rdc-arrow">›</span>
+    </a>`;
+  }).join('');
+
+  return `
+    <div class="detail-section">
+      <div class="detail-label">关联史料 (${all_links.length})</div>
+      <div class="related-detail-list">${cards}</div>
+    </div>`;
+}
+
 function renderDetail() {
   const r = currentRecord;
   const color = getRecordPrimaryColor(r);
@@ -47,12 +95,20 @@ function renderDetail() {
     </div>`;
   }).join('');
 
+  const opinionTypes = Array.isArray(r.opinion_types) ? r.opinion_types : (r.opinion_types ? [r.opinion_types] : []);
+  const opinionDots = opinionTypes.map(t =>
+    `<span class="card-opinion-dot" style="background:${getOpinionTypeColor(t)};" title="${escapeHtml(t)}"></span>`
+  ).join('');
+
   const html = `
     <a href="index.html" class="btn" style="margin-bottom: 20px; display: inline-block;">← 返回列表</a>
 
     <div class="card-header" style="margin-bottom: 8px;">
       <span class="card-type">${TYPE_ICONS[r.type] || '📄'} ${escapeHtml(r.type)}</span>
-      <span class="card-importance">${IMPORTANCE_LABELS[r.importance] || ''}</span>
+      <span class="card-header-right">
+        <span class="card-importance">${IMPORTANCE_LABELS[r.importance] || ''}</span>
+        ${opinionDots}
+      </span>
     </div>
 
     ${topics ? `<div style="margin-bottom: 12px;">${topics}</div>` : ''}
@@ -129,6 +185,8 @@ function renderDetail() {
       <textarea id="detail-docx-preview" class="detail-text-block" style="min-height: 120px; font-size: 12px; resize: vertical;" placeholder="提取的 Word 文本将显示在这里"></textarea>
       <div class="form-help" style="margin-top: 8px;">选择 .docx 文件并点击「提取」，文字内容会保存到此史料并支持全文搜索</div>
     </div>` : ''}
+
+    ${buildRelatedSection(r)}
 
     ${window.READ_ONLY ? '' : `<div class="detail-actions">
       <a href="add.html?id=${encodeURIComponent(r.shiliao_id)}" class="btn primary">✏️ 编辑</a>
