@@ -108,6 +108,7 @@ function renderDetail() {
       <span class="card-header-right">
         <span class="card-importance">${IMPORTANCE_LABELS[r.importance] || ''}</span>
         ${opinionDots}
+        ${r.female_authored ? '<span class="card-female-icon" title="女性署名史料">♀</span>' : ''}
       </span>
     </div>
 

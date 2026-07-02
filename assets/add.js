@@ -114,6 +114,7 @@ function fillForm(r) {
   document.getElementById('field-docx-preview').value = r.docx_preview_text || '';
   document.getElementById('field-docs').value = (r.document_paths || []).join('\n');
   document.getElementById('field-custom-keywords').value = '';
+  document.getElementById('field-female-authored').checked = !!r.female_authored;
 
   // 关联史料
   relatedRecords = (r.related_records || []).map(item =>
@@ -343,7 +344,8 @@ function submit() {
     document_paths: docPaths,
     image_paths: [],
     docx_preview_text: docxPreviewText,
-    related_records: relatedRecords.filter(r => r.id)
+    related_records: relatedRecords.filter(r => r.id),
+    female_authored: document.getElementById('field-female-authored').checked
   };
 
   // 仅档案文件保存「收藏机构」字段

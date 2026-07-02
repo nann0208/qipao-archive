@@ -10,6 +10,7 @@ let currentImportance = '';
 let currentSources = []; // 选中的刊物名称
 let tempSources = []; // Modal 中临时修改的刊物名称
 let currentOpinionFilters = []; // 舆论类型筛选（仅报刊文章，多选）
+let currentFemaleFilter = '';   // '' 全部, 'yes' 仅女性署名, 'no' 非女性署名
 
 const PAGE_SIZE = 40;     // 每页显示数量
 let currentPage = 1;      // 当前页码
@@ -190,6 +191,7 @@ function saveState() {
     sort: currentSort,
     sources: currentSources,
     opinions: currentOpinionFilters,
+    female: currentFemaleFilter,
     page: currentPage,
     view: currentView
   };
@@ -210,6 +212,7 @@ function restoreState() {
     currentSort = state.sort || '';
     currentSources = state.sources || [];
     currentOpinionFilters = state.opinions || [];
+    currentFemaleFilter = state.female || '';
     currentPage = state.page || 1;
     currentView = state.view || 'card';
   } catch (e) {
@@ -318,7 +321,7 @@ function createListRow(record) {
     <span class="list-meta">📍 ${escapeHtml(record.source || '—')}</span>
     <span class="list-meta">📅 ${escapeHtml(record.time || '—')}</span>
     <span class="list-meta">${record.version_info ? `📑 ${escapeHtml(record.version_info)}` : ''}</span>
-    <span class="list-importance">${importance}${opinionDots ? `<span class="list-opinion-dots">${opinionDots}</span>` : ''}</span>
+    <span class="list-importance">${importance}${opinionDots ? `<span class="list-opinion-dots">${opinionDots}</span>` : ''}${record.female_authored ? '<span class="card-female-icon" title="女性署名史料" style="font-size:12px;">♀</span>' : ''}</span>
     <span class="list-docs">${docCount > 0 ? `📎${docCount}` : ''}</span>
   `;
 
@@ -379,6 +382,15 @@ function renderFilters() {
     if (currentImportance === value) chip.classList.add('active');
     importanceBar.appendChild(chip);
   });
+
+  // 女性署名筛选（单按钮切换）
+  const femaleBar = document.getElementById('female-filter');
+  if (femaleBar) {
+    femaleBar.innerHTML = '';
+    const chip = createChip('♀ 女性署名史料', '', () => setFemaleFilter(currentFemaleFilter === 'yes' ? '' : 'yes'));
+    if (currentFemaleFilter === 'yes') chip.classList.add('active');
+    femaleBar.appendChild(chip);
+  }
 
   // 舆论类型筛选（仅报刊文章时渲染，多选）
   const opinionBar = document.getElementById('opinion-filters');
@@ -443,6 +455,13 @@ function setOpinionFilter(opinion) {
       currentOpinionFilters.push(opinion);
     }
   }
+  resetPage();
+  renderFilters();
+  render();
+}
+
+function setFemaleFilter(val) {
+  currentFemaleFilter = val;
   resetPage();
   renderFilters();
   render();
@@ -614,8 +633,8 @@ function bindYearModal() {
   }
   const periodBtns = [
     { id: 'btn-period-classic', lo: 1921, hi: 1925 },
-    { id: 'btn-period-reform',  lo: 1926, hi: 1929 },
-    { id: 'btn-period-loose',   lo: 1930, hi: 1935 }
+    { id: 'btn-period-shuoti', lo: 1926, hi: 1929 },
+    { id: 'btn-period-heiti',  lo: 1930, hi: 1935 }
   ];
   periodBtns.forEach(({ id, lo, hi }) => {
     const btn = document.getElementById(id);
@@ -804,6 +823,8 @@ function render() {
   records = filterByImportance(records, currentImportance);
   records = filterByYears(records, currentYears);
   records = filterByOpinionType(records, currentOpinionFilters);
+  if (currentFemaleFilter === 'yes') records = records.filter(r => !!r.female_authored);
+  else if (currentFemaleFilter === 'no') records = records.filter(r => !r.female_authored);
   // 应用来源筛选：报刊文章/图像用 source，档案文件用 archive_holder，文学作品用 author
   if (currentTypeFilter === '报刊文章' || currentTypeFilter === '图像') {
     records = filterBySources(records, currentSources);
@@ -1126,12 +1147,15 @@ function createCard(record) {
     `<span class="card-opinion-dot" style="background:${getOpinionTypeColor(t)};" title="${escapeHtml(t)}"></span>`
   ).join('');
 
+  const femaleIcon = record.female_authored ? '<span class="card-female-icon" title="女性署名史料">♀</span>' : '';
+
   card.innerHTML = `
     <div class="card-header">
       <span class="card-type">${typeIcon} ${escapeHtml(record.type)}</span>
       <span class="card-header-right">
         <span class="card-importance">${importance}</span>
         ${opinionDots}
+        ${femaleIcon}
       </span>
     </div>
     ${topics ? `<div class="card-topics">${topics}</div>` : ''}
