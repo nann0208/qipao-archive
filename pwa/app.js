@@ -159,43 +159,6 @@ function renderDashboard() {
     `).join('');
   document.getElementById('stat-cards').innerHTML = cardsHtml;
 
-  // 议题分布条
-  const byTopic = {};
-  data.forEach(r => (r.topics || []).forEach(t => { byTopic[t] = (byTopic[t] || 0) + 1; }));
-  const maxTopic = Math.max(...Object.values(byTopic), 1);
-  const barsHtml = Object.entries(byTopic)
-    .sort((a, b) => b[1] - a[1])
-    .map(([topic, count]) => {
-      const pct = (count / maxTopic * 100).toFixed(1);
-      const color = TOPIC_COLORS[topic] || '#888';
-      return `
-        <div class="topic-bar-row">
-          <span class="topic-bar-label">${topic}</span>
-          <div class="topic-bar-track">
-            <div class="topic-bar-fill" style="width:${pct}%;background:${color};"></div>
-          </div>
-          <span class="topic-bar-count">${count}</span>
-        </div>`;
-    }).join('');
-  document.getElementById('topic-bars').innerHTML = barsHtml;
-
-  // 来源 TOP 10
-  const bySource = {};
-  data.forEach(r => {
-    if (r.source && r.source.trim()) bySource[r.source.trim()] = (bySource[r.source.trim()] || 0) + 1;
-  });
-  const topSources = Object.entries(bySource).sort((a, b) => b[1] - a[1]).slice(0, 10);
-  document.getElementById('source-list').innerHTML = topSources.map(([name, count]) =>
-    `<div class="source-item"><span class="source-name">${esc(name)}</span><span class="source-count">${count}</span></div>`
-  ).join('');
-
-  // 时间跨度
-  const years = data.map(r => parseYear(r.time)).filter(Boolean);
-  if (years.length > 0) {
-    const min = Math.min(...years), max = Math.max(...years);
-    document.getElementById('time-range').innerHTML =
-      `<strong>${min}</strong> 年 — <strong>${max}</strong> 年，跨越 <strong>${max - min}</strong> 年`;
-  }
 }
 
 // ===== 列表页 =====
@@ -433,10 +396,52 @@ function makeSection(title, body) {
 // ===== 图表页 =====
 
 function renderCharts() {
+  renderTopicBars();
+  renderSourceList();
+  renderTimeRange();
   renderYearChart();
   renderTypeChart();
   renderTopicChart();
   renderImportanceChart();
+}
+
+function renderTopicBars() {
+  const byTopic = {};
+  allRecords.forEach(r => (r.topics || []).forEach(t => { byTopic[t] = (byTopic[t] || 0) + 1; }));
+  const maxTopic = Math.max(...Object.values(byTopic), 1);
+  document.getElementById('topic-bars').innerHTML = Object.entries(byTopic)
+    .sort((a, b) => b[1] - a[1])
+    .map(([topic, count]) => {
+      const pct = (count / maxTopic * 100).toFixed(1);
+      const color = TOPIC_COLORS[topic] || '#888';
+      return `<div class="topic-bar-row">
+        <span class="topic-bar-label">${topic}</span>
+        <div class="topic-bar-track">
+          <div class="topic-bar-fill" style="width:${pct}%;background:${color};"></div>
+        </div>
+        <span class="topic-bar-count">${count}</span>
+      </div>`;
+    }).join('');
+}
+
+function renderSourceList() {
+  const bySource = {};
+  allRecords.forEach(r => {
+    if (r.source && r.source.trim()) bySource[r.source.trim()] = (bySource[r.source.trim()] || 0) + 1;
+  });
+  const topSources = Object.entries(bySource).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  document.getElementById('source-list').innerHTML = topSources.map(([name, count]) =>
+    `<div class="source-item"><span class="source-name">${esc(name)}</span><span class="source-count">${count}</span></div>`
+  ).join('');
+}
+
+function renderTimeRange() {
+  const years = allRecords.map(r => parseYear(r.time)).filter(Boolean);
+  if (years.length > 0) {
+    const min = Math.min(...years), max = Math.max(...years);
+    document.getElementById('time-range').innerHTML =
+      `<strong>${min}</strong> 年 — <strong>${max}</strong> 年，跨越 <strong>${max - min}</strong> 年`;
+  }
 }
 
 function renderYearChart() {
