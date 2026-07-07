@@ -4,9 +4,9 @@ const DATA_URL = 'https://nann0208.github.io/qipao-archive/data/data.js';
 const CACHE_KEY = 'qipao_pwa_data';
 
 const TOPIC_COLORS = {
-  '旗袍流行款式': '#8B2C3C', '性别议题': '#C97B89', '消费生活': '#D4B26A',
-  '轻工业业态': '#3E5641', '外贸': '#2C3E5C', '服制条例': '#3A78BC',
-  '服装制作工艺': '#A0573B', '民族国家': '#B977CB', '更名争议': '#21AB94'
+  '旗袍流行款式': '#DB645C', '性别议题': '#E39148', '消费生活': '#F5DD7D',
+  '轻工业业态': '#4D7F74', '外贸': '#70C2B6', '服制条例': '#EBA4C0',
+  '服装制作工艺': '#8A75E0', '民族国家': '#5A6BDF', '更名争议': '#6797E8'
 };
 const TYPE_ICONS = {
   '报刊文章': '📰', '专著': '📖', '档案文件': '📜', '图像': '🖼️', '文学作品': '✒️'
@@ -305,7 +305,14 @@ function loadMore() {
     document.getElementById('btn-load-more')._bound = true;
   }
 }
-
+const typeColors = {
+  '报刊文章': '#ED8487',
+  '图像': '#F9B77D',
+  '档案文件': '#F5E77B',
+  '专著': '#71C1E2',
+  '文学作品': '#82BA89',
+  // ...
+};
 function renderCardInner(r) {
   const title = keyword ? highlight(r.title || '无题', keyword) : esc(r.title || '无题');
   const core = keyword ? highlight(r.core_content || '', keyword) : esc(r.core_content || '');
@@ -325,7 +332,7 @@ function renderCardInner(r) {
     ${tags ? `<div class="record-tags">${tags}</div>` : ''}
   `;
 }
-
+const impColors = { 3: '#FFA1C3', 2: '#FFD6ED', 1: '#F7F1CA' };
 // ===== 详情页 =====
 
 function showDetail(id) {
