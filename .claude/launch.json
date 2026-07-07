@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "pwa-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "./pwa", "-p", "8090", "-c-1", "--cors"],
+      "port": 8090
+    }
+  ]
+}
