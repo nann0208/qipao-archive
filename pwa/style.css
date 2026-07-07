@@ -127,9 +127,9 @@ body {
   text-align: center;
   padding: 28px 16px;
   margin-top: 20px;
-  color: #BF9F9F;
-  font-size: 7px;
-  line-height: 3;
+  color: #876D6C;
+  font-size: 11px;
+  line-height: 2;
   border-top: 1px solid var(--border);
 }
 .home-hint p { margin: 0; }

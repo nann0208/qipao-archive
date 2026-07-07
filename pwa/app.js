@@ -492,12 +492,12 @@ function renderTypeChart() {
   const entries = Object.entries(byType).sort((a, b) => b[1] - a[1]);
   const total = allRecords.length;
 
-  const typeColors = {
-    '报刊文章': '#8B2C3C', '专著': '#2C3E5C', '档案文件': '#5D5D6E',
-    '图像': '#A0573B', '文学作品': '#67A949'
+  const chartTypeColors = {
+    '报刊文章': '#DF2A49', '图像': '#F85572', '档案文件': '#D6768E',
+    '专著': '#E6B9CD', '文学作品': '#DB7264'
   };
 
-  document.getElementById('chart-type').innerHTML = renderPieChart(entries, total, typeColors);
+  document.getElementById('chart-type').innerHTML = renderPieChart(entries, total, chartTypeColors);
 }
 
 function renderTopicChart() {
@@ -510,7 +510,7 @@ function renderTopicChart() {
 }
 
 function renderPieChart(entries, total, colors) {
-  const size = 180, cx = size / 2, cy = size / 2, r = 70;
+  const size = 140, cx = size / 2, cy = size / 2, r = 58;
   let startAngle = -Math.PI / 2;
   let paths = '';
 
@@ -528,16 +528,16 @@ function renderPieChart(entries, total, colors) {
   const legend = entries.map(([name, count]) => {
     const pct = (count / total * 100).toFixed(1);
     const color = colors[name] || '#888';
-    return `<div style="display:flex;align-items:center;gap:6px;font-size:12px;margin:3px 0">
+    return `<div style="display:flex;align-items:center;gap:6px;font-size:12px;margin:3px 0;white-space:nowrap">
       <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${color};flex-shrink:0"></span>
       <span style="color:#555">${esc(name)}</span>
       <span style="color:#999;margin-left:auto">${count} (${pct}%)</span>
     </div>`;
   }).join('');
 
-  return `<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-    <svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">${paths}</svg>
-    <div style="flex:1;min-width:120px">${legend}</div>
+  return `<div style="display:flex;align-items:center;gap:14px;">
+    <svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" style="flex-shrink:0">${paths}</svg>
+    <div style="flex:1;min-width:0;overflow:hidden">${legend}</div>
   </div>`;
 }
 
@@ -545,17 +545,17 @@ function renderImportanceChart() {
   const byImp = { 3: 0, 2: 0, 1: 0 };
   allRecords.forEach(r => { if (r.importance) byImp[r.importance]++; });
 
-  const impColors = { 3: '#D4A017', 2: '#C9A96E', 1: '#CCCCCC' };
+  const chartImpColors = { 3: '#F5B8BF', 2: '#E36980', 1: '#C24653' };
   const entries = [[3, '核心 ⭐⭐⭐'], [2, '参考 ⭐⭐'], [1, '备用 ⭐']].filter(([k]) => byImp[k] > 0);
   const maxImp = Math.max(...Object.values(byImp), 1);
 
   const html = entries.map(([k, label]) => {
     const count = byImp[k];
     const pct = (count / maxImp * 100).toFixed(1);
-    return `<div class="topic-bar-row">
+    return `<div class="topic-bar-row" style="margin-bottom:10px;">
       <span class="topic-bar-label">${label}</span>
       <div class="topic-bar-track">
-        <div class="topic-bar-fill" style="width:${pct}%;background:${impColors[k]};"></div>
+        <div class="topic-bar-fill" style="width:${pct}%;background:${chartImpColors[k]};"></div>
       </div>
       <span class="topic-bar-count">${count}</span>
     </div>`;
