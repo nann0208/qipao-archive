@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#8B2C3C">
+  <title>海派旗袍史料库</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="../assets/logo2.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/logo2.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== 顶部栏 ===== -->
+  <header class="top-bar">
+    <h1 class="top-title" id="top-title">海派旗袍史料库</h1>
+    <span class="sync-status" id="sync-status"></span>
+  </header>
+
+  <!-- ===== 页面容器 ===== -->
+  <main class="page-container">
+
+    <!-- Tab 1: 首页仪表盘 -->
+    <section class="page active" id="page-home">
+      <div class="dashboard">
+        <div class="stat-hero" id="stat-hero">
+          <span class="stat-number" id="stat-total">—</span>
+          <span class="stat-label">条史料</span>
+        </div>
+
+        <div class="stat-cards" id="stat-cards"></div>
+
+        <div class="section-title">议题分布</div>
+        <div class="topic-bars" id="topic-bars"></div>
+
+        <div class="section-title">来源 TOP 10</div>
+        <div class="source-list" id="source-list"></div>
+
+        <div class="section-title">时间跨度</div>
+        <div class="time-range" id="time-range"></div>
+      </div>
+    </section>
+
+    <!-- Tab 2: 史料列表 -->
+    <section class="page" id="page-list">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="搜索题名、内容、关键词..." autocomplete="off">
+        <button class="search-clear" id="search-clear" type="button">×</button>
+      </div>
+
+      <div class="filter-chips" id="filter-chips"></div>
+
+      <div class="results-info" id="results-info"></div>
+      <div class="record-list" id="record-list"></div>
+      <div class="load-more" id="load-more" style="display:none;">
+        <button class="btn-load-more" id="btn-load-more">加载更多</button>
+      </div>
+    </section>
+
+    <!-- Tab 3: 详情页 -->
+    <section class="page" id="page-detail">
+      <button class="btn-back" id="btn-back">← 返回列表</button>
+      <div class="detail-content" id="detail-content"></div>
+    </section>
+
+    <!-- Tab 4: 可视化 -->
+    <section class="page" id="page-charts">
+      <div class="chart-section">
+        <h2 class="chart-title">年度分布</h2>
+        <div class="chart-container" id="chart-year"></div>
+      </div>
+      <div class="chart-section">
+        <h2 class="chart-title">类型占比</h2>
+        <div class="chart-container" id="chart-type"></div>
+      </div>
+      <div class="chart-section">
+        <h2 class="chart-title">议题占比</h2>
+        <div class="chart-container" id="chart-topic"></div>
+      </div>
+      <div class="chart-section">
+        <h2 class="chart-title">重要程度分布</h2>
+        <div class="chart-container" id="chart-importance"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 底部导航 ===== -->
+  <nav class="tab-bar">
+    <button class="tab active" data-page="home">
+      <span class="tab-icon">📊</span>
+      <span class="tab-text">首页</span>
+    </button>
+    <button class="tab" data-page="list">
+      <span class="tab-icon">📋</span>
+      <span class="tab-text">史料</span>
+    </button>
+    <button class="tab" data-page="charts">
+      <span class="tab-icon">📈</span>
+      <span class="tab-text">图表</span>
+    </button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
