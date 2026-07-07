@@ -15,15 +15,15 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 
   /* 议题配色 */
-  --c-款式: #8B2C3C;
-  --c-性别: #C97B89;
-  --c-消费: #D4B26A;
-  --c-轻工业: #3E5641;
-  --c-外贸: #2C3E5C;
-  --c-服制: #3A78BC;
+  --c-款式: #DB645C;
+  --c-性别: #E39148;
+  --c-消费: #F5DD7D;
+  --c-轻工业: #4D7F74;
+  --c-外贸: #70C2B6;
+  --c-服制: #8A75E0;
   --c-工艺: #A0573B;
-  --c-民族: #B977CB;
-  --c-更名: #21AB94;
+  --c-民族: #5A6BDF;
+  --c-更名: #6797E8;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -128,8 +128,8 @@ body {
   padding: 28px 16px;
   margin-top: 20px;
   color: #BF9F9F;
-  font-size: 9px;
-  line-height: 1.8;
+  font-size: 7px;
+  line-height: 3;
   border-top: 1px solid var(--border);
 }
 .home-hint p { margin: 0; }
