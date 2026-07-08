@@ -275,6 +275,14 @@ function applyFilters() {
     });
   }
 
+  result.sort((a, b) => {
+    const va = parseTimeValue(a.time), vb = parseTimeValue(b.time);
+    if (va === null && vb === null) return 0;
+    if (va === null) return 1;
+    if (vb === null) return -1;
+    return va - vb;
+  });
+
   filtered = result;
   shownCount = 0;
   document.getElementById('record-list').innerHTML = '';
@@ -570,6 +578,21 @@ function parseYear(timeStr) {
   if (!timeStr) return null;
   const m = String(timeStr).match(/(1[89]\d{2}|20\d{2})/);
   return m ? parseInt(m[1], 10) : null;
+}
+
+function parseTimeValue(timeStr) {
+  if (!timeStr) return null;
+  const s = String(timeStr);
+  const ym = s.match(/(1[89]\d{2}|20\d{2})/);
+  if (!ym) return null;
+  const year = parseInt(ym[1], 10);
+  let month = 0, day = 0;
+  const full = s.match(/(1[89]\d{2}|20\d{2})\s*[-./年]\s*(\d{1,2})(?:\s*[-./月]\s*(\d{1,2}))?/);
+  if (full) {
+    month = parseInt(full[2], 10) || 0;
+    day = parseInt(full[3], 10) || 0;
+  }
+  return year * 10000 + month * 100 + day;
 }
 
 function getRecordColor(r) {
