@@ -205,12 +205,15 @@ function updateOpinionTypeVisibility() {
 function updateArchiveHolderVisibility() {
   const type = document.getElementById('field-type').value;
   const row = document.getElementById('archive-holder-row');
+  const sourceGroup = document.getElementById('source-group');
   const helpLabel = document.getElementById('source-field-help');
   if (type === '档案文件') {
     row.style.display = '';
-    if (helpLabel) helpLabel.style.display = '';
+    if (sourceGroup) sourceGroup.style.display = 'none';
+    if (helpLabel) helpLabel.style.display = 'none';
   } else {
     row.style.display = 'none';
+    if (sourceGroup) sourceGroup.style.display = '';
     if (helpLabel) helpLabel.style.display = 'none';
   }
 }

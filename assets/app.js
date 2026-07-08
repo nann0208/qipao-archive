@@ -3,7 +3,7 @@
 let currentTypeFilter = '';
 let currentTopicFilter = '';
 let currentKeyword = '';
-let currentSort = '';
+let currentSort = 'asc';
 let currentYears = [];
 let tempYears = []; // Modal 中临时修改的年份
 let currentImportance = '';

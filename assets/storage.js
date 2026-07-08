@@ -265,7 +265,7 @@ function getIncompleteIssues(r) {
   if (!r) return [];
   const issues = [];
   if (!r.title || !r.title.trim()) issues.push('缺少题名');
-  if (!r.source || !r.source.trim()) issues.push('缺少来源');
+  if (r.type !== '档案文件' && (!r.source || !r.source.trim())) issues.push('缺少来源');
   if (!r.author || !r.author.trim()) issues.push('缺少作者');
   if (!r.time || !r.time.trim()) issues.push('缺少时间');
   if (!r.core_content || !r.core_content.trim()) issues.push('缺少核心内容');
