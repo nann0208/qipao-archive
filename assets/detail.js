@@ -120,10 +120,11 @@ function renderDetail() {
     </div>
 
     <div class="detail-meta-row">
+      ${r.type !== '档案文件' ? `
       <div class="detail-meta-item">
         <div class="label">来源</div>
         <div>${escapeHtml(r.source || '—')}</div>
-      </div>
+      </div>` : ''}
       <div class="detail-meta-item">
         <div class="label">作者/责任人</div>
         <div>${escapeHtml(r.author || '—')}</div>
