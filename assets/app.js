@@ -312,18 +312,37 @@ function createListRow(record) {
     `<span class="card-opinion-dot" style="background:${getOpinionTypeColor(t)};" title="${escapeHtml(t)}"></span>`
   ).join('');
 
+  const authorText = record.author || '';
+  const sourceText = record.source || '';
+  const timeText = record.time || '';
+  const versionText = record.version_info || '';
+
   row.innerHTML = `
     <div class="list-color" style="background: ${color};"></div>
     <span class="list-type">${typeIcon}</span>
     <div class="list-topics">${topics}</div>
     <div class="list-title">${titleText}</div>
-    <span class="list-meta">${record.author ? `✍️ ${escapeHtml(record.author)}` : ''}</span>
-    <span class="list-meta">📍 ${escapeHtml(record.source || '—')}</span>
-    <span class="list-meta">📅 ${escapeHtml(record.time || '—')}</span>
-    <span class="list-meta">${record.version_info ? `📑 ${escapeHtml(record.version_info)}` : ''}</span>
+    <span class="list-meta" data-copy="${escapeHtml(authorText)}">${authorText ? `✍️ ${escapeHtml(authorText)}` : ''}<span class="copy-hint">${escapeHtml(authorText)}</span></span>
+    <span class="list-meta" data-copy="${escapeHtml(sourceText)}">${record.type !== '档案文件' && sourceText ? `📍 ${escapeHtml(sourceText)}` : ''}<span class="copy-hint">${escapeHtml(sourceText)}</span></span>
+    <span class="list-meta" data-copy="${escapeHtml(timeText)}">${timeText ? `📅 ${escapeHtml(timeText)}` : ''}<span class="copy-hint">${escapeHtml(timeText)}</span></span>
+    <span class="list-meta" data-copy="${escapeHtml(versionText)}">${versionText ? `📑 ${escapeHtml(versionText)}` : ''}<span class="copy-hint">${escapeHtml(versionText)}</span></span>
     <span class="list-importance">${importance}${opinionDots ? `<span class="list-opinion-dots">${opinionDots}</span>` : ''}${record.female_authored ? '<span class="card-female-icon" title="女性署名史料" style="font-size:12px;">♀</span>' : ''}</span>
     <span class="list-docs">${docCount > 0 ? `📎${docCount}` : ''}</span>
   `;
+
+  row.querySelectorAll('.list-meta[data-copy]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const text = el.dataset.copy;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const hint = el.querySelector('.copy-hint');
+        hint.textContent = '已复制';
+        el.classList.add('copied');
+        setTimeout(() => { hint.textContent = el.dataset.copy; el.classList.remove('copied'); }, 1200);
+      });
+    });
+  });
 
   row.addEventListener('click', () => {
     const kwParam = kw ? `&kw=${encodeURIComponent(kw)}` : '';
@@ -894,10 +913,10 @@ function render() {
       <div class="list-topics">议题</div>
       <div class="list-title">题名</div>
       <span class="list-meta">作者</span>
-      <span class="list-meta">来源</span>
+      <span class="list-meta">${currentTypeFilter === '档案文件' ? '' : '来源'}</span>
       <span class="list-meta">时间</span>
-      <span class="list-meta">版次</span>
-      <span class="list-importance">重要</span>
+      <span class="list-meta">${currentTypeFilter === '档案文件' ? '档案号' : '版次'}</span>
+      <span class="list-importance">重要程度</span>
       <span class="list-docs">附件</span>
     `;
     actualGrid.appendChild(header);
@@ -1161,8 +1180,8 @@ function createCard(record) {
     ${topics ? `<div class="card-topics">${topics}</div>` : ''}
     <h3 class="card-title">${titleText}</h3>
     <div class="card-meta">
-      ${record.source ? `<span>📍 ${escapeHtml(record.source)}</span>` : ''}
       ${record.author ? `<span>✍️ ${escapeHtml(record.author)}</span>` : ''}
+      ${record.source && record.type !== '档案文件' ? `<span>📍 ${escapeHtml(record.source)}</span>` : ''}
       ${record.time ? `<span>📅 ${escapeHtml(record.time)}</span>` : ''}
       ${record.version_info ? `<span>📑 ${escapeHtml(record.version_info)}</span>` : ''}
     </div>

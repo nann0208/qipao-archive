@@ -172,11 +172,13 @@ function bindEvents() {
 
   // 来源下拉变化时，自动填入输入框
   const sourceSelect = document.getElementById('field-source-select');
-  sourceSelect.addEventListener('change', () => {
-    if (sourceSelect.value) {
-      document.getElementById('field-source').value = sourceSelect.value;
-    }
-  });
+  if (sourceSelect) {
+    sourceSelect.addEventListener('change', () => {
+      if (sourceSelect.value) {
+        document.getElementById('field-source').value = sourceSelect.value;
+      }
+    });
+  }
 
   // 档案馆下拉变化时，自动填入输入框
   const holderSelect = document.getElementById('field-archive-holder-select');
@@ -206,15 +208,39 @@ function updateArchiveHolderVisibility() {
   const type = document.getElementById('field-type').value;
   const row = document.getElementById('archive-holder-row');
   const sourceGroup = document.getElementById('source-group');
-  const helpLabel = document.getElementById('source-field-help');
   if (type === '档案文件') {
     row.style.display = '';
     if (sourceGroup) sourceGroup.style.display = 'none';
-    if (helpLabel) helpLabel.style.display = 'none';
   } else {
     row.style.display = 'none';
     if (sourceGroup) sourceGroup.style.display = '';
-    if (helpLabel) helpLabel.style.display = 'none';
+  }
+}
+
+function populateSourceSelect() {
+  const select = document.getElementById('field-source-select');
+  if (!select) return;
+  const type = document.getElementById('field-type').value;
+  const sources = getSourcesByType(type);
+
+  select.innerHTML = '';
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.textContent = sources.length > 0
+    ? `— 从已有 ${sources.length} 个「${type}」来源中选择 —`
+    : `— 该类型暂无已有来源 —`;
+  select.appendChild(placeholder);
+
+  sources.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s;
+    opt.textContent = s;
+    select.appendChild(opt);
+  });
+
+  const currentInput = document.getElementById('field-source').value.trim();
+  if (currentInput && sources.includes(currentInput)) {
+    select.value = currentInput;
   }
 }
 
@@ -246,34 +272,6 @@ function populateArchiveHolderSelect() {
   }
 }
 
-// 根据当前选中的类型，填充「来源」下拉列表
-function populateSourceSelect() {
-  const select = document.getElementById('field-source-select');
-  const type = document.getElementById('field-type').value;
-  const sources = getSourcesByType(type);
-
-  // 重建选项
-  select.innerHTML = '';
-  const placeholder = document.createElement('option');
-  placeholder.value = '';
-  placeholder.textContent = sources.length > 0
-    ? `— 从已有 ${sources.length} 个「${type}」来源中选择 —`
-    : `— 该类型暂无已有来源 —`;
-  select.appendChild(placeholder);
-
-  sources.forEach(s => {
-    const opt = document.createElement('option');
-    opt.value = s;
-    opt.textContent = s;
-    select.appendChild(opt);
-  });
-
-  // 如果输入框中已有值且是已有来源，自动选中
-  const currentInput = document.getElementById('field-source').value.trim();
-  if (currentInput && sources.includes(currentInput)) {
-    select.value = currentInput;
-  }
-}
 
 function submit() {
   const title = document.getElementById('field-title').value.trim();
@@ -335,7 +333,7 @@ function submit() {
     type: recordType,
     opinion_types: recordType === '报刊文章' ? opinionTypes : [],
     topics,
-    source: document.getElementById('field-source').value.trim(),
+    source: document.getElementById('field-source') ? document.getElementById('field-source').value.trim() : '',
     title,
     author: document.getElementById('field-author').value.trim(),
     time: document.getElementById('field-time').value.trim(),
@@ -423,29 +421,23 @@ async function extractDocxFile() {
       throw new Error('XML 解析失败，文档格式可能已损坏');
     }
 
-    // 提取文本（支持各种复杂结构：图片、表格、段落等）
-    let fullText = '';
-
-    // 方法1：提取所有 w:t（纯文字节点）
-    const textNodes = xmlDoc.getElementsByTagName('w:t');
-    for (let i = 0; i < textNodes.length; i++) {
-      fullText += textNodes[i].textContent;
-    }
-
-    // 方法2：如果没有找到文字，尝试从所有文本节点中提取
-    if (!fullText.trim()) {
-      const walker = xmlDoc.createTreeWalker(
-        xmlDoc.documentElement,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-      );
-      let node;
-      while ((node = walker.nextNode())) {
-        const text = node.textContent.trim();
-        if (text) fullText += text + ' ';
+    const paragraphs = xmlDoc.getElementsByTagName('w:p');
+    const lines = [];
+    for (let i = 0; i < paragraphs.length; i++) {
+      const p = paragraphs[i];
+      let line = '';
+      const runs = p.getElementsByTagName('w:r');
+      for (let j = 0; j < runs.length; j++) {
+        const tabs = runs[j].getElementsByTagName('w:tab');
+        const brs = runs[j].getElementsByTagName('w:br');
+        const texts = runs[j].getElementsByTagName('w:t');
+        for (let k = 0; k < tabs.length; k++) line += '\t';
+        for (let k = 0; k < texts.length; k++) line += texts[k].textContent;
+        for (let k = 0; k < brs.length; k++) line += '\n';
       }
+      lines.push(line);
     }
+    let fullText = lines.join('\n');
 
     if (!fullText.trim()) {
       throw new Error('文档为空或不包含可提取的文字');

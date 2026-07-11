@@ -636,12 +636,12 @@ body {
 
 .list-header {
   display: grid;
-  grid-template-columns: 5px 28px 120px 1fr 90px 90px 140px 90px 70px 40px;
+  grid-template-columns: 1px 30px 100px 5fr 150px 100px 120px 160px 90px 40px;
   gap: 6px;
   padding: 8px 14px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--color-text-soft);
   letter-spacing: 0.5px;
   background: var(--color-bg);
   border-bottom: 2px solid var(--color-border);
@@ -652,7 +652,7 @@ body {
 
 .list-row {
   display: grid;
-  grid-template-columns: 5px 28px 120px 1fr 90px 90px 140px 90px 70px 40px;
+  grid-template-columns: 1px 30px 100px 5fr 150px 100px 120px 160px 90px 40px;
   gap: 6px;
   padding: 10px 14px;
   background: var(--color-bg-card);
@@ -697,30 +697,60 @@ body {
 .list-title {
   font-weight: 600;
   color: var(--color-text);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 .list-meta {
   color: var(--color-text-soft);
   font-size: 12px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  position: relative;
+  cursor: default;
+  text-align: left;
+}
+
+.list-meta .copy-hint {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--color-text);
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
   white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border: 1px solid var(--color-border);
+}
+
+.list-meta:hover .copy-hint {
+  display: block;
+}
+
+.list-meta.copied .copy-hint {
+  display: block;
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
 }
 
 .list-importance {
-  font-size: 11px;
-  color: var(--color-text-muted);
+  font-size: 12px;
+  color: var(--color-text-soft);
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 4px;
   flex-wrap: nowrap;
-  overflow: hidden;
+  white-space: nowrap;
 }
 
 .list-opinion-dots {

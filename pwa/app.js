@@ -163,9 +163,13 @@ function renderDashboard() {
 
 // ===== 列表页 =====
 
+let listInitialized = false;
 function initListPage() {
-  renderFilterChips();
-  bindSearch();
+  if (!listInitialized) {
+    renderFilterChips();
+    bindSearch();
+    listInitialized = true;
+  }
   applyFilters();
 }
 
