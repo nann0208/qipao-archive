@@ -365,16 +365,15 @@ function showDetail(id) {
     sections.push(makeSection('原文摘录', r.quotes));
   }
   if (r.docx_preview_text) {
-    sections.push(makeSection('文档全文', r.docx_preview_text));
+    const annotations = (r.annotations && r.annotations.length > 0) ? r.annotations : [];
+    if (annotations.length > 0) {
+      sections.push(makeAnnotatedSection('文档全文', r.docx_preview_text, annotations));
+    } else {
+      sections.push(makeSection('文档全文', r.docx_preview_text));
+    }
   }
   if (r.keywords && r.keywords.length > 0) {
     sections.push(makeSection('关键词', r.keywords.join('、')));
-  }
-  if (r.annotations && r.annotations.length > 0) {
-    const annText = r.annotations.map(a =>
-      `"${a.text}"${a.note ? ` — ${a.note}` : ''}`
-    ).join('\n\n');
-    sections.push(makeSection('批注', annText));
   }
   if (r.document_paths && r.document_paths.length > 0) {
     const paths = r.document_paths.map(p => `· ${p.split('/').pop()}`).join('\n');
@@ -411,6 +410,69 @@ function makeSection(title, body) {
       <div class="detail-section-body">${esc(body)}</div>
     </div>`;
 }
+
+function makeAnnotatedSection(title, text, annotations) {
+  const sorted = annotations
+    .filter(a => typeof a.start === 'number' && typeof a.end === 'number')
+    .sort((a, b) => a.start - b.start);
+
+  let html = '';
+  let cursor = 0;
+  sorted.forEach((a, i) => {
+    if (a.start > cursor) {
+      html += esc(text.slice(cursor, a.start));
+    }
+    const snippet = text.slice(a.start, a.end);
+    html += `<span class="ann-hl" data-ann-idx="${i}">${esc(snippet)}</span>`;
+    cursor = Math.max(cursor, a.end);
+  });
+  if (cursor < text.length) {
+    html += esc(text.slice(cursor));
+  }
+
+  const notesData = sorted.map(a => a.note || '').map(n => esc(n));
+
+  return `
+    <div class="detail-section">
+      <div class="detail-section-title">${esc(title)}</div>
+      <div class="detail-section-body ann-body" data-notes='${JSON.stringify(notesData).replace(/'/g, "&#39;")}'>${html}</div>
+    </div>`;
+}
+
+document.addEventListener('click', e => {
+  const oldPop = document.querySelector('.ann-pop');
+  if (oldPop && !oldPop.contains(e.target) && !e.target.classList.contains('ann-hl')) {
+    oldPop.remove();
+    return;
+  }
+
+  const hl = e.target.closest('.ann-hl');
+  if (!hl) return;
+
+  if (oldPop) oldPop.remove();
+
+  const body = hl.closest('.ann-body');
+  if (!body) return;
+  const notes = JSON.parse(body.dataset.notes);
+  const idx = parseInt(hl.dataset.annIdx, 10);
+  const note = notes[idx];
+  if (!note) return;
+
+  const pop = document.createElement('div');
+  pop.className = 'ann-pop';
+  pop.innerHTML = `<div class="ann-pop-arrow"></div><div class="ann-pop-text">${note}</div>`;
+
+  hl.style.position = 'relative';
+  hl.appendChild(pop);
+
+  const rect = pop.getBoundingClientRect();
+  if (rect.left < 8) pop.style.left = '0';
+  if (rect.right > window.innerWidth - 8) {
+    pop.style.left = 'auto';
+    pop.style.right = '0';
+    pop.style.transform = 'none';
+  }
+});
 
 // ===== 图表页 =====
 
