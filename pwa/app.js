@@ -70,7 +70,7 @@ function switchPage(page) {
   if (page === 'detail') {
     fab.classList.add('hidden');
     _detailScrollHandler = () => {
-      fab.classList.toggle('hidden', window.scrollY < window.innerHeight);
+      fab.classList.toggle('hidden', window.scrollY < 240);
     };
     window.addEventListener('scroll', _detailScrollHandler, { passive: true });
   }
