@@ -478,29 +478,31 @@ mark {
 }
 
 .ann-pop {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
   background: #fff;
   border: 1px solid #E8E0D8;
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   padding: 10px 14px;
   min-width: 160px;
-  max-width: 280px;
-  z-index: 200;
+  max-width: min(280px, calc(100vw - 16px));
+  z-index: 300;
   animation: annFadeIn 0.15s ease;
 }
 .ann-pop-arrow {
   position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
   width: 10px; height: 10px;
   background: #fff;
   border-right: 1px solid #E8E0D8;
   border-bottom: 1px solid #E8E0D8;
+}
+.ann-pop-arrow.arrow-down {
+  bottom: -6px;
+  transform: rotate(45deg);
+}
+.ann-pop-arrow.arrow-up {
+  top: -6px;
+  transform: rotate(225deg);
 }
 .ann-pop-text {
   font-size: 13px;
@@ -510,8 +512,8 @@ mark {
   word-break: break-word;
 }
 @keyframes annFadeIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== 加载动画 ===== */

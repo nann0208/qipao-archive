@@ -471,15 +471,14 @@ function makeAnnotatedSection(title, text, annotations) {
 
 document.addEventListener('click', e => {
   const oldPop = document.querySelector('.ann-pop');
-  if (oldPop && !oldPop.contains(e.target) && !e.target.classList.contains('ann-hl')) {
+  if (oldPop) {
+    if (oldPop.contains(e.target)) return;
     oldPop.remove();
-    return;
+    if (!e.target.closest('.ann-hl')) return;
   }
 
   const hl = e.target.closest('.ann-hl');
   if (!hl) return;
-
-  if (oldPop) oldPop.remove();
 
   const body = hl.closest('.ann-body');
   if (!body) return;
@@ -491,36 +490,50 @@ document.addEventListener('click', e => {
   const pop = document.createElement('div');
   pop.className = 'ann-pop';
   pop.innerHTML = `<div class="ann-pop-arrow"></div><div class="ann-pop-text">${note}</div>`;
+  document.body.appendChild(pop);
 
-  hl.style.position = 'relative';
-  hl.appendChild(pop);
+  const arrow = pop.querySelector('.ann-pop-arrow');
+  const margin = 8;
+  const hlRect = hl.getBoundingClientRect();
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
 
-  setTimeout(() => {
-    const hlRect = hl.getBoundingClientRect();
-    const popRect = pop.getBoundingClientRect();
-    const margin = 8;
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
+  // Measure popup size (temporarily off-screen)
+  pop.style.visibility = 'hidden';
+  pop.style.left = '0';
+  pop.style.top = '0';
 
-    let top = -popRect.height - 8;
-    if (hlRect.top + top < margin) top = hlRect.height + 8;
+  requestAnimationFrame(() => {
+    const pw = pop.offsetWidth;
+    const ph = pop.offsetHeight;
 
-    let left = -popRect.width / 2;
-    pop.style.transform = 'translateX(-50%)';
+    // Horizontal: center on highlight, clamp within viewport
+    let left = hlRect.left + hlRect.width / 2 - pw / 2;
+    left = Math.max(margin, Math.min(left, vw - pw - margin));
 
-    const popLeft = hlRect.left + left;
-    const popRight = popLeft + popRect.width;
-    if (popLeft < margin) {
-      left = margin - hlRect.left;
-      pop.style.transform = 'none';
-    } else if (popRight > vw - margin) {
-      left = vw - margin - hlRect.left - popRect.width;
-      pop.style.transform = 'none';
+    // Vertical: prefer above, fall back to below
+    const spaceAbove = hlRect.top;
+    const spaceBelow = vh - hlRect.bottom;
+    let top, arrowBelow;
+    if (spaceAbove >= ph + 12 || spaceAbove >= spaceBelow) {
+      top = hlRect.top - ph - 8;
+      arrowBelow = true;
+    } else {
+      top = hlRect.bottom + 8;
+      arrowBelow = false;
     }
+    top = Math.max(margin, Math.min(top, vh - ph - margin));
 
-    pop.style.top = top + 'px';
+    // Arrow horizontal position (points at highlight center)
+    const hlCenterX = hlRect.left + hlRect.width / 2;
+    const arrowLeft = Math.max(10, Math.min(hlCenterX - left - 5, pw - 20));
+    arrow.style.left = arrowLeft + 'px';
+    arrow.classList.add(arrowBelow ? 'arrow-down' : 'arrow-up');
+
     pop.style.left = left + 'px';
-  }, 0);
+    pop.style.top = top + 'px';
+    pop.style.visibility = '';
+  });
 });
 
 // ===== 图表页 =====
