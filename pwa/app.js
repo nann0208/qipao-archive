@@ -16,8 +16,8 @@ const IMP_LABELS = { 3: '⭐⭐⭐ 核心', 2: '⭐⭐ 参考', 1: '⭐ 备用' 
 let allRecords = [];
 let filtered = [];
 let keyword = '';
-let activeType = '';
-let activeTopic = '';
+let activeType = new Set();
+let activeTopic = new Set();
 let pageSize = 30;
 let shownCount = 0;
 
@@ -164,8 +164,9 @@ function renderDashboard() {
     if (!card) return;
     const type = card.dataset.type;
     if (!type) return;
-    activeType = type;
-    activeTopic = '';
+    activeType.clear();
+    activeType.add(type);
+    activeTopic.clear();
     switchPage('list');
     updateChipStates();
     applyFilters();
@@ -214,11 +215,12 @@ function renderFilterChips() {
 
     const filter = chip.dataset.filter;
     if (filter === 'all') {
-      activeType = ''; activeTopic = '';
+      activeType.clear(); activeTopic.clear();
       document.getElementById('topic-sub').classList.remove('open');
     } else if (filter === 'type') {
-      activeType = activeType === chip.dataset.val ? '' : chip.dataset.val;
-      activeTopic = '';
+      const val = chip.dataset.val;
+      if (activeType.has(val)) activeType.delete(val);
+      else activeType.add(val);
       document.getElementById('topic-sub').classList.remove('open');
     } else if (filter === 'topic-toggle') {
       document.getElementById('topic-sub').classList.toggle('open');
@@ -231,8 +233,9 @@ function renderFilterChips() {
   subDiv.addEventListener('click', e => {
     const chip = e.target.closest('.chip');
     if (!chip) return;
-    activeTopic = activeTopic === chip.dataset.val ? '' : chip.dataset.val;
-    activeType = '';
+    const val = chip.dataset.val;
+    if (activeTopic.has(val)) activeTopic.delete(val);
+    else activeTopic.add(val);
     updateChipStates();
     applyFilters();
   });
@@ -241,12 +244,12 @@ function renderFilterChips() {
 function updateChipStates() {
   document.querySelectorAll('#filter-chips .chip').forEach(c => {
     const f = c.dataset.filter;
-    if (f === 'all') c.classList.toggle('active', !activeType && !activeTopic);
-    else if (f === 'type') c.classList.toggle('active', activeType === c.dataset.val);
-    else if (f === 'topic-toggle') c.classList.toggle('active', !!activeTopic);
+    if (f === 'all') c.classList.toggle('active', activeType.size === 0 && activeTopic.size === 0);
+    else if (f === 'type') c.classList.toggle('active', activeType.has(c.dataset.val));
+    else if (f === 'topic-toggle') c.classList.toggle('active', activeTopic.size > 0);
   });
   document.querySelectorAll('#topic-sub .chip').forEach(c => {
-    c.classList.toggle('active', activeTopic === c.dataset.val);
+    c.classList.toggle('active', activeTopic.has(c.dataset.val));
   });
 }
 
@@ -275,8 +278,8 @@ function bindSearch() {
 function applyFilters() {
   let result = allRecords;
 
-  if (activeType) result = result.filter(r => r.type === activeType);
-  if (activeTopic) result = result.filter(r => (r.topics || []).includes(activeTopic));
+  if (activeType.size > 0) result = result.filter(r => activeType.has(r.type));
+  if (activeTopic.size > 0) result = result.filter(r => (r.topics || []).some(t => activeTopic.has(t)));
 
   if (keyword) {
     result = result.filter(r => {
