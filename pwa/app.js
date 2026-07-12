@@ -479,13 +479,32 @@ document.addEventListener('click', e => {
   hl.style.position = 'relative';
   hl.appendChild(pop);
 
-  const rect = pop.getBoundingClientRect();
-  if (rect.left < 8) pop.style.left = '0';
-  if (rect.right > window.innerWidth - 8) {
-    pop.style.left = 'auto';
-    pop.style.right = '0';
-    pop.style.transform = 'none';
-  }
+  setTimeout(() => {
+    const hlRect = hl.getBoundingClientRect();
+    const popRect = pop.getBoundingClientRect();
+    const margin = 8;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    let top = -popRect.height - 8;
+    if (hlRect.top + top < margin) top = hlRect.height + 8;
+
+    let left = -popRect.width / 2;
+    pop.style.transform = 'translateX(-50%)';
+
+    const popLeft = hlRect.left + left;
+    const popRight = popLeft + popRect.width;
+    if (popLeft < margin) {
+      left = margin - hlRect.left;
+      pop.style.transform = 'none';
+    } else if (popRight > vw - margin) {
+      left = vw - margin - hlRect.left - popRect.width;
+      pop.style.transform = 'none';
+    }
+
+    pop.style.top = top + 'px';
+    pop.style.left = left + 'px';
+  }, 0);
 });
 
 // ===== 图表页 =====
