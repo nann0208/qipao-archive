@@ -151,7 +151,7 @@ function renderDashboard() {
   const cardsHtml = Object.entries(byType)
     .sort((a, b) => b[1] - a[1])
     .map(([type, count]) => `
-      <div class="stat-card">
+      <div class="stat-card" data-type="${esc(type)}" style="cursor:pointer;">
         <div class="stat-card-icon">${TYPE_ICONS[type] || '📄'}</div>
         <div class="stat-card-num">${count}</div>
         <div class="stat-card-label">${type}</div>
@@ -159,6 +159,17 @@ function renderDashboard() {
     `).join('');
   document.getElementById('stat-cards').innerHTML = cardsHtml;
 
+  document.getElementById('stat-cards').addEventListener('click', e => {
+    const card = e.target.closest('.stat-card');
+    if (!card) return;
+    const type = card.dataset.type;
+    if (!type) return;
+    activeType = type;
+    activeTopic = '';
+    switchPage('list');
+    updateChipStates();
+    applyFilters();
+  });
 }
 
 // ===== 列表页 =====
