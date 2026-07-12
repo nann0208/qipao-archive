@@ -39,15 +39,16 @@ body {
 /* ===== 顶部栏 ===== */
 .top-bar {
   position: fixed; top: 0; left: 0; right: 0;
-  height: var(--top-height);
+  height: calc(var(--top-height) + env(safe-area-inset-top, 0px));
   background: var(--primary);
   color: #fff;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   padding: 0 16px;
-  z-index: 100;
   padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: 10px;
+  z-index: 100;
 }
 .top-title { font-size: 17px; font-weight: 600; letter-spacing: 1px; }
 .sync-status { font-size: 12px; opacity: 0.8; }
@@ -80,7 +81,7 @@ body {
 
 /* ===== 页面容器 ===== */
 .page-container {
-  padding-top: var(--top-height);
+  padding-top: calc(var(--top-height) + env(safe-area-inset-top, 0px));
   padding-bottom: calc(var(--tab-height) + var(--safe-bottom));
   min-height: 100vh;
 }
