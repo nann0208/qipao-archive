@@ -46,6 +46,8 @@ function initTabs() {
   });
 }
 
+let _detailScrollHandler = null;
+
 function switchPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -58,6 +60,20 @@ function switchPage(page) {
   document.getElementById('top-title').textContent = titles[page] || '海派旗袍史料库';
 
   window.scrollTo(0, 0);
+
+  const fab = document.getElementById('btn-back');
+  if (_detailScrollHandler) {
+    window.removeEventListener('scroll', _detailScrollHandler);
+    _detailScrollHandler = null;
+  }
+
+  if (page === 'detail') {
+    fab.classList.add('hidden');
+    _detailScrollHandler = () => {
+      fab.classList.toggle('hidden', window.scrollY < window.innerHeight);
+    };
+    window.addEventListener('scroll', _detailScrollHandler, { passive: true });
+  }
 
   if (page === 'charts' && allRecords.length > 0) renderCharts();
 }

@@ -367,6 +367,12 @@ body {
   align-items: center;
   justify-content: center;
   -webkit-tap-highlight-color: transparent;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+.btn-back-fab.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 .detail-content { padding-bottom: 30px; }
 .detail-header {
