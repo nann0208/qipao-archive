@@ -50,6 +50,7 @@
     <div class="filter-row" style="margin-bottom: 8px;">
       <span class="filter-label">类型</span>
       <div id="type-filters" style="display: contents;"></div>
+      <button id="btn-clear-all-filters" class="btn" title="清除所有筛选条件" style="margin-left: auto;">✕ 清除所有</button>
     </div>
     <div id="source-filter-row" class="filter-row" style="margin-bottom: 8px; display: none;">
       <span class="filter-label" id="source-filter-label">刊物名称</span>
@@ -82,8 +83,7 @@
         <option value="asc" selected>时间正序（早 → 晚）</option>
         <option value="desc">时间倒序（晚 → 早）</option>
       </select>
-      <button id="btn-clear-all-filters" class="btn-header" title="清除所有筛选条件" style="margin-left: auto; margin-right: 12px;">✕ 清除所有</button>
-      <div class="view-toggle">
+      <div class="view-toggle" style="margin-left: auto;">
         <button id="view-card" class="view-btn active" title="卡片视图">▦ 卡片</button>
         <button id="view-list" class="view-btn" title="列表视图">☰ 列表</button>
       </div>
