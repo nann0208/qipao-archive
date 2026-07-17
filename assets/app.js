@@ -56,6 +56,7 @@ function init() {
   // 视图切换按钮
   bindViewToggle();
   bindFilterCollapse();
+  bindClearAllFilters();
 
   render();
 
@@ -278,6 +279,49 @@ function bindFilterCollapse() {
     // 收起时更新 sticky 位置的 top 值
     updateFilterBarStickyOffset();
   });
+}
+
+function bindClearAllFilters() {
+  const btn = document.getElementById('btn-clear-all-filters');
+  if (!btn) return;
+  btn.addEventListener('click', clearAllFilters);
+}
+
+function clearAllFilters() {
+  // 清除所有筛选条件
+  currentTypeFilter = '';
+  currentTopicFilter = '';
+  currentImportance = '';
+  currentOpinionFilters = [];
+  currentFemaleFilter = '';
+  currentYears = [];
+  tempYears = [];
+  currentSources = [];
+  tempSources = [];
+  currentKeyword = '';
+  currentSort = 'asc';
+
+  // 重置 UI
+  document.getElementById('search-input').value = '';
+  document.getElementById('sort-select').value = 'asc';
+  updateSearchClearVisibility();
+
+  // 清除 sessionStorage 状态
+  sessionStorage.removeItem('kw');
+  sessionStorage.removeItem('typeFilter');
+  sessionStorage.removeItem('topicFilter');
+  sessionStorage.removeItem('importance');
+  sessionStorage.removeItem('years');
+  sessionStorage.removeItem('sources');
+  sessionStorage.removeItem('opinionFilters');
+  sessionStorage.removeItem('femaleFilter');
+  sessionStorage.removeItem('sort');
+
+  // 重新渲染
+  renderFilters();
+  updateYearFilterDisplay();
+  updateSourceFilterDisplay();
+  render();
 }
 
 // 筛选栏高度变化后，更新下方组件的 sticky top（如列表表头）
