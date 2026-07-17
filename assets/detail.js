@@ -67,7 +67,7 @@ function buildRelatedSection(r) {
 
   return `
     <div class="detail-section">
-      <div class="detail-label">关联史料 (${all_links.length})</div>
+      <div class="detail-label">相关史料 (${all_links.length})</div>
       <div class="related-detail-list">${cards}</div>
     </div>`;
 }
@@ -173,7 +173,7 @@ function renderDetail() {
     </div>` : ''}
 
     <div class="detail-section">
-      <div class="detail-label">关联原文档案 (${docPaths.length})</div>
+      <div class="detail-label">原始文件 (${docPaths.length})</div>
       ${docPaths.length > 0 ? `<div class="file-list" id="file-list">${fileList}</div>` : '<div style="font-size: 12px; color: var(--color-text-muted);">尚未关联文档</div>'}
     </div>
 
@@ -249,7 +249,7 @@ function renderPreview(index) {
     preview.innerHTML = `
       <div class="preview-empty">
         <div style="font-size: 36px; margin-bottom: 12px;">📭</div>
-        <div>暂无关联原文档案</div>
+        <div>暂无原始文件</div>
         <div style="font-size: 12px; margin-top: 8px;">可在编辑页面手动添加文件路径</div>
       </div>
     `;

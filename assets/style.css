@@ -356,7 +356,7 @@ body {
   color: var(--color-text-muted);
 }
 
-/* ── 关联史料（表单）── */
+/* ── 相关史料（表单）── */
 .related-search-wrapper {
   position: relative;
 }
@@ -446,7 +446,7 @@ body {
 }
 .related-remove-btn:hover { color: var(--color-accent); }
 
-/* ── 关联史料（详情页）── */
+/* ── 相关史料（详情页）── */
 .related-detail-list {
   display: flex;
   flex-direction: column;

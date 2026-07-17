@@ -116,7 +116,7 @@ function fillForm(r) {
   document.getElementById('field-custom-keywords').value = '';
   document.getElementById('field-female-authored').checked = !!r.female_authored;
 
-  // 关联史料
+  // 相关史料
   relatedRecords = (r.related_records || []).map(item =>
     typeof item === 'string' ? { id: item, relation: '' } : { id: item.id || '', relation: item.relation || '' }
   ).filter(item => item.id);
@@ -320,7 +320,7 @@ function submit() {
   }
 
   const recordType = document.getElementById('field-type').value;
-  // 收集关联史料（同步最新的 relation 输入值）
+  // 收集相关史料（同步最新的 relation 输入值）
   const relatedInputs = document.querySelectorAll('#related-list .related-record-item');
   relatedInputs.forEach(item => {
     const id = item.dataset.id;
@@ -456,7 +456,7 @@ async function extractDocxFile() {
   }
 }
 
-// ── 关联史料 ──
+// ── 相关史料 ──
 
 function renderRelatedList() {
   const list = document.getElementById('related-list');
