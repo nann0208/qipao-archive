@@ -44,6 +44,12 @@ function initTabs() {
   document.getElementById('btn-back').addEventListener('click', () => {
     switchPage('list');
   });
+
+  document.getElementById('detail-content').addEventListener('click', e => {
+    const item = e.target.closest('.related-item');
+    if (!item) return;
+    showDetail(item.dataset.id);
+  });
 }
 
 let _detailScrollHandler = null;
@@ -405,6 +411,9 @@ function showDetail(id) {
   if (r.keywords && r.keywords.length > 0) {
     sections.push(makeSection('关键词', r.keywords.join('、')));
   }
+  if (r.related_records && r.related_records.length > 0) {
+    sections.push(makeRelatedSection(r.related_records));
+  }
   if (r.document_paths && r.document_paths.length > 0) {
     const paths = r.document_paths.map(p => `· ${p.split('/').pop()}`).join('\n');
     sections.push(makeSection('关联文档', paths));
@@ -466,6 +475,30 @@ function makeAnnotatedSection(title, text, annotations) {
     <div class="detail-section">
       <div class="detail-section-title">${esc(title)}</div>
       <div class="detail-section-body ann-body" data-notes='${JSON.stringify(notesData).replace(/'/g, "&#39;")}'>${html}</div>
+    </div>`;
+}
+
+function makeRelatedSection(relatedRecords) {
+  const items = relatedRecords.map(rel => {
+    const linked = allRecords.find(x => x.shiliao_id === rel.id);
+    if (!linked) return '';
+    const label = rel.relation ? `<span class="related-tag">${esc(rel.relation)}</span>` : '';
+    return `
+      <div class="related-item" data-id="${esc(rel.id)}">
+        <div class="related-item-main">
+          <div class="related-item-title">${esc(linked.title || rel.id)}</div>
+          <div class="related-item-meta">${esc(linked.time || '')}${linked.source ? ' · ' + esc(linked.source) : ''}</div>
+        </div>
+        ${label}
+      </div>`;
+  }).filter(Boolean).join('');
+
+  if (!items) return '';
+
+  return `
+    <div class="detail-section">
+      <div class="detail-section-title">相关史料</div>
+      <div class="related-list">${items}</div>
     </div>`;
 }
 

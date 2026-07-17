@@ -421,6 +421,49 @@ body {
 /* 重要程度星星 */
 .importance-stars { color: #D4A017; }
 
+/* 相关史料 */
+.related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.related-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.related-item:last-child { border-bottom: none; }
+.related-item:active { opacity: 0.6; }
+.related-item-main { flex: 1; min-width: 0; }
+.related-item-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.related-item-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.related-tag {
+  flex-shrink: 0;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(139,44,60,0.1);
+  color: var(--primary);
+  white-space: nowrap;
+}
+
 /* ===== 图表 ===== */
 .chart-section {
   background: var(--bg-card);
