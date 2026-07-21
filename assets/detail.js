@@ -462,6 +462,7 @@ function renderDocxPanel(record) {
   return `
     <div class="docx-panel">
       <div class="docx-text-pane" id="docx-text-pane">${textHtml}</div>
+      <div class="resize-handle-inner" id="resize-handle-annot"></div>
       <div class="docx-annot-pane">
         <div class="docx-annot-header">📝 批注 <span style="color:#aaa;">(${annotations.length})</span></div>
         <div class="docx-annot-list" id="docx-annot-list">
@@ -880,4 +881,65 @@ function fallbackCopy(text, done) {
   document.body.removeChild(ta);
 }
 
-document.addEventListener('DOMContentLoaded', init);
+// ── 可拖拽分栏调节 ──
+
+function initResizeHandles() {
+  // 主分栏：detail-info | detail-preview
+  const mainHandle = document.getElementById('resize-handle-main');
+  const infoPane = document.querySelector('.detail-info');
+  if (mainHandle && infoPane) {
+    initResize(mainHandle, infoPane, 'left');
+  }
+
+  // 内部分栏：docx-text-pane | docx-annot-pane（批注面板从右侧拖）
+  const annotHandle = document.getElementById('resize-handle-annot');
+  const annotPane = document.querySelector('.docx-annot-pane');
+  if (annotHandle && annotPane) {
+    initResize(annotHandle, annotPane, 'right');
+  }
+}
+
+function initResize(handle, pane, side) {
+  let startX, startWidth;
+
+  handle.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    startX = e.clientX;
+    startWidth = pane.getBoundingClientRect().width;
+    handle.classList.add('active');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+
+    const onMove = (e) => {
+      const dx = e.clientX - startX;
+      const newWidth = side === 'left' ? startWidth + dx : startWidth - dx;
+      const minW = parseInt(getComputedStyle(pane).minWidth) || 150;
+      const maxW = parseInt(getComputedStyle(pane).maxWidth) || window.innerWidth * 0.7;
+      pane.style.width = Math.max(minW, Math.min(maxW, newWidth)) + 'px';
+    };
+
+    const onUp = () => {
+      handle.classList.remove('active');
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    };
+
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+  setTimeout(initResizeHandles, 100);
+
+  // 监听预览区域变化，自动绑定内部批注分栏拖拽
+  const previewArea = document.getElementById('preview-area');
+  if (previewArea) {
+    new MutationObserver(() => {
+      setTimeout(initResizeHandles, 50);
+    }).observe(previewArea, { childList: true });
+  }
+});
