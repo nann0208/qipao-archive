@@ -1,6 +1,6 @@
 // 民国海派旗袍史料库 - 数据
-// 导出时间: 2026/7/21 20:42:57
-// 共 266 条记录（含本地新增 7 / 修改 0 / 删除 0）
+// 导出时间: 2026/7/21 23:17:04
+// 共 266 条记录（含本地新增 0 / 修改 16 / 删除 0）
 //
 // 【使用方法】将本文件移入 data\ 文件夹，覆盖原 data.js，
 // 然后在网站上点击"重置本地缓存"按钮即可。
@@ -13299,7 +13299,8 @@ window.INITIAL_DATA = [
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "消费生活",
+      "国货展览会"
     ],
     "source": "",
     "title": "上海县第一次国货展览会章程",
@@ -13327,7 +13328,7 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-250",
     "created_at": "2026-07-08T14:13:32.644Z",
-    "updated_at": "2026-07-11T02:55:48.844Z",
+    "updated_at": "2026-07-21T15:10:31.241Z",
     "annotations": [
       {
         "id": "ann_1783520040363_b5s3cb",
@@ -13399,7 +13400,8 @@ window.INITIAL_DATA = [
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "轻工业业态",
+      "国货展览会"
     ],
     "source": "中央工商部",
     "title": "工商部国货陈列馆国产丝绸展览会章程、配套展品征集规则",
@@ -13428,7 +13430,7 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-251",
     "created_at": "2026-07-08T14:26:02.010Z",
-    "updated_at": "2026-07-08T14:28:01.933Z",
+    "updated_at": "2026-07-21T15:11:05.999Z",
     "annotations": [
       {
         "id": "ann_1783520809607_u0covk",
@@ -13974,7 +13976,8 @@ window.INITIAL_DATA = [
     "type": "专著",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "轻工业业态",
+      "国货展览会"
     ],
     "source": "中华国货展览会纪念特刊",
     "title": "胜德制造厂",
@@ -14002,7 +14005,7 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-259",
     "created_at": "2026-07-10T15:42:56.382Z",
-    "updated_at": "2026-07-10T15:44:30.532Z",
+    "updated_at": "2026-07-21T15:15:04.740Z",
     "annotations": [
       {
         "id": "ann_1783698191097_uium0o",
@@ -14194,7 +14197,7 @@ window.INITIAL_DATA = [
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "轻工业业态"
+      "国货展览会"
     ],
     "source": "",
     "title": "上海市商会商品陈列所商品征集规则",
@@ -14217,7 +14220,7 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-262",
     "created_at": "2026-07-11T02:58:49.067Z",
-    "updated_at": "2026-07-11T03:00:33.375Z",
+    "updated_at": "2026-07-21T15:10:16.060Z",
     "annotations": [
       {
         "id": "ann_1783738755763_8qlmef",
@@ -14647,8 +14650,8 @@ window.INITIAL_DATA = [
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "消费生活",
-      "轻工业业态"
+      "轻工业业态",
+      "国货展览会"
     ],
     "source": "",
     "title": "工商部中华国货展览会实录",
@@ -14676,13 +14679,13 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-268",
     "created_at": "2026-07-17T07:24:37.586Z",
-    "updated_at": "2026-07-17T07:24:55.021Z"
+    "updated_at": "2026-07-21T15:09:39.763Z"
   },
   {
     "type": "专著",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "国货展览会"
     ],
     "source": "国货展览会鸟瞰",
     "title": "国货展览会会址略图、国货展览会会场层",
@@ -14716,13 +14719,13 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-269",
     "created_at": "2026-07-17T08:01:44.647Z",
-    "updated_at": "2026-07-17T08:15:53.215Z"
+    "updated_at": "2026-07-21T15:14:09.553Z"
   },
   {
     "type": "图像",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "国货展览会"
     ],
     "source": "国货展览会鸟瞰",
     "title": "上海特别市政府国货展览会陈列室照片",
@@ -14745,14 +14748,15 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-270",
     "created_at": "2026-07-17T08:14:02.667Z",
-    "updated_at": "2026-07-17T09:18:33.629Z"
+    "updated_at": "2026-07-21T15:12:39.725Z"
   },
   {
     "type": "图像",
     "opinion_types": [],
     "topics": [
       "性别议题",
-      "消费生活"
+      "消费生活",
+      "国货展览会"
     ],
     "source": "国货展览会鸟瞰",
     "title": "提倡国货-立在一条战线上",
@@ -14781,13 +14785,14 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-271",
     "created_at": "2026-07-17T08:21:46.684Z",
-    "updated_at": "2026-07-17T08:21:46.684Z"
+    "updated_at": "2026-07-21T15:13:25.508Z"
   },
   {
     "type": "专著",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "消费生活",
+      "国货展览会"
     ],
     "source": "国货展览会鸟瞰",
     "title": "中华国货展览会鸟瞰",
@@ -14824,7 +14829,7 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-272",
     "created_at": "2026-07-17T08:37:51.881Z",
-    "updated_at": "2026-07-17T08:44:21.276Z",
+    "updated_at": "2026-07-21T15:14:27.523Z",
     "annotations": [
       {
         "id": "ann_1784277528280_34kbkf",
@@ -14928,7 +14933,8 @@ window.INITIAL_DATA = [
     "type": "专著",
     "opinion_types": [],
     "topics": [
-      "轻工业业态"
+      "轻工业业态",
+      "国货展览会"
     ],
     "source": "国货展览会鸟瞰",
     "title": "陈列品一览：第六类、纺织工业品；浙江之部",
@@ -14955,13 +14961,13 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-273",
     "created_at": "2026-07-17T09:07:47.522Z",
-    "updated_at": "2026-07-17T09:07:47.522Z"
+    "updated_at": "2026-07-21T15:13:48.739Z"
   },
   {
     "type": "图像",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "国货展览会"
     ],
     "source": "Y009-001-00366",
     "title": "中华国货展览会市政模型陈列、丝织品陈列",
@@ -14983,14 +14989,14 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-274",
     "created_at": "2026-07-21T03:19:42.337Z",
-    "updated_at": "2026-07-21T03:19:42.337Z"
+    "updated_at": "2026-07-21T15:12:06.678Z"
   },
   {
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "消费生活",
-      "轻工业业态"
+      "轻工业业态",
+      "国货展览会"
     ],
     "source": "",
     "title": "工商部中华国货展览会实录-各省展品表格",
@@ -15027,13 +15033,13 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-275",
     "created_at": "2026-07-21T03:51:04.024Z",
-    "updated_at": "2026-07-21T03:51:26.598Z"
+    "updated_at": "2026-07-21T15:08:11.618Z"
   },
   {
     "type": "图像",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "国货展览会"
     ],
     "source": "Y009-001-00366",
     "title": "国货参展奖状",
@@ -15055,13 +15061,13 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-276",
     "created_at": "2026-07-21T03:59:27.871Z",
-    "updated_at": "2026-07-21T03:59:27.871Z"
+    "updated_at": "2026-07-21T15:15:40.658Z"
   },
   {
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "国货展览会"
     ],
     "source": "",
     "title": "工商部中华国货展览会实录-参展人数统计",
@@ -15101,13 +15107,13 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-277",
     "created_at": "2026-07-21T08:10:44.186Z",
-    "updated_at": "2026-07-21T08:10:44.186Z"
+    "updated_at": "2026-07-21T15:07:40.730Z"
   },
   {
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "国货展览会"
     ],
     "source": "",
     "title": "工商部中华国货展览会实录-部分展品表格",
@@ -15154,13 +15160,13 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-278",
     "created_at": "2026-07-21T08:29:59.402Z",
-    "updated_at": "2026-07-21T08:29:59.402Z"
+    "updated_at": "2026-07-21T15:07:58.967Z"
   },
   {
     "type": "档案文件",
     "opinion_types": [],
     "topics": [
-      "消费生活"
+      "国货展览会"
     ],
     "source": "",
     "title": "国民政府工商部中华国货展览会实录-国民政府工商部中华国货展览会出品说明书",
@@ -15205,7 +15211,7 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-279",
     "created_at": "2026-07-21T08:46:00.689Z",
-    "updated_at": "2026-07-21T08:46:00.689Z"
+    "updated_at": "2026-07-21T15:09:13.219Z"
   },
   {
     "type": "档案文件",
