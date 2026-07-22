@@ -226,9 +226,10 @@ function renderFilterChips() {
   const subDiv = document.createElement('div');
   subDiv.className = 'filter-sub';
   subDiv.id = 'topic-sub';
-  subDiv.innerHTML = topics.map(t =>
-    `<span class="chip" data-filter="topic" data-val="${esc(t)}" style="border-color:${TOPIC_COLORS[t] || '#888'}">${esc(t)}</span>`
-  ).join('');
+  subDiv.innerHTML = topics.map(t => {
+    const color = TOPIC_COLORS[t] || '#888';
+    return `<span class="chip" data-filter="topic" data-val="${esc(t)}" data-color="${color}" style="border-color:${color}">${esc(t)}</span>`;
+  }).join('');
   container.parentNode.insertBefore(subDiv, container.nextSibling);
 
   // 事件绑定
@@ -272,7 +273,12 @@ function updateChipStates() {
     else if (f === 'topic-toggle') c.classList.toggle('active', activeTopic.size > 0);
   });
   document.querySelectorAll('#topic-sub .chip').forEach(c => {
-    c.classList.toggle('active', activeTopic.has(c.dataset.val));
+    const isActive = activeTopic.has(c.dataset.val);
+    c.classList.toggle('active', isActive);
+    const color = c.dataset.color || '#888';
+    c.style.borderColor = color;
+    c.style.backgroundColor = isActive ? color : '';
+    c.style.color = isActive ? '#fff' : '';
   });
 }
 
