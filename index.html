@@ -64,25 +64,29 @@
       <span class="filter-label">议题</span>
       <div id="topic-filters" style="display: contents;"></div>
     </div>
-    <div class="filter-row" style="margin-bottom: 8px;">
-      <span class="filter-label">重要程度</span>
-      <div id="importance-filters" style="display: contents;"></div>
+    <div class="filter-row filter-row-paired" style="margin-bottom: 8px;">
+      <div class="filter-pair">
+        <span class="filter-label">女性署名</span>
+        <div id="female-filter" style="display: contents;"></div>
+      </div>
+      <div class="filter-pair">
+        <span class="filter-label">重要程度</span>
+        <div id="importance-filters" style="display: contents;"></div>
+      </div>
     </div>
-    <div class="filter-row" style="margin-bottom: 8px;">
-      <span class="filter-label">女性署名</span>
-      <div id="female-filter" style="display: contents;"></div>
-    </div>
-    <div class="filter-row" style="margin-bottom: 8px;">
-      <span class="filter-label">年度</span>
-      <button id="btn-year-filter" class="btn-year">筛选年份<span id="year-count" class="year-count"></span></button>
-    </div>
-    <div class="filter-row">
-      <span class="filter-label">排序</span>
-      <select id="sort-select" class="sort-select">
-        <option value="">默认顺序</option>
-        <option value="asc" selected>时间正序（早 → 晚）</option>
-        <option value="desc">时间倒序（晚 → 早）</option>
-      </select>
+    <div class="filter-row filter-row-paired">
+      <div class="filter-pair">
+        <span class="filter-label">年度</span>
+        <button id="btn-year-filter" class="btn-year">筛选年份<span id="year-count" class="year-count"></span></button>
+      </div>
+      <div class="filter-pair">
+        <span class="filter-label">排序</span>
+        <select id="sort-select" class="sort-select">
+          <option value="">默认顺序</option>
+          <option value="asc" selected>时间正序（早 → 晚）</option>
+          <option value="desc">时间倒序（晚 → 早）</option>
+        </select>
+      </div>
       <div class="view-toggle" style="margin-left: auto;">
         <button id="view-card" class="view-btn active" title="卡片视图">▦ 卡片</button>
         <button id="view-list" class="view-btn" title="列表视图">☰ 列表</button>

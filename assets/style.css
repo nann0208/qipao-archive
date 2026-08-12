@@ -189,6 +189,18 @@ body {
   gap: 8px 12px;
 }
 
+/* 将关联性较高的筛选项放在同一行，减少工具栏高度。 */
+.filter-row-paired {
+  gap: 8px 28px;
+}
+
+.filter-pair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
 .filter-label {
   font-size: 13px;
   color: var(--color-text-soft);
