@@ -80,8 +80,11 @@ function applyReadOnlyMode() {
   });
   // 隐藏"添加史料"链接（按 href 匹配）
   document.querySelectorAll('a[href="add.html"]').forEach(el => el.style.display = 'none');
-  // 隐藏 尚未完善 区块的编辑链接
-  document.querySelectorAll('.incomplete-edit-link').forEach(el => el.style.display = 'none');
+  // 「尚未完善史料」是本地整理提醒，公开网页端不展示。
+  ['incomplete-section', 'jump-to-incomplete'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
   // 版权声明小字（只在只读模式显示）
   const footer = document.getElementById('public-footer');
   if (footer) footer.style.display = 'block';
