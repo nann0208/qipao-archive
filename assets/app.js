@@ -47,6 +47,7 @@ function init() {
   updateSourceFilterDisplay();
   updateSourceFilterVisibility();
   updateOpinionFilterVisibility();
+  updateFemaleFilterVisibility();
 
   // 恢复搜索框和排序下拉框
   if (currentKeyword) document.getElementById('search-input').value = currentKeyword;
@@ -489,13 +490,27 @@ function setTypeFilter(type) {
     if (type !== '报刊文章') {
       currentOpinionFilters = [];
     }
+    // 女性署名只适用于报刊文章和文学作品；切换到其他类型时同步清除该筛选。
+    if (type !== '报刊文章' && type !== '文学作品') {
+      currentFemaleFilter = '';
+    }
   }
   currentTypeFilter = type;
   resetPage();
   updateSourceFilterVisibility();
   updateOpinionFilterVisibility();
   renderFilters();
+  updateFemaleFilterVisibility();
   render();
+}
+
+// 女性署名筛选仅对报刊文章、文学作品有意义。
+function updateFemaleFilterVisibility() {
+  const pair = document.getElementById('female-filter-pair');
+  if (!pair) return;
+  const supported = currentTypeFilter === '报刊文章' || currentTypeFilter === '文学作品';
+  pair.style.display = supported ? '' : 'none';
+  if (!supported) currentFemaleFilter = '';
 }
 
 // 舆论类型筛选行的显隐控制（仅「报刊文章」时显示）
