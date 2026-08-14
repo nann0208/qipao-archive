@@ -1,0 +1,5 @@
+# 本机豆包配置与 Python 运行环境（绝不上传密钥）
+ai_service/.env
+ai_service/.venv/
+ai_service/__pycache__/
+

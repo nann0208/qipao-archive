@@ -1274,6 +1274,44 @@ body {
   border-top: 1px solid var(--color-border);
 }
 
+/* 本机豆包 AI 分析 */
+.ai-analysis-group {
+  padding: 16px;
+  border: 1px dashed var(--color-accent-soft);
+  border-radius: 8px;
+  background: #FFF9F5;
+}
+
+.ai-analysis-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-analysis-controls .form-input { flex: 1; }
+.ai-analyze-btn { white-space: nowrap; }
+.ai-analyze-btn:disabled { cursor: wait; opacity: 0.65; }
+
+.ai-analysis-status {
+  display: none;
+  margin-top: 10px;
+  padding: 9px 11px;
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ai-analysis-status.loading,
+.ai-analysis-status.success,
+.ai-analysis-status.error { display: block; }
+.ai-analysis-status.loading { background: #FFF3D9; color: #76551D; }
+.ai-analysis-status.success { background: #EEF8F0; color: #2F6A3C; }
+.ai-analysis-status.error { background: #FFF0EF; color: #A4443D; }
+
+@media (max-width: 600px) {
+  .ai-analysis-controls { align-items: stretch; flex-direction: column; }
+}
+
 /* 提示 toast */
 .toast {
   position: fixed;

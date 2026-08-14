@@ -133,6 +133,16 @@
       <div class="form-help">选择本地 .docx 文件，点击「提取文字」按钮自动提取内容。可直接编辑修改</div>
     </div>
 
+    <div class="form-group ai-analysis-group">
+      <label class="form-label">✨ 豆包 AI 识别与分析（本地服务）</label>
+      <div class="ai-analysis-controls">
+        <input id="ai-image-input" type="file" accept="image/jpeg,image/png,image/webp" class="form-input" />
+        <button id="btn-ai-analyze" type="button" class="btn ai-analyze-btn">✨ 识别并回填</button>
+      </div>
+      <div id="ai-analysis-status" class="ai-analysis-status" aria-live="polite"></div>
+      <div class="form-help">上传报纸截图、扫描页或史料图片（JPG、PNG、WebP，最大 15MB）。AI 默认只填入空白字段；识别结果请务必人工核对。</div>
+    </div>
+
     <div class="form-group">
       <label class="form-label">相关史料</label>
       <div class="related-search-wrapper">

@@ -13,6 +13,11 @@ function init() {
   const params = new URLSearchParams(location.search);
   editingId = params.get('id');
 
+  // AI 中间服务只在本机运行，公开网页端不显示该入口。
+  const isLocalSite = location.hostname.includes('localhost') || location.hostname.includes('127.0.0.1');
+  const aiGroup = document.querySelector('.ai-analysis-group');
+  if (aiGroup && !isLocalSite) aiGroup.style.display = 'none';
+
   if (editingId) {
     const r = getRecord(editingId);
     if (r) {
@@ -162,6 +167,9 @@ function bindEvents() {
   // Word 文件提取按钮
   document.getElementById('btn-extract-docx').addEventListener('click', extractDocxFile);
 
+  const aiAnalyzeButton = document.getElementById('btn-ai-analyze');
+  if (aiAnalyzeButton) aiAnalyzeButton.addEventListener('click', analyzeWithAI);
+
   // 类型变化时，重新填充来源下拉 + 切换档案馆字段显隐 + 切换舆论类型字段显隐
   const typeSelect = document.getElementById('field-type');
   typeSelect.addEventListener('change', () => {
@@ -195,6 +203,78 @@ function bindEvents() {
   populateArchiveHolderSelect();
   updateArchiveHolderVisibility();
   updateOpinionTypeVisibility();
+}
+
+async function analyzeWithAI() {
+  const input = document.getElementById('ai-image-input');
+  const button = document.getElementById('btn-ai-analyze');
+  const file = input && input.files[0];
+
+  if (!file) {
+    setAIStatus('请先选择一张报纸截图或扫描图片。', 'error');
+    return;
+  }
+  if (file.size > 15 * 1024 * 1024) {
+    setAIStatus('图片超过 15MB，请压缩后再试。', 'error');
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+  button.disabled = true;
+  button.textContent = '⏳ AI 分析中…';
+  setAIStatus('正在识别图片并整理史料信息，请稍候…', 'loading');
+
+  try {
+    const response = await fetch('http://127.0.0.1:8765/analyze', {
+      method: 'POST',
+      body: formData
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.detail || 'AI 服务暂时无法使用。');
+
+    const filled = applyAIResult(payload);
+    setAIStatus(`AI 分析完成，已回填 ${filled} 个空白字段。请人工核对后再保存。`, 'success');
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'AI 分析失败，请稍后重试。';
+    setAIStatus(`${message} 请确认「启动AI服务.bat」已运行且 .env 已配置。`, 'error');
+  } finally {
+    button.disabled = false;
+    button.textContent = '✨ 识别并回填';
+  }
+}
+
+function applyAIResult(result) {
+  const fieldMap = {
+    title: 'field-title', source: 'field-source', author: 'field-author',
+    time: 'field-time', version_info: 'field-version', transcription: 'field-docx-preview',
+    core_content: 'field-core', research_analysis: 'field-analysis'
+  };
+  let count = 0;
+
+  Object.entries(fieldMap).forEach(([key, id]) => {
+    const field = document.getElementById(id);
+    const value = typeof result[key] === 'string' ? result[key].trim() : '';
+    if (field && value && !field.value.trim()) {
+      field.value = value;
+      count += 1;
+    }
+  });
+
+  const keywordField = document.getElementById('field-custom-keywords');
+  const keywords = Array.isArray(result.keywords) ? result.keywords.filter(Boolean) : [];
+  if (keywordField && keywords.length && !keywordField.value.trim()) {
+    keywordField.value = keywords.join(', ');
+    count += 1;
+  }
+  return count;
+}
+
+function setAIStatus(message, kind) {
+  const status = document.getElementById('ai-analysis-status');
+  if (!status) return;
+  status.textContent = message;
+  status.className = `ai-analysis-status ${kind || ''}`;
 }
 
 function updateOpinionTypeVisibility() {
