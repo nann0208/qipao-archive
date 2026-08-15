@@ -135,12 +135,12 @@ function updateUnsavedBanner() {
     banner.innerHTML = `
       <span class="unsaved-icon">✔</span>
       <span class="unsaved-text">
-        <strong>已经安全导出，快去归档 data！</strong>
+        <strong>${isLocalSite() ? '已经直接替换 data.js！' : '已经安全导出，快去归档 data！'}</strong>
         &nbsp;·&nbsp;
         共 <strong>${unsaved}</strong> 条本地数据
       </span>
       <button id="banner-export-btn" class="banner-btn">⬇ 再次导出</button>
-      <span class="unsaved-tip">（请把下载的 data.js 移到 shiliao_website/data/ 覆盖原文件）</span>
+      <span class="unsaved-tip">${isLocalSite() ? '（数据已写入本地 data.js）' : '（请把下载的 data.js 移到 shiliao_website/data/ 覆盖原文件）'}</span>
     `;
   } else {
     // ⚠️ 黄色（或红色）：未导出警告
@@ -163,11 +163,30 @@ function updateUnsavedBanner() {
   // 因为 innerHTML 重写了，需要重新绑定按钮
   const exportBtn = document.getElementById('banner-export-btn');
   if (exportBtn) {
-    exportBtn.addEventListener('click', () => {
-      exportData();
-      updateUnsavedBanner();
-      showToast('✓ 已下载 data.js！请把它放到 data/ 文件夹覆盖原文件');
+    exportBtn.addEventListener('click', async () => {
+      const success = await exportCurrentData();
+      if (success) updateUnsavedBanner();
     });
+  }
+}
+
+function isLocalSite() {
+  return location.hostname.includes('localhost') || location.hostname.includes('127.0.0.1');
+}
+
+async function exportCurrentData() {
+  if (!isLocalSite()) {
+    exportData();
+    showToast('✓ 已下载 data.js');
+    return true;
+  }
+  try {
+    const result = await replaceDataFileLocally();
+    showToast(`✓ 已直接替换 data.js（${result.count} 条记录）`);
+    return true;
+  } catch (error) {
+    showToast(`✗ 直接替换失败：${error.message}。请先启动 AI 服务，或使用下载备份。`);
+    return false;
   }
 }
 
@@ -881,9 +900,11 @@ function bindEvents() {
       if (stats.localNew + stats.localModified + stats.localDeleted === 0) {
         if (!confirm('当前没有未保存的本地修改，确定要导出吗？')) return;
       }
-      if (confirm(`将下载 data.js 文件（包含 ${stats.total} 条记录）。\n\n下载后操作步骤：\n1. 将下载的 data.js 文件移到 shiliao_website\\data\\ 文件夹\n2. 替换原有的 data.js 文件\n3. 刷新本网站\n\n是否继续？`)) {
-        exportData();
-        showToast('已导出 data.js，请按提示替换文件');
+      const message = isLocalSite()
+        ? `将把当前 ${stats.total} 条记录直接写入 shiliao_website\\data\\data.js。\n\n原文件会被替换，建议确认数据无误后继续。\n\n是否继续？`
+        : `将下载 data.js 文件（包含 ${stats.total} 条记录）。\n\n下载后请将文件移到 shiliao_website\\data\\ 文件夹替换原文件。\n\n是否继续？`;
+      if (confirm(message)) {
+        exportCurrentData();
       }
     });
   }

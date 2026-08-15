@@ -1292,6 +1292,105 @@ body {
 .ai-analyze-btn { white-space: nowrap; }
 .ai-analyze-btn:disabled { cursor: wait; opacity: 0.65; }
 
+.ai-paste-zone {
+  padding: 10px;
+  border: 1px dashed #D9B5A9;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.66);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.ai-paste-zone:focus,
+.ai-paste-zone:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(139, 44, 60, 0.1);
+}
+
+.ai-paste-zone.has-image { background: #FFFDFB; }
+
+.ai-paste-hint {
+  margin-top: 9px;
+  color: #786E67;
+  font-size: 13px;
+  text-align: center;
+}
+
+.ai-paste-hint kbd {
+  display: inline-block;
+  min-width: 24px;
+  padding: 1px 5px;
+  border: 1px solid #CFC5BD;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: #FFF;
+  color: #4E4843;
+  font: inherit;
+  line-height: 1.4;
+}
+
+.ai-image-preview-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #EEE2DB;
+}
+
+.ai-image-preview-list[hidden] { display: none; }
+.ai-image-preview-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 7px 32px 7px 7px;
+  border: 1px solid #E8DDD6;
+  border-radius: 5px;
+  background: #FFF;
+}
+.ai-image-preview-item img {
+  width: 72px;
+  height: 52px;
+  border: 1px solid #DED4CD;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.ai-image-meta { min-width: 0; }
+.ai-image-meta strong,
+.ai-image-meta span { display: block; }
+.ai-image-meta strong { overflow: hidden; color: #4E4843; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.ai-image-meta span { margin-top: 2px; color: #8A817A; font-size: 12px; }
+.ai-image-order {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  min-width: 19px;
+  padding: 1px 4px;
+  border-radius: 10px;
+  background: var(--color-accent);
+  color: #FFF;
+  font-size: 11px;
+  text-align: center;
+}
+.ai-image-remove {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #F7ECE9;
+  color: #984B43;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 21px;
+}
+.ai-image-remove:hover { background: #EED7D2; }
+
 .ai-analysis-status {
   display: none;
   margin-top: 10px;
@@ -1307,6 +1406,54 @@ body {
 .ai-analysis-status.loading { background: #FFF3D9; color: #76551D; }
 .ai-analysis-status.success { background: #EEF8F0; color: #2F6A3C; }
 .ai-analysis-status.error { background: #FFF0EF; color: #A4443D; }
+
+.filename-generator {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px 10px;
+  margin: -4px 0 20px;
+  padding: 10px;
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.45);
+}
+.filename-generate-btn { white-space: nowrap; }
+.filename-copy-status {
+  grid-column: 2;
+  min-height: 17px;
+  font-size: 12px;
+}
+.filename-copy-status.success { color: #2F6A3C; }
+.filename-copy-status.error { color: #A4443D; }
+
+@media (max-width: 700px) {
+  .filename-generator { grid-template-columns: 1fr; }
+  .filename-copy-status { grid-column: 1; }
+}
+
+.ai-highlight-suggestions {
+  margin-top: 10px;
+  padding: 11px;
+  border: 1px solid #E6D6A8;
+  border-radius: 6px;
+  background: #FFFCF2;
+}
+.ai-highlight-suggestions[hidden] { display: none; }
+.ai-highlight-header { margin-bottom: 8px; }
+.ai-highlight-header strong { display: block; color: #6C5515; font-size: 14px; }
+.ai-highlight-header span { display: block; margin-top: 3px; color: #83775F; font-size: 12px; }
+.ai-highlight-item {
+  display: flex;
+  gap: 9px;
+  padding: 9px 4px;
+  border-top: 1px solid #EEE4C9;
+  cursor: pointer;
+}
+.ai-highlight-item input { flex: 0 0 auto; width: 16px; height: 16px; margin-top: 3px; accent-color: #A47717; }
+.ai-highlight-quote { color: #403B32; font-size: 13px; font-weight: 600; line-height: 1.55; }
+.ai-highlight-note { margin-top: 3px; color: #756B59; font-size: 12px; line-height: 1.5; }
+
 
 @media (max-width: 600px) {
   .ai-analysis-controls { align-items: stretch; flex-direction: column; }

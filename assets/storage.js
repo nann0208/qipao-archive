@@ -639,15 +639,7 @@ function getAllYears(records) {
 function exportData() {
   const all = loadAllRecords();
   const stats = getStatistics();
-  const content = `// 民国海派旗袍史料库 - 数据
-// 导出时间: ${new Date().toLocaleString('zh-CN')}
-// 共 ${all.length} 条记录（含本地新增 ${stats.localNew} / 修改 ${stats.localModified} / 删除 ${stats.localDeleted}）
-//
-// 【使用方法】将本文件移入 data\\ 文件夹，覆盖原 data.js，
-// 然后在网站上点击"重置本地缓存"按钮即可。
-
-window.INITIAL_DATA = ${JSON.stringify(all, null, 2)};
-`;
+  const content = buildDataJsContent(all, stats);
 
   const blob = new Blob([content], { type: 'text/javascript;charset=utf-8' });
   const url = URL.createObjectURL(blob);
@@ -659,6 +651,37 @@ window.INITIAL_DATA = ${JSON.stringify(all, null, 2)};
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
   markExported(); // 记录导出时间，用于横幅提醒
+}
+
+function buildDataJsContent(all, stats) {
+  return `// 民国海派旗袍史料库 - 数据
+// 导出时间: ${new Date().toLocaleString('zh-CN')}
+// 共 ${all.length} 条记录（含本地新增 ${stats.localNew} / 修改 ${stats.localModified} / 删除 ${stats.localDeleted}）
+//
+// 【使用方法】将本文件移入 data\\ 文件夹，覆盖原 data.js，
+// 然后在网站上点击"重置本地缓存"按钮即可。
+
+window.INITIAL_DATA = ${JSON.stringify(all, null, 2)};
+`;
+}
+
+async function replaceDataFileLocally() {
+  const all = loadAllRecords();
+  const response = await fetch('http://127.0.0.1:8765/export-data', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ records: all })
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok || !payload.ok) {
+    throw new Error(payload.detail || '本地服务未能写入 data.js');
+  }
+  markExported();
+  // 服务端已经原子写入当前完整数据，清除已落盘的浏览器差异，刷新后直接读取 data.js。
+  localStorage.removeItem(STORAGE_KEYS.OVERRIDES);
+  localStorage.removeItem(STORAGE_KEYS.NEW_RECORDS);
+  localStorage.removeItem(STORAGE_KEYS.DELETED);
+  return payload;
 }
 
 // 清除所有本地修改（在用户替换了 data.js 之后调用）—— 强化版

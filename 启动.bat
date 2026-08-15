@@ -1,6 +1,9 @@
 @echo off
 title Shanghai Qipao Archive - Local Server
 
+REM Start the local AI service in its own window (or detect an existing one).
+start "Shanghai Qipao Archive - AI Service" "%ComSpec%" /d /c call "%~dp0启动AI服务.bat"
+
 REM Switch to PARENT directory (so "../Journal/file.pdf" paths work)
 cd /d "%~dp0\.."
 
@@ -46,8 +49,9 @@ echo.
 echo  Tips:
 echo    1. Browser opens automatically in 2 seconds.
 echo    2. Close THIS window to stop the server.
-echo    3. PDFs in sibling folders are now accessible.
-echo    4. Data is persistent via localhost.
+echo    3. The AI service starts in a second window; keep it open.
+echo    4. PDFs in sibling folders are now accessible.
+echo    5. Data is persistent via localhost.
 echo.
 echo  Press Ctrl+C to stop the server.
 echo.

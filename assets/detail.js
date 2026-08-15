@@ -246,6 +246,12 @@ function renderPreview(index) {
   const toolbar = document.getElementById('preview-toolbar');
 
   if (docPaths.length === 0) {
+    if (currentRecord.docx_preview_text) {
+      toolbar.innerHTML = '<span>AI 识别原文 · 可选择文字添加批注</span>';
+      preview.innerHTML = renderDocxPanel(currentRecord);
+      if (!window.READ_ONLY) bindDocxAnnotationEvents(currentRecord, preview);
+      return;
+    }
     preview.innerHTML = `
       <div class="preview-empty">
         <div style="font-size: 36px; margin-bottom: 12px;">📭</div>

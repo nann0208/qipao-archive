@@ -77,6 +77,12 @@
       </div>
     </div>
 
+    <div class="filename-generator">
+      <button id="btn-generate-filename" type="button" class="btn filename-generate-btn">📋 文件名一键生成</button>
+      <input id="generated-filename" class="form-input" readonly placeholder="生成结果将在这里显示，并自动复制" aria-label="生成的文件名" />
+      <span id="filename-copy-status" class="filename-copy-status" aria-live="polite"></span>
+    </div>
+
     <div id="opinion-type-row" class="form-group" style="display: none;">
       <label class="form-label">舆论类型</label>
       <div id="opinion-type-chips" class="checkbox-group"></div>
@@ -105,6 +111,27 @@
       <div class="form-help">勾选后标记为女性署名史料，适用于所有史料类型</div>
     </div>
 
+    <div class="form-group ai-analysis-group">
+      <label class="form-label">✨ 豆包 AI 识别与分析（本地服务）</label>
+      <div id="ai-paste-zone" class="ai-paste-zone" tabindex="0" role="group" aria-label="图片上传与粘贴区域">
+        <div class="ai-analysis-controls">
+          <input id="ai-image-input" type="file" multiple accept="image/jpeg,image/png,image/webp" class="form-input" />
+          <button id="btn-ai-analyze" type="button" class="btn ai-analyze-btn">✨ 识别并回填</button>
+        </div>
+        <div class="ai-paste-hint"><kbd>Ctrl</kbd> + <kbd>V</kbd> 可连续粘贴多张截图（按添加顺序识别）</div>
+        <div id="ai-image-preview" class="ai-image-preview-list" hidden></div>
+      </div>
+      <div id="ai-analysis-status" class="ai-analysis-status" aria-live="polite"></div>
+      <div id="ai-highlight-suggestions" class="ai-highlight-suggestions" hidden>
+        <div class="ai-highlight-header">
+          <strong>📌 AI 建议高亮与批注</strong>
+          <span>勾选的内容将在保存史料后自动显示为原文高亮，可在详情页继续修改。</span>
+        </div>
+        <div id="ai-highlight-list"></div>
+      </div>
+      <div class="form-help">可选择或连续粘贴最多 10 张图片（JPG、PNG、WebP；单张最大 15MB、总计最大 50MB）。AI 将按添加顺序合并识别，并把繁体原文整理为简体；结果请务必人工核对。</div>
+    </div>
+
     <div class="form-group">
       <label class="form-label">核心内容</label>
       <textarea id="field-core" class="form-textarea" placeholder="摘录或概述这条史料的主要信息..." rows="4"></textarea>
@@ -128,19 +155,10 @@
       <div style="display: flex; gap: 10px; margin-bottom: 10px;">
         <input id="docx-file-input" type="file" accept=".docx" class="form-input" style="flex: 1;" />
         <button id="btn-extract-docx" class="btn" style="padding: 8px 16px;">提取文字</button>
+        <button id="btn-export-docx" type="button" class="btn" style="padding: 8px 16px;">导出原文 DOCX</button>
       </div>
       <textarea id="field-docx-preview" class="form-textarea" placeholder="提取的 Word 文档文字内容将显示在这里（可编辑）" rows="4"></textarea>
       <div class="form-help">选择本地 .docx 文件，点击「提取文字」按钮自动提取内容。可直接编辑修改</div>
-    </div>
-
-    <div class="form-group ai-analysis-group">
-      <label class="form-label">✨ 豆包 AI 识别与分析（本地服务）</label>
-      <div class="ai-analysis-controls">
-        <input id="ai-image-input" type="file" accept="image/jpeg,image/png,image/webp" class="form-input" />
-        <button id="btn-ai-analyze" type="button" class="btn ai-analyze-btn">✨ 识别并回填</button>
-      </div>
-      <div id="ai-analysis-status" class="ai-analysis-status" aria-live="polite"></div>
-      <div class="form-help">上传报纸截图、扫描页或史料图片（JPG、PNG、WebP，最大 15MB）。AI 默认只填入空白字段；识别结果请务必人工核对。</div>
     </div>
 
     <div class="form-group">
@@ -155,8 +173,8 @@
 
     <div class="form-group">
       <label class="form-label">原始文件</label>
-      <textarea id="field-docs" class="form-textarea" placeholder="文件相对路径，每行一个，如：&#10;../《申报》/1925年3月15日-第3版-旗袍杂谈.pdf&#10;../《申报》/1925年3月15日-第3版-旗袍杂谈.jpg" rows="3"></textarea>
-      <div class="form-help">输入文件相对路径（以 <code>files/</code> 开头），可同时关联多个文件（PDF/JPG/DOCX 等），每行一个。示例：<br><code>files/档案材料/0710/工商部中华国货展览会实录Y009-001-00366/国货参展奖状.pdf</code><br>或 <code>files/旧专著/国货展览会鸟瞰/国货展览会鸟瞰(22).pdf</code><br>文件扩展名必须为小写（.pdf、.jpg、.docx 等）</div>
+      <textarea id="field-docs" class="form-textarea" aria-label="原始文件路径" placeholder="每行一个完整文件路径" rows="4">files/</textarea>
+      <div class="form-help">文本框内已预填 <code>files/</code>；只需在后面继续输入路径。按 Enter 新增一行或粘贴多行内容时，也会自动为每行补上 <code>files/</code>。文件扩展名请使用小写（.pdf、.jpg、.docx 等）。</div>
     </div>
 
     <div class="form-actions">

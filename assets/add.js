@@ -2,6 +2,9 @@
 
 let editingId = null;
 let relatedRecords = []; // [{id, relation}]
+let aiSelectedFiles = [];
+let aiPreviewUrls = [];
+let aiSuggestedHighlights = [];
 
 const SUGGESTED_KEYWORDS = [
   '高开叉', '海派', '现代', '保守', '西化', '传统',
@@ -117,7 +120,9 @@ function fillForm(r) {
   document.getElementById('field-core').value = r.core_content || '';
   document.getElementById('field-analysis').value = r.personal_analysis || '';
   document.getElementById('field-docx-preview').value = r.docx_preview_text || '';
-  document.getElementById('field-docs').value = (r.document_paths || []).join('\n');
+  document.getElementById('field-docs').value = (r.document_paths || [])
+    .map(path => `files/${stripDocumentPathPrefix(path)}`)
+    .join('\n') || 'files/';
   document.getElementById('field-custom-keywords').value = '';
   document.getElementById('field-female-authored').checked = !!r.female_authored;
 
@@ -158,6 +163,7 @@ function fillForm(r) {
 
 function bindEvents() {
   document.getElementById('btn-submit').addEventListener('click', submit);
+  document.getElementById('btn-generate-filename').addEventListener('click', generateAndCopyFilename);
   document.getElementById('btn-cancel').addEventListener('click', () => {
     if (confirm('确定要放弃当前编辑吗？')) {
       location.href = editingId ? `detail.html?id=${editingId}` : 'index.html';
@@ -166,9 +172,12 @@ function bindEvents() {
 
   // Word 文件提取按钮
   document.getElementById('btn-extract-docx').addEventListener('click', extractDocxFile);
+  document.getElementById('btn-export-docx').addEventListener('click', exportTranscriptionDocx);
+  bindDocumentPathInput();
 
   const aiAnalyzeButton = document.getElementById('btn-ai-analyze');
   if (aiAnalyzeButton) aiAnalyzeButton.addEventListener('click', analyzeWithAI);
+  bindAIImageInput();
 
   // 类型变化时，重新填充来源下拉 + 切换档案馆字段显隐 + 切换舆论类型字段显隐
   const typeSelect = document.getElementById('field-type');
@@ -205,25 +214,207 @@ function bindEvents() {
   updateOpinionTypeVisibility();
 }
 
-async function analyzeWithAI() {
-  const input = document.getElementById('ai-image-input');
-  const button = document.getElementById('btn-ai-analyze');
-  const file = input && input.files[0];
+async function generateAndCopyFilename() {
+  const time = sanitizeFilenamePart(document.getElementById('field-time').value);
+  const version = sanitizeFilenamePart(document.getElementById('field-version').value);
+  const title = sanitizeFilenamePart(document.getElementById('field-title').value);
+  const author = sanitizeFilenamePart(document.getElementById('field-author').value);
+  const mainParts = [time, version, title].filter(Boolean);
+  const output = `${mainParts.join('-')}${author ? `（${author}）` : ''}`;
+  const resultField = document.getElementById('generated-filename');
+  const status = document.getElementById('filename-copy-status');
 
-  if (!file) {
-    setAIStatus('请先选择一张报纸截图或扫描图片。', 'error');
+  if (!output) {
+    resultField.value = '';
+    status.textContent = '请先填写时间、版次或题名。';
+    status.className = 'filename-copy-status error';
     return;
   }
-  if (file.size > 15 * 1024 * 1024) {
-    setAIStatus('图片超过 15MB，请压缩后再试。', 'error');
+
+  resultField.value = output;
+  try {
+    await navigator.clipboard.writeText(output);
+  } catch (_) {
+    resultField.focus();
+    resultField.select();
+    document.execCommand('copy');
+    resultField.setSelectionRange(0, 0);
+  }
+  status.textContent = '✓ 已复制，可直接粘贴为文件名';
+  status.className = 'filename-copy-status success';
+}
+
+function sanitizeFilenamePart(value) {
+  return String(value || '')
+    .trim()
+    .replace(/[\\/:*?"<>|]/g, '-')
+    .replace(/\s+/g, ' ')
+    .replace(/-{2,}/g, '-')
+    .replace(/^[.\s-]+|[.\s-]+$/g, '');
+}
+
+function bindAIImageInput() {
+  const input = document.getElementById('ai-image-input');
+  const pasteZone = document.getElementById('ai-paste-zone');
+  if (!input || !pasteZone) return;
+
+  input.addEventListener('change', () => {
+    const files = Array.from(input.files || []);
+    if (files.length) addAIImages(files, false);
+  });
+
+  document.addEventListener('paste', event => {
+    const target = event.target;
+    const isEditingText = target instanceof HTMLElement &&
+      (target.matches('input:not([type="file"]), textarea, [contenteditable="true"]'));
+    if (isEditingText && !pasteZone.contains(target)) return;
+
+    const items = Array.from(event.clipboardData?.items || []);
+    const files = items
+      .filter(item => item.kind === 'file' && item.type.startsWith('image/'))
+      .map(item => item.getAsFile())
+      .filter(Boolean);
+    if (!files.length) return;
+
+    event.preventDefault();
+    addAIImages(files, true);
+  });
+}
+
+function addAIImages(files, fromClipboard) {
+  const accepted = [];
+  for (const originalFile of files) {
+    if (!originalFile.type.startsWith('image/')) continue;
+    if (originalFile.size > 15 * 1024 * 1024) {
+      setAIStatus(`图片「${originalFile.name || '剪贴板截图'}」超过 15MB，未添加。`, 'error');
+      continue;
+    }
+    const extension = originalFile.type.split('/')[1]?.replace('jpeg', 'jpg') || 'png';
+    const file = fromClipboard
+      ? new File([originalFile], `剪贴板截图-${formatPasteTimestamp()}-${aiSelectedFiles.length + accepted.length + 1}.${extension}`, { type: originalFile.type, lastModified: Date.now() })
+      : originalFile;
+    accepted.push(file);
+  }
+
+  if (!accepted.length) return;
+  if (aiSelectedFiles.length + accepted.length > 10) {
+    setAIStatus('最多只能添加 10 张图片，请先移除部分图片。', 'error');
+    return;
+  }
+  const totalSize = [...aiSelectedFiles, ...accepted].reduce((sum, file) => sum + file.size, 0);
+  if (totalSize > 50 * 1024 * 1024) {
+    setAIStatus('全部图片总大小不能超过 50MB，请先移除或压缩部分图片。', 'error');
+    return;
+  }
+  aiSelectedFiles.push(...accepted);
+
+  const input = document.getElementById('ai-image-input');
+  try {
+    const transfer = new DataTransfer();
+    aiSelectedFiles.forEach(file => transfer.items.add(file));
+    input.files = transfer.files;
+  } catch (_) {
+    // 部分浏览器不允许脚本设置文件框；aiSelectedFiles 仍可用于上传。
+  }
+
+  renderAIImagePreviews();
+  document.getElementById('ai-paste-zone')?.classList.add('has-image');
+  setAIStatus(`已添加 ${accepted.length} 张图片，共 ${aiSelectedFiles.length} 张；将按当前顺序识别。`, 'success');
+}
+
+function renderAIImagePreviews() {
+  const preview = document.getElementById('ai-image-preview');
+  if (!preview) return;
+  aiPreviewUrls.forEach(url => URL.revokeObjectURL(url));
+  aiPreviewUrls = [];
+  preview.innerHTML = '';
+  aiSelectedFiles.forEach((file, index) => {
+    const url = URL.createObjectURL(file);
+    aiPreviewUrls.push(url);
+    const item = document.createElement('div');
+    item.className = 'ai-image-preview-item';
+    item.innerHTML = `<span class="ai-image-order">${index + 1}</span><img alt="第 ${index + 1} 张待识别图片"><div class="ai-image-meta"><strong></strong><span></span></div><button type="button" class="ai-image-remove" aria-label="移除第 ${index + 1} 张图片">×</button>`;
+    item.querySelector('img').src = url;
+    item.querySelector('strong').textContent = file.name;
+    item.querySelector('.ai-image-meta span').textContent = formatFileSize(file.size);
+    item.querySelector('button').addEventListener('click', () => removeAIImage(index));
+    preview.appendChild(item);
+  });
+  preview.hidden = aiSelectedFiles.length === 0;
+}
+
+function removeAIImage(index) {
+  aiSelectedFiles.splice(index, 1);
+  renderAIImagePreviews();
+  const pasteZone = document.getElementById('ai-paste-zone');
+  pasteZone?.classList.toggle('has-image', aiSelectedFiles.length > 0);
+  setAIStatus(aiSelectedFiles.length ? `已保留 ${aiSelectedFiles.length} 张图片。` : '图片已全部移除。', aiSelectedFiles.length ? 'success' : '');
+}
+
+function formatPasteTimestamp() {
+  const now = new Date();
+  const pad = value => String(value).padStart(2, '0');
+  return `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+}
+
+function formatFileSize(bytes) {
+  return bytes < 1024 * 1024
+    ? `${Math.max(1, Math.round(bytes / 1024))} KB`
+    : `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+}
+
+function stripDocumentPathPrefix(value) {
+  return String(value || '')
+    .trim()
+    .replace(/\\/g, '/')
+    .replace(/^(?:\.\/)?files\/+/i, '')
+    .replace(/^\.\.\/+/g, '')
+    .replace(/^\/+/g, '');
+}
+
+function bindDocumentPathInput() {
+  const input = document.getElementById('field-docs');
+  if (!input) return;
+  if (!input.value.trim()) input.value = 'files/';
+
+  input.addEventListener('keydown', event => {
+    if (event.key !== 'Enter') return;
+    event.preventDefault();
+    const cursor = input.selectionStart;
+    const nextBreak = input.value.indexOf('\n', cursor);
+    const lineEnd = nextBreak === -1 ? input.value.length : nextBreak;
+    input.setRangeText('\nfiles/', lineEnd, lineEnd, 'end');
+  });
+
+  input.addEventListener('paste', () => {
+    setTimeout(() => {
+      const cursor = input.selectionStart;
+      input.value = input.value
+        .split('\n')
+        .map(line => line.trim() ? `files/${stripDocumentPathPrefix(line)}` : 'files/')
+        .join('\n');
+      input.setSelectionRange(Math.min(cursor, input.value.length), Math.min(cursor, input.value.length));
+    }, 0);
+  });
+
+  input.addEventListener('blur', () => {
+    if (!input.value.trim()) input.value = 'files/';
+  });
+}
+
+async function analyzeWithAI() {
+  const button = document.getElementById('btn-ai-analyze');
+
+  if (!aiSelectedFiles.length) {
+    setAIStatus('请先选择图片，或按 Ctrl+V 粘贴刚截好的截图。', 'error');
     return;
   }
 
   const formData = new FormData();
-  formData.append('file', file);
+  aiSelectedFiles.forEach(file => formData.append('files', file, file.name));
   button.disabled = true;
-  button.textContent = '⏳ AI 分析中…';
-  setAIStatus('正在识别图片并整理史料信息，请稍候…', 'loading');
+  button.textContent = `⏳ 正在分析 ${aiSelectedFiles.length} 张…`;
+  setAIStatus(`正在按顺序识别 ${aiSelectedFiles.length} 张图片、合并原文并转换为简体，请稍候…`, 'loading');
 
   try {
     const response = await fetch('http://127.0.0.1:8765/analyze', {
@@ -237,7 +428,10 @@ async function analyzeWithAI() {
     setAIStatus(`AI 分析完成，已回填 ${filled} 个空白字段。请人工核对后再保存。`, 'success');
   } catch (error) {
     const message = error instanceof Error ? error.message : 'AI 分析失败，请稍后重试。';
-    setAIStatus(`${message} 请确认「启动AI服务.bat」已运行且 .env 已配置。`, 'error');
+    const hint = message === 'Failed to fetch'
+      ? '本地 AI 服务未连接。请重新双击「启动.bat」，并保持弹出的 AI 服务窗口开启。'
+      : '请检查 AI 服务窗口中的具体错误。';
+    setAIStatus(`${message} ${hint}`, 'error');
   } finally {
     button.disabled = false;
     button.textContent = '✨ 识别并回填';
@@ -267,7 +461,57 @@ function applyAIResult(result) {
     keywordField.value = keywords.join(', ');
     count += 1;
   }
+  aiSuggestedHighlights = Array.isArray(result.highlight_candidates)
+    ? result.highlight_candidates
+      .filter(item => item && typeof item.quote === 'string' && item.quote.trim())
+      .map(item => ({ quote: item.quote.trim(), note: String(item.note || '').trim(), selected: true }))
+    : [];
+  renderAIHighlightSuggestions();
   return count;
+}
+
+function renderAIHighlightSuggestions() {
+  const container = document.getElementById('ai-highlight-suggestions');
+  const list = document.getElementById('ai-highlight-list');
+  if (!container || !list) return;
+  list.innerHTML = '';
+  aiSuggestedHighlights.forEach((item, index) => {
+    const row = document.createElement('label');
+    row.className = 'ai-highlight-item';
+    row.innerHTML = `<input type="checkbox" ${item.selected ? 'checked' : ''}><div><div class="ai-highlight-quote"></div><div class="ai-highlight-note"></div></div>`;
+    row.querySelector('input').addEventListener('change', event => { item.selected = event.target.checked; });
+    row.querySelector('.ai-highlight-quote').textContent = `原文：${item.quote}`;
+    row.querySelector('.ai-highlight-note').textContent = `批注：${item.note || '（待补充）'}`;
+    list.appendChild(row);
+  });
+  container.hidden = aiSuggestedHighlights.length === 0;
+}
+
+function buildSuggestedAnnotations(fullText, existing = []) {
+  const annotations = [];
+  const occupied = existing
+    .filter(item => Number.isInteger(item.start) && Number.isInteger(item.end))
+    .map(item => ({ start: item.start, end: item.end }));
+  aiSuggestedHighlights.filter(item => item.selected).forEach((item, index) => {
+    if (existing.some(annotation => annotation.text === item.quote)) return;
+    let start = fullText.indexOf(item.quote);
+    while (start >= 0 && occupied.some(range => start < range.end && start + item.quote.length > range.start)) {
+      start = fullText.indexOf(item.quote, start + 1);
+    }
+    if (start < 0) return;
+    const end = start + item.quote.length;
+    occupied.push({ start, end });
+    annotations.push({
+      id: `ann_ai_${Date.now()}_${index}_${Math.random().toString(36).slice(2, 7)}`,
+      text: item.quote,
+      start,
+      end,
+      note: item.note,
+      created_at: new Date().toISOString(),
+      ai_suggested: true
+    });
+  });
+  return annotations.sort((a, b) => a.start - b.start);
 }
 
 function setAIStatus(message, kind) {
@@ -275,6 +519,44 @@ function setAIStatus(message, kind) {
   if (!status) return;
   status.textContent = message;
   status.className = `ai-analysis-status ${kind || ''}`;
+}
+
+async function exportTranscriptionDocx() {
+  const text = document.getElementById('field-docx-preview').value.trim();
+  const title = document.getElementById('field-title').value.trim() || '史料原文';
+  const button = document.getElementById('btn-export-docx');
+  if (!text) {
+    alert('当前没有可导出的原文，请先识别图片或输入文字。');
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = '正在生成 DOCX…';
+  try {
+    const response = await fetch('http://127.0.0.1:8765/export-docx', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, text })
+    });
+    if (!response.ok) {
+      const payload = await response.json().catch(() => ({}));
+      throw new Error(payload.detail || 'DOCX 生成失败。');
+    }
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${title.replace(/[\\/:*?"<>|]/g, '_').slice(0, 80) || '史料原文'}.docx`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch (error) {
+    alert(`${error instanceof Error ? error.message : 'DOCX 导出失败。'}\n\n请确认 AI 服务正在运行。`);
+  } finally {
+    button.disabled = false;
+    button.textContent = '导出原文 DOCX';
+  }
 }
 
 function updateOpinionTypeVisibility() {
@@ -387,8 +669,9 @@ function submit() {
   // 文档路径
   const docPaths = document.getElementById('field-docs').value
     .split('\n')
-    .map(s => s.trim())
-    .filter(Boolean);
+    .map(stripDocumentPathPrefix)
+    .filter(Boolean)
+    .map(path => `files/${path}`);
 
   let docxPreviewText = document.getElementById('field-docx-preview').value.trim();
 
@@ -426,7 +709,13 @@ function submit() {
     image_paths: [],
     docx_preview_text: docxPreviewText,
     related_records: relatedRecords.filter(r => r.id),
-    female_authored: document.getElementById('field-female-authored').checked
+    female_authored: document.getElementById('field-female-authored').checked,
+    annotations: editingId
+      ? (() => {
+          const existing = (getRecord(editingId) || {}).annotations || [];
+          return [...existing, ...buildSuggestedAnnotations(docxPreviewText, existing)];
+        })()
+      : buildSuggestedAnnotations(docxPreviewText)
   };
 
   // 仅档案文件保存「收藏机构」字段
