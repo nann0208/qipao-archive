@@ -2,4 +2,11 @@
 ai_service/.env
 ai_service/.venv/
 ai_service/__pycache__/
-
+ai_service/rag_index/
+ai_service/notes_backup/
+# 本地接口调试文件（可能含 API 密钥）
+ark_test.py
+# AI 史料助手仅在本机 localhost 使用，不发布到 GitHub Pages
+ai_assistant.html
+ai_service/
+assets/ai-writing-logo.png

@@ -220,8 +220,10 @@ function searchRecords(records, keyword) {
     const haystack = [
       r.title, r.source, r.author, r.time, r.version_info,
       r.core_content, r.personal_analysis, r.quotes,
-      r.docx_preview_text,
-      ...(r.topics || []), ...(r.keywords || [])
+      r.clean_text, r.docx_preview_text,
+      r.ai_summary, r.ai_social_issue, r.ai_research_value,
+      r.ai_relation, r.ai_category, r.ai_paper_use,
+      ...(r.topics || []), ...(r.keywords || []), ...(r.ai_keywords || [])
     ].filter(Boolean).join(' ').toLowerCase();
     return haystack.includes(kw);
   });

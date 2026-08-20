@@ -4,7 +4,7 @@ let editingId = null;
 let relatedRecords = []; // [{id, relation}]
 let aiSelectedFiles = [];
 let aiPreviewUrls = [];
-let aiSuggestedHighlights = [];
+let aiHighlightCandidates = [];
 
 const SUGGESTED_KEYWORDS = [
   '高开叉', '海派', '现代', '保守', '西化', '传统',
@@ -120,6 +120,14 @@ function fillForm(r) {
   document.getElementById('field-core').value = r.core_content || '';
   document.getElementById('field-analysis').value = r.personal_analysis || '';
   document.getElementById('field-docx-preview').value = r.docx_preview_text || '';
+  document.getElementById('field-ocr-original').value = r.ocr_original || '';
+  document.getElementById('field-clean-text').value = r.clean_text || r.docx_preview_text || '';
+  document.getElementById('field-ai-summary').value = r.ai_summary || '';
+  document.getElementById('field-ai-keywords').value = Array.isArray(r.ai_keywords) ? r.ai_keywords.join(', ') : (r.ai_keywords || '');
+  document.getElementById('field-ai-social-issue').value = r.ai_social_issue || '';
+  document.getElementById('field-ai-research-value').value = r.ai_research_value || '';
+  document.getElementById('field-ai-relation').value = r.ai_relation || '';
+  document.getElementById('field-ai-paper-use').value = r.ai_paper_use || '';
   document.getElementById('field-docs').value = (r.document_paths || [])
     .map(path => `files/${stripDocumentPathPrefix(path)}`)
     .join('\n') || 'files/';
@@ -164,6 +172,7 @@ function fillForm(r) {
 function bindEvents() {
   document.getElementById('btn-submit').addEventListener('click', submit);
   document.getElementById('btn-generate-filename').addEventListener('click', generateAndCopyFilename);
+  document.getElementById('btn-parse-filename').addEventListener('click', parseFilenameIntoFields);
   document.getElementById('btn-cancel').addEventListener('click', () => {
     if (confirm('确定要放弃当前编辑吗？')) {
       location.href = editingId ? `detail.html?id=${editingId}` : 'index.html';
@@ -175,8 +184,9 @@ function bindEvents() {
   document.getElementById('btn-export-docx').addEventListener('click', exportTranscriptionDocx);
   bindDocumentPathInput();
 
-  const aiAnalyzeButton = document.getElementById('btn-ai-analyze');
-  if (aiAnalyzeButton) aiAnalyzeButton.addEventListener('click', analyzeWithAI);
+  document.getElementById('btn-ai-ocr')?.addEventListener('click', runOCR);
+  document.getElementById('btn-ai-convert')?.addEventListener('click', convertOCRText);
+  document.getElementById('btn-ai-analyze')?.addEventListener('click', analyzeCleanText);
   bindAIImageInput();
 
   // 类型变化时，重新填充来源下拉 + 切换档案馆字段显隐 + 切换舆论类型字段显隐
@@ -244,6 +254,32 @@ async function generateAndCopyFilename() {
   status.className = 'filename-copy-status success';
 }
 
+function parseFilenameIntoFields() {
+  const input = document.getElementById('filename-to-parse');
+  const status = document.getElementById('filename-parse-status');
+  const raw = input.value.trim().replace(/\.(docx?|pdf|jpe?g|png|webp)$/i, '');
+  const parts = raw.split('-').map(part => part.trim()).filter(Boolean);
+
+  if (parts.length < 3) {
+    status.textContent = '至少需要“时间-版次/期号-题名”三段信息。';
+    status.className = 'filename-copy-status error';
+    return;
+  }
+
+  const time = parts[0];
+  const version = parts[1];
+  const author = parts.length >= 4 ? parts[parts.length - 1] : '';
+  const titleParts = parts.length >= 4 ? parts.slice(2, -1) : parts.slice(2);
+  const title = titleParts.join('-');
+
+  document.getElementById('field-time').value = time;
+  document.getElementById('field-version').value = version;
+  document.getElementById('field-title').value = title;
+  document.getElementById('field-author').value = author;
+  status.textContent = author ? '✓ 已拆解：时间、版次、题名、作者' : '✓ 已拆解：时间、版次、题名（未填写作者）';
+  status.className = 'filename-copy-status success';
+}
+
 function sanitizeFilenamePart(value) {
   return String(value || '')
     .trim()
@@ -260,7 +296,8 @@ function bindAIImageInput() {
 
   input.addEventListener('change', () => {
     const files = Array.from(input.files || []);
-    if (files.length) addAIImages(files, false);
+    aiSelectedFiles = [];
+    if (files.length) addAIFiles(files, false);
   });
 
   document.addEventListener('paste', event => {
@@ -277,16 +314,17 @@ function bindAIImageInput() {
     if (!files.length) return;
 
     event.preventDefault();
-    addAIImages(files, true);
+    addAIFiles(files, true);
   });
 }
 
-function addAIImages(files, fromClipboard) {
+function addAIFiles(files, fromClipboard) {
   const accepted = [];
   for (const originalFile of files) {
-    if (!originalFile.type.startsWith('image/')) continue;
-    if (originalFile.size > 15 * 1024 * 1024) {
-      setAIStatus(`图片「${originalFile.name || '剪贴板截图'}」超过 15MB，未添加。`, 'error');
+    const suffix = originalFile.name.toLowerCase().split('.').pop();
+    if (!originalFile.type.startsWith('image/') && !['pdf', 'docx'].includes(suffix)) continue;
+    if (originalFile.size > 50 * 1024 * 1024) {
+      setAIStatus(`文件「${originalFile.name || '剪贴板截图'}」超过 50MB，未添加。`, 'error', 'ocr');
       continue;
     }
     const extension = originalFile.type.split('/')[1]?.replace('jpeg', 'jpg') || 'png';
@@ -298,12 +336,12 @@ function addAIImages(files, fromClipboard) {
 
   if (!accepted.length) return;
   if (aiSelectedFiles.length + accepted.length > 10) {
-    setAIStatus('最多只能添加 10 张图片，请先移除部分图片。', 'error');
+    setAIStatus('最多只能添加 10 个文件，请先移除部分文件。', 'error', 'ocr');
     return;
   }
   const totalSize = [...aiSelectedFiles, ...accepted].reduce((sum, file) => sum + file.size, 0);
-  if (totalSize > 50 * 1024 * 1024) {
-    setAIStatus('全部图片总大小不能超过 50MB，请先移除或压缩部分图片。', 'error');
+  if (totalSize > 80 * 1024 * 1024) {
+    setAIStatus('全部文件总大小不能超过 80MB，请先移除或压缩部分文件。', 'error', 'ocr');
     return;
   }
   aiSelectedFiles.push(...accepted);
@@ -319,7 +357,7 @@ function addAIImages(files, fromClipboard) {
 
   renderAIImagePreviews();
   document.getElementById('ai-paste-zone')?.classList.add('has-image');
-  setAIStatus(`已添加 ${accepted.length} 张图片，共 ${aiSelectedFiles.length} 张；将按当前顺序识别。`, 'success');
+  setAIStatus(`已添加 ${accepted.length} 个文件，共 ${aiSelectedFiles.length} 个；将按当前顺序处理。`, 'success', 'ocr');
 }
 
 function renderAIImagePreviews() {
@@ -329,12 +367,13 @@ function renderAIImagePreviews() {
   aiPreviewUrls = [];
   preview.innerHTML = '';
   aiSelectedFiles.forEach((file, index) => {
-    const url = URL.createObjectURL(file);
-    aiPreviewUrls.push(url);
+    const isImage = file.type.startsWith('image/');
+    const url = isImage ? URL.createObjectURL(file) : '';
+    if (url) aiPreviewUrls.push(url);
     const item = document.createElement('div');
     item.className = 'ai-image-preview-item';
-    item.innerHTML = `<span class="ai-image-order">${index + 1}</span><img alt="第 ${index + 1} 张待识别图片"><div class="ai-image-meta"><strong></strong><span></span></div><button type="button" class="ai-image-remove" aria-label="移除第 ${index + 1} 张图片">×</button>`;
-    item.querySelector('img').src = url;
+    item.innerHTML = `<span class="ai-image-order">${index + 1}</span>${isImage ? `<img alt="第 ${index + 1} 张待识别图片">` : `<span class="ai-file-kind">${file.name.toLowerCase().endsWith('.pdf') ? 'PDF' : 'DOCX'}</span>`}<div class="ai-image-meta"><strong></strong><span></span></div><button type="button" class="ai-image-remove" aria-label="移除第 ${index + 1} 个文件">×</button>`;
+    if (isImage) item.querySelector('img').src = url;
     item.querySelector('strong').textContent = file.name;
     item.querySelector('.ai-image-meta span').textContent = formatFileSize(file.size);
     item.querySelector('button').addEventListener('click', () => removeAIImage(index));
@@ -348,7 +387,7 @@ function removeAIImage(index) {
   renderAIImagePreviews();
   const pasteZone = document.getElementById('ai-paste-zone');
   pasteZone?.classList.toggle('has-image', aiSelectedFiles.length > 0);
-  setAIStatus(aiSelectedFiles.length ? `已保留 ${aiSelectedFiles.length} 张图片。` : '图片已全部移除。', aiSelectedFiles.length ? 'success' : '');
+  setAIStatus(aiSelectedFiles.length ? `已保留 ${aiSelectedFiles.length} 个文件。` : '文件已全部移除。', aiSelectedFiles.length ? 'success' : '', 'ocr');
 }
 
 function formatPasteTimestamp() {
@@ -402,123 +441,193 @@ function bindDocumentPathInput() {
   });
 }
 
-async function analyzeWithAI() {
-  const button = document.getElementById('btn-ai-analyze');
-
+async function runOCR() {
+  const button = document.getElementById('btn-ai-ocr');
   if (!aiSelectedFiles.length) {
-    setAIStatus('请先选择图片，或按 Ctrl+V 粘贴刚截好的截图。', 'error');
+    setAIStatus('请先选择图片、PDF、DOCX，或按 Ctrl+V 粘贴截图。', 'error', 'ocr');
     return;
   }
-
   const formData = new FormData();
   aiSelectedFiles.forEach(file => formData.append('files', file, file.name));
   button.disabled = true;
-  button.textContent = `⏳ 正在分析 ${aiSelectedFiles.length} 张…`;
-  setAIStatus(`正在按顺序识别 ${aiSelectedFiles.length} 张图片、合并原文并转换为简体，请稍候…`, 'loading');
-
+  button.textContent = '正在 OCR…';
+  setAIStatus('正在识别原文；本阶段不会繁简转换、总结或分析。', 'loading', 'ocr');
   try {
-    const response = await fetch('http://127.0.0.1:8765/analyze', {
-      method: 'POST',
-      body: formData
-    });
+    const response = await fetch('http://127.0.0.1:8765/api/ocr', { method: 'POST', body: formData });
     const payload = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(payload.detail || 'AI 服务暂时无法使用。');
-
-    const filled = applyAIResult(payload);
-    setAIStatus(`AI 分析完成，已回填 ${filled} 个空白字段。请人工核对后再保存。`, 'success');
+    if (!response.ok) throw new Error(payload.detail || 'OCR 服务暂时无法使用。');
+    document.getElementById('field-ocr-original').value = payload.text || '';
+    setAIStatus('OCR 完成。请先核对繁体原文，再进行文本整理。', 'success', 'ocr');
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'AI 分析失败，请稍后重试。';
-    const hint = message === 'Failed to fetch'
-      ? '本地 AI 服务未连接。请重新双击「启动.bat」，并保持弹出的 AI 服务窗口开启。'
-      : '请检查 AI 服务窗口中的具体错误。';
-    setAIStatus(`${message} ${hint}`, 'error');
+    setAIRequestError(error, 'OCR 失败', 'ocr');
   } finally {
     button.disabled = false;
-    button.textContent = '✨ 识别并回填';
+    button.textContent = '开始 OCR';
   }
 }
 
-function applyAIResult(result) {
-  const fieldMap = {
-    title: 'field-title', source: 'field-source', author: 'field-author',
-    time: 'field-time', version_info: 'field-version', transcription: 'field-docx-preview',
-    core_content: 'field-core', research_analysis: 'field-analysis'
-  };
-  let count = 0;
-
-  Object.entries(fieldMap).forEach(([key, id]) => {
-    const field = document.getElementById(id);
-    const value = typeof result[key] === 'string' ? result[key].trim() : '';
-    if (field && value && !field.value.trim()) {
-      field.value = value;
-      count += 1;
-    }
-  });
-
-  const keywordField = document.getElementById('field-custom-keywords');
-  const keywords = Array.isArray(result.keywords) ? result.keywords.filter(Boolean) : [];
-  if (keywordField && keywords.length && !keywordField.value.trim()) {
-    keywordField.value = keywords.join(', ');
-    count += 1;
+async function convertOCRText() {
+  const button = document.getElementById('btn-ai-convert');
+  const text = document.getElementById('field-ocr-original').value.trim();
+  if (!text) {
+    setAIStatus('请先完成 OCR，或在原始识别文本框中粘贴文字。', 'error', 'convert');
+    return;
   }
-  aiSuggestedHighlights = Array.isArray(result.highlight_candidates)
-    ? result.highlight_candidates
-      .filter(item => item && typeof item.quote === 'string' && item.quote.trim())
-      .map(item => ({ quote: item.quote.trim(), note: String(item.note || '').trim(), selected: true }))
-    : [];
+  button.disabled = true;
+  button.textContent = '正在整理…';
+  setAIStatus('正在使用 OpenCC 进行繁简转换和基础排版。', 'loading', 'convert');
+  try {
+    const response = await fetch('http://127.0.0.1:8765/api/convert', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.detail || '文本整理服务暂时无法使用。');
+    document.getElementById('field-clean-text').value = payload.text || '';
+    document.getElementById('field-docx-preview').value = payload.text || '';
+    setAIStatus('文本整理完成。请复核标准文本，再交给 DeepSeek 分析。', 'success', 'convert');
+  } catch (error) {
+    setAIRequestError(error, '文本整理失败', 'convert');
+  } finally {
+    button.disabled = false;
+    button.textContent = '繁简转换＋整理';
+  }
+}
+
+async function analyzeCleanText() {
+  const button = document.getElementById('btn-ai-analyze');
+  const text = document.getElementById('field-clean-text').value.trim();
+  if (!text) {
+    setAIStatus('请先完成文本整理，或在标准文本框中粘贴简体原文。', 'error', 'analyze');
+    return;
+  }
+  const topics = Array.from(document.querySelectorAll('#topics-chips .checkbox-chip.checked')).map(chip => chip.dataset.value);
+  button.disabled = true;
+  button.textContent = '正在分析…';
+  setAIStatus('DeepSeek 正在分析标准文本，请稍候。', 'loading', 'analyze');
+  try {
+    const response = await fetch('http://127.0.0.1:8765/api/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text,
+        title: document.getElementById('field-title').value.trim(),
+        year: document.getElementById('field-time').value.trim(),
+        topic: topics.join('、'),
+        source: document.getElementById('field-source').value.trim()
+      })
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.detail || 'DeepSeek 分析服务暂时无法使用。');
+    applyStructuredAnalysis(payload);
+    setAIStatus('AI 分析完成。已导入核心内容、个人分析和关键词，请复核。', 'success', 'analyze');
+  } catch (error) {
+    setAIRequestError(error, 'AI 分析失败', 'analyze');
+  } finally {
+    button.disabled = false;
+    button.textContent = 'DeepSeek 分析';
+  }
+}
+
+function applyStructuredAnalysis(result) {
+  const fieldMap = {
+    summary: 'field-ai-summary',
+    social_issue: 'field-ai-social-issue',
+    research_value: 'field-ai-research-value',
+    relation_to_qipao_history: 'field-ai-relation',
+    paper_use: 'field-ai-paper-use'
+  };
+  Object.entries(fieldMap).forEach(([key, id]) => {
+    document.getElementById(id).value = typeof result[key] === 'string' ? result[key].trim() : '';
+  });
+  const keywords = Array.isArray(result.keywords) ? result.keywords.filter(Boolean) : [];
+  const summary = typeof result.summary === 'string' ? result.summary.trim() : '';
+  const socialIssue = typeof result.social_issue === 'string' ? result.social_issue.trim() : '';
+  const researchValue = typeof result.research_value === 'string' ? result.research_value.trim() : '';
+  const relation = typeof result.relation_to_qipao_history === 'string' ? result.relation_to_qipao_history.trim() : '';
+  const paperUse = typeof result.paper_use === 'string' ? result.paper_use.trim() : '';
+  document.getElementById('field-ai-keywords').value = keywords.join(', ');
+  document.getElementById('field-core').value = [
+    summary ? `核心观点：${summary}` : '',
+    socialIssue ? `反映的社会问题：${socialIssue}` : ''
+  ].filter(Boolean).join('\n\n');
+  document.getElementById('field-analysis').value = [
+    relation ? `与海派旗袍设计史的关系：${relation}` : '',
+    researchValue ? `研究价值：${researchValue}` : '',
+    paperUse ? `论文用途：${paperUse}` : ''
+  ].filter(Boolean).join('\n\n');
+  document.getElementById('field-custom-keywords').value = keywords.join(', ');
+  aiHighlightCandidates = normalizeHighlightCandidates(result.highlight_candidates);
   renderAIHighlightSuggestions();
-  return count;
+}
+
+function normalizeHighlightCandidates(candidates) {
+  const text = document.getElementById('field-clean-text').value || '';
+  if (!Array.isArray(candidates) || !text) return [];
+  const result = [];
+  let searchFrom = 0;
+  candidates.forEach(candidate => {
+    const quote = typeof candidate?.quote === 'string' ? candidate.quote.trim() : '';
+    const note = typeof candidate?.note === 'string' ? candidate.note.trim() : '';
+    if (!quote || !note) return;
+    const position = findQuotePosition(text, quote, searchFrom);
+    if (!position) return;
+    const { start, end } = position;
+    if (result.some(item => start < item.end && end > item.start)) return;
+    result.push({ quote, note, start, end, selected: true });
+    searchFrom = end;
+  });
+  return result;
+}
+
+function findQuotePosition(text, quote, searchFrom) {
+  const exact = text.indexOf(quote, searchFrom);
+  if (exact >= 0) return { start: exact, end: exact + quote.length };
+  const normalizedQuote = quote.replace(/\s+/g, ' ').trim();
+  if (!normalizedQuote) return null;
+  const escaped = normalizedQuote.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+');
+  const match = new RegExp(escaped).exec(text.slice(searchFrom));
+  return match ? { start: searchFrom + match.index, end: searchFrom + match.index + match[0].length } : null;
 }
 
 function renderAIHighlightSuggestions() {
   const container = document.getElementById('ai-highlight-suggestions');
-  const list = document.getElementById('ai-highlight-list');
-  if (!container || !list) return;
-  list.innerHTML = '';
-  aiSuggestedHighlights.forEach((item, index) => {
-    const row = document.createElement('label');
-    row.className = 'ai-highlight-item';
-    row.innerHTML = `<input type="checkbox" ${item.selected ? 'checked' : ''}><div><div class="ai-highlight-quote"></div><div class="ai-highlight-note"></div></div>`;
-    row.querySelector('input').addEventListener('change', event => { item.selected = event.target.checked; });
-    row.querySelector('.ai-highlight-quote').textContent = `原文：${item.quote}`;
-    row.querySelector('.ai-highlight-note').textContent = `批注：${item.note || '（待补充）'}`;
-    list.appendChild(row);
-  });
-  container.hidden = aiSuggestedHighlights.length === 0;
-}
-
-function buildSuggestedAnnotations(fullText, existing = []) {
-  const annotations = [];
-  const occupied = existing
-    .filter(item => Number.isInteger(item.start) && Number.isInteger(item.end))
-    .map(item => ({ start: item.start, end: item.end }));
-  aiSuggestedHighlights.filter(item => item.selected).forEach((item, index) => {
-    if (existing.some(annotation => annotation.text === item.quote)) return;
-    let start = fullText.indexOf(item.quote);
-    while (start >= 0 && occupied.some(range => start < range.end && start + item.quote.length > range.start)) {
-      start = fullText.indexOf(item.quote, start + 1);
-    }
-    if (start < 0) return;
-    const end = start + item.quote.length;
-    occupied.push({ start, end });
-    annotations.push({
-      id: `ann_ai_${Date.now()}_${index}_${Math.random().toString(36).slice(2, 7)}`,
-      text: item.quote,
-      start,
-      end,
-      note: item.note,
-      created_at: new Date().toISOString(),
-      ai_suggested: true
+  if (!container) return;
+  if (!aiHighlightCandidates.length) {
+    container.hidden = true;
+    container.innerHTML = '';
+    return;
+  }
+  container.hidden = false;
+  container.innerHTML = `
+    <div class="ai-highlight-header"><strong>✨ AI 推荐高亮与批注</strong><span>默认全部选中，保存史料时会自动生成；可取消不需要的片段。</span></div>
+    ${aiHighlightCandidates.map((item, index) => `
+      <label class="ai-highlight-item">
+        <input type="checkbox" data-highlight-index="${index}" ${item.selected ? 'checked' : ''}>
+        <span><span class="ai-highlight-quote">${escapeHtml(item.quote)}</span><span class="ai-highlight-note">批注：${escapeHtml(item.note)}</span></span>
+      </label>
+    `).join('')}
+  `;
+  container.querySelectorAll('input[data-highlight-index]').forEach(input => {
+    input.addEventListener('change', () => {
+      const item = aiHighlightCandidates[Number(input.dataset.highlightIndex)];
+      if (item) item.selected = input.checked;
     });
   });
-  return annotations.sort((a, b) => a.start - b.start);
 }
 
-function setAIStatus(message, kind) {
-  const status = document.getElementById('ai-analysis-status');
+function setAIRequestError(error, fallback, stage) {
+  const message = error instanceof Error ? error.message : fallback;
+  const hint = message === 'Failed to fetch' ? '本地 AI 服务未连接，请双击“启动AI服务.bat”。' : '请检查 AI 服务窗口中的具体错误。';
+  setAIStatus(`${message} ${hint}`, 'error', stage);
+}
+
+function setAIStatus(message, kind, stage = 'ocr') {
+  const status = document.getElementById(`ai-${stage}-status`);
   if (!status) return;
   status.textContent = message;
-  status.className = `ai-analysis-status ${kind || ''}`;
+  status.className = `ai-step-status ${kind || ''}`;
 }
 
 async function exportTranscriptionDocx() {
@@ -673,7 +782,10 @@ function submit() {
     .filter(Boolean)
     .map(path => `files/${path}`);
 
-  let docxPreviewText = document.getElementById('field-docx-preview').value.trim();
+  const cleanText = document.getElementById('field-clean-text').value.trim();
+  let docxPreviewText = cleanText || document.getElementById('field-docx-preview').value.trim();
+  const aiKeywords = document.getElementById('field-ai-keywords').value
+    .split(/[,，、;；]/).map(value => value.trim()).filter(Boolean);
 
   // 检查：如果关联了 .docx 但没有提取文字，提醒用户
   if (!docxPreviewText && docPaths.some(p => p.toLowerCase().endsWith('.docx'))) {
@@ -692,6 +804,20 @@ function submit() {
     if (found && rel) found.relation = rel.value.trim();
   });
 
+  const existingAnnotations = editingId ? ((getRecord(editingId) || {}).annotations || []) : [];
+  const aiAnnotations = aiHighlightCandidates
+    .filter(item => item.selected && !existingAnnotations.some(annotation =>
+      annotation.start === item.start && annotation.end === item.end && annotation.text === item.quote
+    ))
+    .map(item => ({
+      id: `ann_ai_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+      text: item.quote,
+      start: item.start,
+      end: item.end,
+      note: item.note,
+      created_at: new Date().toISOString(),
+      source: 'ai'
+    }));
   const record = {
     type: recordType,
     opinion_types: recordType === '报刊文章' ? opinionTypes : [],
@@ -703,6 +829,14 @@ function submit() {
     version_info: document.getElementById('field-version').value.trim(),
     core_content: document.getElementById('field-core').value.trim(),
     personal_analysis: document.getElementById('field-analysis').value.trim(),
+    ocr_original: document.getElementById('field-ocr-original').value.trim(),
+    clean_text: cleanText || docxPreviewText,
+    ai_summary: document.getElementById('field-ai-summary').value.trim(),
+    ai_keywords: aiKeywords,
+    ai_social_issue: document.getElementById('field-ai-social-issue').value.trim(),
+    ai_research_value: document.getElementById('field-ai-research-value').value.trim(),
+    ai_relation: document.getElementById('field-ai-relation').value.trim(),
+    ai_paper_use: document.getElementById('field-ai-paper-use').value.trim(),
     keywords,
     importance,
     document_paths: docPaths,
@@ -710,12 +844,7 @@ function submit() {
     docx_preview_text: docxPreviewText,
     related_records: relatedRecords.filter(r => r.id),
     female_authored: document.getElementById('field-female-authored').checked,
-    annotations: editingId
-      ? (() => {
-          const existing = (getRecord(editingId) || {}).annotations || [];
-          return [...existing, ...buildSuggestedAnnotations(docxPreviewText, existing)];
-        })()
-      : buildSuggestedAnnotations(docxPreviewText)
+    annotations: [...existingAnnotations, ...aiAnnotations]
   };
 
   // 仅档案文件保存「收藏机构」字段
@@ -733,6 +862,32 @@ function submit() {
     alert(`已添加：${saved.shiliao_id}\n\n💡 提示：建议定期使用首页「⬇ 导出数据」备份你的数据。`);
     location.href = `detail.html?id=${saved.shiliao_id}`;
   }
+}
+
+async function extractDocxText(file) {
+  if (!window.JSZip) {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+    document.head.appendChild(script);
+    await new Promise((resolve, reject) => { script.onload = resolve; script.onerror = reject; });
+  }
+  const zip = await window.JSZip.loadAsync(await file.arrayBuffer());
+  const xmlFile = zip.file('word/document.xml');
+  if (!xmlFile) throw new Error('不是有效的 .docx 文件（找不到 document.xml）');
+  const xmlDoc = new DOMParser().parseFromString(await xmlFile.async('text'), 'application/xml');
+  if (xmlDoc.documentElement?.tagName === 'parsererror') throw new Error('XML 解析失败，文档格式可能已损坏');
+  const lines = Array.from(xmlDoc.getElementsByTagName('w:p')).map(p => {
+    let line = '';
+    Array.from(p.getElementsByTagName('w:r')).forEach(run => {
+      line += '\t'.repeat(run.getElementsByTagName('w:tab').length);
+      Array.from(run.getElementsByTagName('w:t')).forEach(t => { line += t.textContent; });
+      line += '\n'.repeat(run.getElementsByTagName('w:br').length);
+    });
+    return line.trimEnd();
+  });
+  const text = lines.join('\n').trim();
+  if (!text) throw new Error('文档为空或不包含可提取的文字');
+  return text;
 }
 
 // 提取 Word 文档文字

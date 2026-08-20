@@ -169,6 +169,14 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.ai-button-icon {
+  height: 1em;
+  width: 1em;
+  object-fit: contain;
+  vertical-align: -0.15em;
+  margin-right: 4px;
+}
+
 /* 筛选栏 */
 .filter-bar {
   background: #fff;
@@ -1276,10 +1284,101 @@ body {
 
 /* 本机豆包 AI 分析 */
 .ai-analysis-group {
-  padding: 16px;
-  border: 1px dashed var(--color-accent-soft);
-  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #D9B5A9;
+  border-radius: 10px;
   background: #FFF9F5;
+}
+
+.ai-workflow-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.ai-workflow-title strong { color: var(--color-primary); font-size: 19px; }
+.ai-workflow-title span { color: #786E67; font-size: 13px; }
+.ai-workflow-step {
+  padding: 16px;
+  border: 1px solid #E8DDD6;
+  border-radius: 8px;
+  background: #FFF;
+}
+.ai-workflow-step + .ai-workflow-step { margin-top: 14px; }
+.ai-step-heading { display: flex; align-items: center; gap: 11px; margin-bottom: 13px; }{
+    margin-left: 12px;
+}
+.ai-step-heading-copy { min-width: 0; flex: 1; }
+.ai-step-icon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  flex: 0 0 54px;
+  object-fit: contain;
+  object-position: center;
+}
+.ai-step-heading strong, .ai-step-heading small { display: block; }
+.ai-step-heading strong { color: #4E4843; font-size: 16px; }
+.ai-step-heading small { margin-top: 3px; color: #8A817A; font-size: 12px; font-weight: normal; }
+.ai-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #FFF;
+  font-weight: 700;
+}
+.ai-step-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 26px;
+  max-width: min(48%, 360px);
+  padding: 4px 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: #8A817A;
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: right;
+  white-space: normal;
+}
+.ai-step-status:empty { display: none; }
+.ai-step-status.loading { border-color: #E7C98B; background: #FFF8E8; color: #76551D; }
+.ai-step-status.success { border-color: #B9DCC1; background: #F1FAF3; color: #2F6A3C; }
+.ai-step-status.error { border-color: #E7B9B3; background: #FFF4F2; color: #A4443D; }
+.ai-step-status.loading::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  margin-right: 6px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ai-status-spin 0.8s linear infinite;
+}
+@keyframes ai-status-spin { to { transform: rotate(360deg); } }
+.ai-workflow-step > .form-label { margin-top: 13px; }
+.ai-result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 14px; }
+.ai-result-grid label { color: #5B514A; font-size: 13px; font-weight: 600; }
+.ai-result-grid .form-input, .ai-result-grid .form-select, .ai-result-grid .form-textarea { margin-top: 6px; }
+.ai-file-kind {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 52px;
+  border-radius: 4px;
+  background: #F1E9E4;
+  color: #7C3B45;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .ai-analysis-controls {
@@ -1291,6 +1390,15 @@ body {
 .ai-analysis-controls .form-input { flex: 1; }
 .ai-analyze-btn { white-space: nowrap; }
 .ai-analyze-btn:disabled { cursor: wait; opacity: 0.65; }
+.ai-workflow-step .btn:disabled { cursor: wait; opacity: 0.65; }
+
+@media (max-width: 720px) {
+  .ai-workflow-title { align-items: flex-start; flex-direction: column; }
+  .ai-analysis-controls { align-items: stretch; flex-direction: column; }
+  .ai-result-grid { grid-template-columns: 1fr; }
+  .ai-step-heading { align-items: flex-start; flex-wrap: wrap; }
+  .ai-step-status { width: 100%; max-width: none; justify-content: flex-start; margin-left: 65px; text-align: left; }
+}
 
 .ai-paste-zone {
   padding: 10px;
@@ -2663,4 +2771,22 @@ body {
   color: var(--color-text-soft);
   text-align: right;
   white-space: nowrap;
+}
+
+/* 只匹配文件名包含 ai-whale.png 的图片，精准只改鲸鱼 */
+.ai-step-icon.logo-whale {
+    height: 68px !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.full-width-form {
+    max-width: 70%;
+    margin: 0 0 24px 0;
+}
+
+.ai-analysis-group {
+    padding-bottom: 24px;
 }

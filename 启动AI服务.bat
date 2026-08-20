@@ -19,6 +19,12 @@ if errorlevel 1 goto startup_failed
 if errorlevel 1 goto startup_failed
 
 :env_ready
+".venv\Scripts\python.exe" -c "import opencc, pymupdf" >nul 2>nul
+if errorlevel 1 (
+  echo [Update] Installing OCR and text conversion components...
+  ".venv\Scripts\python.exe" -m pip install -r requirements.txt
+  if errorlevel 1 goto startup_failed
+)
 if not exist ".env" goto config_missing
 
 echo.
