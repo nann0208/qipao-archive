@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>添加史料 - 海派旗袍史料库</title>
   <link rel="icon" href="assets/logo2.png" type="image/png">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=4">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
     </div>
   </header>
 
-  <div class="form-container">
+<div class="form-container">
     <h2 id="form-title" class="form-title">添加新史料</h2>
 
     <div class="form-row">
@@ -81,6 +81,9 @@
       <button id="btn-generate-filename" type="button" class="btn filename-generate-btn">📋 文件名一键生成</button>
       <input id="generated-filename" class="form-input" readonly placeholder="生成结果将在这里显示，并自动复制" aria-label="生成的文件名" />
       <span id="filename-copy-status" class="filename-copy-status" aria-live="polite"></span>
+      <button id="btn-parse-filename" type="button" class="btn filename-generate-btn">🧩 文件名自动拆解</button>
+      <input id="filename-to-parse" class="form-input" placeholder="粘贴文件名，例如：1926年2月27日-第12版-孙传芳通令禁着旗袍-国民社.docx" aria-label="待拆解的文件名" />
+      <span id="filename-parse-status" class="filename-copy-status" aria-live="polite"></span>
     </div>
 
     <div id="opinion-type-row" class="form-group" style="display: none;">
@@ -112,24 +115,43 @@
     </div>
 
     <div class="form-group ai-analysis-group">
-      <label class="form-label">✨ 豆包 AI 识别与分析（本地服务）</label>
-      <div id="ai-paste-zone" class="ai-paste-zone" tabindex="0" role="group" aria-label="图片上传与粘贴区域">
-        <div class="ai-analysis-controls">
-          <input id="ai-image-input" type="file" multiple accept="image/jpeg,image/png,image/webp" class="form-input" />
-          <button id="btn-ai-analyze" type="button" class="btn ai-analyze-btn">✨ 识别并回填</button>
+      <div class="ai-workflow-title"><strong>AI 史料处理</strong><span>分阶段运行，每一步结果均可人工校订</span></div>
+
+      <section class="ai-workflow-step">
+        <div class="ai-step-heading"><img class="ai-step-icon" src="assets/ai-icons/ocr-magnifier.png" alt=""><div class="ai-step-heading-copy"><strong>OCR 识别</strong><small>豆包只转录原文，不转换、不总结</small></div><span id="ai-ocr-status" class="ai-step-status" aria-live="polite"></span></div>
+        <div id="ai-paste-zone" class="ai-paste-zone" tabindex="0" role="group" aria-label="史料文件上传与粘贴区域">
+          <div class="ai-analysis-controls">
+            <input id="ai-image-input" type="file" multiple accept="image/jpeg,image/png,image/webp,.pdf,.docx" class="form-input" />
+            <button id="btn-ai-ocr" type="button" class="btn ai-analyze-btn">开始 OCR</button>
+          </div>
+          <div class="ai-paste-hint">支持图片、PDF、DOCX；也可用 <kbd>Ctrl</kbd> + <kbd>V</kbd> 连续粘贴截图</div>
+          <div id="ai-image-preview" class="ai-image-preview-list" hidden></div>
         </div>
-        <div class="ai-paste-hint"><kbd>Ctrl</kbd> + <kbd>V</kbd> 可连续粘贴多张截图（按添加顺序识别）</div>
-        <div id="ai-image-preview" class="ai-image-preview-list" hidden></div>
-      </div>
-      <div id="ai-analysis-status" class="ai-analysis-status" aria-live="polite"></div>
-      <div id="ai-highlight-suggestions" class="ai-highlight-suggestions" hidden>
-        <div class="ai-highlight-header">
-          <strong>📌 AI 建议高亮与批注</strong>
-          <span>勾选的内容将在保存史料后自动显示为原文高亮，可在详情页继续修改。</span>
+        <label class="form-label" for="field-ocr-original">原始识别文本（保留繁体）</label>
+        <textarea id="field-ocr-original" class="form-textarea" rows="7" placeholder="OCR 结果将显示在这里；请先核对错字、漏字和阅读顺序。"></textarea>
+      </section>
+
+      <section class="ai-workflow-step">
+        <div class="ai-step-heading"><img class="ai-step-icon" src="assets/ai-icons/text-pencil.png" alt=""><div class="ai-step-heading-copy"><strong>文本整理</strong><small>OpenCC 繁简转换与基础排版，不调用 AI</small></div><span id="ai-convert-status" class="ai-step-status" aria-live="polite"></span></div>
+        <button id="btn-ai-convert" type="button" class="btn">繁简转换＋整理</button>
+        <label class="form-label" for="field-clean-text">标准文本（保存并进入 RAG 索引）</label>
+        <textarea id="field-clean-text" class="form-textarea" rows="7" placeholder="整理后的简体文本将显示在这里，仍可人工修改。"></textarea>
+      </section>
+
+      <section class="ai-workflow-step">
+        <div class="ai-step-heading"><img class="ai-step-icon logo-whale" src="assets/ai-icons/ai-whale.png" alt=""><div class="ai-step-heading-copy"><strong>AI 分析</strong><small>DeepSeek 只分析标准文本，并结合题名、时间、来源和议题</small></div><span id="ai-analyze-status" class="ai-step-status" aria-live="polite"></span></div>
+        <button id="btn-ai-analyze" type="button" class="btn ai-analyze-btn">DeepSeek 分析</button>
+        <div class="ai-result-grid">
+          <label>核心观点<textarea id="field-ai-summary" class="form-textarea" rows="3"></textarea></label>
+          <label>关键词<input id="field-ai-keywords" class="form-input" placeholder="多个关键词用逗号分隔" /></label>
+          <label>反映的社会问题<textarea id="field-ai-social-issue" class="form-textarea" rows="3"></textarea></label>
+          <label>研究价值<textarea id="field-ai-research-value" class="form-textarea" rows="3"></textarea></label>
+          <label>与海派旗袍设计史的关系<textarea id="field-ai-relation" class="form-textarea" rows="3"></textarea></label>
+          <label>论文用途<textarea id="field-ai-paper-use" class="form-textarea" rows="3"></textarea></label>
         </div>
-        <div id="ai-highlight-list"></div>
-      </div>
-      <div class="form-help">可选择或连续粘贴最多 10 张图片（JPG、PNG、WebP；单张最大 15MB、总计最大 50MB）。AI 将按添加顺序合并识别，并把繁体原文整理为简体；结果请务必人工核对。</div>
+        <div id="ai-highlight-suggestions" class="ai-highlight-suggestions" hidden></div>
+      </section>
+      <div class="form-help">分析结果会自动导入核心内容、个人分析和关键词；保存前请逐项复核并按需要修改。</div>
     </div>
 
     <div class="form-group">
@@ -179,12 +201,12 @@
 
     <div class="form-actions">
       <button id="btn-cancel" class="btn">取消</button>
-      <button id="btn-submit" class="btn primary">💾 保存</button>
+      <button id="btn-submit" class="btn primary">💾 保存史料</button>
     </div>
   </div>
 
   <script src="data/data.js"></script>
   <script src="assets/storage.js?v=2"></script>
-  <script src="assets/add.js?v=2"></script>
+  <script src="assets/add.js?v=3"></script>
 </body>
 </html>
