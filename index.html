@@ -39,6 +39,7 @@
       </div>
       <div class="header-actions">
         <a href="stats.html" class="btn-header">📊 可视化</a>
+        <span id="local-ai-assistant-entry"></span>
         <a href="add.html" class="btn-header">＋ 添加史料</a>
         <button id="btn-export" class="btn-header" title="下载 data.js 备份">⬇ 导出</button>
         <button id="btn-reset" class="btn-header" title="替换 data.js 后清除浏览器缓存">↻ 重置</button>
@@ -175,5 +176,18 @@
   <script src="data/data.js"></script>
   <script src="assets/storage.js"></script>
   <script src="assets/app.js"></script>
+  <script>
+    // AI 助手只在本机服务中显示；GitHub Pages 不会出现此入口。
+    if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+      const mount = document.getElementById('local-ai-assistant-entry');
+      if (mount) {
+        const link = document.createElement('a');
+        link.href = 'ai_assistant.html';
+        link.className = 'btn-header';
+        link.innerHTML = '<img src="assets/ai-writing-logo.png" alt="" class="ai-button-icon">AI史料助手';
+        mount.replaceWith(link);
+      }
+    }
+  </script>
 </body>
 </html>
