@@ -218,6 +218,7 @@ function searchRecords(records, keyword) {
   const kw = keyword.trim().toLowerCase();
   const result = records.filter(r => {
     const haystack = [
+      r.shiliao_id,
       r.title, r.source, r.author, r.time, r.version_info,
       r.core_content, r.personal_analysis, r.quotes,
       r.clean_text, r.docx_preview_text,
@@ -225,7 +226,10 @@ function searchRecords(records, keyword) {
       r.ai_relation, r.ai_category, r.ai_paper_use,
       ...(r.topics || []), ...(r.keywords || []), ...(r.ai_keywords || [])
     ].filter(Boolean).join(' ').toLowerCase();
-    return haystack.includes(kw);
+    // 编号搜索允许用户省略连字符，例如 SL2026326 也能找到 SL-2026-326。
+    const compactHaystack = haystack.replace(/[\s\-_]/g, '');
+    const compactKeyword = kw.replace(/[\s\-_]/g, '');
+    return haystack.includes(kw) || compactHaystack.includes(compactKeyword);
   });
   // 为搜索结果标记关键词，供卡片渲染时高亮
   result.forEach(r => {
