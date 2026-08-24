@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>同期史料 · 民国海派旗袍史料库</title>
+  <link rel="icon" href="assets/logo2.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/timeline.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="timeline-brand">
+        <img src="assets/logo2.png" alt="logo">
+        <span class="site-title">海派旗袍史料库</span>
+        <span class="site-subtitle">同期史料</span>
+      </a>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">← 返回史料库</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="timeline-page">
+    <section class="timeline-intro">
+      <p class="eyebrow">DATE-BASED BROWSING</p>
+      <h1>同期史料</h1>
+      <p>选择一个时期，再从时间轴中点选具体日期，集中查看同一天留下的不同材料。</p>
+    </section>
+
+    <section class="timeline-controls" aria-label="时间筛选">
+      <label>年份 <select id="year-select"></select></label>
+      <label>月份 <select id="month-select"></select></label>
+      <button id="all-dates" class="timeline-button secondary" type="button">显示本年全部日期</button>
+      <span id="timeline-summary" class="timeline-summary"></span>
+    </section>
+
+    <section class="timeline-layout">
+      <aside class="date-rail">
+        <div class="date-rail-heading">日期轴</div>
+        <div id="date-list" class="date-list"></div>
+      </aside>
+      <section class="date-results">
+        <div id="selected-date-heading" class="selected-date-heading"></div>
+        <div id="record-list" class="timeline-record-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="data/data.js"></script>
+  <script src="assets/storage.js"></script>
+  <script src="assets/timeline.js"></script>
+</body>
+</html>

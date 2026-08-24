@@ -1,0 +1,36 @@
+.timeline-brand { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; }
+.timeline-brand img { height: 37px; width: auto; }
+.timeline-brand .site-title { font-size: 22px; font-weight: 600; letter-spacing: 2px; font-family: "STSong", "Songti SC", serif; }
+.timeline-brand .site-subtitle { color: #9d6b58; font-size: 13px; border-left: 1px solid #d8c6b7; padding-left: 13px; }
+.timeline-page { max-width: 1180px; margin: 0 auto; padding: 44px 24px 70px; }
+.timeline-intro { margin-bottom: 27px; }
+.timeline-intro .eyebrow { color: #9d6b58; letter-spacing: .16em; font-size: 11px; margin: 0 0 10px; }
+.timeline-intro h1 { font-family: "STSong", "SimSun", "宋体", "Songti SC", serif; font-size: 28px; font-weight: 600; color: #4b2b29; margin: 0 0 10px; }
+.timeline-intro p:last-child { color: #786b66; margin: 0; }
+.timeline-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 16px 18px; background: #fbf8f4; border: 1px solid #eadfd5; border-radius: 10px; margin-bottom: 22px; }
+.timeline-controls label { color: #665852; font-size: 14px; }
+.timeline-controls select { margin-left: 7px; border: 1px solid #d8c7ba; border-radius: 6px; padding: 8px 28px 8px 10px; color: #4c3934; background: white; }
+.timeline-button { border: 0; border-radius: 6px; padding: 9px 13px; cursor: pointer; font-size: 13px; }
+.timeline-button.secondary { background: #eee5dd; color: #60463c; }
+.timeline-summary { margin-left: auto; color: #9a8980; font-size: 13px; }
+.timeline-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 28px; align-items: start; }
+.date-rail { position: sticky; top: 18px; max-height: calc(100vh - 36px); overflow: auto; padding: 16px 14px; border: 1px solid #eadfd5; border-radius: 10px; background: #fffdfa; }
+.date-rail-heading { color: #765448; font-size: 13px; letter-spacing: .12em; padding: 0 7px 12px; border-bottom: 1px solid #eee5de; }
+.date-list { padding-top: 8px; }
+.date-item { width: 100%; display: flex; justify-content: space-between; align-items: center; border: 0; border-left: 3px solid transparent; background: transparent; color: #6e625d; padding: 10px 8px; text-align: left; cursor: pointer; border-radius: 0 6px 6px 0; }
+.date-item:hover, .date-item.active { background: #f5ece5; color: #8b2c3c; border-left-color: #8b2c3c; }
+.date-count { color: #aa968b; font-size: 12px; }
+.selected-date-heading { border-bottom: 1px solid #eadfd5; padding: 0 0 15px; margin-bottom: 16px; color: #4b2b29; font-size: 23px; }
+.selected-date-heading small { color: #a18c82; font-size: 13px; margin-left: 8px; }
+.timeline-record-list { display: grid; gap: 13px; }
+.timeline-record { display: grid; grid-template-columns: 5px minmax(0, 1fr); gap: 15px; padding: 16px 18px 16px 0; border: 1px solid #eee5de; border-radius: 9px; background: white; cursor: pointer; transition: box-shadow .16s, transform .16s; }
+.timeline-record:hover { box-shadow: 0 8px 20px rgba(92,61,45,.09); transform: translateY(-1px); }
+.timeline-record-color { border-radius: 0 5px 5px 0; }
+.timeline-record-content { min-width: 0; }
+.timeline-record-meta { color: #9b8980; font-size: 12px; margin-bottom: 7px; }
+.timeline-record-title { color: #1f1f1f; font-family: "PingFang SC", "Microsoft YaHei", "Source Han Sans CN", "Hiragino Sans GB", system-ui, sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 7px; }
+.timeline-record-summary { color: #746761; line-height: 1.65; font-size: 13px; }
+.timeline-tags { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+.timeline-tag { color: white; font-size: 11px; padding: 3px 7px; border-radius: 10px; }
+.timeline-empty { color: #9a8980; padding: 30px 0; }
+@media (max-width: 720px) { .timeline-page { padding: 28px 15px 50px; } .timeline-layout { grid-template-columns: 1fr; gap: 18px; } .date-rail { position: static; max-height: 220px; } .timeline-summary { width: 100%; margin-left: 0; } .timeline-brand .site-subtitle, .timeline-brand .site-title { display: none; } }
