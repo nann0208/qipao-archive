@@ -1346,7 +1346,9 @@ body {
   font-size: 12px;
   line-height: 1.35;
   text-align: right;
-  white-space: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ai-step-status:empty { display: none; }
 .ai-step-status.loading { border-color: #E7C98B; background: #FFF8E8; color: #76551D; }
@@ -1457,7 +1459,12 @@ body {
   border: 1px solid #E8DDD6;
   border-radius: 5px;
   background: #FFF;
+  cursor: grab;
+  transition: border-color .15s, background .15s, opacity .15s;
 }
+.ai-image-preview-item:active { cursor: grabbing; }
+.ai-image-preview-item.is-dragging { opacity: .45; }
+.ai-image-preview-item.is-drag-over { border-color: var(--color-accent); background: #FFF8F5; }
 .ai-image-preview-item img {
   width: 72px;
   height: 52px;

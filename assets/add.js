@@ -372,11 +372,35 @@ function renderAIImagePreviews() {
     if (url) aiPreviewUrls.push(url);
     const item = document.createElement('div');
     item.className = 'ai-image-preview-item';
+    item.draggable = true;
+    item.dataset.index = String(index);
     item.innerHTML = `<span class="ai-image-order">${index + 1}</span>${isImage ? `<img alt="第 ${index + 1} 张待识别图片">` : `<span class="ai-file-kind">${file.name.toLowerCase().endsWith('.pdf') ? 'PDF' : 'DOCX'}</span>`}<div class="ai-image-meta"><strong></strong><span></span></div><button type="button" class="ai-image-remove" aria-label="移除第 ${index + 1} 个文件">×</button>`;
     if (isImage) item.querySelector('img').src = url;
     item.querySelector('strong').textContent = file.name;
     item.querySelector('.ai-image-meta span').textContent = formatFileSize(file.size);
     item.querySelector('button').addEventListener('click', () => removeAIImage(index));
+    item.addEventListener('dragstart', event => {
+      event.dataTransfer.effectAllowed = 'move';
+      event.dataTransfer.setData('text/plain', String(index));
+      item.classList.add('is-dragging');
+    });
+    item.addEventListener('dragend', () => {
+      item.classList.remove('is-dragging');
+      preview.querySelectorAll('.is-drag-over').forEach(el => el.classList.remove('is-drag-over'));
+    });
+    item.addEventListener('dragover', event => { event.preventDefault(); item.classList.add('is-drag-over'); });
+    item.addEventListener('dragleave', () => item.classList.remove('is-drag-over'));
+    item.addEventListener('drop', event => {
+      event.preventDefault();
+      item.classList.remove('is-drag-over');
+      const from = Number(event.dataTransfer.getData('text/plain'));
+      const to = Number(item.dataset.index);
+      if (!Number.isInteger(from) || from === to || !aiSelectedFiles[from]) return;
+      const [moved] = aiSelectedFiles.splice(from, 1);
+      aiSelectedFiles.splice(to, 0, moved);
+      renderAIImagePreviews();
+      setAIStatus(`顺序已调整，共 ${aiSelectedFiles.length} 个文件；将按当前顺序处理。`, 'success', 'ocr');
+    });
     preview.appendChild(item);
   });
   preview.hidden = aiSelectedFiles.length === 0;
@@ -451,7 +475,7 @@ async function runOCR() {
   aiSelectedFiles.forEach(file => formData.append('files', file, file.name));
   button.disabled = true;
   button.textContent = '正在 OCR…';
-  setAIStatus('正在识别原文；本阶段不会繁简转换、总结或分析。', 'loading', 'ocr');
+  setAIStatus('正在识别原文，本阶段不会繁简转换或总结', 'loading', 'ocr');
   try {
     const response = await fetch('http://127.0.0.1:8765/api/ocr', { method: 'POST', body: formData });
     const payload = await response.json().catch(() => ({}));
@@ -486,7 +510,7 @@ async function convertOCRText() {
     if (!response.ok) throw new Error(payload.detail || '文本整理服务暂时无法使用。');
     document.getElementById('field-clean-text').value = payload.text || '';
     document.getElementById('field-docx-preview').value = payload.text || '';
-    setAIStatus('文本整理完成。请复核标准文本，再交给 DeepSeek 分析。', 'success', 'convert');
+    setAIStatus('文本整理完成，请复核标准文本。', 'success', 'convert');
   } catch (error) {
     setAIRequestError(error, '文本整理失败', 'convert');
   } finally {
@@ -633,6 +657,8 @@ function setAIStatus(message, kind, stage = 'ocr') {
 async function exportTranscriptionDocx() {
   const text = document.getElementById('field-docx-preview').value.trim();
   const title = document.getElementById('field-title').value.trim() || '史料原文';
+  const generatedName = document.getElementById('generated-filename')?.value.trim();
+  const downloadName = sanitizeFilenamePart(generatedName || title) || '史料原文';
   const button = document.getElementById('btn-export-docx');
   if (!text) {
     alert('当前没有可导出的原文，请先识别图片或输入文字。');
@@ -655,7 +681,7 @@ async function exportTranscriptionDocx() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `${title.replace(/[\\/:*?"<>|]/g, '_').slice(0, 80) || '史料原文'}.docx`;
+    link.download = `${downloadName.slice(0, 80)}.docx`;
     document.body.appendChild(link);
     link.click();
     link.remove();
