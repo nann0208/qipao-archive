@@ -1,6 +1,6 @@
 // 民国海派旗袍史料库 - 数据
-// 导出时间: 2026-09-27T15:42:20.060104+08:00
-// 共 320 条记录
+// 导出时间: 2026-09-27T18:04:32.285794+08:00
+// 共 321 条记录
 
 window.INITIAL_DATA = [
   {
@@ -194,7 +194,7 @@ window.INITIAL_DATA = [
     "author": "佚名",
     "docx_preview_text": "",
     "updated_at": "2026-09-24T04:06:53.241Z",
-    "_searchKeyword": "时代",
+    "_searchKeyword": "开衩",
     "image_form": "摄影",
     "opinion_types": [],
     "ocr_original": "",
@@ -233,8 +233,7 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-25T04:15:54.919Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-25T04:15:54.919Z"
   },
   {
     "shiliao_id": "SL-2026-009",
@@ -273,8 +272,7 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": [],
-    "_searchKeyword": "时代"
+    "annotations": []
   },
   {
     "shiliao_id": "SL-2026-010",
@@ -471,8 +469,7 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:27:05.470Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-26T01:27:05.470Z"
   },
   {
     "shiliao_id": "SL-2026-018",
@@ -583,8 +580,7 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:32:08.134Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-26T01:32:08.134Z"
   },
   {
     "shiliao_id": "SL-2026-024",
@@ -609,8 +605,7 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:32:57.444Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-26T01:32:57.444Z"
   },
   {
     "shiliao_id": "SL-2026-025",
@@ -710,8 +705,7 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:42:52.081Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-26T01:42:52.081Z"
   },
   {
     "shiliao_id": "SL-2026-029",
@@ -792,8 +786,7 @@ window.INITIAL_DATA = [
     "ai_relation": "",
     "ai_paper_use": "",
     "related_records": [],
-    "female_authored": false,
-    "_searchKeyword": "时代"
+    "female_authored": false
   },
   {
     "shiliao_id": "SL-2026-030",
@@ -849,8 +842,7 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "李珊菲",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:53:12.965Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-26T01:53:12.965Z"
   },
   {
     "shiliao_id": "SL-2026-032",
@@ -898,7 +890,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-04T02:58:20.684Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "大美"
   },
   {
     "shiliao_id": "SL-2026-033",
@@ -975,7 +967,7 @@ window.INITIAL_DATA = [
     "author": "佚名",
     "docx_preview_text": "",
     "updated_at": "2026-06-06T09:04:34.928Z",
-    "_searchKeyword": "时代"
+    "_searchKeyword": "开衩"
   },
   {
     "shiliao_id": "SL-2026-036",
@@ -1039,7 +1031,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-04T02:37:28.071Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "开衩"
   },
   {
     "shiliao_id": "SL-2026-037",
@@ -1559,8 +1551,7 @@ window.INITIAL_DATA = [
         "note": "服形制选择本质是本土丝绸国货与外来呢绒洋货的市场竞争。",
         "created_at": "2026-06-04T04:12:38.406Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-050",
@@ -1609,8 +1600,7 @@ window.INITIAL_DATA = [
         "note": "在外货冲击、农村经济凋敝的时代背景下，服饰国货化被视作挽回利权、纾解经济困境的重要举措。",
         "created_at": "2026-06-04T04:20:30.201Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-051",
@@ -1715,7 +1705,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-05T02:29:42.253Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "务本"
   },
   {
     "shiliao_id": "SL-2026-053",
@@ -1767,8 +1757,7 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-05T02:57:11.754Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-054",
@@ -2044,8 +2033,7 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "小人",
     "docx_preview_text": "上海妇人入冬穿旗袍者，居十之二三；以藏青色者居多，多披绒围巾者，居十之七八；以紫色者居多，戴绒线帽者，居十之四五，以白色及紫色居多。",
-    "updated_at": "2026-06-26T02:08:31.508Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-26T02:08:31.508Z"
   },
   {
     "shiliao_id": "SL-2026-059",
@@ -2187,8 +2175,7 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": [],
-    "_searchKeyword": "时代"
+    "annotations": []
   },
   {
     "shiliao_id": "SL-2026-062",
@@ -2273,7 +2260,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-05T03:46:59.300Z"
       }
     ],
-    "_searchKeyword": "时代",
+    "_searchKeyword": "开衩",
     "opinion_type": "价值重构型",
     "opinion_types": [
       "体验反馈型",
@@ -2541,7 +2528,7 @@ window.INITIAL_DATA = [
       "files/《妇人画报》/1933年7月15日-第7期-第15页-夏装（图）.docx"
     ],
     "image_paths": [],
-    "_searchKeyword": "时代",
+    "_searchKeyword": "流行",
     "author": "佚名",
     "docx_preview_text": "夏装这是一袭很普通的新装，下脚加阔，颇美观。因普通旗袍，必须开叉，叉高不雅，须穿长裤，叉低则行动不便，但做此则无上述之缺点。",
     "updated_at": "2026-06-29T14:28:40.339Z",
@@ -2626,8 +2613,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "规范约束型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-071",
@@ -2747,8 +2733,7 @@ window.INITIAL_DATA = [
         "note": "完整呈现旗袍 + 丝袜 + 新式凉鞋的经典近代女装搭配，是民国都市女性典型着装范本。",
         "created_at": "2026-06-15T01:02:36.625Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-073",
@@ -2831,8 +2816,7 @@ window.INITIAL_DATA = [
         "note": "从身体外貌角度否定近代女性的新式审美表达。",
         "created_at": "2026-06-16T00:56:07.204Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-074",
@@ -2869,7 +2853,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T01:57:38.242Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "孤岛"
   },
   {
     "shiliao_id": "SL-2026-075",
@@ -2953,7 +2937,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T02:46:38.371Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "shiliao_id": "SL-2026-076",
@@ -3062,7 +3046,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-29T12:58:00.757Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "shiliao_id": "SL-2026-077",
@@ -3240,7 +3224,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-17T02:09:13.708Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "shiliao_id": "SL-2026-079",
@@ -3303,8 +3287,7 @@ window.INITIAL_DATA = [
         "note": "西洋内衣理念传入，推动女性摆脱束胸陋习，实现内衣现代化转型。",
         "created_at": "2026-06-06T09:33:50.220Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-080",
@@ -3470,8 +3453,7 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-16T03:04:08.543Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-083",
@@ -3590,8 +3572,7 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-17T02:39:51.722Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-085",
@@ -3714,8 +3695,7 @@ window.INITIAL_DATA = [
         "note": "直面社会质疑，犀利反驳 “改装失体面” 的性别偏见，倡导打破固化的性别审美标准。",
         "created_at": "2026-06-16T03:46:45.817Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-086",
@@ -4005,8 +3985,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "体验反馈型",
       "价值重构型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-091",
@@ -4285,8 +4264,7 @@ window.INITIAL_DATA = [
       "体验反馈型"
     ],
     "related_records": [],
-    "female_authored": true,
-    "_searchKeyword": "时代"
+    "female_authored": true
   },
   {
     "shiliao_id": "SL-2026-099",
@@ -4363,8 +4341,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-100",
@@ -4413,8 +4390,7 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-06T08:51:09.173Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-101",
@@ -4472,7 +4448,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "规范约束型"
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "shiliao_id": "SL-2026-102",
@@ -4592,8 +4568,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-104",
@@ -4647,8 +4622,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-105",
@@ -4716,8 +4690,7 @@ window.INITIAL_DATA = [
         "note": "提出超越肉体的审美标准，支撑弱化曲线、凸显女性独立气质的旗袍设计。",
         "created_at": "2026-06-23T01:24:53.721Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-106",
@@ -4826,7 +4799,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-17T02:48:00.485Z"
       }
     ],
-    "_searchKeyword": "时代",
+    "_searchKeyword": "开衩",
     "opinion_types": [
       "体验反馈型"
     ],
@@ -4904,7 +4877,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "价值重构型"
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "德人"
   },
   {
     "shiliao_id": "SL-2026-108",
@@ -5068,8 +5041,7 @@ window.INITIAL_DATA = [
       "价值重构型"
     ],
     "related_records": [],
-    "female_authored": false,
-    "_searchKeyword": "时代"
+    "female_authored": false
   },
   {
     "shiliao_id": "SL-2026-110",
@@ -5188,7 +5160,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T02:05:17.937Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "shiliao_id": "SL-2026-113",
@@ -5382,7 +5354,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T03:08:36.832Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "shiliao_id": "SL-2026-117",
@@ -5826,8 +5798,7 @@ window.INITIAL_DATA = [
         "note": "礼服全民化打破服饰特权，让长款长袍走向民间女性，加速旗袍的平民化普及。",
         "created_at": "2026-06-23T02:22:50.818Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-124",
@@ -6275,8 +6246,7 @@ window.INITIAL_DATA = [
         "note": "女性承担救国、社会事务",
         "created_at": "2026-06-24T03:10:28.043Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-131",
@@ -6559,8 +6529,7 @@ window.INITIAL_DATA = [
         "note": "女性人格觉醒\n传统女性礼教瓦解，依附礼教的保守女装审美衰落",
         "created_at": "2026-06-22T13:02:35.652Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-135",
@@ -6712,8 +6681,7 @@ window.INITIAL_DATA = [
         "note": "提出核心改良思路，证明调整旗袍衣身版型可解决女性身体束缚问题。",
         "created_at": "2026-06-22T13:07:58.469Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-137",
@@ -6881,8 +6849,7 @@ window.INITIAL_DATA = [
         "note": "女性经济独立催生服饰自主消费，",
         "created_at": "2026-06-22T13:16:25.703Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-139",
@@ -6967,8 +6934,7 @@ window.INITIAL_DATA = [
         "note": "批判无经济基础的形式化男女平等论调。",
         "created_at": "2026-06-24T03:30:36.266Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "shiliao_id": "SL-2026-140",
@@ -7248,8 +7214,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "图像",
@@ -7424,8 +7389,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-147",
     "image_form": "摄影",
     "created_at": "2026-06-05T01:47:13.488Z",
-    "updated_at": "2026-06-05T01:47:13.489Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-05T01:47:13.489Z"
   },
   {
     "type": "图像",
@@ -7457,8 +7421,7 @@ window.INITIAL_DATA = [
     "updated_at": "2026-07-09T02:33:36.111Z",
     "opinion_types": [],
     "related_records": [],
-    "female_authored": false,
-    "_searchKeyword": "时代"
+    "female_authored": false
   },
   {
     "type": "图像",
@@ -7486,8 +7449,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-149",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-05T01:55:21.612Z",
-    "updated_at": "2026-06-05T01:55:21.613Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-05T01:55:21.613Z"
   },
   {
     "type": "图像",
@@ -7528,8 +7490,7 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": [],
-    "_searchKeyword": "时代"
+    "annotations": []
   },
   {
     "type": "图像",
@@ -7590,8 +7551,7 @@ window.INITIAL_DATA = [
     "ai_relation": "",
     "ai_paper_use": "",
     "related_records": [],
-    "female_authored": false,
-    "_searchKeyword": "时代"
+    "female_authored": false
   },
   {
     "type": "图像",
@@ -7621,8 +7581,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-152",
     "image_form": "摄影",
     "created_at": "2026-06-05T02:12:18.222Z",
-    "updated_at": "2026-06-05T02:12:18.222Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-05T02:12:18.222Z"
   },
   {
     "type": "图像",
@@ -7664,8 +7623,7 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": [],
-    "_searchKeyword": "时代"
+    "annotations": []
   },
   {
     "type": "档案文件",
@@ -7790,8 +7748,7 @@ window.INITIAL_DATA = [
         "note": "时装行业起源于红帮裁缝",
         "created_at": "2026-06-05T02:47:04.881Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "档案文件",
@@ -7880,8 +7837,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-158",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-05T03:36:05.936Z",
-    "updated_at": "2026-06-05T03:36:05.936Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-05T03:36:05.936Z"
   },
   {
     "type": "报刊文章",
@@ -8178,7 +8134,7 @@ window.INITIAL_DATA = [
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-06T09:03:20.505Z",
     "updated_at": "2026-06-26T01:54:46.043Z",
-    "_searchKeyword": "时代"
+    "_searchKeyword": "开衩"
   },
   {
     "type": "图像",
@@ -8306,8 +8262,7 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": [],
-    "_searchKeyword": "时代"
+    "annotations": []
   },
   {
     "type": "图像",
@@ -8336,8 +8291,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-169",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-15T01:11:30.108Z",
-    "updated_at": "2026-06-16T01:01:00.464Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-16T01:01:00.464Z"
   },
   {
     "type": "图像",
@@ -8365,8 +8319,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-170",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-15T01:17:01.099Z",
-    "updated_at": "2026-06-15T01:17:01.099Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-15T01:17:01.099Z"
   },
   {
     "type": "报刊文章",
@@ -8480,8 +8433,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -8631,8 +8583,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -8691,7 +8642,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T01:31:25.093Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "type": "报刊文章",
@@ -8980,8 +8931,7 @@ window.INITIAL_DATA = [
         "note": "近代报纸图文结合是新式时装向外传播、普及的核心媒介渠道。",
         "created_at": "2026-06-16T02:18:42.180Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -9113,7 +9063,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-17T03:09:34.573Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "开衩"
   },
   {
     "type": "报刊文章",
@@ -9207,8 +9157,7 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -9320,8 +9269,7 @@ window.INITIAL_DATA = [
     "docx_preview_text": "第二条、女学生制服\n甲、女学生即以常服为制服。\n乙、寒季用黑色或蓝色。\n丙、暑季用白色或蓝色。前二项制服，一校中不得用两色。\n丁、女学生自中等学校以上着裙，裙用黑色。\n戊、女学校可特制襟章，颁给学生，佩于襟前以为徽识。\n\n第三条、制服质料，以本国制造品之坚固朴素者为主。\n\n第四条、高等小学以上各项学校学生，均应遵照本规程，一律着制服，但依地方情形，不能即时遵行者，暂准变通办理。",
     "shiliao_id": "SL-2026-186",
     "created_at": "2026-06-24T02:43:40.998Z",
-    "updated_at": "2026-06-24T02:43:40.998Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-06-24T02:43:40.998Z"
   },
   {
     "type": "专著",
@@ -9542,7 +9490,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "规范约束型"
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "裙带"
   },
   {
     "type": "专著",
@@ -9842,7 +9790,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-25T02:52:41.734Z"
       }
     ],
-    "_searchKeyword": "时代",
+    "_searchKeyword": "兔",
     "opinion_types": [],
     "related_records": [],
     "female_authored": true
@@ -9919,8 +9867,7 @@ window.INITIAL_DATA = [
         "note": "拓展服饰审美范畴，打破只重视外衣、忽视内衣美感与舒适度的传统观念。",
         "created_at": "2026-06-25T03:11:14.885Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -10158,8 +10105,7 @@ window.INITIAL_DATA = [
         "note": "全文核心观点，点明白旗袍是新旧礼制过渡期的最优折中方案，发出推广白旗袍的明确呼吁。",
         "created_at": "2026-06-30T01:01:55.977Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -10447,8 +10393,7 @@ window.INITIAL_DATA = [
         "note": "以自身舞厅真实经历举例，具象说明薄料旗袍出汗贴身、暴露身形带来的当众尴尬。",
         "created_at": "2026-06-30T02:03:53.481Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -10568,8 +10513,7 @@ window.INITIAL_DATA = [
       }
     ],
     "related_records": [],
-    "female_authored": false,
-    "_searchKeyword": "时代"
+    "female_authored": false
   },
   {
     "type": "报刊文章",
@@ -10652,8 +10596,7 @@ window.INITIAL_DATA = [
       }
     ],
     "related_records": [],
-    "female_authored": false,
-    "_searchKeyword": "时代"
+    "female_authored": false
   },
   {
     "type": "报刊文章",
@@ -10729,8 +10672,7 @@ window.INITIAL_DATA = [
         "note": "以学生登台实景，具象说明紧身开衩旗袍严重限制肢体活动，实用性极差。",
         "created_at": "2026-06-30T03:13:01.966Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -10807,8 +10749,7 @@ window.INITIAL_DATA = [
         "note": "寄托作者核心诉求，期盼这场悲剧彻底根除紧身旗袍的流行风气。",
         "created_at": "2026-06-30T03:20:51.429Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -11010,8 +10951,7 @@ window.INITIAL_DATA = [
         "note": "体现本土女性自我身体否定，因缠足遗留的肢体缺陷，主动认同加长旗袍遮蔽腿脚的选择。",
         "created_at": "2026-06-30T10:11:33.057Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -11099,8 +11039,7 @@ window.INITIAL_DATA = [
         "note": "全文核心劝导主张，确立 “朴素布衣” 为女性最优着装标准。",
         "created_at": "2026-06-30T10:28:35.267Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -11327,8 +11266,7 @@ window.INITIAL_DATA = [
         "id": "SL-2026-101",
         "relation": ""
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -11492,8 +11430,7 @@ window.INITIAL_DATA = [
         "note": "形成强烈对比，一边都市赏桃花，一边前线浴血，戳破春日浮华背后的国土危机。",
         "created_at": "2026-06-30T12:02:23.192Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -11671,7 +11608,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-30T13:36:58.031Z"
       }
     ],
-    "_searchKeyword": "时代"
+    "_searchKeyword": "流行"
   },
   {
     "type": "报刊文章",
@@ -11795,8 +11732,7 @@ window.INITIAL_DATA = [
         "note": "凸显中西时装消费观念、经济条件的巨大鸿沟。",
         "created_at": "2026-06-30T13:57:45.046Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -11908,8 +11844,7 @@ window.INITIAL_DATA = [
         "note": "点明短旗袍兴起带动内搭裤款变化，揭示新式旗袍配套短衬裤的穿搭特征。",
         "created_at": "2026-07-06T12:55:41.534Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -11985,8 +11920,7 @@ window.INITIAL_DATA = [
         "note": "对比宽松旗袍含蓄朦胧的美感，区分两类旗袍不同审美特质。",
         "created_at": "2026-07-06T13:11:18.579Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12054,8 +11988,7 @@ window.INITIAL_DATA = [
         "note": "全文核心观点，宽松长马甲取代束胸小马甲，视作女性服饰、身体观念的进步。",
         "created_at": "2026-07-06T13:31:49.135Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12126,8 +12059,7 @@ window.INITIAL_DATA = [
         "note": "收尾升华主旨，城市设施与服饰习俗共同证明上海社会实质并未革新。",
         "created_at": "2026-07-06T13:40:06.918Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12187,8 +12119,7 @@ window.INITIAL_DATA = [
         "note": "提出本文核心审美观点，紧身剪裁的核心价值是展露女性身体曲线。",
         "created_at": "2026-07-06T13:51:50.802Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12233,8 +12164,7 @@ window.INITIAL_DATA = [
         "note": "完整记录民国新式旗袍、放足、西式漆皮鞋三大标志性服饰变革，凸显摩登女性艳丽时髦的外形。",
         "created_at": "2026-07-06T13:59:56.902Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12297,8 +12227,7 @@ window.INITIAL_DATA = [
         "note": "报社客观点评该提议论证不足，同时体现报刊开放大众服饰议题讨论的立场。",
         "created_at": "2026-07-06T14:14:25.188Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12433,8 +12362,7 @@ window.INITIAL_DATA = [
         "note": "用布料用量数据直观对比，凸显旗袍用料精简的突出优势。",
         "created_at": "2026-07-06T14:41:46.039Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12506,8 +12434,7 @@ window.INITIAL_DATA = [
         "note": "结合旗袍窄长版型论证，长款旗袍完全遮蔽腿部，不穿衬裤既美观又不会走光，反驳风化批判。",
         "created_at": "2026-07-06T14:51:50.784Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12655,8 +12582,7 @@ window.INITIAL_DATA = [
         "note": "全文总结论，客观中立评判旗袍，否定 “服妖” 的片面指责。",
         "created_at": "2026-07-07T07:49:57.650Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "图像",
@@ -12687,8 +12613,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-234",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-07-07T07:54:46.699Z",
-    "updated_at": "2026-07-07T07:54:46.699Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-07-07T07:54:46.699Z"
   },
   {
     "type": "报刊文章",
@@ -12843,8 +12768,7 @@ window.INITIAL_DATA = [
         "note": "结合明清旧制典故，讽刺民国反盛行旗装，在时代更替背景下显得不合时宜。",
         "created_at": "2026-07-07T08:12:00.282Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -12932,8 +12856,7 @@ window.INITIAL_DATA = [
         "note": "旗袍的多样款式",
         "created_at": "2026-07-07T08:22:11.231Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -13285,8 +13208,7 @@ window.INITIAL_DATA = [
         "note": "解释更名用字的缘由，借字义形容长袍修长外形，以此摆脱 “旗” 字的前朝意味。",
         "created_at": "2026-07-07T09:18:36.328Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -13709,8 +13631,7 @@ window.INITIAL_DATA = [
         "note": "借助国货游行扩大社会影响力，以公共活动强化全民国货氛围。",
         "created_at": "2026-07-08T14:16:09.827Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "档案文件",
@@ -14509,8 +14430,7 @@ window.INITIAL_DATA = [
         "note": "提出上下游绸缎、印花行业协同作战思路，依靠旗袍完整产业链抱团抵御日资。",
         "created_at": "2026-07-11T01:54:05.214Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "档案文件",
@@ -15283,6 +15203,7 @@ window.INITIAL_DATA = [
     ],
     "importance": 2,
     "document_paths": [
+      "files/旧专著/国货展览会鸟瞰/旗袍类目.docx",
       "files/旧专著/国货展览会鸟瞰/国货展览会鸟瞰(139).pdf",
       "files/旧专著/国货展览会鸟瞰/国货展览会鸟瞰(212).pdf"
     ],
@@ -15292,7 +15213,17 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-273",
     "created_at": "2026-07-17T09:07:47.522Z",
-    "updated_at": "2026-07-21T15:13:48.739Z"
+    "updated_at": "2026-09-27T08:05:32.806Z",
+    "image_form": "",
+    "ocr_original": "",
+    "clean_text": "旗袍料——王永兴号\n闪光旗袍格——震泰织布厂\n旗袍料——虎林丝织公司\n\n浙江之部\n深湖三闪凤舞马赛锦旗袍——庆成\n果绿三闪秀雅马赛锦旗袍——庆成\n姣月三闪欧塔马赛锦旗袍——庆成\n西红三闪灵珠马赛锦旗背心——庆成\n紫露兰三闪云珠马赛锦旗背心——庆成\n酱驼三闪凤舞马赛锦旗背心——庆成\n\n爱文缎旗袍——袁震和绸厂\n华成葛旗袍——袁震和绸厂\n花镶绸马甲——袁震和绸厂\n罗马缎马甲——袁震和绸厂",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "annotations": []
   },
   {
     "type": "图像",
@@ -15954,8 +15885,7 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-07-22T09:10:20.188Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "专著",
@@ -16246,8 +16176,7 @@ window.INITIAL_DATA = [
         "note": "1930 年代中山装在政界不再流行，西装占据主流男性新式服饰市场。",
         "created_at": "2026-07-23T03:26:25.803Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -16546,8 +16475,7 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-293",
     "created_at": "2026-07-23T08:29:22.612Z",
-    "updated_at": "2026-07-23T08:29:22.612Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-07-23T08:29:22.612Z"
   },
   {
     "type": "报刊文章",
@@ -17272,8 +17200,7 @@ window.INITIAL_DATA = [
         "note": "赋予 “社会之花” 全新价值标准，仅有美貌时尚不足，践行国货爱国才算配得上该称号。",
         "created_at": "2026-08-05T14:04:49.629Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -17358,8 +17285,7 @@ window.INITIAL_DATA = [
         "note": "点明全文核心逻辑，穿着国产棉布制作旗袍直接关联振兴本土纺织、践行服饰救国。",
         "created_at": "2026-08-05T14:01:46.276Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -17463,8 +17389,7 @@ window.INITIAL_DATA = [
         "note": "无论旗袍、新式西装，统一划定面料底线，严格限定只能使用国产织物。",
         "created_at": "2026-08-05T14:19:29.436Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -17525,8 +17450,7 @@ window.INITIAL_DATA = [
         "note": "大众媒体成为旗袍时尚向下传播的核心渠道。",
         "created_at": "2026-08-05T14:38:58.893Z"
       }
-    ],
-    "_searchKeyword": "时代"
+    ]
   },
   {
     "type": "报刊文章",
@@ -17944,8 +17868,7 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-311",
     "created_at": "2026-08-19T03:07:55.043Z",
-    "updated_at": "2026-08-19T03:15:58.259Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-08-19T03:15:58.259Z"
   },
   {
     "type": "报刊文章",
@@ -18027,8 +17950,7 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-312",
     "created_at": "2026-08-19T12:34:09.254Z",
-    "updated_at": "2026-08-19T12:34:48.865Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-08-19T12:34:48.865Z"
   },
   {
     "type": "图像",
@@ -18293,8 +18215,7 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-316",
     "created_at": "2026-08-19T13:17:32.723Z",
-    "updated_at": "2026-08-19T13:17:32.723Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-08-19T13:17:32.723Z"
   },
   {
     "type": "图像",
@@ -18419,8 +18340,7 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-318",
     "created_at": "2026-08-19T14:11:45.561Z",
-    "updated_at": "2026-08-19T14:38:57.278Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-08-19T14:38:57.278Z"
   },
   {
     "type": "报刊文章",
@@ -18498,8 +18418,7 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-319",
     "created_at": "2026-08-19T14:30:33.611Z",
-    "updated_at": "2026-08-19T14:39:46.939Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-08-19T14:39:46.939Z"
   },
   {
     "type": "报刊文章",
@@ -18678,8 +18597,7 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-321",
     "created_at": "2026-08-19T14:46:31.491Z",
-    "updated_at": "2026-08-19T14:48:02.152Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-08-19T14:48:02.152Z"
   },
   {
     "type": "报刊文章",
@@ -18790,8 +18708,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-323",
     "created_at": "2026-08-20T16:14:32.543Z",
     "updated_at": "2026-09-24T07:18:56.987Z",
-    "image_form": "插画/漫画/速写",
-    "_searchKeyword": "时代"
+    "image_form": "插画/漫画/速写"
   },
   {
     "type": "报刊文章",
@@ -19665,8 +19582,7 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-333",
     "created_at": "2026-09-24T07:58:43.203Z",
-    "updated_at": "2026-09-24T09:15:43.595Z",
-    "_searchKeyword": "时代"
+    "updated_at": "2026-09-24T09:15:43.595Z"
   },
   {
     "type": "图像",
@@ -19780,5 +19696,44 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-334",
     "created_at": "2026-09-27T07:32:54.732Z",
     "updated_at": "2026-09-27T07:33:31.355Z"
+  },
+  {
+    "type": "图像",
+    "image_form": "插画/漫画/速写",
+    "opinion_types": [],
+    "topics": [
+      "旗袍流行款式"
+    ],
+    "source": "图画时报",
+    "title": "新装束",
+    "author": "佚名",
+    "time": "1926年2月28日",
+    "version_info": "第290期",
+    "core_content": "旗袍风行沪上较往年为甚，近则花样翻新，层出不穷，此衣制以丝织品，上绣二龙天骄，生姿华富极矣",
+    "personal_analysis": "早期旗袍花纹仍以传统吉祥龙凤为主。",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "时代审美",
+      "纹样"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《图画时报》/1926年2月28日-第290期-旗袍风行沪上（佚名）.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-335",
+    "created_at": "2026-09-27T09:21:19.396Z",
+    "updated_at": "2026-09-27T10:04:27.176Z"
   }
 ];
