@@ -112,6 +112,7 @@ function renderKeywordSuggestions() {
 
 function fillForm(r) {
   document.getElementById('field-type').value = r.type || '报刊文章';
+  document.getElementById('field-image-form').value = r.image_form || '';
   document.getElementById('field-source').value = r.source || '';
   document.getElementById('field-title').value = r.title || '';
   document.getElementById('field-author').value = r.author || '';
@@ -194,6 +195,7 @@ function bindEvents() {
   typeSelect.addEventListener('change', () => {
     populateSourceSelect();
     updateArchiveHolderVisibility();
+    updateImageFormVisibility();
     updateOpinionTypeVisibility();
   });
 
@@ -221,6 +223,7 @@ function bindEvents() {
   populateSourceSelect();
   populateArchiveHolderSelect();
   updateArchiveHolderVisibility();
+  updateImageFormVisibility();
   updateOpinionTypeVisibility();
 }
 
@@ -700,6 +703,12 @@ function updateOpinionTypeVisibility() {
   if (row) row.style.display = type === '报刊文章' ? '' : 'none';
 }
 
+function updateImageFormVisibility() {
+  const type = document.getElementById('field-type').value;
+  const row = document.getElementById('image-form-group');
+  if (row) row.style.display = type === '图像' ? '' : 'none';
+}
+
 // 控制「收藏机构」字段的显隐（仅在档案文件时显示）
 function updateArchiveHolderVisibility() {
   const type = document.getElementById('field-type').value;
@@ -846,6 +855,7 @@ function submit() {
     }));
   const record = {
     type: recordType,
+    image_form: recordType === '图像' ? document.getElementById('field-image-form').value : '',
     opinion_types: recordType === '报刊文章' ? opinionTypes : [],
     topics,
     source: document.getElementById('field-source') ? document.getElementById('field-source').value.trim() : '',

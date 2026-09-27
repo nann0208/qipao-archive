@@ -1,6 +1,7 @@
 // 主页应用逻辑
 
 let currentTypeFilter = '';
+let currentImageFormFilter = '';
 let currentTopicFilter = '';
 let currentKeyword = '';
 let currentSort = 'asc';
@@ -46,6 +47,7 @@ function init() {
   updateYearFilterDisplay();
   updateSourceFilterDisplay();
   updateSourceFilterVisibility();
+  updateImageFormFilterVisibility();
   updateOpinionFilterVisibility();
   updateFemaleFilterVisibility();
 
@@ -216,6 +218,7 @@ function saveState() {
     sources: currentSources,
     opinions: currentOpinionFilters,
     female: currentFemaleFilter,
+    imageForm: currentImageFormFilter,
     page: currentPage,
     view: currentView
   };
@@ -237,6 +240,7 @@ function restoreState() {
     currentSources = state.sources || [];
     currentOpinionFilters = state.opinions || [];
     currentFemaleFilter = state.female || '';
+    currentImageFormFilter = state.imageForm || '';
     currentPage = state.page || 1;
     currentView = state.view || 'card';
   } catch (e) {
@@ -423,6 +427,7 @@ function renderFilters() {
   const typeBar = document.getElementById('type-filters');
   const topicBar = document.getElementById('topic-filters');
   const importanceBar = document.getElementById('importance-filters');
+  const imageFormBar = document.getElementById('image-form-filters');
 
   // 类型筛选
   typeBar.innerHTML = '';
@@ -439,6 +444,18 @@ function renderFilters() {
     if (currentTypeFilter === t) chip.classList.add('active');
     typeBar.appendChild(chip);
   });
+
+  if (imageFormBar) {
+    imageFormBar.innerHTML = '';
+    const allImageForm = createChip('全部', '', () => setImageFormFilter(''));
+    if (!currentImageFormFilter) allImageForm.classList.add('active');
+    imageFormBar.appendChild(allImageForm);
+    ALL_IMAGE_FORMS.forEach(form => {
+      const chip = createChip(form, '', () => setImageFormFilter(form));
+      if (currentImageFormFilter === form) chip.classList.add('active');
+      imageFormBar.appendChild(chip);
+    });
+  }
 
   // 议题筛选
   topicBar.innerHTML = '';
@@ -518,11 +535,25 @@ function setTypeFilter(type) {
     }
   }
   currentTypeFilter = type;
+  if (type !== '图像') currentImageFormFilter = '';
   resetPage();
   updateSourceFilterVisibility();
+  updateImageFormFilterVisibility();
   updateOpinionFilterVisibility();
   renderFilters();
   updateFemaleFilterVisibility();
+  render();
+}
+
+function updateImageFormFilterVisibility() {
+  const row = document.getElementById('image-form-filter-row');
+  if (row) row.style.display = currentTypeFilter === '图像' ? '' : 'none';
+}
+
+function setImageFormFilter(form) {
+  currentImageFormFilter = form;
+  resetPage();
+  renderFilters();
   render();
 }
 
@@ -921,6 +952,7 @@ function render() {
   updateUnsavedBanner(); // 🛡️ 同步未导出数据横幅
   let records = loadAllRecords();
   records = filterByType(records, currentTypeFilter);
+  records = filterByImageForm(records, currentImageFormFilter);
   records = filterByTopic(records, currentTopicFilter);
   records = filterByImportance(records, currentImportance);
   records = filterByYears(records, currentYears);
@@ -1221,6 +1253,8 @@ function createCard(record) {
   const topics = (record.topics || []).map(t =>
     `<span class="card-topic-tag" style="background: ${getTopicColor(t)}">${escapeHtml(t)}</span>`
   ).join('');
+  const imageFormTag = record.type === '图像' && record.image_form
+    ? `<span class="card-topic-tag image-form-tag">${escapeHtml(record.image_form)}</span>` : '';
 
   const docCount = (record.document_paths || []).length;
   const hasDocs = docCount > 0;
@@ -1260,7 +1294,7 @@ function createCard(record) {
         ${femaleIcon}
       </span>
     </div>
-    ${topics ? `<div class="card-topics">${topics}</div>` : ''}
+    ${(topics || imageFormTag) ? `<div class="card-topics">${topics}${imageFormTag}</div>` : ''}
     <h3 class="card-title">${titleText}</h3>
     <div class="card-meta">
       ${record.author ? `<span>✍️ ${escapeHtml(record.author)}</span>` : ''}

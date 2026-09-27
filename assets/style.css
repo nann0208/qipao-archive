@@ -540,6 +540,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.3px;
 }
+.image-form-tag { background: #6B645C; }
 
 .card-title {
   font-size: 15px;

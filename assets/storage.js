@@ -40,6 +40,7 @@ const ALL_TOPICS = [
 ];
 
 const ALL_TYPES = ['报刊文章', '专著', '档案文件', '图像', '文学作品'];
+const ALL_IMAGE_FORMS = ['插画/漫画/速写', '摄影', '其他图像', '未注明'];
 
 // 类型专属配色（只为需要醒目区分的类型设置；未列出的用默认强调色）
 const TYPE_CHIP_COLORS = {};
@@ -219,7 +220,7 @@ function searchRecords(records, keyword) {
   const result = records.filter(r => {
     const haystack = [
       r.shiliao_id,
-      r.title, r.source, r.author, r.time, r.version_info,
+      r.title, r.source, r.author, r.time, r.version_info, r.image_form,
       r.core_content, r.personal_analysis, r.quotes,
       r.clean_text, r.docx_preview_text,
       r.ai_summary, r.ai_social_issue, r.ai_research_value,
@@ -242,6 +243,11 @@ function searchRecords(records, keyword) {
 function filterByType(records, type) {
   if (!type) return records;
   return records.filter(r => r.type === type);
+}
+
+function filterByImageForm(records, form) {
+  if (!form) return records;
+  return records.filter(r => (r.image_form || '未注明') === form);
 }
 
 // 按议题筛选
