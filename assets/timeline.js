@@ -15,6 +15,7 @@
   const recordList = document.getElementById('record-list');
   const heading = document.getElementById('selected-date-heading');
   const summary = document.getElementById('timeline-summary');
+  const denseDaysList = document.getElementById('dense-days-list');
   let selectedKey = '';
 
   function parseExactDate(value) {
@@ -38,6 +39,22 @@
       const d = key.split('-').map(Number);
       return d[0] === y && (!m || d[1] === m);
     }).sort();
+  }
+
+  function renderDenseDays() {
+    const denseDays = [...groups.entries()]
+      .filter(([, dayRecords]) => dayRecords.length >= 4)
+      .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+    denseDaysList.innerHTML = denseDays.length
+      ? denseDays.map(([key, dayRecords]) => `<button class="dense-day-chip" type="button" data-dense-key="${key}"><span>${formatDate(key)}</span><span class="dense-day-count">${dayRecords.length} 条</span></button>`).join('')
+      : '<span class="dense-days-empty">目前还没有达到 4 条史料的日期。</span>';
+    denseDaysList.querySelectorAll('.dense-day-chip').forEach(button => button.addEventListener('click', () => {
+      const [year, month] = button.dataset.denseKey.split('-').map(Number);
+      yearSelect.value = String(year);
+      renderMonths();
+      monthSelect.value = String(month);
+      renderDates(button.dataset.denseKey);
+    }));
   }
 
   function renderMonths() {
@@ -75,6 +92,7 @@
   function escapeText(value) { return String(value || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
   yearSelect.innerHTML = years.map(year => `<option value="${year}">${year}年</option>`).join('');
+  renderDenseDays();
   if (!years.length) { summary.textContent = '暂无完整日期史料'; return; }
   yearSelect.value = years[0]; renderMonths(); renderDates();
   yearSelect.addEventListener('change', () => { monthSelect.value = '0'; renderMonths(); renderDates(); });

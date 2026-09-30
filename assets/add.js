@@ -183,6 +183,7 @@ function bindEvents() {
   // Word 文件提取按钮
   document.getElementById('btn-extract-docx').addEventListener('click', extractDocxFile);
   document.getElementById('btn-export-docx').addEventListener('click', exportTranscriptionDocx);
+  bindTextMirror();
   bindDocumentPathInput();
 
   document.getElementById('btn-ai-ocr')?.addEventListener('click', runOCR);
@@ -225,6 +226,19 @@ function bindEvents() {
   updateArchiveHolderVisibility();
   updateImageFormVisibility();
   updateOpinionTypeVisibility();
+}
+
+// 标准文本与 Word 文字提取框保持同步，避免人工修订后导出的 DOCX 仍使用旧版本。
+function bindTextMirror() {
+  const cleanText = document.getElementById('field-clean-text');
+  const docxPreview = document.getElementById('field-docx-preview');
+  if (!cleanText || !docxPreview) return;
+  cleanText.addEventListener('input', () => {
+    docxPreview.value = cleanText.value;
+  });
+  docxPreview.addEventListener('input', () => {
+    cleanText.value = docxPreview.value;
+  });
 }
 
 async function generateAndCopyFilename() {
@@ -548,7 +562,7 @@ async function analyzeCleanText() {
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(payload.detail || 'DeepSeek 分析服务暂时无法使用。');
     applyStructuredAnalysis(payload);
-    setAIStatus('AI 分析完成。已导入核心内容、个人分析和关键词，请复核。', 'success', 'analyze');
+    setAIStatus('AI分析完成，请复核', 'success', 'analyze');
   } catch (error) {
     setAIRequestError(error, 'AI 分析失败', 'analyze');
   } finally {

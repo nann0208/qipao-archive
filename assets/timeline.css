@@ -13,6 +13,16 @@
 .timeline-button { border: 0; border-radius: 6px; padding: 9px 13px; cursor: pointer; font-size: 13px; }
 .timeline-button.secondary { background: #eee5dd; color: #60463c; }
 .timeline-summary { margin-left: auto; color: #9a8980; font-size: 13px; }
+.dense-days-panel { margin-bottom: 22px; padding: 18px 20px; border: 1px solid #eadfd5; border-radius: 10px; background: #fffaf5; }
+.dense-days-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 13px; }
+.dense-days-kicker { margin: 0 0 4px; color: #a56754; font-size: 10px; letter-spacing: .14em; }
+.dense-days-heading h2 { margin: 0; color: #4b2b29; font-size: 19px; font-weight: 600; }
+.dense-days-explanation { margin: 0; color: #9a8980; font-size: 12px; }
+.dense-days-list { display: flex; gap: 8px; flex-wrap: wrap; }
+.dense-day-chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #e3cfc1; border-radius: 7px; padding: 8px 11px; background: #fff; color: #6a4439; cursor: pointer; font-size: 13px; }
+.dense-day-chip:hover, .dense-day-chip:focus { border-color: #8b2c3c; background: #f8ece7; color: #8b2c3c; outline: none; }
+.dense-day-count { color: #fff; background: #8b2c3c; border-radius: 10px; padding: 1px 6px; font-size: 11px; }
+.dense-days-empty { color: #9a8980; font-size: 13px; }
 .timeline-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 28px; align-items: start; }
 .date-rail { position: sticky; top: 18px; max-height: calc(100vh - 36px); overflow: auto; padding: 16px 14px; border: 1px solid #eadfd5; border-radius: 10px; background: #fffdfa; }
 .date-rail-heading { color: #765448; font-size: 13px; letter-spacing: .12em; padding: 0 7px 12px; border-bottom: 1px solid #eee5de; }
@@ -33,4 +43,4 @@
 .timeline-tags { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
 .timeline-tag { color: white; font-size: 11px; padding: 3px 7px; border-radius: 10px; }
 .timeline-empty { color: #9a8980; padding: 30px 0; }
-@media (max-width: 720px) { .timeline-page { padding: 28px 15px 50px; } .timeline-layout { grid-template-columns: 1fr; gap: 18px; } .date-rail { position: static; max-height: 220px; } .timeline-summary { width: 100%; margin-left: 0; } .timeline-brand .site-subtitle, .timeline-brand .site-title { display: none; } }
+@media (max-width: 720px) { .timeline-page { padding: 28px 15px 50px; } .timeline-layout { grid-template-columns: 1fr; gap: 18px; } .date-rail { position: static; max-height: 220px; } .timeline-summary { width: 100%; margin-left: 0; } .timeline-brand .site-subtitle, .timeline-brand .site-title { display: none; } .dense-days-heading { display: block; } .dense-days-explanation { margin-top: 5px; } }

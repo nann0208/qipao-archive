@@ -146,6 +146,7 @@
         <div class="ai-step-heading"><img class="ai-step-icon" src="assets/ai-icons/text-pencil.png" alt=""><div class="ai-step-heading-copy"><strong>文本整理</strong><small>OpenCC 繁简转换与基础排版，不调用 AI</small></div><span id="ai-convert-status" class="ai-step-status" aria-live="polite"></span></div>
         <button id="btn-ai-convert" type="button" class="btn">繁简转换＋整理</button>
         <label class="form-label" for="field-clean-text">标准文本（保存并进入 RAG 索引）</label>
+        <div class="form-help">这里的人工修改会同步到下方 Word 文字框，并用于导出 DOCX。</div>
         <textarea id="field-clean-text" class="form-textarea" rows="7" placeholder="整理后的简体文本将显示在这里，仍可人工修改。"></textarea>
       </section>
 
@@ -190,7 +191,7 @@
         <button id="btn-extract-docx" class="btn" style="padding: 8px 16px;">提取文字</button>
         <button id="btn-export-docx" type="button" class="btn" style="padding: 8px 16px;">导出原文 DOCX</button>
       </div>
-      <textarea id="field-docx-preview" class="form-textarea" placeholder="提取的 Word 文档文字内容将显示在这里（可编辑）" rows="4"></textarea>
+      <textarea id="field-docx-preview" class="form-textarea" placeholder="提取的 Word 文档文字内容将显示在这里（与标准文本同步）" rows="4"></textarea>
       <div class="form-help">选择本地 .docx 文件，点击「提取文字」按钮自动提取内容。可直接编辑修改</div>
     </div>
 

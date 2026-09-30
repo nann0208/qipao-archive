@@ -1355,6 +1355,7 @@ body {
 .ai-step-status.loading { border-color: #E7C98B; background: #FFF8E8; color: #76551D; }
 .ai-step-status.success { border-color: #B9DCC1; background: #F1FAF3; color: #2F6A3C; }
 .ai-step-status.error { border-color: #E7B9B3; background: #FFF4F2; color: #A4443D; }
+.ai-step-status.error { white-space: normal; overflow-wrap: anywhere; text-align: left; justify-content: flex-start; }
 .ai-step-status.loading::before {
   content: '';
   width: 12px;
