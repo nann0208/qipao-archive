@@ -35,6 +35,8 @@
           <option value="档案文件">📜 档案文件</option>
           <option value="图像">🖼️ 图像</option>
           <option value="文学作品">✒️ 文学作品</option>
+          <option value="影像资料">🎞️ 影像资料</option>
+          <option value="广告">📣 广告</option>
         </select>
       </div>
       <div class="form-group" id="source-group">
@@ -79,14 +81,72 @@
 
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label">时间</label>
+        <label id="field-time-label" class="form-label">时间</label>
         <input id="field-time" class="form-input" placeholder="如：1925 / 1925年3月 / 1925-03-15" />
       </div>
       <div class="form-group">
-        <label class="form-label">版次/期号/档案号/页码</label>
+        <label id="field-version-label" class="form-label">版次/期号/档案号/页码</label>
         <input id="field-version" class="form-input" placeholder="如：第3版 / 第5卷-第2期 / 第168页" />
       </div>
     </div>
+
+    <section id="video-fields" class="video-form-section" style="display: none;">
+      <h3>🎞️ 影像资料</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="field-video-kind">影像类别</label>
+          <select id="field-video-kind" class="form-select">
+            <option value="">— 请选择 —</option>
+            <option value="同时代影像">同时代影像</option>
+            <option value="后期纪录片">后期纪录片</option>
+            <option value="影视再现">影视再现</option>
+            <option value="来源待考">来源待考</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field-video-release-time">制作／发行时间</label>
+          <input id="field-video-release-time" class="form-input" placeholder="如：1998年；与拍摄时间分开填写" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="field-video-location">画面地点</label>
+          <input id="field-video-location" class="form-input" placeholder="如：上海南京路；不确定时请注明" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field-video-date-confidence">年代辨认</label>
+          <select id="field-video-date-confidence" class="form-select">
+            <option value="">— 尚未判断 —</option>
+            <option value="有明确出处">有明确出处</option>
+            <option value="推定">推定</option>
+            <option value="待考证">待考证</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="field-video-source-url">馆藏／平台来源链接</label>
+        <input id="field-video-source-url" class="form-input" type="url" placeholder="https://…；只有链接也可以先保存记录" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="field-video-rights">来源与使用说明</label>
+        <input id="field-video-rights" class="form-input" placeholder="如：馆藏编号、授权范围、引用要求" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="video-file-input">本地视频</label>
+        <div class="video-upload-controls">
+          <input id="video-file-input" type="file" accept=".mp4,.webm,.mov,.mkv,.avi,video/*" class="form-input" />
+          <button id="btn-upload-video" type="button" class="btn">上传视频</button>
+        </div>
+        <input id="field-video-media-file" type="hidden" />
+        <input id="field-video-original-filename" type="hidden" />
+        <div id="video-upload-status" class="form-help" aria-live="polite">请通过“启动.bat”打开本地库。视频将保存在总目录下的“影像资料”文件夹。</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="field-video-segments">片段时间码与服饰观察</label>
+        <textarea id="field-video-segments" class="form-textarea" rows="4" placeholder="每行一段，例如：00:12:35-00:12:48 街头行人穿着不同长度的旗袍"></textarea>
+        <div class="form-help">格式：开始时间-结束时间 空格 观察说明。保存后可在详情页点击时间码跳转。</div>
+      </div>
+    </section>
 
     <div class="filename-generator">
       <button id="btn-generate-filename" type="button" class="btn filename-generate-btn">📋 文件名一键生成</button>
@@ -151,7 +211,13 @@
       </section>
 
       <section class="ai-workflow-step">
-        <div class="ai-step-heading"><img class="ai-step-icon logo-whale" src="assets/ai-icons/ai-whale.png" alt=""><div class="ai-step-heading-copy"><strong>AI 分析</strong><small>DeepSeek 只分析标准文本，并结合题名、时间、来源和议题</small></div><span id="ai-analyze-status" class="ai-step-status" aria-live="polite"></span></div>
+        <div class="ai-step-heading"><img class="ai-step-icon" src="assets/ai-icons/text-pencil.png" alt=""><div class="ai-step-heading-copy"><strong>智能断句与排版</strong><small>DeepSeek 整理标点、段落和明显错序，不改写史料原文</small></div><span id="ai-punctuate-status" class="ai-step-status" aria-live="polite"></span></div>
+        <button id="btn-ai-punctuate" type="button" class="btn">DeepSeek 断句排版</button>
+        <div class="form-help">结果会更新上方标准文本，并同步到 Word 文字框、DOCX 导出和后续 AI 分析；请人工核对专名、数字与阅读顺序。</div>
+      </section>
+
+      <section class="ai-workflow-step">
+        <div class="ai-step-heading"><img class="ai-step-icon logo-whale" src="assets/ai-icons/ai-whale-girl.png" alt="鲸鱼娘"><div class="ai-step-heading-copy"><strong>AI 分析</strong><small>DeepSeek 只分析标准文本，并结合题名、时间、来源和议题</small></div><span id="ai-analyze-status" class="ai-step-status" aria-live="polite"></span></div>
         <button id="btn-ai-analyze" type="button" class="btn ai-analyze-btn">DeepSeek 分析</button>
         <div class="ai-result-grid">
           <label>核心观点<textarea id="field-ai-summary" class="form-textarea" rows="3"></textarea></label>
@@ -218,7 +284,7 @@
   </div>
 
   <script src="data/data.js"></script>
-  <script src="assets/storage.js?v=2"></script>
-  <script src="assets/add.js?v=3"></script>
+  <script src="assets/storage.js?v=4"></script>
+  <script src="assets/add.js?v=7"></script>
 </body>
 </html>

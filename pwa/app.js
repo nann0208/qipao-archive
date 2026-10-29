@@ -10,7 +10,7 @@ const TOPIC_COLORS = {
   '国货展览会': '#E16DD6'
 };
 const TYPE_ICONS = {
-  '报刊文章': '📰', '专著': '📖', '档案文件': '📜', '图像': '🖼️', '文学作品': '✒️'
+  '报刊文章': '📰', '专著': '📖', '档案文件': '📜', '图像': '🖼️', '文学作品': '✒️', '影像资料': '🎞️', '广告': '📣'
 };
 const IMP_LABELS = { 3: '⭐⭐⭐ 核心', 2: '⭐⭐ 参考', 1: '⭐ 备用' };
 
@@ -366,6 +366,8 @@ const typeColors = {
   '档案文件': '#F5E77B',
   '专著': '#71C1E2',
   '文学作品': '#82BA89',
+  '影像资料': '#7D9DCB',
+  '广告': '#D27A3A',
   // ...
 };
 function renderCardInner(r) {
@@ -417,6 +419,23 @@ function showDetail(id) {
   }
   if (r.keywords && r.keywords.length > 0) {
     sections.push(makeSection('关键词', r.keywords.join('、')));
+  }
+  if (r.type === '影像资料') {
+    const details = [
+      `影像类别：${r.video_kind || '未分类'}`,
+      `画面拍摄时间：${r.time || '待考证'}`,
+      `制作／发行时间：${r.video_release_time || '待补充'}`,
+      `画面地点：${r.video_location || '待考证'}`,
+      `年代辨认：${r.video_date_confidence || '尚未判断'}`,
+      ...(r.video_segments || []).map(s => `${s.start || ''}–${s.end || ''} ${s.note || ''}`)
+    ];
+    sections.push(makeSection('影像信息与片段', details.join('\n')));
+    try {
+      const sourceUrl = new URL(r.video_source_url || '');
+      if (['http:', 'https:'].includes(sourceUrl.protocol)) {
+        sections.push(`<div class="detail-section"><div class="detail-section-title">影像来源</div><div class="detail-section-body"><a href="${esc(sourceUrl.href)}" target="_blank" rel="noopener noreferrer">打开馆藏／平台页面 ↗</a></div></div>`);
+      }
+    } catch (_) { /* 未填写有效来源链接 */ }
   }
   if (r.related_records && r.related_records.length > 0) {
     sections.push(makeRelatedSection(r.related_records));
@@ -670,7 +689,7 @@ function renderTypeChart() {
 
   const chartTypeColors = {
     '报刊文章': '#DF2A49', '图像': '#F85572', '档案文件': '#D6768E',
-    '专著': '#E6B9CD', '文学作品': '#DB7264'
+    '专著': '#E6B9CD', '文学作品': '#DB7264', '影像资料': '#5B82B8', '广告': '#D27A3A'
   };
 
   document.getElementById('chart-type').innerHTML = renderPieChart(entries, total, chartTypeColors);

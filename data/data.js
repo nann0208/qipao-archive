@@ -1,6 +1,6 @@
 // 民国海派旗袍史料库 - 数据
-// 导出时间: 2026-09-29T19:55:50.786807+08:00
-// 共 327 条记录
+// 导出时间: 2026-10-29T15:21:00.567485+08:00
+// 共 362 条记录
 
 window.INITIAL_DATA = [
   {
@@ -99,7 +99,7 @@ window.INITIAL_DATA = [
       "files/《图画时报》/1926年1月3日-第283期-第8页-“传家宝”之主角：[照片二幅].pdf"
     ],
     "image_paths": [],
-    "_searchKeyword": "开衩",
+    "_searchKeyword": "3",
     "author": "佚名",
     "docx_preview_text": "",
     "updated_at": "2026-06-25T04:07:21.108Z"
@@ -166,7 +166,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-25T04:11:51.359Z"
+    "updated_at": "2026-06-25T04:11:51.359Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-007",
@@ -233,7 +234,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-25T04:15:54.919Z"
+    "updated_at": "2026-06-25T04:15:54.919Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-009",
@@ -272,7 +274,8 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": []
+    "annotations": [],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-010",
@@ -299,7 +302,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-25T04:19:25.612Z"
+    "updated_at": "2026-06-25T04:19:25.612Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-011",
@@ -323,7 +327,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-25T04:20:24.933Z"
+    "updated_at": "2026-06-25T04:20:24.933Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-012",
@@ -347,7 +352,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-25T04:21:14.411Z"
+    "updated_at": "2026-06-25T04:21:14.411Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-013",
@@ -371,7 +377,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-25T04:21:48.872Z"
+    "updated_at": "2026-06-25T04:21:48.872Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-014",
@@ -395,7 +402,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:19:42.203Z"
+    "updated_at": "2026-06-26T01:19:42.203Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-015",
@@ -419,7 +427,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:21:47.847Z"
+    "updated_at": "2026-06-26T01:21:47.847Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-016",
@@ -443,7 +452,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:24:21.049Z"
+    "updated_at": "2026-06-26T01:24:21.049Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-017",
@@ -469,7 +479,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:27:05.470Z"
+    "updated_at": "2026-06-26T01:27:05.470Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-018",
@@ -490,7 +501,7 @@ window.INITIAL_DATA = [
       "files/《妇人画报》/1933年7月15日-第7期-第5页-清心女校朱紅萸女士（图）.pdf"
     ],
     "image_paths": [],
-    "_searchKeyword": "开衩",
+    "_searchKeyword": "3",
     "author": "佚名",
     "docx_preview_text": "",
     "updated_at": "2026-09-24T07:23:28.891Z",
@@ -530,7 +541,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:29:37.016Z"
+    "updated_at": "2026-06-26T01:29:37.016Z",
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-022",
@@ -554,7 +566,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-04T02:46:25.369Z"
+    "updated_at": "2026-06-04T02:46:25.369Z",
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-023",
@@ -580,7 +593,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:32:08.134Z"
+    "updated_at": "2026-06-26T01:32:08.134Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-024",
@@ -605,7 +619,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:32:57.444Z"
+    "updated_at": "2026-06-26T01:32:57.444Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-025",
@@ -629,7 +644,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:35:29.295Z"
+    "updated_at": "2026-06-26T01:35:29.295Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-026",
@@ -653,7 +669,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:36:49.056Z"
+    "updated_at": "2026-06-26T01:36:49.056Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-027",
@@ -679,7 +696,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:41:54.286Z"
+    "updated_at": "2026-06-26T01:41:54.286Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-028",
@@ -705,7 +723,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:42:52.081Z"
+    "updated_at": "2026-06-26T01:42:52.081Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-029",
@@ -786,7 +805,8 @@ window.INITIAL_DATA = [
     "ai_relation": "",
     "ai_paper_use": "",
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-030",
@@ -816,7 +836,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:51:26.725Z"
+    "updated_at": "2026-06-26T01:51:26.725Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-031",
@@ -842,7 +863,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "李珊菲",
     "docx_preview_text": "",
-    "updated_at": "2026-06-26T01:53:12.965Z"
+    "updated_at": "2026-06-26T01:53:12.965Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-032",
@@ -890,7 +912,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-04T02:58:20.684Z"
       }
     ],
-    "_searchKeyword": "大美"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-033",
@@ -914,7 +936,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-04T03:05:59.080Z"
+    "updated_at": "2026-06-04T03:05:59.080Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-034",
@@ -938,7 +961,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "",
-    "updated_at": "2026-06-06T09:06:46.838Z"
+    "updated_at": "2026-06-06T09:06:46.838Z",
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-035",
@@ -967,7 +991,7 @@ window.INITIAL_DATA = [
     "author": "佚名",
     "docx_preview_text": "",
     "updated_at": "2026-06-06T09:04:34.928Z",
-    "_searchKeyword": "开衩"
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-036",
@@ -1031,7 +1055,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-04T02:37:28.071Z"
       }
     ],
-    "_searchKeyword": "开衩"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-037",
@@ -1059,7 +1083,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "宗朱",
     "docx_preview_text": "上海之绸缎业上海非出产绸缎之地，然为其荟萃之区，盖上海商业繁茂，人民豪华成习，沪上妇女一时之风尚，恒为内地之先导。故无论杭货苏货，新花一出，必以上海为试验场，上海能销，则内地之畅销自无待言。绸缎时行之，潮流大概先沪，次津，继以北京，然后至汉口，而闽粤出此例外者。惟满蒙人喜服之红黄色货，因此项绸沪人无用作衣服者，故不必在上海试销也。上海销行最广者为寗货苏货杭货南京，夙*青元青贡缎著名，苏州向以花缎素缎著名，杭州自寗绸滞销后，以寗绸机改织摹本缎谓之。杭缎今年，日货充斥以国货与较。光彩色泽均不能及，于是豪贵之家之妇女，与侑酒之娼妓，乃竞尚外国缎。而向时，以为华美无伦之花缎，竟成家常衣裙之原料。吾国绸缎业最先改良者为杭州，杭商首先组织公司，购置铁机仿造舶来品。如九成，纬成，振新，又新，天章，日新，虎林，袁震和等。历年来，获利甚宏，一年以来，苏商自番墨守旧法，难以图存。乃亦效法杭州购置洋机，然苏州自辛亥革命以来，资本家如王君驾：六吴君，研农辈。相率避难迁沪，久居不归。故市面日益凋零，资本日益缺乏内地实业，振起终不易耳。丝价开盘之初，不过七百两。旧历七八月间逐渐增长。九月以来，美国各绸缎制造厂以欧战方殷法意等国生丝与熟货之产额并减美货。因以畅销而原料甚缺，遂纷纷电沪购货花旗洋庄，于是交易畅旺，而丝价则涨至一千两。绸缎业成本既增，乃相率加价。南京缎业自旧历十一月初一日起，凡花素贡缎一律加价七厘钿，苏货由云锦公所议决，亦自十一月初一日起，加价五厘钿，杭货在中秋时已加五厘钿，至十一月朔，由钱江会馆宣布，再加五厘钿。而杭州改良机织价同业所加，亦同以上，均已实行。数月前提倡国货最盛时，舶来绸缎销路几断，国货销场甚佳，但五分钟之热度转瞬已过。加以妇女无识者多，舶来品之销路逐渐恢复，今各货加价复而市面无起色，此后零剪之店生意愈益难做。旧历去年，如大纶天成，获利均甚巨，而老介福，老九章，生意亦不恶。今年则殊，不易，言而货价则有涨无减。盖染料织工价均日增也，染料与欧战有关系。如靛靑一项，几完全来自德国，货源既绝，价自不能望平也。1916年1月5日 第十版 宗朱",
-    "updated_at": "2026-06-04T03:31:47.253Z"
+    "updated_at": "2026-06-04T03:31:47.253Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-038",
@@ -1100,7 +1125,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-04T03:41:45.817Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-039",
@@ -1129,7 +1155,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "定织外货\n\n乘吾国江浙丝价昂贵绸货增加之际。而日本以华丝绸铁机缎等，销行吾国，且廉价以为招徕，在彼国为得计，而吾之织机商，势必大受影响。然非有绸庄向之定购，则彼亦无可藉手，甚矣五分钟抵制之热度，其销沈也久矣。一二家开其端，势必有许多绸缎庄，相率效尤，一二物作之备，势必有各种丝织品，相继而起，则国货之销路将绝，而工商之生计首危，危及商犹可言，危及于工，不堪问矣，然则如庚源天生锦等之所为，穷其祸害，岂徒在机织一业已哉。国货难持，会等致函绸业会商处，请其向各号劝告。此举固善，特恐市侩但知贪利，安有爱国家、爱同业之心，则与狐谋皮，有效与否，殊未可必，如能将定购日货之各庄举其店名，宣示于众，而钱业能不与往来，用户不买其货，二法足以寒若辈之胆，使之形格势禁耳。",
-    "updated_at": "2026-06-06T07:58:04.839Z"
+    "updated_at": "2026-06-06T07:58:04.839Z",
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-040",
@@ -1259,7 +1286,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "佚名",
     "docx_preview_text": "特别嵌花衣边先施公司二楼衣边部、新到大帮应时杂色嵌花衣边、及绣花衣边裙边、数十余欵、闻该种花边，系由德国特加选制，用头号人造丝织成，际此冬令，女界用此种嵌花边，饰配旗袍，最为时髦。",
-    "updated_at": "2026-06-04T03:46:37.632Z"
+    "updated_at": "2026-06-04T03:46:37.632Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-044",
@@ -1353,7 +1381,8 @@ window.INITIAL_DATA = [
         "note": "西式女装流行，并出现出租业务",
         "created_at": "2026-06-04T03:50:23.376Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-046",
@@ -1397,7 +1426,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [],
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-047",
@@ -1436,7 +1466,8 @@ window.INITIAL_DATA = [
         "note": "长袍马褂是国产绸缎核心消费载体，废止流言直接冲击绸缎产销，绸缎业行会主动通过商民协会向中央政府陈情维权。",
         "created_at": "2026-06-04T03:58:52.561Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-048",
@@ -1485,7 +1516,8 @@ window.INITIAL_DATA = [
         "note": "官方统一礼服用料、配色规制，以简约素色形制引导消费",
         "created_at": "2026-06-04T04:04:18.089Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-049",
@@ -1551,7 +1583,8 @@ window.INITIAL_DATA = [
         "note": "服形制选择本质是本土丝绸国货与外来呢绒洋货的市场竞争。",
         "created_at": "2026-06-04T04:12:38.406Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-050",
@@ -1600,7 +1633,8 @@ window.INITIAL_DATA = [
         "note": "在外货冲击、农村经济凋敝的时代背景下，服饰国货化被视作挽回利权、纾解经济困境的重要举措。",
         "created_at": "2026-06-04T04:20:30.201Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-051",
@@ -1645,7 +1679,8 @@ window.INITIAL_DATA = [
         "note": "公会工作内容",
         "created_at": "2026-06-05T02:21:41.186Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-052",
@@ -1705,7 +1740,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-05T02:29:42.253Z"
       }
     ],
-    "_searchKeyword": "务本"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-053",
@@ -1757,7 +1792,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-05T02:57:11.754Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-054",
@@ -1808,7 +1844,8 @@ window.INITIAL_DATA = [
         "note": "商业橱窗的视觉特点",
         "created_at": "2026-06-05T03:02:30.206Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "shiliao_id": "SL-2026-055",
@@ -1857,7 +1894,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-06T02:48:20.041Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-056",
@@ -1938,7 +1976,8 @@ window.INITIAL_DATA = [
         "note": "批判国货运动浮于口号，脱离产业与时代大环境的形式主义弊病。",
         "created_at": "2026-06-06T09:20:17.235Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-057",
@@ -2001,7 +2040,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-05T08:51:00.698Z"
       }
     ],
-    "_searchKeyword": "开衩",
+    "_searchKeyword": "3",
     "opinion_type": "价值重构型",
     "opinion_types": [
       "价值重构型"
@@ -2033,7 +2072,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "小人",
     "docx_preview_text": "上海妇人入冬穿旗袍者，居十之二三；以藏青色者居多，多披绒围巾者，居十之七八；以紫色者居多，戴绒线帽者，居十之四五，以白色及紫色居多。",
-    "updated_at": "2026-06-26T02:08:31.508Z"
+    "updated_at": "2026-06-26T02:08:31.508Z",
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-059",
@@ -2260,7 +2300,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-05T03:46:59.300Z"
       }
     ],
-    "_searchKeyword": "开衩",
+    "_searchKeyword": "法",
     "opinion_type": "价值重构型",
     "opinion_types": [
       "体验反馈型",
@@ -2337,7 +2377,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-064",
@@ -2396,7 +2437,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "shiliao_id": "SL-2026-065",
@@ -2499,7 +2541,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "价值重构型"
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-069",
@@ -2528,7 +2570,7 @@ window.INITIAL_DATA = [
       "files/《妇人画报》/1933年7月15日-第7期-第15页-夏装（图）.docx"
     ],
     "image_paths": [],
-    "_searchKeyword": "流行",
+    "_searchKeyword": "3",
     "author": "佚名",
     "docx_preview_text": "夏装这是一袭很普通的新装，下脚加阔，颇美观。因普通旗袍，必须开叉，叉高不雅，须穿长裤，叉低则行动不便，但做此则无上述之缺点。",
     "updated_at": "2026-06-29T14:28:40.339Z",
@@ -2613,7 +2655,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "规范约束型"
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-071",
@@ -2684,7 +2727,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-072",
@@ -2733,7 +2777,8 @@ window.INITIAL_DATA = [
         "note": "完整呈现旗袍 + 丝袜 + 新式凉鞋的经典近代女装搭配，是民国都市女性典型着装范本。",
         "created_at": "2026-06-15T01:02:36.625Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-073",
@@ -2816,7 +2861,8 @@ window.INITIAL_DATA = [
         "note": "从身体外貌角度否定近代女性的新式审美表达。",
         "created_at": "2026-06-16T00:56:07.204Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-074",
@@ -2853,7 +2899,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T01:57:38.242Z"
       }
     ],
-    "_searchKeyword": "孤岛"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-075",
@@ -2937,7 +2983,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T02:46:38.371Z"
       }
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-076",
@@ -3046,7 +3092,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-29T12:58:00.757Z"
       }
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-077",
@@ -3138,7 +3184,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-17T02:00:29.826Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-078",
@@ -3224,7 +3271,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-17T02:09:13.708Z"
       }
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-079",
@@ -3287,7 +3334,8 @@ window.INITIAL_DATA = [
         "note": "西洋内衣理念传入，推动女性摆脱束胸陋习，实现内衣现代化转型。",
         "created_at": "2026-06-06T09:33:50.220Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-080",
@@ -3536,7 +3584,8 @@ window.INITIAL_DATA = [
         "note": "中产阶层主动透支财力维持时髦体面，解释普通女性跟风购买新潮旗袍的阶层消费压力。",
         "created_at": "2026-06-17T02:35:04.850Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-084",
@@ -3695,7 +3744,8 @@ window.INITIAL_DATA = [
         "note": "直面社会质疑，犀利反驳 “改装失体面” 的性别偏见，倡导打破固化的性别审美标准。",
         "created_at": "2026-06-16T03:46:45.817Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "shiliao_id": "SL-2026-086",
@@ -3746,7 +3796,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "规范约束型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-087",
@@ -3856,7 +3907,7 @@ window.INITIAL_DATA = [
       }
     ],
     "opinion_type": "规范约束型",
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-089",
@@ -3908,7 +3959,7 @@ window.INITIAL_DATA = [
       }
     ],
     "opinion_type": "价值重构型",
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-090",
@@ -3985,7 +4036,8 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "体验反馈型",
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-091",
@@ -4061,7 +4113,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "规范约束型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-092",
@@ -4122,7 +4175,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "规范约束型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-093",
@@ -4191,7 +4245,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "规范约束型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-094",
@@ -4341,7 +4396,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-100",
@@ -4448,7 +4504,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "规范约束型"
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-102",
@@ -4504,7 +4560,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-103",
@@ -4568,7 +4625,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-104",
@@ -4622,7 +4680,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-105",
@@ -4690,7 +4749,8 @@ window.INITIAL_DATA = [
         "note": "提出超越肉体的审美标准，支撑弱化曲线、凸显女性独立气质的旗袍设计。",
         "created_at": "2026-06-23T01:24:53.721Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-106",
@@ -4799,7 +4859,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-17T02:48:00.485Z"
       }
     ],
-    "_searchKeyword": "开衩",
+    "_searchKeyword": "34",
     "opinion_types": [
       "体验反馈型"
     ],
@@ -4877,7 +4937,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "价值重构型"
     ],
-    "_searchKeyword": "德人"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-108",
@@ -4962,7 +5022,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-109",
@@ -5041,7 +5102,8 @@ window.INITIAL_DATA = [
       "价值重构型"
     ],
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-110",
@@ -5160,7 +5222,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T02:05:17.937Z"
       }
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-113",
@@ -5236,7 +5298,8 @@ window.INITIAL_DATA = [
         "note": "将女性新式发型和女权参政诉求绑定，发型成为女性权力象征。",
         "created_at": "2026-06-23T01:46:10.062Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-114",
@@ -5354,7 +5417,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T03:08:36.832Z"
       }
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "法"
   },
   {
     "shiliao_id": "SL-2026-117",
@@ -5418,7 +5481,8 @@ window.INITIAL_DATA = [
         "note": "提出旗袍省料结构改良方案，服务平民低成本女装消费。",
         "created_at": "2026-06-22T12:39:14.771Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "shiliao_id": "SL-2026-118",
@@ -5500,7 +5564,8 @@ window.INITIAL_DATA = [
         "note": "工艺细节贴合都市女性日常穿搭习惯，体现裁剪设计的生活化、实用性。",
         "created_at": "2026-06-26T02:38:57.328Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-120",
@@ -5595,7 +5660,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-06T09:38:35.743Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-121",
@@ -5671,7 +5737,8 @@ window.INITIAL_DATA = [
         "note": "确立近代服装“中西融合、守本土面料” 的整体改良设计思想。",
         "created_at": "2026-06-23T02:15:24.982Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "shiliao_id": "SL-2026-122",
@@ -5798,7 +5865,8 @@ window.INITIAL_DATA = [
         "note": "礼服全民化打破服饰特权，让长款长袍走向民间女性，加速旗袍的平民化普及。",
         "created_at": "2026-06-23T02:22:50.818Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-124",
@@ -5827,7 +5895,8 @@ window.INITIAL_DATA = [
     "image_paths": [],
     "author": "商务印书馆",
     "docx_preview_text": "第九条 女子礼服如第八图，周身得加绣饰。\n第十条 凡遇丧礼应服欠条礼服时，与胸际缀以黑纱结。",
-    "updated_at": "2026-06-24T02:44:21.794Z"
+    "updated_at": "2026-06-24T02:44:21.794Z",
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-125",
@@ -5901,7 +5970,8 @@ window.INITIAL_DATA = [
         "note": "全盘西式女子礼服提案失败，证明中式褂裙成为主流官方女装范式。",
         "created_at": "2026-06-24T02:54:22.944Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-126",
@@ -5968,7 +6038,8 @@ window.INITIAL_DATA = [
         "note": "体现近代女性服饰规范追求公共协商，认可全体女性对旗袍、礼服形制的话语权。",
         "created_at": "2026-06-24T02:59:25.171Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-127",
@@ -6043,7 +6114,8 @@ window.INITIAL_DATA = [
         "note": "行业不止争取面料，同步参与女装式样、色彩标准的官方制定。",
         "created_at": "2026-06-24T03:05:26.840Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-128",
@@ -6105,7 +6177,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [],
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-129",
@@ -6133,7 +6206,7 @@ window.INITIAL_DATA = [
       "files/条令规定/1935年8月28日-浙江省中等學校學生制服統一辦法/1935年8月28日-浙江省教育法規匯編-浙江省中等學校學生制服統一辦法（131）.pdf"
     ],
     "image_paths": [],
-    "_searchKeyword": "开衩",
+    "_searchKeyword": "3",
     "author": "浙江省教育厅",
     "docx_preview_text": "浙江省中等学校学生制服统一办法\n\n一、本省各中等学校男女学生之制服，均须依本办法之规定。\n\n二、制服之质料，完全採用国货棉织品，但冬季得採用国货毛织品。\n\n三、制服之式样：子、初中男女学生春夏秋三季採用童子军服装，如附图（甲），冬季採用学生装，男生如附图（乙），女生如附图（戊）。丑、高中男生，四季均採用学生装，军帽（硬边软帽）並置，备绑腿及皮鞋式布鞋（或皮鞋），冬季並製同色大衣（用棉织品或毛织品），如附图（丙）。「\n\n附注」：高中男生之学生装，裤分冬夏两种，冬裤长过膝，夏袴长不及膝，裤冬长夏短，衣扣铜质花纹，高中学生冬季並用绑腿。寅、高中女生，春夏秋三季採用短衣黑裙（裙长须过膝，如附图丁），冬季採用长袍（袍长不及踝，袴长与袍长同），如附图（戊）。\n\n四、制服之颜色：子、初中男女学生及高中男生衣帽腰带，春夏秋三季用黄色，冬季男生用黑色，女生用深灰色，绑腿用黄色，鞋袜四季均用黑色。丑、高中女生，春秋二季用浅蓝色，夏季用白色，冬季用深灰色。\n\n五、制服之套数：子、初中男女学生及高中男生，黄色制服至少两套，黑色制服至少一套。丑、高中女生各色制服，均须两套。\n\n六、各色制服，由各校自行分别制备。\n\n七、本办法自二十三年度起实行。附制服式样图甲、（1）男童子军服装图",
     "updated_at": "2026-06-26T03:22:54.611Z",
@@ -6246,7 +6319,8 @@ window.INITIAL_DATA = [
         "note": "女性承担救国、社会事务",
         "created_at": "2026-06-24T03:10:28.043Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-131",
@@ -6316,7 +6390,8 @@ window.INITIAL_DATA = [
         "note": "批判传统性别偏见，解释差异化女装、服饰规训产生的思想根源。",
         "created_at": "2026-06-22T12:46:12.307Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-132",
@@ -6381,7 +6456,8 @@ window.INITIAL_DATA = [
         "note": "批判传统礼教对女性婚恋选择权的剥夺，对应旧式女装对女性身体的强制规训。",
         "created_at": "2026-06-22T12:51:41.134Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-133",
@@ -6456,7 +6532,8 @@ window.INITIAL_DATA = [
         "note": "批判保守舆论污名化女性进步运动，对应当时舆论打压露肤、修身新式旗袍的社会现象。",
         "created_at": "2026-06-22T12:55:45.562Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-134",
@@ -6529,7 +6606,8 @@ window.INITIAL_DATA = [
         "note": "女性人格觉醒\n传统女性礼教瓦解，依附礼教的保守女装审美衰落",
         "created_at": "2026-06-22T13:02:35.652Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-135",
@@ -6613,7 +6691,8 @@ window.INITIAL_DATA = [
         "note": "1926年",
         "created_at": "2026-06-24T03:17:54.142Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-136",
@@ -6681,7 +6760,8 @@ window.INITIAL_DATA = [
         "note": "提出核心改良思路，证明调整旗袍衣身版型可解决女性身体束缚问题。",
         "created_at": "2026-06-22T13:07:58.469Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-137",
@@ -6765,7 +6845,8 @@ window.INITIAL_DATA = [
         "note": "概括全文核心主张，女子就业的价值落脚于家庭减负与国家民生改善。",
         "created_at": "2026-06-24T03:25:09.084Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-138",
@@ -6849,7 +6930,8 @@ window.INITIAL_DATA = [
         "note": "女性经济独立催生服饰自主消费，",
         "created_at": "2026-06-22T13:16:25.703Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-139",
@@ -6934,7 +7016,8 @@ window.INITIAL_DATA = [
         "note": "批判无经济基础的形式化男女平等论调。",
         "created_at": "2026-06-24T03:30:36.266Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-140",
@@ -7016,7 +7099,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-25T03:56:06.801Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "shiliao_id": "SL-2026-141",
@@ -7072,7 +7156,8 @@ window.INITIAL_DATA = [
         "note": "舞场多社会名流",
         "created_at": "2026-06-05T03:54:55.603Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "shiliao_id": "SL-2026-142",
@@ -7138,7 +7223,8 @@ window.INITIAL_DATA = [
         "note": "主张消除性别区分",
         "created_at": "2026-06-22T13:22:09.415Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -7214,7 +7300,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7243,7 +7330,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-144",
     "image_form": "摄影",
     "created_at": "2026-06-04T03:14:17.587Z",
-    "updated_at": "2026-06-26T02:40:29.554Z"
+    "updated_at": "2026-06-26T02:40:29.554Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -7335,7 +7423,8 @@ window.INITIAL_DATA = [
         "note": "作者主张穿衣为了美观",
         "created_at": "2026-06-04T03:24:11.976Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7362,7 +7451,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-146",
     "image_form": "摄影",
     "created_at": "2026-06-04T03:26:35.072Z",
-    "updated_at": "2026-06-04T03:26:35.072Z"
+    "updated_at": "2026-06-04T03:26:35.072Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "图像",
@@ -7421,7 +7511,8 @@ window.INITIAL_DATA = [
     "updated_at": "2026-07-09T02:33:36.111Z",
     "opinion_types": [],
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7449,7 +7540,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-149",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-05T01:55:21.612Z",
-    "updated_at": "2026-06-05T01:55:21.613Z"
+    "updated_at": "2026-06-05T01:55:21.613Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7490,7 +7582,8 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": []
+    "annotations": [],
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7551,7 +7644,8 @@ window.INITIAL_DATA = [
     "ai_relation": "",
     "ai_paper_use": "",
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7581,7 +7675,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-152",
     "image_form": "摄影",
     "created_at": "2026-06-05T02:12:18.222Z",
-    "updated_at": "2026-06-05T02:12:18.222Z"
+    "updated_at": "2026-06-05T02:12:18.222Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7623,7 +7718,8 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": []
+    "annotations": [],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -7706,7 +7802,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-05T02:40:37.705Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "档案文件",
@@ -7748,7 +7845,8 @@ window.INITIAL_DATA = [
         "note": "时装行业起源于红帮裁缝",
         "created_at": "2026-06-05T02:47:04.881Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -7779,7 +7877,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-156",
     "created_at": "2026-06-05T02:50:28.799Z",
-    "updated_at": "2026-06-05T02:50:28.799Z"
+    "updated_at": "2026-06-05T02:50:28.799Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -7810,7 +7909,8 @@ window.INITIAL_DATA = [
     "docx_preview_text": "国际贸易要讯\n一、八月份上海输出物价\n八月份上海输出物价指数为百分之一六・六三。其中四目除动物外，指数之跌落均在六点以上，生产品落三・七，其势亦猛；惟消费品所跌无多，尚称和缓，农产品跌落之原因，由于豆类同颓、丝麻二者销路未畅。\n前物产甚以羊毛一项美销停滞，猪肠市面亦复疲跌去二・九；林矿二产中，杉木跌势狂骤，煤、锑二者亦无振作之气，指数跌去六・三至十・九之多，影响于总指数者甚钜。生产品中之缫丝与农产品中之黄白丝有同样之趋势，加之植物油中除生油外均无起色，指数因之跌去三・七；消费品低落〇・九，则鸡蛋、榨菜、糖、炭等品价格回落之所致也。\n六九较上月低落四・五，跌风之属为今年所仅见，三类六目均露疲势，计原料品落。\n二、八月份上海输入物价\n八月份上海输入物价指数为百分之一六七・三，比上月高一・六，三类五目中，只矿产微跌，余均一致上升，与输出价之趋势适相反。原料品中之农产，以美棉于本月中一度回涨，加之烟叶趋势亦坚，指数亦涨九・九；林产则以花旗松、硬白板销路均极畅旺，高五・四；矿产中铜、铅、锡三者虽露涨风，无如煤价跌落太甚，终难挽回，故指数呈下落之势。生产品之趋势极稳，熟皮毛及钢铁等品颇有生色，惟靛油、漂粉之市面均甚寂寞。消费品中共六十六品，本月上涨者二十五品，下落者二十三品，平定者十八品，变动无多，故指数上涨甚微云。",
     "shiliao_id": "SL-2026-157",
     "created_at": "2026-06-05T03:33:46.791Z",
-    "updated_at": "2026-06-05T03:33:46.791Z"
+    "updated_at": "2026-06-05T03:33:46.791Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -7837,7 +7937,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-158",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-05T03:36:05.936Z",
-    "updated_at": "2026-06-05T03:36:05.936Z"
+    "updated_at": "2026-06-05T03:36:05.936Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -7968,7 +8069,8 @@ window.INITIAL_DATA = [
         "note": "本土近代机器毛纺工业发展迟缓、存续艰难",
         "created_at": "2026-06-06T08:10:02.069Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -8027,7 +8129,8 @@ window.INITIAL_DATA = [
         "note": "近代新式娱乐（电影）",
         "created_at": "2026-06-06T08:21:02.169Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8134,7 +8237,7 @@ window.INITIAL_DATA = [
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-06T09:03:20.505Z",
     "updated_at": "2026-06-26T01:54:46.043Z",
-    "_searchKeyword": "开衩"
+    "_searchKeyword": "34"
   },
   {
     "type": "图像",
@@ -8162,7 +8265,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-166",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-06T09:06:26.432Z",
-    "updated_at": "2026-06-06T09:06:26.432Z"
+    "updated_at": "2026-06-06T09:06:26.432Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -8221,7 +8325,8 @@ window.INITIAL_DATA = [
         "note": "课程中西并举，反映民初服饰形制中西并行的社会现实。",
         "created_at": "2026-06-06T09:12:47.574Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "图像",
@@ -8262,7 +8367,8 @@ window.INITIAL_DATA = [
     "ai_paper_use": "",
     "related_records": [],
     "female_authored": false,
-    "annotations": []
+    "annotations": [],
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -8291,7 +8397,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-169",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-15T01:11:30.108Z",
-    "updated_at": "2026-06-16T01:01:00.464Z"
+    "updated_at": "2026-06-16T01:01:00.464Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -8319,7 +8426,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-170",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-15T01:17:01.099Z",
-    "updated_at": "2026-06-15T01:17:01.099Z"
+    "updated_at": "2026-06-15T01:17:01.099Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8372,7 +8480,8 @@ window.INITIAL_DATA = [
         "note": "点明刊物两大使命：扭转崇洋风气、改良时装适配现代生活，并重视女性群体的实践经验。",
         "created_at": "2026-06-16T01:08:36.853Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8433,7 +8542,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8502,7 +8612,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8583,7 +8694,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "报刊文章",
@@ -8642,7 +8754,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-16T01:31:25.093Z"
       }
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8694,7 +8806,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -8720,7 +8833,7 @@ window.INITIAL_DATA = [
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-16T01:46:56.165Z",
     "updated_at": "2026-06-16T01:48:21.268Z",
-    "_searchKeyword": "开衩"
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -8745,7 +8858,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-178",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-06-16T01:51:55.482Z",
-    "updated_at": "2026-06-16T01:51:55.482Z"
+    "updated_at": "2026-06-16T01:51:55.482Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8828,7 +8942,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -8866,7 +8981,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "体验反馈型"
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -8931,7 +9047,8 @@ window.INITIAL_DATA = [
         "note": "近代报纸图文结合是新式时装向外传播、普及的核心媒介渠道。",
         "created_at": "2026-06-16T02:18:42.180Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -8986,7 +9103,8 @@ window.INITIAL_DATA = [
         "note": "指出旗袍与丝袜、内搭的配色搭配误区，反映当时大众配饰审美意识薄弱。",
         "created_at": "2026-06-16T02:39:21.056Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -9063,7 +9181,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-17T03:09:34.573Z"
       }
     ],
-    "_searchKeyword": "开衩"
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -9157,7 +9275,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [
       "价值重构型"
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "报刊文章",
@@ -9230,7 +9349,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-22T13:36:16.437Z"
       }
     ],
-    "_searchKeyword": "开衩",
+    "_searchKeyword": "法",
     "opinion_type": "体验反馈型",
     "opinion_types": [
       "体验反馈型"
@@ -9269,7 +9388,8 @@ window.INITIAL_DATA = [
     "docx_preview_text": "第二条、女学生制服\n甲、女学生即以常服为制服。\n乙、寒季用黑色或蓝色。\n丙、暑季用白色或蓝色。前二项制服，一校中不得用两色。\n丁、女学生自中等学校以上着裙，裙用黑色。\n戊、女学校可特制襟章，颁给学生，佩于襟前以为徽识。\n\n第三条、制服质料，以本国制造品之坚固朴素者为主。\n\n第四条、高等小学以上各项学校学生，均应遵照本规程，一律着制服，但依地方情形，不能即时遵行者，暂准变通办理。",
     "shiliao_id": "SL-2026-186",
     "created_at": "2026-06-24T02:43:40.998Z",
-    "updated_at": "2026-06-24T02:43:40.998Z"
+    "updated_at": "2026-06-24T02:43:40.998Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -9338,7 +9458,8 @@ window.INITIAL_DATA = [
         "note": "记录传统大襟上衣固定尺寸规范，是民间缝纫标准化的直接文字证据。",
         "created_at": "2026-06-24T09:59:38.188Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -9403,7 +9524,8 @@ window.INITIAL_DATA = [
         "note": "反映普通民众节约布料的消费需求，拼接工艺是民间制衣核心技巧。",
         "created_at": "2026-06-24T12:18:41.583Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -9490,7 +9612,7 @@ window.INITIAL_DATA = [
     "opinion_types": [
       "规范约束型"
     ],
-    "_searchKeyword": "裙带"
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -9548,7 +9670,8 @@ window.INITIAL_DATA = [
         "note": "核心史料，证明教材标准制式旗袍初期无侧开衩，区别后期改良高开衩旗袍。",
         "created_at": "2026-06-24T13:19:59.401Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "文学作品",
@@ -9642,7 +9765,8 @@ window.INITIAL_DATA = [
     ],
     "opinion_types": [],
     "related_records": [],
-    "female_authored": true
+    "female_authored": true,
+    "_searchKeyword": "3"
   },
   {
     "type": "文学作品",
@@ -9790,7 +9914,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-25T02:52:41.734Z"
       }
     ],
-    "_searchKeyword": "兔",
+    "_searchKeyword": "3",
     "opinion_types": [],
     "related_records": [],
     "female_authored": true
@@ -9867,7 +9991,8 @@ window.INITIAL_DATA = [
         "note": "拓展服饰审美范畴，打破只重视外衣、忽视内衣美感与舒适度的传统观念。",
         "created_at": "2026-06-25T03:11:14.885Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -10056,7 +10181,8 @@ window.INITIAL_DATA = [
         "note": "指出妇女运动出现倒退，物化女性的旧式审美评价重新流行。",
         "created_at": "2026-06-25T04:04:17.718Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -10105,7 +10231,8 @@ window.INITIAL_DATA = [
         "note": "全文核心观点，点明白旗袍是新旧礼制过渡期的最优折中方案，发出推广白旗袍的明确呼吁。",
         "created_at": "2026-06-30T01:01:55.977Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -10252,7 +10379,8 @@ window.INITIAL_DATA = [
         "id": "SL-2026-201",
         "relation": "回复"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -10309,7 +10437,8 @@ window.INITIAL_DATA = [
         "note": "结合本土穿衣传统提出折中改良方案，兼顾礼教体面与旗袍行走便利。",
         "created_at": "2026-06-30T01:50:36.159Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "报刊文章",
@@ -10393,7 +10522,8 @@ window.INITIAL_DATA = [
         "note": "以自身舞厅真实经历举例，具象说明薄料旗袍出汗贴身、暴露身形带来的当众尴尬。",
         "created_at": "2026-06-30T02:03:53.481Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -10450,7 +10580,8 @@ window.INITIAL_DATA = [
         "note": "将跳舞贴身尴尬归因于舞蹈动作，否定旗袍本身存在设计缺陷。",
         "created_at": "2026-06-30T02:14:50.136Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -10513,7 +10644,8 @@ window.INITIAL_DATA = [
       }
     ],
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -10596,7 +10728,8 @@ window.INITIAL_DATA = [
       }
     ],
     "related_records": [],
-    "female_authored": false
+    "female_authored": false,
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -10749,7 +10882,8 @@ window.INITIAL_DATA = [
         "note": "寄托作者核心诉求，期盼这场悲剧彻底根除紧身旗袍的流行风气。",
         "created_at": "2026-06-30T03:20:51.429Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -10891,7 +11025,8 @@ window.INITIAL_DATA = [
         "note": "辩证回应社会对旗袍的负面评价，区分服饰本身与穿搭者身形的关系，为旗袍辩护。",
         "created_at": "2026-06-30T09:32:17.260Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -10951,7 +11086,8 @@ window.INITIAL_DATA = [
         "note": "体现本土女性自我身体否定，因缠足遗留的肢体缺陷，主动认同加长旗袍遮蔽腿脚的选择。",
         "created_at": "2026-06-30T10:11:33.057Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11039,7 +11175,8 @@ window.INITIAL_DATA = [
         "note": "全文核心劝导主张，确立 “朴素布衣” 为女性最优着装标准。",
         "created_at": "2026-06-30T10:28:35.267Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11111,7 +11248,8 @@ window.INITIAL_DATA = [
         "note": "直接对比国货与洋货的品质、价格优势，号召女性更换服饰消费选择。",
         "created_at": "2026-06-30T10:44:30.315Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11186,7 +11324,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-30T11:03:54.456Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11266,7 +11405,8 @@ window.INITIAL_DATA = [
         "id": "SL-2026-101",
         "relation": ""
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -11319,7 +11459,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-06-30T11:43:00.067Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -11379,7 +11520,8 @@ window.INITIAL_DATA = [
         "note": "解释更换国货旗袍的直接现实动因，洋料旗袍极易引发客人轻薄骚扰。作者总结，风尘女子改穿爱国布旗袍，既是自保之举，也被舆论定义为爱国行为。",
         "created_at": "2026-06-30T11:51:49.714Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11430,7 +11572,8 @@ window.INITIAL_DATA = [
         "note": "形成强烈对比，一边都市赏桃花，一边前线浴血，戳破春日浮华背后的国土危机。",
         "created_at": "2026-06-30T12:02:23.192Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11483,7 +11626,8 @@ window.INITIAL_DATA = [
         "note": "以实际爱国行动佐证，证明朴素穿搭之下是真切的家国担当。高度赞扬李素贞，将穿布衣旗袍、热心救国的女性树立为青年榜样。",
         "created_at": "2026-06-30T12:33:29.529Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11535,7 +11679,8 @@ window.INITIAL_DATA = [
         "note": "以穿旗袍的女性演讲者为典型，重点动员女性群体通过服饰消费支持国货。",
         "created_at": "2026-06-30T13:16:46.502Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -11608,7 +11753,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-06-30T13:36:58.031Z"
       }
     ],
-    "_searchKeyword": "流行"
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -11678,7 +11823,8 @@ window.INITIAL_DATA = [
         "note": "以蓝布旗袍作为进步女工、女权代表的外在标识，塑造朴素新女性形象。衬托女权代表不求奢华、专注女性权益的务实品格。",
         "created_at": "2026-06-30T13:51:17.822Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11732,7 +11878,8 @@ window.INITIAL_DATA = [
         "note": "凸显中西时装消费观念、经济条件的巨大鸿沟。",
         "created_at": "2026-06-30T13:57:45.046Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11801,7 +11948,8 @@ window.INITIAL_DATA = [
         "note": "文末提出解决路径，将摘掉 “花瓶” 标签的希望寄托于女性自身自律与实干。",
         "created_at": "2026-06-30T14:16:45.231Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11920,7 +12068,8 @@ window.INITIAL_DATA = [
         "note": "对比宽松旗袍含蓄朦胧的美感，区分两类旗袍不同审美特质。",
         "created_at": "2026-07-06T13:11:18.579Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -11988,7 +12137,8 @@ window.INITIAL_DATA = [
         "note": "全文核心观点，宽松长马甲取代束胸小马甲，视作女性服饰、身体观念的进步。",
         "created_at": "2026-07-06T13:31:49.135Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12059,7 +12209,8 @@ window.INITIAL_DATA = [
         "note": "收尾升华主旨，城市设施与服饰习俗共同证明上海社会实质并未革新。",
         "created_at": "2026-07-06T13:40:06.918Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12119,7 +12270,8 @@ window.INITIAL_DATA = [
         "note": "提出本文核心审美观点，紧身剪裁的核心价值是展露女性身体曲线。",
         "created_at": "2026-07-06T13:51:50.802Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12164,7 +12316,8 @@ window.INITIAL_DATA = [
         "note": "完整记录民国新式旗袍、放足、西式漆皮鞋三大标志性服饰变革，凸显摩登女性艳丽时髦的外形。",
         "created_at": "2026-07-06T13:59:56.902Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12227,7 +12380,8 @@ window.INITIAL_DATA = [
         "note": "报社客观点评该提议论证不足，同时体现报刊开放大众服饰议题讨论的立场。",
         "created_at": "2026-07-06T14:14:25.188Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12292,7 +12446,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-07-06T14:30:32.383Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -12362,7 +12517,8 @@ window.INITIAL_DATA = [
         "note": "用布料用量数据直观对比，凸显旗袍用料精简的突出优势。",
         "created_at": "2026-07-06T14:41:46.039Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12434,7 +12590,8 @@ window.INITIAL_DATA = [
         "note": "结合旗袍窄长版型论证，长款旗袍完全遮蔽腿部，不穿衬裤既美观又不会走光，反驳风化批判。",
         "created_at": "2026-07-06T14:51:50.784Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12495,7 +12652,8 @@ window.INITIAL_DATA = [
         "note": "站在传统风化视角，批判旗袍、西服成为舞厅男女交际玩乐的服饰，暗含对摩登社交风气的否定。",
         "created_at": "2026-07-06T15:01:47.002Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12582,7 +12740,8 @@ window.INITIAL_DATA = [
         "note": "全文总结论，客观中立评判旗袍，否定 “服妖” 的片面指责。",
         "created_at": "2026-07-07T07:49:57.650Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -12613,7 +12772,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-234",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-07-07T07:54:46.699Z",
-    "updated_at": "2026-07-07T07:54:46.699Z"
+    "updated_at": "2026-07-07T07:54:46.699Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -12686,7 +12846,8 @@ window.INITIAL_DATA = [
         "note": "介绍独特剪裁设计，单侧偏前开衩、圆弧袖摆下摆，兼顾美观与日常实用性。",
         "created_at": "2026-07-07T08:01:27.274Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12768,7 +12929,8 @@ window.INITIAL_DATA = [
         "note": "结合明清旧制典故，讽刺民国反盛行旗装，在时代更替背景下显得不合时宜。",
         "created_at": "2026-07-07T08:12:00.282Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12856,7 +13018,8 @@ window.INITIAL_DATA = [
         "note": "旗袍的多样款式",
         "created_at": "2026-07-07T08:22:11.231Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12947,7 +13110,8 @@ window.INITIAL_DATA = [
         "note": "批判拼接异色衣袖的猎奇旗袍，认为其照搬旧时艳俗女装，不值得效仿。",
         "created_at": "2026-07-07T08:32:47.016Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -12999,7 +13163,8 @@ window.INITIAL_DATA = [
         "note": "女子直击对方逻辑漏洞，以男子自身男装反问，戳破双重评判标准。",
         "created_at": "2026-07-07T08:38:49.105Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -13025,7 +13190,8 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-240",
     "created_at": "2026-07-07T08:42:32.325Z",
-    "updated_at": "2026-07-07T08:42:32.325Z"
+    "updated_at": "2026-07-07T08:42:32.325Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -13059,7 +13225,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-241",
     "created_at": "2026-07-07T08:57:26.535Z",
     "updated_at": "2026-09-24T07:23:45.334Z",
-    "_searchKeyword": "大美",
+    "_searchKeyword": "3",
     "image_form": "插画/漫画/速写",
     "ocr_original": "",
     "clean_text": "改良的便服\n\n家常穿着的服装，衣料自是以清淡朴素为佳；但是剪裁的时候，却可以想一些新奇的设计，来打破沉沉的暮气。图中的式样最适宜于春日的衣服。两袖的上面，开一个直到肩头的长叉，叉上再钉上三五颗精致的钮扣，则钮上时，是一件普通的旗袍，而开放时，能显出一角粉白圆美的肩头，在温暖的春风里，鲜丽阳光下，何等轻快美丽呢。",
@@ -13096,7 +13262,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-242",
     "created_at": "2026-07-07T09:03:46.749Z",
     "updated_at": "2026-09-24T07:21:05.594Z",
-    "_searchKeyword": "大美",
+    "_searchKeyword": "3",
     "image_form": "插画/漫画/速写",
     "ocr_original": "",
     "clean_text": "",
@@ -13138,7 +13304,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-243",
     "created_at": "2026-07-07T09:08:45.991Z",
     "updated_at": "2026-09-24T07:24:03.472Z",
-    "_searchKeyword": "大美",
+    "_searchKeyword": "3",
     "image_form": "插画/漫画/速写",
     "ocr_original": "",
     "clean_text": "",
@@ -13208,7 +13374,8 @@ window.INITIAL_DATA = [
         "note": "解释更名用字的缘由，借字义形容长袍修长外形，以此摆脱 “旗” 字的前朝意味。",
         "created_at": "2026-07-07T09:18:36.328Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -13266,7 +13433,8 @@ window.INITIAL_DATA = [
         "note": "第三条理由固守传统分体裙装的旧式趣味，排斥新式旗袍，理由迂腐狭隘。",
         "created_at": "2026-07-07T09:41:40.971Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -13343,7 +13511,8 @@ window.INITIAL_DATA = [
         "note": "点明政策底层逻辑，革除束胸是实现强国强种、践行民族主义的手段。",
         "created_at": "2026-07-07T09:54:24.493Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -13419,7 +13588,8 @@ window.INITIAL_DATA = [
         "note": "反映新式女性时尚催生理发行业新业务，商家主动宣传吸引客源。",
         "created_at": "2026-07-07T10:01:37.461Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "档案文件",
@@ -13472,7 +13642,8 @@ window.INITIAL_DATA = [
         "note": "列明赋税上涨事实，点明税额涨幅大、附带处罚，揭示成衣行业难以承受苛捐的现实困境。",
         "created_at": "2026-07-08T13:59:02.870Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -13530,7 +13701,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-07-08T14:07:32.433Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "档案文件",
@@ -13631,7 +13803,8 @@ window.INITIAL_DATA = [
         "note": "借助国货游行扩大社会影响力，以公共活动强化全民国货氛围。",
         "created_at": "2026-07-08T14:16:09.827Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "档案文件",
@@ -13709,7 +13882,8 @@ window.INITIAL_DATA = [
         "note": "开放现场销售渠道，打通展示到交易环节，直接助力丝绸产品拓宽销路。",
         "created_at": "2026-07-08T14:28:01.933Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -13794,7 +13968,8 @@ window.INITIAL_DATA = [
         "note": "提出消费端双重手段，依靠行政奖惩 + 社会荣辱舆论，塑造全民国货消费氛围。",
         "created_at": "2026-07-08T14:37:33.686Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -13856,7 +14031,8 @@ window.INITIAL_DATA = [
         "note": "延伸衣物相关道德要求，倡导简约起居与体恤贫苦的仁爱精神。",
         "created_at": "2026-07-08T14:43:42.761Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -13974,7 +14150,8 @@ window.INITIAL_DATA = [
         "note": "行业公会设计科是跨厂、跨品牌的公共设计平台：\n统一规划国货整体款式、改良传统丝绸面料、协调各厂设计方向、避免同质化、对标洋货改良版型，属于近代行业协同设计体系，是中国现代集体设计、产业设计思想的早期实践。\n\n可以支撑论点：民国国货运动催生了公共产业设计机制，并非只有零散个体服装改良。",
         "created_at": "2026-07-08T14:55:09.758Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -14010,7 +14187,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-255",
     "created_at": "2026-07-08T14:59:39.407Z",
-    "updated_at": "2026-07-08T14:59:48.541Z"
+    "updated_at": "2026-07-08T14:59:48.541Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -14087,7 +14265,8 @@ window.INITIAL_DATA = [
         "note": "上海市政府正式批复同意推广，证明行政体系主动配合丝绸国货、新式礼服的普及工作。",
         "created_at": "2026-07-10T14:47:53.507Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -14209,7 +14388,8 @@ window.INITIAL_DATA = [
         "note": "总结优质服饰广告文案的标准，依靠生动软性叙事打动消费者。",
         "created_at": "2026-07-10T15:29:04.397Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -14278,7 +14458,8 @@ window.INITIAL_DATA = [
         "note": "配套生产旗袍穿搭所需纽扣、手镯等配饰，形成旗袍完整国货消费配套链条。",
         "created_at": "2026-07-10T15:44:30.532Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -14355,7 +14536,8 @@ window.INITIAL_DATA = [
         "note": "建立统一国货展销渠道与品控标准，解决旗袍面料做工参差不齐、劣质国货冲击市场的行业痛点。",
         "created_at": "2026-07-10T15:55:40.070Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -14430,7 +14612,8 @@ window.INITIAL_DATA = [
         "note": "提出上下游绸缎、印花行业协同作战思路，依靠旗袍完整产业链抱团抵御日资。",
         "created_at": "2026-07-11T01:54:05.214Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "档案文件",
@@ -14501,7 +14684,8 @@ window.INITIAL_DATA = [
         "note": "该征集规则属于行业官方规范，常设国货陈列所是制度化、长期性国货推广阵地。",
         "created_at": "2026-07-11T03:00:33.375Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -14550,7 +14734,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-263",
     "created_at": "2026-07-11T03:04:08.935Z",
-    "updated_at": "2026-07-11T03:06:18.623Z"
+    "updated_at": "2026-07-11T03:06:18.623Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -14618,7 +14803,8 @@ window.INITIAL_DATA = [
         "note": "明确流通端管控要求，政府常态化稽查旗袍面料市场，杜绝无标、造假面料流通。",
         "created_at": "2026-07-11T03:21:36.682Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -14752,7 +14938,8 @@ window.INITIAL_DATA = [
         "note": "点明以往妇女运动严重忽视产业女工，提出底层女工动员是未来工作核心方向。",
         "created_at": "2026-07-11T04:00:52.462Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "档案文件",
@@ -14822,7 +15009,8 @@ window.INITIAL_DATA = [
         "note": "本纲要为全市学校、团体统一执行的官方文件，具备行政约束效力。",
         "created_at": "2026-07-11T04:05:04.425Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "档案文件",
@@ -14883,7 +15071,8 @@ window.INITIAL_DATA = [
         "note": "明确公安基层执法权责，对穿着违规时装、拒绝选用国货面料的民众施以惩处，具备强制约束力。",
         "created_at": "2026-07-11T04:13:40.875Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "档案文件",
@@ -14918,7 +15107,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-268",
     "created_at": "2026-07-17T07:24:37.586Z",
-    "updated_at": "2026-07-21T15:09:39.763Z"
+    "updated_at": "2026-07-21T15:09:39.763Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -15178,7 +15368,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-07-17T08:44:21.275Z"
       }
     ],
-    "_searchKeyword": "广告"
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -15223,7 +15413,8 @@ window.INITIAL_DATA = [
     "ai_research_value": "",
     "ai_relation": "",
     "ai_paper_use": "",
-    "annotations": []
+    "annotations": [],
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -15252,7 +15443,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-274",
     "image_form": "摄影",
     "created_at": "2026-07-21T03:19:42.337Z",
-    "updated_at": "2026-07-21T15:12:06.678Z"
+    "updated_at": "2026-07-21T15:12:06.678Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -15296,7 +15488,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-275",
     "created_at": "2026-07-21T03:51:04.024Z",
-    "updated_at": "2026-07-21T15:08:11.618Z"
+    "updated_at": "2026-07-21T15:08:11.618Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -15324,7 +15517,8 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-276",
     "created_at": "2026-07-21T03:59:27.871Z",
-    "updated_at": "2026-07-21T15:15:40.658Z"
+    "updated_at": "2026-07-21T15:15:40.658Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -15370,7 +15564,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-277",
     "created_at": "2026-07-21T08:10:44.186Z",
-    "updated_at": "2026-07-22T03:32:44.703Z"
+    "updated_at": "2026-07-22T03:32:44.703Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -15423,7 +15618,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-278",
     "created_at": "2026-07-21T08:29:59.402Z",
-    "updated_at": "2026-07-21T15:07:58.967Z"
+    "updated_at": "2026-07-21T15:07:58.967Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -15474,7 +15670,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-279",
     "created_at": "2026-07-21T08:46:00.689Z",
-    "updated_at": "2026-07-21T15:09:13.219Z"
+    "updated_at": "2026-07-21T15:09:13.219Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "档案文件",
@@ -15531,7 +15728,8 @@ window.INITIAL_DATA = [
     "archive_holder": "上海市档案馆",
     "shiliao_id": "SL-2026-280",
     "created_at": "2026-07-21T10:05:20.930Z",
-    "updated_at": "2026-07-21T10:05:20.930Z"
+    "updated_at": "2026-07-21T10:05:20.930Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -15662,7 +15860,8 @@ window.INITIAL_DATA = [
         "note": "以法规强制统一出品说明书、会场图纸标准化档案，实现货品规范化登记管理。",
         "created_at": "2026-07-22T04:30:23.104Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "专著",
@@ -15754,7 +15953,8 @@ window.INITIAL_DATA = [
         "note": "配套完整宣传体系，通过报刊、广告向市民普及选用国产旗袍面料的爱国理念。",
         "created_at": "2026-07-22T07:15:33.958Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -15792,7 +15992,8 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-283",
     "created_at": "2026-07-22T08:14:00.580Z",
-    "updated_at": "2026-07-22T08:14:00.580Z"
+    "updated_at": "2026-07-22T08:14:00.580Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -15885,7 +16086,8 @@ window.INITIAL_DATA = [
         "note": "",
         "created_at": "2026-07-22T09:10:20.188Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "专著",
@@ -15964,7 +16166,8 @@ window.INITIAL_DATA = [
         "note": "袁震和开发数十款细分旗袍专用绸缎，国产丝绸面料品类丰富，可全面替代进口时装面料。",
         "created_at": "2026-07-22T09:27:09.012Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "专著",
@@ -16056,7 +16259,8 @@ window.INITIAL_DATA = [
         "note": "企业核心产品全部为旗袍专用葛、缎、绉面料，旗袍消费是丝织产业核心支撑。",
         "created_at": "2026-07-22T09:52:48.024Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "报刊文章",
@@ -16176,7 +16380,8 @@ window.INITIAL_DATA = [
         "note": "1930 年代中山装在政界不再流行，西装占据主流男性新式服饰市场。",
         "created_at": "2026-07-23T03:26:25.803Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -16268,7 +16473,8 @@ window.INITIAL_DATA = [
         "note": "民间国货社团将推广旗袍丝绸等国货与三民主义绑定，赋予运动官方正统意识形态支撑。",
         "created_at": "2026-07-23T04:08:52.188Z"
       }
-    ]
+    ],
+    "_searchKeyword": "日本"
   },
   {
     "type": "图像",
@@ -16442,7 +16648,7 @@ window.INITIAL_DATA = [
         "created_at": "2026-07-23T08:09:45.585Z"
       }
     ],
-    "_searchKeyword": "务本"
+    "_searchKeyword": "日本"
   },
   {
     "type": "专著",
@@ -16475,7 +16681,8 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-293",
     "created_at": "2026-07-23T08:29:22.612Z",
-    "updated_at": "2026-07-23T08:29:22.612Z"
+    "updated_at": "2026-07-23T08:29:22.612Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -16540,7 +16747,8 @@ window.INITIAL_DATA = [
         "note": "东南五省军政首脑动用地方行政权力，自上而下全面禁止民间女性穿旗袍。",
         "created_at": "2026-07-24T03:42:40.845Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -16704,7 +16912,8 @@ window.INITIAL_DATA = [
         "note": "本次地方专题展是 1928 全国中华国货展览会的实践样板，制度与运营模式直接传承。",
         "created_at": "2026-07-24T07:51:42.656Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -16763,7 +16972,8 @@ window.INITIAL_DATA = [
         "note": "外资以薄利多销作为侵占国内旗袍面料市场的手段，加剧本土丝织产业生存危机。",
         "created_at": "2026-07-24T08:05:35.271Z"
       }
-    ]
+    ],
+    "_searchKeyword": "法"
   },
   {
     "type": "报刊文章",
@@ -16825,7 +17035,8 @@ window.INITIAL_DATA = [
         "note": "定义最高等级国货，如本土织造绸缎",
         "created_at": "2026-07-24T09:07:01.509Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "专著",
@@ -16943,7 +17154,8 @@ window.INITIAL_DATA = [
     "female_authored": false,
     "shiliao_id": "SL-2026-300",
     "created_at": "2026-07-29T03:02:43.056Z",
-    "updated_at": "2026-07-29T03:02:43.056Z"
+    "updated_at": "2026-07-29T03:02:43.056Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17027,7 +17239,8 @@ window.INITIAL_DATA = [
         "note": "融合现代灯光广告与传统中式楹联、园林造景，形成本土国货独有的空间视觉体系",
         "created_at": "2026-08-03T04:42:51.936Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17121,7 +17334,8 @@ window.INITIAL_DATA = [
         "note": "行业调研与线下国货展销活动配套推进，形成调研、施策、宣传一体化治理模式。",
         "created_at": "2026-08-05T03:19:18.104Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17200,7 +17414,8 @@ window.INITIAL_DATA = [
         "note": "赋予 “社会之花” 全新价值标准，仅有美貌时尚不足，践行国货爱国才算配得上该称号。",
         "created_at": "2026-08-05T14:04:49.629Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17285,7 +17500,8 @@ window.INITIAL_DATA = [
         "note": "点明全文核心逻辑，穿着国产棉布制作旗袍直接关联振兴本土纺织、践行服饰救国。",
         "created_at": "2026-08-05T14:01:46.276Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17389,7 +17605,8 @@ window.INITIAL_DATA = [
         "note": "无论旗袍、新式西装，统一划定面料底线，严格限定只能使用国产织物。",
         "created_at": "2026-08-05T14:19:29.436Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17450,7 +17667,8 @@ window.INITIAL_DATA = [
         "note": "大众媒体成为旗袍时尚向下传播的核心渠道。",
         "created_at": "2026-08-05T14:38:58.893Z"
       }
-    ]
+    ],
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17527,7 +17745,8 @@ window.INITIAL_DATA = [
         "note": "商家借用国货爱国叙事，精准撬动女性旗袍核心消费群体到店消费。",
         "created_at": "2026-08-05T14:50:56.108Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -17612,7 +17831,8 @@ window.INITIAL_DATA = [
         "note": "国产染色工艺存在短板，高品质旗袍土布染料仍依赖进口，国货产业链配套不完善。",
         "created_at": "2026-08-05T15:02:16.499Z"
       }
-    ]
+    ],
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -17692,7 +17912,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-309",
     "created_at": "2026-08-15T07:28:01.715Z",
-    "updated_at": "2026-08-15T07:28:33.349Z"
+    "updated_at": "2026-08-15T07:28:33.349Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17761,7 +17982,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-310",
     "created_at": "2026-08-15T07:41:27.815Z",
-    "updated_at": "2026-08-15T08:01:40.635Z"
+    "updated_at": "2026-08-15T08:01:40.635Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17868,7 +18090,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-311",
     "created_at": "2026-08-19T03:07:55.043Z",
-    "updated_at": "2026-08-19T03:15:58.259Z"
+    "updated_at": "2026-08-19T03:15:58.259Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -17950,7 +18173,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-312",
     "created_at": "2026-08-19T12:34:09.254Z",
-    "updated_at": "2026-08-19T12:34:48.865Z"
+    "updated_at": "2026-08-19T12:34:48.865Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -18030,7 +18254,8 @@ window.INITIAL_DATA = [
     "ai_social_issue": "",
     "ai_research_value": "",
     "ai_relation": "",
-    "ai_paper_use": ""
+    "ai_paper_use": "",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18100,7 +18325,8 @@ window.INITIAL_DATA = [
     "ai_research_value": "",
     "ai_relation": "",
     "ai_category": "",
-    "ai_paper_use": ""
+    "ai_paper_use": "",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -18142,7 +18368,8 @@ window.INITIAL_DATA = [
     "ai_social_issue": "",
     "ai_research_value": "",
     "ai_relation": "",
-    "ai_paper_use": ""
+    "ai_paper_use": "",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18215,7 +18442,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-316",
     "created_at": "2026-08-19T13:17:32.723Z",
-    "updated_at": "2026-08-19T13:17:32.723Z"
+    "updated_at": "2026-08-19T13:17:32.723Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -18249,7 +18477,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-317",
     "image_form": "插画/漫画/速写",
     "created_at": "2026-08-19T13:26:43.133Z",
-    "updated_at": "2026-08-19T13:26:43.133Z"
+    "updated_at": "2026-08-19T13:26:43.133Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18341,7 +18570,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-318",
     "created_at": "2026-08-19T14:11:45.561Z",
     "updated_at": "2026-08-19T14:38:57.278Z",
-    "_searchKeyword": "由舶来脂粉说到妇女的健康美"
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -18419,7 +18648,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-319",
     "created_at": "2026-08-19T14:30:33.611Z",
-    "updated_at": "2026-08-19T14:39:46.939Z"
+    "updated_at": "2026-08-19T14:39:46.939Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -18498,7 +18728,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-320",
     "created_at": "2026-08-19T14:36:10.630Z",
-    "updated_at": "2026-08-19T14:42:26.534Z"
+    "updated_at": "2026-08-19T14:42:26.534Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18598,7 +18829,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-321",
     "created_at": "2026-08-19T14:46:31.491Z",
-    "updated_at": "2026-08-19T14:48:02.152Z"
+    "updated_at": "2026-08-19T14:48:02.152Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18669,7 +18901,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-322",
     "created_at": "2026-08-19T15:01:22.158Z",
-    "updated_at": "2026-08-21T03:10:18.017Z"
+    "updated_at": "2026-08-21T03:10:18.017Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -18709,7 +18942,8 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-323",
     "created_at": "2026-08-20T16:14:32.543Z",
     "updated_at": "2026-09-24T07:18:56.987Z",
-    "image_form": "插画/漫画/速写"
+    "image_form": "插画/漫画/速写",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18811,7 +19045,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-324",
     "created_at": "2026-08-20T16:28:45.383Z",
-    "updated_at": "2026-08-20T16:30:28.534Z"
+    "updated_at": "2026-08-20T16:30:28.534Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18898,7 +19133,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-325",
     "created_at": "2026-08-21T04:15:30.124Z",
-    "updated_at": "2026-08-21T04:19:22.323Z"
+    "updated_at": "2026-08-21T04:19:22.323Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -18967,7 +19203,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-326",
     "created_at": "2026-08-21T04:36:11.894Z",
-    "updated_at": "2026-08-21T04:36:11.894Z"
+    "updated_at": "2026-08-21T04:36:11.894Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19051,7 +19288,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-327",
     "created_at": "2026-08-21T04:48:18.730Z",
-    "updated_at": "2026-08-21T04:48:18.730Z"
+    "updated_at": "2026-08-21T04:48:18.730Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19129,7 +19367,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-328",
     "created_at": "2026-08-22T09:38:02.472Z",
-    "updated_at": "2026-08-22T09:39:19.559Z"
+    "updated_at": "2026-08-22T09:39:19.559Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19209,7 +19448,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-329",
     "created_at": "2026-09-02T04:03:09.895Z",
-    "updated_at": "2026-09-02T04:03:44.110Z"
+    "updated_at": "2026-09-02T04:03:44.110Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19271,7 +19511,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-330",
     "created_at": "2026-09-02T06:49:11.386Z",
-    "updated_at": "2026-09-02T06:49:11.386Z"
+    "updated_at": "2026-09-02T06:49:11.386Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19348,7 +19589,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-331",
     "created_at": "2026-09-02T06:59:48.472Z",
-    "updated_at": "2026-09-02T07:00:19.292Z"
+    "updated_at": "2026-09-02T07:00:19.292Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19430,7 +19672,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-332",
     "created_at": "2026-09-02T07:10:41.858Z",
-    "updated_at": "2026-09-02T07:10:41.858Z"
+    "updated_at": "2026-09-02T07:10:41.858Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19583,7 +19826,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-333",
     "created_at": "2026-09-24T07:58:43.203Z",
-    "updated_at": "2026-09-24T09:15:43.595Z"
+    "updated_at": "2026-09-24T09:15:43.595Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "图像",
@@ -19696,7 +19940,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-334",
     "created_at": "2026-09-27T07:32:54.732Z",
-    "updated_at": "2026-09-27T07:33:31.355Z"
+    "updated_at": "2026-09-27T07:33:31.355Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "图像",
@@ -19735,7 +19980,8 @@ window.INITIAL_DATA = [
     "annotations": [],
     "shiliao_id": "SL-2026-335",
     "created_at": "2026-09-27T09:21:19.396Z",
-    "updated_at": "2026-09-27T10:04:27.176Z"
+    "updated_at": "2026-09-27T10:04:27.176Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19843,7 +20089,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-336",
     "created_at": "2026-09-28T02:38:27.787Z",
-    "updated_at": "2026-09-28T02:38:27.787Z"
+    "updated_at": "2026-09-28T02:38:27.787Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -19914,7 +20161,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-337",
     "created_at": "2026-09-28T03:05:07.523Z",
-    "updated_at": "2026-09-28T03:08:47.956Z"
+    "updated_at": "2026-09-28T03:08:47.956Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -20035,7 +20283,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-338",
     "created_at": "2026-09-29T01:14:41.689Z",
-    "updated_at": "2026-09-29T01:17:03.599Z"
+    "updated_at": "2026-09-29T01:17:03.599Z",
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -20138,7 +20387,7 @@ window.INITIAL_DATA = [
     "shiliao_id": "SL-2026-339",
     "created_at": "2026-09-29T01:36:33.244Z",
     "updated_at": "2026-09-29T01:46:59.962Z",
-    "_searchKeyword": "旗袍世界"
+    "_searchKeyword": "3"
   },
   {
     "type": "报刊文章",
@@ -20220,7 +20469,8 @@ window.INITIAL_DATA = [
     ],
     "shiliao_id": "SL-2026-340",
     "created_at": "2026-09-29T02:12:56.029Z",
-    "updated_at": "2026-09-29T02:15:30.077Z"
+    "updated_at": "2026-09-29T02:15:30.077Z",
+    "_searchKeyword": "34"
   },
   {
     "type": "报刊文章",
@@ -20252,6 +20502,2207 @@ window.INITIAL_DATA = [
     "annotations": [],
     "shiliao_id": "SL-2026-341",
     "created_at": "2026-09-29T03:04:14.406Z",
-    "updated_at": "2026-09-29T03:04:14.406Z"
+    "updated_at": "2026-09-29T03:04:14.406Z",
+    "_searchKeyword": "34"
+  },
+  {
+    "type": "影像资料",
+    "image_form": "",
+    "video_kind": "同时代影像",
+    "video_release_time": "1930年代",
+    "video_location": "未知",
+    "video_date_confidence": "待考证",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "57f65b565d9645df834626589ec6be9d.mp4",
+    "video_original_filename": "China Early 1930s in color, Shanghai, Canton [60fps, Remastered, w Sound]_1080p.mp4",
+    "video_segments": [
+      {
+        "start": "00:04:25",
+        "end": "00:04:36",
+        "note": "穿短袖、长旗袍的女人，高领，开衩在膝盖左右，有素色、波点"
+      }
+    ],
+    "opinion_types": [],
+    "topics": [
+      "旗袍流行款式"
+    ],
+    "source": "",
+    "title": "China Early 1930s in color, Shanghai, Canton [60fps, Remastered, w Sound]_1080p",
+    "author": "",
+    "time": "",
+    "version_info": "",
+    "core_content": "",
+    "personal_analysis": "",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [],
+    "importance": 2,
+    "document_paths": [],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-342",
+    "created_at": "2026-10-16T04:22:27.373Z",
+    "updated_at": "2026-10-16T06:46:29.779Z",
+    "_searchKeyword": "34"
+  },
+  {
+    "type": "影像资料",
+    "image_form": "",
+    "video_kind": "同时代影像",
+    "video_release_time": "1920-1930年代",
+    "video_location": "未知",
+    "video_date_confidence": "待考证",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "ef92583f25f94b359d695650e1e9e82f.mp4",
+    "video_original_filename": "OLD SHANGHAI DANCE HALLS JAZZ CLUBS 1920S 1930S_1080p.mp4",
+    "video_segments": [
+      {
+        "start": "0:00:16",
+        "end": "0:00:18",
+        "note": "宽松款的旗袍，满印花纹"
+      }
+    ],
+    "opinion_types": [],
+    "topics": [
+      "旗袍流行款式"
+    ],
+    "source": "",
+    "title": "OLD SHANGHAI DANCE HALLS JAZZ CLUBS 1920S 1930S_1080p",
+    "author": "",
+    "time": "1920-1930年代",
+    "version_info": "",
+    "core_content": "",
+    "personal_analysis": "",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [],
+    "importance": 2,
+    "document_paths": [],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-343",
+    "created_at": "2026-10-16T06:51:15.692Z",
+    "updated_at": "2026-10-16T06:51:15.692Z",
+    "_searchKeyword": "34"
+  },
+  {
+    "type": "影像资料",
+    "image_form": "",
+    "video_kind": "同时代影像",
+    "video_release_time": "1930年代",
+    "video_location": "未知",
+    "video_date_confidence": "推定",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "d3868cd58246484eb78e2809e12cb0a4.mp4",
+    "video_original_filename": "Shanghai, China in the 1930s_480p.mp4",
+    "video_segments": [
+      {
+        "start": "0:00:00",
+        "end": "0:00:02",
+        "note": "短款旗袍，下摆在膝盖处，搭配黑色高跟鞋，已经具备曲线特征"
+      }
+    ],
+    "opinion_types": [],
+    "topics": [],
+    "source": "",
+    "title": "Shanghai, China in the 1930s_480p",
+    "author": "",
+    "time": "",
+    "version_info": "",
+    "core_content": "",
+    "personal_analysis": "",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [],
+    "importance": 2,
+    "document_paths": [],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-344",
+    "created_at": "2026-10-16T07:01:30.653Z",
+    "updated_at": "2026-10-16T07:01:30.653Z",
+    "_searchKeyword": "344"
+  },
+  {
+    "type": "图像",
+    "image_form": "摄影",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "国货展览会"
+    ],
+    "source": "东方杂志",
+    "title": "国货展览会会场之内部",
+    "author": "佚名",
+    "time": "1928年12月25日",
+    "version_info": "第25卷-第24期-第1页",
+    "core_content": "展会大门、内部建筑景象",
+    "personal_analysis": "图像证明，中式建筑风格：门檐、斗拱",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "中华国货展览会"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《东方杂志》/1928年12月25日-第25卷-第24期-第1页-国货展览会会场之内部.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-345",
+    "created_at": "2026-10-28T08:57:25.110Z",
+    "updated_at": "2026-10-28T08:58:21.529Z"
+  },
+  {
+    "type": "图像",
+    "image_form": "摄影",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态",
+      "国货展览会"
+    ],
+    "source": "东方杂志",
+    "title": "国产蚕丝",
+    "author": "佚名",
+    "time": "1928年12月25日",
+    "version_info": "第25卷-第24期-第6页",
+    "core_content": "蚕丝馆陈列",
+    "personal_analysis": "浙江省的轻纺织行业",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "轻纺织工业 中华国货展览会"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《东方杂志》/1928年12月25日-第25卷-第24期-第6页-国产蚕丝.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-346",
+    "created_at": "2026-10-28T09:11:01.972Z",
+    "updated_at": "2026-10-28T09:11:01.972Z"
+  },
+  {
+    "type": "图像",
+    "image_form": "插画/漫画/速写",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "国货展览会"
+    ],
+    "source": "东方杂志",
+    "title": "展览会中艺术部之一",
+    "author": "佚名",
+    "time": "1928年12月25日",
+    "version_info": "第25卷-第24期-第7页",
+    "core_content": "展出绸缎面料与书画",
+    "personal_analysis": "纺织品是展会的重要组成部分",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "手工艺",
+      "中华国货展览会"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《东方杂志》/1928年12月25日-第25卷-第24期-第7页-展览会中艺术部之一.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-347",
+    "created_at": "2026-10-28T09:15:06.252Z",
+    "updated_at": "2026-10-28T09:15:06.252Z"
+  },
+  {
+    "type": "图像",
+    "image_form": "摄影",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态",
+      "国货展览会"
+    ],
+    "source": "东方杂志",
+    "title": "纬成公司之陈列室",
+    "author": "佚名",
+    "time": "1928年12月25日",
+    "version_info": "第25卷-第24期-第8页",
+    "core_content": "展陈布匹",
+    "personal_analysis": "作为商家能够拥有一个独立展陈房间，足可见对纺织产业的重视",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "中华国货展览会 纬成公司 纺织产业"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《东方杂志》/1928年12月25日-第25卷-第24期-第8页-纬成公司之陈列室.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-348",
+    "created_at": "2026-10-28T09:29:11.993Z",
+    "updated_at": "2026-10-28T09:29:11.993Z"
+  },
+  {
+    "type": "图像",
+    "image_form": "摄影",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态",
+      "国货展览会"
+    ],
+    "source": "东方杂志",
+    "title": "中国铁工厂所制造之织布机",
+    "author": "佚名",
+    "time": "1928年12月25日",
+    "version_info": "第25卷-第24期-第9页",
+    "core_content": "中国织工厂所产织机，",
+    "personal_analysis": "机械化生产",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "纺织机械化 技术革新 中华国货展览会"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《东方杂志》/1928年12月25日-第25卷-第24期-第9页-中国铁工厂所制造之织布机.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-349",
+    "created_at": "2026-10-28T09:32:37.826Z",
+    "updated_at": "2026-10-28T09:32:37.826Z"
+  },
+  {
+    "type": "图像",
+    "image_form": "摄影",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "国货展览会"
+    ],
+    "source": "时报",
+    "title": "法使法领参观国货展览会自右至左法使玛德尔法领霍克林赵晋卿",
+    "author": "佚名",
+    "time": "1928年12月26日",
+    "version_info": "第26版",
+    "core_content": "法使法领参观国货展览会，自右至左法使玛德尔、法领霍克林赵晋卿",
+    "personal_analysis": "外国重要访客参观国货展览会",
+    "ocr_original": "",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "中华国货展览会"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《时报》/1928年12月26日-第26版-法使法领参观国货展览会自右至左法使玛德尔法领霍克林赵晋卿.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-350",
+    "created_at": "2026-10-28T12:24:45.958Z",
+    "updated_at": "2026-10-28T12:24:45.958Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "中央日报",
+    "title": "胜德厂出品、绮华公司经售，新出的绣花旗袍料大廉价",
+    "author": "佚名",
+    "time": "1928年10月10日",
+    "version_info": "第1张-第2版",
+    "core_content": "核心观点：1928年10月《中央日报》刊载胜德厂与绮华公司的绣花旗袍料广告。\n材料显示，胜德厂以“原料完全国产”“价值特别便宜”为卖点，宣称研制成功成件绣花旗袍料，由绮华公司经售，并采用“限定制三百件已售罄”的稀缺话术促销。广告将女性“爱美”心理与“挽回利权、提倡国货”并置，把消费行为引向国货购买，可推测其试图以民族主义话语动员女性消费，同时以“华丽”“万方别饶丰韵”等措辞强化对女性外观的想象。\n\n反映的社会问题：材料中胜德厂以“女界销用外货独比男界为多”为由，将女性消费建构为需要被国货话语矫正的对象，同时以“满足爱美欲望”促销。这提示国货运动可能通过性别化消费动员介入女性日常穿着。\n\n广告以“原料完全国产”“价值特别便宜”连接生产与消费，并借绮华公司经售、南京路店铺地址和“限定制三百件”话术组织销售。可据此追问国货旗袍料的生产—流通—零售链条如何运作，以及“价廉物美”叙事是否掩盖了轻工业内部的成本与劳动问题。\n\n“华丽到极点”“万方别饶丰韵”等评价将旗袍料的外观效果与女性身体魅力直接挂钩，商家由此定义何为“美”的国货旗袍料。这提示媒介广告可能参与制造“摩登”与“国货”兼容的消费标准。\n\n广告将“爱美”视为女界普遍心理，并以“女友们”为称呼对象，预设了有消费能力、可赴南京路店铺选购的女性群体。",
+    "personal_analysis": "生产、销售或媒介关系：材料明确胜德厂出品、绮华公司经售，并称“原料完全国产”，显示生产与销售环节的分工及国货话语在零售端的运用。\n\n研究价值：本材料可为轻工业业态与国货运动中的性别化营销提供具体证据：胜德厂以国产绣花旗袍料为产品，绮华公司为经售渠道，广告将“挽回利权”与“爱美”并置，并采用限量销售话术。\n\n论文用途：可用于“国货运动与女性消费”或“轻工业产品的媒介营销”章节，支持商家如何以民族主义话语和性别化审美促销旗袍料的论点。需比较同期其他国货服装广告或企业档案，避免将广告话术等同于实际消费实践；引用时注意区分商家宣称与事实。",
+    "ocr_original": "胜德厂出品、绮华公司经售，新出的绣花旗袍料大廉价\n愛美的觀念，是女界人人所皆知。有的外人利用此種心理，造成了許多外表可觀的物品，常來引誘我們，達到他經濟侵略的目的。因此女界銷用外貨獨比男界為多，而衣著一類，尤其是多數中之多數。\n\n我們勝德廠向來是織製各式花邊，以挽回女界之利權，雖為職志。但是要達到抵制劣貨衣料的志願，一方面又須滿足女同胞愛美的慾望，這是多麼為難的事情。廠同人消耗無量的腦汁，損失多數的金錢，曠廢長久的時日，纔研究成功一種成件綉花旗袍料出來。\n\n論起這種旗袍料的花樣色采，真是華麗到極點，女友們看了起來，保證萬方別饒豐韻。此外還有兩種特點，就是原料完全國產，價值特別便宜。國貨中有此價廉物美的出品，恐為貴女士們意想不到的。敝廠同人私忖，可算對於挽回利權、提倡國貨兩面俱到了。如有不信，請屈駕至南京路虹廟對面綺華公司參觀一番，便可分曉。\n\n綺華公司向來是很熱誠的推銷國貨，且對於本廠出品，因物質精良，更格外歡迎經售。故女友們要買這次新出的、極美麗極公道的國貨旗袍料，也祇請到綺華公司便可。但是我們抱定物希為貴的主義，上次祇限定製三百件，現已售罄；但抱向隅者咸要求再製，故再繡製大批應市。以後恐不再做，務請趁早，就恐再行銷去一空，有願難償，那時悔恨已晚了！",
+    "clean_text": "胜德厂出品、绮华公司经售，新出的绣花旗袍料大廉价\n爱美的观念，是女界人人所皆知。有的外人利用此种心理，造成了许多外表可观的物品，常来引诱我们，达到他经济侵略的目的。因此女界销用外货独比男界为多，而衣著一类，尤其是多数中之多数。\n\n我们胜德厂向来是织制各式花边，以挽回女界之利权，虽为职志。但是要达到抵制劣货衣料的志愿，一方面又须满足女同胞爱美的欲望，这是多么为难的事情。厂同人消耗无量的脑汁，损失多数的金钱，旷废长久的时日，才研究成功一种成件绣花旗袍料出来。\n\n论起这种旗袍料的花样色采，真是华丽到极点，女友们看了起来，保证万方别饶丰韵。此外还有两种特点，就是原料完全国产，价值特别便宜。国货中有此价廉物美的出品，恐为贵女士们意想不到的。敝厂同人私忖，可算对于挽回利权、提倡国货两面俱到了。如有不信，请屈驾至南京路虹庙对面绮华公司参观一番，便可分晓。\n\n绮华公司向来是很热诚的推销国货，且对于本厂出品，因物质精良，更格外欢迎经售。故女友们要买这次新出的、极美丽极公道的国货旗袍料，也祇请到绮华公司便可。但是我们抱定物希为贵的主义，上次祇限定制三百件，现已售罄；但抱向隅者咸要求再制，故再绣制大批应市。以后恐不再做，务请趁早，就恐再行销去一空，有愿难偿，那时悔恨已晚了！",
+    "ai_summary": "1928年10月《中央日报》刊载胜德厂与绮华公司的绣花旗袍料广告。材料显示，胜德厂以“原料完全国产”“价值特别便宜”为卖点，宣称研制成功成件绣花旗袍料，由绮华公司经售，并采用“限定制三百件已售罄”的稀缺话术促销。广告将女性“爱美”心理与“挽回利权、提倡国货”并置，把消费行为引向国货购买，可推测其试图以民族主义话语动员女性消费，同时以“华丽”“万方别饶丰韵”等措辞强化对女性外观的想象。",
+    "ai_keywords": [
+      "绣花旗袍料",
+      "胜德厂",
+      "绮华公司",
+      "国货运动",
+      "挽回利权",
+      "限量销售",
+      "南京路虹庙",
+      "爱美心理",
+      "成件旗袍料"
+    ],
+    "ai_social_issue": "材料中胜德厂以“女界销用外货独比男界为多”为由，将女性消费建构为需要被国货话语矫正的对象，同时以“满足爱美欲望”促销。这提示国货运动可能通过性别化消费动员介入女性日常穿着，但材料仅呈现商家单方话语，女性实际选择需另证。\n广告以“原料完全国产”“价值特别便宜”连接生产与消费，并借绮华公司经售、南京路店铺地址和“限定制三百件”话术组织销售。可据此追问国货旗袍料的生产—流通—零售链条如何运作，以及“价廉物美”叙事是否掩盖了轻工业内部的成本与劳动问题。\n“华丽到极点”“万方别饶丰韵”等评价将旗袍料的外观效果与女性身体魅力直接挂钩，商家由此定义何为“美”的国货旗袍料。这提示媒介广告可能参与制造“摩登”与“国货”兼容的消费标准，但材料无法证明读者如何接受或抵抗这一标准。\n广告将“爱美”视为女界普遍心理，并以“女友们”为称呼对象，预设了有消费能力、可赴南京路店铺选购的女性群体。可据此追问国货时尚消费的阶层门槛：谁被邀请成为“爱美”的国货消费者，谁又被排除在这一消费空间之外，需结合其他材料检验。",
+    "ai_research_value": "本材料可为轻工业业态与国货运动中的性别化营销提供具体证据：胜德厂以国产绣花旗袍料为产品，绮华公司为经售渠道，广告将“挽回利权”与“爱美”并置，并采用限量销售话术。材料不能证明实际销量、消费者反应或生产过程，需结合企业档案、报刊广告系列或消费者回忆互证。",
+    "ai_relation": "1）设计语汇：材料仅提及“绣花旗袍料”“花样色采”，未描述领、袖、开衩等具体形制，无法直接证明旗袍设计细节。2）身体／行动／场合效果：广告以“华丽”“万方别饶丰韵”形容穿着效果，提示旗袍料被赋予展示女性魅力的功能，但未涉及行动便利或场合边界。3）生产、销售或媒介关系：材料明确胜德厂出品、绮华公司经售，并称“原料完全国产”，显示生产与销售环节的分工及国货话语在零售端的运用。",
+    "ai_paper_use": "可用于“国货运动与女性消费”或“轻工业产品的媒介营销”章节，支持商家如何以民族主义话语和性别化审美促销旗袍料的论点。需比较同期其他国货服装广告或企业档案，避免将广告话术等同于实际消费实践；引用时注意区分商家宣称与事实。",
+    "keywords": [
+      "消费文化",
+      "国货",
+      "胜德织造厂",
+      "绮华公司",
+      "国货运动",
+      "旗袍料"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《中央日报》/1928年10月10日-第1张-第2版-胜德厂出品、绮华公司经售，新出的绣花旗袍料大廉价（佚名）.docx",
+      "files/《中央日报》/1928年10月10日-第1张-第2版-胜德厂出品绮华公司经售新出的绣花旗袍料大廉价.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "胜德厂出品、绮华公司经售，新出的绣花旗袍料大廉价\n爱美的观念，是女界人人所皆知。有的外人利用此种心理，造成了许多外表可观的物品，常来引诱我们，达到他经济侵略的目的。因此女界销用外货独比男界为多，而衣著一类，尤其是多数中之多数。\n\n我们胜德厂向来是织制各式花边，以挽回女界之利权，虽为职志。但是要达到抵制劣货衣料的志愿，一方面又须满足女同胞爱美的欲望，这是多么为难的事情。厂同人消耗无量的脑汁，损失多数的金钱，旷废长久的时日，才研究成功一种成件绣花旗袍料出来。\n\n论起这种旗袍料的花样色采，真是华丽到极点，女友们看了起来，保证万方别饶丰韵。此外还有两种特点，就是原料完全国产，价值特别便宜。国货中有此价廉物美的出品，恐为贵女士们意想不到的。敝厂同人私忖，可算对于挽回利权、提倡国货两面俱到了。如有不信，请屈驾至南京路虹庙对面绮华公司参观一番，便可分晓。\n\n绮华公司向来是很热诚的推销国货，且对于本厂出品，因物质精良，更格外欢迎经售。故女友们要买这次新出的、极美丽极公道的国货旗袍料，也祇请到绮华公司便可。但是我们抱定物希为贵的主义，上次祇限定制三百件，现已售罄；但抱向隅者咸要求再制，故再绣制大批应市。以后恐不再做，务请趁早，就恐再行销去一空，有愿难偿，那时悔恨已晚了！",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793194819082_33uzme",
+        "text": "有的外人利用此种心理，造成了许多外表可观的物品，常来引诱我们，达到他经济侵略的目的。",
+        "start": 40,
+        "end": 82,
+        "note": "商家将女性“爱美”心理视为外货可乘之机，把消费选择纳入经济侵略叙事，为后文国货促销提供合法性。",
+        "created_at": "2026-10-28T13:40:19.082Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793194819082_izrsly",
+        "text": "因此女界销用外货独比男界为多，而衣著一类，尤其是多数中之多数。",
+        "start": 82,
+        "end": 113,
+        "note": "以性别化消费数据（未给出出处）建构女性更易购买外货的判断，将衣着消费问题化，为国货动员提供靶心。",
+        "created_at": "2026-10-28T13:40:19.082Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793194819082_07pkkj",
+        "text": "论起这种旗袍料的花样色采，真是华丽到极点，女友们看了起来，保证万方别饶丰韵。",
+        "start": 231,
+        "end": 269,
+        "note": "直接以“华丽”“丰韵”评价旗袍料的外观与穿着效果，显示商家如何将国货产品与女性魅力绑定。",
+        "created_at": "2026-10-28T13:40:19.082Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793194819082_vnrg7q",
+        "text": "此外还有两种特点，就是原料完全国产，价值特别便宜。",
+        "start": 269,
+        "end": 294,
+        "note": "明确产品两大卖点：国产原料与低价，连接轻工业原料来源与消费定价，是国货话语的核心证据。",
+        "created_at": "2026-10-28T13:40:19.082Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793194819082_dp25cc",
+        "text": "敝厂同人私忖，可算对于挽回利权、提倡国货两面俱到了。",
+        "start": 319,
+        "end": 345,
+        "note": "商家自我标榜同时实现“挽回利权”与“提倡国货”，将企业营利行为包装为民族主义贡献。",
+        "created_at": "2026-10-28T13:40:19.082Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793194819082_jv55je",
+        "text": "但是我们抱定物希为贵的主义，上次祇限定制三百件，现已售罄；但抱向隅者咸要求再制，故再绣制大批应市。",
+        "start": 451,
+        "end": 500,
+        "note": "以“限定制三百件已售罄”制造稀缺感并暗示需求旺盛，是典型的广告促销话术，可分析其如何刺激消费。",
+        "created_at": "2026-10-28T13:40:19.082Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793194819082_yjtarf",
+        "text": "以后恐不再做，务请趁早，就恐再行销去一空，有愿难偿，那时悔恨已晚了！",
+        "start": 500,
+        "end": 534,
+        "note": "以“不再做”“趁早”制造紧迫感，将消费行为与避免后悔的情绪绑定，显示广告对女性消费者的情感动员。",
+        "created_at": "2026-10-28T13:40:19.082Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_1793194875625_t21hdl",
+        "text": "我们胜德厂向来是织制各式花边，以挽回女界之利权",
+        "start": 115,
+        "end": 138,
+        "note": "胜德制造厂的企业使命与文化",
+        "created_at": "2026-10-28T13:41:15.625Z"
+      }
+    ],
+    "shiliao_id": "SL-2026-351",
+    "created_at": "2026-10-28T13:40:19.083Z",
+    "updated_at": "2026-10-29T05:37:25.153Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "民国日报（上海）",
+    "title": "素色法国绸...",
+    "author": "佚名",
+    "time": "1930年5月7日",
+    "version_info": "第4张-第1版",
+    "core_content": "素色法国绸，各种深浅颜色，共三十余种，做各式单夹旗袍均宜。颜色耐洗，光滑异常，阔四十英寸，每码二元九角半至四元半。\n\n新到特别印花雪纺、妮脑纱，所到无多，每种花色只足做旗袍三件或西服一两件，特别异常，做各式时新晚装或喜庆衣服，最为合宜美丽。阔四十英寸，每码八元半至十一元半。\n\n新出印花华尔丝纱，颜色众多，均系美丽别致，鲜明雅静，无不齐备。质料轻飘滑爽，做各式新行时装或旗袍，最为相宜。阔四十英寸，每码三元九角半至四元四角半。",
+    "personal_analysis": "舶来品旗袍料，反映2世纪30年代的面料价格",
+    "ocr_original": "素色法國綢各種深淺顏色共三十餘種做各式單夾旗袍均宜顏色耐洗光滑異常闊四十英寸每碼二元九角半至四元半",
+    "clean_text": "素色法国绸，各种深浅颜色，共三十余种，做各式单夹旗袍均宜。颜色耐洗，光滑异常，阔四十英寸，每码二元九角半至四元半。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "贸易",
+      "旗袍料 商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《民国日报（上海）》/1930年5月7日-第4张-第1版-素色法国绸....pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "素色法国绸，各种深浅颜色，共三十余种，做各式单夹旗袍均宜。颜色耐洗，光滑异常，阔四十英寸，每码二元九角半至四元半。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-352",
+    "created_at": "2026-10-28T13:49:06.588Z",
+    "updated_at": "2026-10-28T13:53:00.556Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "时事新报",
+    "title": "新新公司秋季大减价廿一天",
+    "author": "佚名",
+    "time": "1929年8月24日",
+    "version_info": "第9版",
+    "core_content": "阳历八月念二日起，绸缎照码八五折，云纱拷绸削本贱卖，各色衣料万余件，华而纱旗袍料一元，毛葛旗袍料二元，巴黎缎旗袍料一元五角，各种羽纱旗袍料一元，印花绉旗袍料八角，点星毛巾呢旗袍料一元五角，各色毛巾布旗袍料一元，丝织罗旗袍料一元五角，雨衣照码三折，各种新式灯罩八折，老牌灯泡每元四只，六磅老牌熨斗四元零五分。",
+    "personal_analysis": "新新公司的旗袍料名称、价格",
+    "ocr_original": "陽歷八月念二日起 綢緞照碼八五折 雲紗拷綢削本賤賣 各色衣料萬餘件 華而紗旗袍料一元 毛葛旗袍料二元 巴黎緞旗袍料一元五角 各種羽紗旗袍料一元 印花縐旗袍料八角 點星毛巾呢旗袍料一元五角 各色毛巾布旗袍料一元 絲織羅旗袍料一元五角 雨衣照碼三折 各種新式燈罩八折 老牌燈泡每元四只 六磅老牌熨斗四元零五分",
+    "clean_text": "阳历八月念二日起，绸缎照码八五折，云纱拷绸削本贱卖，各色衣料万余件，华而纱旗袍料一元，毛葛旗袍料二元，巴黎缎旗袍料一元五角，各种羽纱旗袍料一元，印花绉旗袍料八角，点星毛巾呢旗袍料一元五角，各色毛巾布旗袍料一元，丝织罗旗袍料一元五角，雨衣照码三折，各种新式灯罩八折，老牌灯泡每元四只，六磅老牌熨斗四元零五分。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "时代审美",
+      "国货",
+      "旗袍料 商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《时事新报》/1929年8月24日-第9版-新新公司秋季大减价廿一天（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "阳历八月念二日起，绸缎照码八五折，云纱拷绸削本贱卖，各色衣料万余件，华而纱旗袍料一元，毛葛旗袍料二元，巴黎缎旗袍料一元五角，各种羽纱旗袍料一元，印花绉旗袍料八角，点星毛巾呢旗袍料一元五角，各色毛巾布旗袍料一元，丝织罗旗袍料一元五角，雨衣照码三折，各种新式灯罩八折，老牌灯泡每元四只，六磅老牌熨斗四元零五分。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-353",
+    "created_at": "2026-10-28T14:01:26.257Z",
+    "updated_at": "2026-10-28T14:02:30.778Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "天福绸缎局特别大减价",
+    "author": "佚名",
+    "time": "1929年10月13日",
+    "version_info": "第18版",
+    "core_content": "衣料部特别牺牲\n印花葛旗袍料每件一元八角，凤凰绸旗袍料每件二元八角，电力葛裤料每条三元，湘妃绉旗袍料每件三元，真毛缎锦绸旗袍料每件六元五角，力重线者袍料每件八元八角。",
+    "personal_analysis": "天福绸缎局的旗袍料与价格",
+    "ocr_original": "衣料部特別犧牲印花葛旗袍料 每件一元八角鳳凰綢旗袍料 每件二元八角電力葛褲料 每條三元湘妃縐旗袍料 每件三元眞毛緞錦綢旗袍料 每件六元五角力重線者袍料 每件八元八角",
+    "clean_text": "衣料部特别牺牲\n印花葛旗袍料每件一元八角，凤凰绸旗袍料每件二元八角，电力葛裤料每条三元，湘妃绉旗袍料每件三元，真毛缎锦绸旗袍料每件六元五角，力重线者袍料每件八元八角。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "旗袍料 商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《新闻报》/1929年10月13日-第18版-天福绸缎局特别大减价（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "衣料部特别牺牲\n印花葛旗袍料每件一元八角，凤凰绸旗袍料每件二元八角，电力葛裤料每条三元，湘妃绉旗袍料每件三元，真毛缎锦绸旗袍料每件六元五角，力重线者袍料每件八元八角。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-354",
+    "created_at": "2026-10-28T14:09:37.316Z",
+    "updated_at": "2026-10-28T14:15:31.207Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "申报",
+    "title": "三友实业社百货零售",
+    "author": "佚名",
+    "time": "1929年5月4日",
+    "version_info": "第19版",
+    "core_content": "女学生穿自由布旗袍，美而不俗，弥觉分外时髦。\n三友实业社 出品 门市部邮售部 上海南京路",
+    "personal_analysis": "自由布旗袍，女学生是时尚的引领者。\n图中的贴身曲线化短旗袍，下摆到膝盖",
+    "ocr_original": "女學生穿自由布旗袍，美而不俗，彌覺分外時髦，三友實業社 出品 門市部郵售部 上海南京路",
+    "clean_text": "女学生穿自由布旗袍，美而不俗，弥觉分外时髦。\n三友实业社 出品 门市部邮售部 上海南京路",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "海派",
+      "时代审美",
+      "国货"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《申报》/1929年5月4日-第19版-三实业社百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "女学生穿自由布旗袍，美而不俗，弥觉分外时髦。\n三友实业社 出品 门市部邮售部 上海南京路",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-355",
+    "created_at": "2026-10-28T14:14:11.842Z",
+    "updated_at": "2026-10-28T14:21:28.578Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "旗袍流行款式",
+      "轻工业业态"
+    ],
+    "source": "申报",
+    "title": "三友实业社百货零售",
+    "author": "佚名",
+    "time": "1929年2月16日",
+    "version_info": "第20版",
+    "core_content": "穿玄色爱国市旗袍，最能显露自然美\n三友实业社出品",
+    "personal_analysis": "旗袍面料与爱国立场的结合，高领过膝短旗袍",
+    "ocr_original": "穿玄色愛國市旗袍 ●最能顯露自然美● 三友實業社出品",
+    "clean_text": "穿玄色爱国市旗袍，最能显露自然美\n三友实业社出品",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "海派",
+      "时代审美",
+      "国货",
+      "现代化",
+      "旗袍料",
+      "商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《申报》/1929年2月16日-第20版-三友实业社百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "穿玄色爱国市旗袍，最能显露自然美\n三友实业社出品",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-356",
+    "created_at": "2026-10-28T14:20:06.897Z",
+    "updated_at": "2026-10-29T05:20:07.152Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "百货零售",
+    "author": "佚名",
+    "time": "1928年10月12 日",
+    "version_info": "第18版",
+    "core_content": "1928年10月12日《新闻报》一则百货零售广告显示，勤丰染织厂以“海昌蓝细布”“海昌蓝斜纹”和“阴丹士林细布”为面料，宣称市上女子近来都用其裁制旗袍，效果“十分雅丽”，并在“提倡国货”语境中比“彩花洋布”更“时髦”。材料将女性穿着评价、国货话语与批发销售信息并置，呈现商家借旗袍时尚推销国产面料的机制；可推测其目标读者为有裁制能力的城市女性消费者。\n\n反映的社会问题：材料中商家以“市上女子都裁制为旗袍”描述流行，并给出“雅丽”“时髦”评价，将女性身体作为展示面料的载体。\n\n广告将“海昌蓝”等国货面料与“彩花洋布”对比，在“提倡国货声中”赋予国产布料“格外时髦”的等级；这显示民族商品话语可能通过性别化的服装评价进入日常消费。\n\n材料列出“批发所上海南京路万源祥内”，表明面料经批发环节进入零售网络；旗袍时尚因此不只是穿着现象，还连接染织厂、批发商与城市商业空间。\n\n广告以报刊为媒介，用“市上女子都”制造流行感，并将“时髦”与“国货”绑定；这提示媒介与商家可能共同生产“得体／时髦”的分类。",
+    "personal_analysis": "与海派旗袍设计史的关系：1）设计语汇：海昌蓝细布、海昌蓝斜纹、阴丹士林细布，未涉及领、袖、开衩等款式。2）身体／场合效果：以“雅丽”“时髦”评价女子旗袍，提示面料被视为塑造外观与时尚感的关键。3）产业与媒介：染织厂通过批发所和报纸广告，将国产面料与旗袍时尚连接，显示面料供应端主动参与旗袍消费意义的建构。\n\n研究价值：本材料可为旗袍设计的面料选择与轻工业业态提供直接证据：它显示染织厂以旗袍裁制为卖点推销国产蓝布和阴丹士林布，并将批发所地址刊于报端，连接生产、批发与报刊营销。材料不能证明实际销量、消费者构成或国货运动效果，需结合价格表、商号档案、读者来信等互证。\n\n论文用途：可用于“旗袍面料与国货运动”或“轻工业业态中的染织—批发—报刊广告”章节，支持商家以旗袍时尚推销国产面料的论点。",
+    "ocr_original": "袍旗布勤豐染織廠所出海昌藍細布。海昌藍斜紋。及陰丹士林細布。邇來市上女子都裁製爲旗袍。覺得十分雅麗。且在此提倡國貨聲中。比了穿綵花洋布。格外時髦。\n批發所上海南京路萬源祥內",
+    "clean_text": "布旗袍\n勤丰染织厂所出海昌蓝细布，海昌蓝斜纹，及阴丹士林细布，迩来市上女子都裁制为旗袍，觉得十分雅丽。且在此提倡国货声中，比了穿彩花洋布，格外时髦。\n批发所 上海南京路万源祥内",
+    "ai_summary": "1928年10月12日《新闻报》一则百货零售广告显示，丰染织厂以“海昌蓝细布”“海昌蓝斜纹”和“阴丹士林细布”为面料，宣称市上女子近来都用其裁制旗袍，效果“十分雅丽”，并在“提倡国货”语境中比“彩花洋布”更“时髦”。材料将女性穿着评价、国货话语与批发销售信息并置，呈现商家借旗袍时尚推销国产面料的机制；可推测其目标读者为有裁制能力的城市女性消费者，但材料未提供消费者反馈或实际销售数据。",
+    "ai_keywords": [
+      "海昌蓝细布",
+      "阴丹士林细布",
+      "丰染织厂",
+      "旗袍裁制",
+      "国货提倡",
+      "彩花洋布",
+      "批发所",
+      "南京路万源祥",
+      "雅丽",
+      "时髦"
+    ],
+    "ai_social_issue": "材料中商家以“市上女子都裁制为旗袍”描述流行，并给出“雅丽”“时髦”评价，将女性身体作为展示面料的载体；这提示时尚话语可能由产业资本与报刊广告共同制造，但女性是否主动选择、如何理解“雅丽”，本材料无法直接证明。\n广告将“海昌蓝”等国货面料与“彩花洋布”对比，在“提倡国货声中”赋予国产布料“格外时髦”的等级；这显示民族商品话语可能通过性别化的服装评价进入日常消费，但国货运动如何具体影响购买，需要结合价格、销售记录等材料检验。\n材料列出“批发所上海南京路万源祥内”，表明面料经批发环节进入零售网络；旗袍时尚因此不只是穿着现象，还连接染织厂、批发商与城市商业空间，可据此追问国产面料生产与女性消费之间的流通机制。\n广告以报刊为媒介，用“市上女子都”制造流行感，并将“时髦”与“国货”绑定；这提示媒介与商家可能共同生产“得体／时髦”的分类，但材料只呈现商家话语，缺少消费者与编辑立场，不能据此断定社会共识。",
+    "ai_research_value": "本材料可为旗袍设计的面料选择与轻工业业态提供直接证据：它显示染织厂以旗袍裁制为卖点推销国产蓝布和阴丹士林布，并将批发所地址刊于报端，连接生产、批发与报刊营销。材料不能证明实际销量、消费者构成或国货运动效果，需结合价格表、商号档案、读者来信等互证。",
+    "ai_relation": "1）设计语汇：材料只提面料——海昌蓝细布、海昌蓝斜纹、阴丹士林细布，未涉及领、袖、开衩等款式。2）身体／场合效果：以“雅丽”“时髦”评价女子旗袍，提示面料被视为塑造外观与时尚感的关键，但未说明具体场合。3）产业与媒介：染织厂通过批发所和报纸广告，将国产面料与旗袍时尚连接，显示面料供应端主动参与旗袍消费意义的建构。",
+    "ai_paper_use": "可用于“旗袍面料与国货运动”或“轻工业业态中的染织—批发—报刊广告”章节，支持商家以旗袍时尚推销国产面料的论点。需比较同时期其他面料广告与价格材料，并注意本材料仅为商家单方话语，不能直接证明女性消费实践。",
+    "keywords": [
+      "海派",
+      "现代",
+      "时代审美",
+      "消费文化",
+      "国货",
+      "海昌蓝细布",
+      "阴丹士林",
+      "旗袍裁制",
+      "旗袍料"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《新闻报》/1928年10月12 日-第18版-百货零售（佚名）.jpg",
+      "files/《新闻报》/1928年10月12 日-第18版-百货零售（佚名）.docx"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "布旗袍\n勤丰染织厂所出海昌蓝细布，海昌蓝斜纹，及阴丹士林细布，迩来市上女子都裁制为旗袍，觉得十分雅丽。且在此提倡国货声中，比了穿彩花洋布，格外时髦。\n批发所 上海南京路万源祥内",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793197779472_6figs4",
+        "text": "觉得十分雅丽。且在此提倡国货声中。比了穿彩花洋布。格外时髦。",
+        "start": 43,
+        "end": 73,
+        "note": "以“雅丽”“时髦”评价国货面料旗袍，并在国货话语中贬低“彩花洋布”，显示商家如何将性别化审美与民族商品等级结合；消费者是否接受此评价，材料未提供。",
+        "created_at": "2026-10-28T14:29:39.472Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_1793198288959_m8hfz8",
+        "text": "海昌蓝细布，海昌蓝斜纹，及阴丹士林细布",
+        "start": 11,
+        "end": 30,
+        "note": "三种国产面料",
+        "created_at": "2026-10-28T14:38:08.959Z"
+      }
+    ],
+    "shiliao_id": "SL-2026-357",
+    "created_at": "2026-10-28T14:29:39.473Z",
+    "updated_at": "2026-10-28T14:38:08.959Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "百货零售",
+    "author": "佚名",
+    "time": "1929年9月9日",
+    "version_info": "第14版",
+    "core_content": "材料为1929年9月9日《新闻报》上胜德厂门市部的大廉价广告，宣称三星期减价（8月13日止），强调今年新出品增多、售价更廉，并列出绣花印度绸旗袍料、绣花软缎旗袍料、哔叽挖花旗袍料等“最精美出品”。广告以“士女”为诉求对象，通过“参观一下”即可证明便宜的话术，将旗袍面料与绣花寝具并置促销。材料显示商家以“新出品”“雅观”“定价廉”组织商品意义，可推测其目标为有消费能力的城市女性，但无法直接证明实际销售、消费者反应或生产组织。\n\n反映的社会问题：材料中胜德厂以“大廉价”“新出品增多”招徕“士女”，将旗袍料与绣花帐子、被面、枕套并列为“最精美出品”。这提示商家把女性衣料消费嵌入家庭日用品的促销框架。\n\n广告反复使用“真正便宜”“定价尤廉”“式样雅观”，以“参观一下”即可证明便宜为话术。这显示商家通过报刊广告制造“价廉物美”的分类常识，可推测其试图将价格优势转化为对“士女”的消费召唤。\n\n旗袍料被命名为“绣花印度绸”“绣花软缎”“哔叽挖花”，以面料品种和装饰工艺区分商品。这提示旗袍设计在销售环节首先被拆解为面料与绣花工艺的组合。",
+    "personal_analysis": "研究价值：本材料可为民国时期海派旗袍的销售与媒介环节提供具体证据：1929年《新闻报》广告显示，旗袍料以“绣花印度绸”“绣花软缎”“哔叽挖花”等面料工艺名称进入百货门市部促销，并与绣花寝具并置，以“士女”为诉求对象。这有助于讨论旗袍如何被商品化、面料如何成为卖点，以及报刊广告如何建构“价廉物美”的消费话语。\n\n论文用途：可用于论文“旗袍的商品化与报刊广告”或“轻工业业态中的面料与门市销售”章节，支持“旗袍料以面料工艺名称进入百货促销、商家以‘价廉物美’话语召唤城市女性消费者”的论点。最必要的比较材料是同期其他绸缎局或百货公司的旗袍料广告，以检验胜德厂话术是否具有行业共性。",
+    "ocr_original": "勝德廠門市部大廉價 三星期 八月十三日止本廠今年大廉價與往年不同今年新出品增多售價較往年更加便宜往年已來買過貨物的士女今年當然必須再來看看往年未來買過的士女今年更須速來參觀一下便可以證明本廠各貨的確是正眞便宜下列各貨爲本廠最精美出品綉花印度綢旗袍料綉花軟緞旗袍料嗶嘰挖花旗袍料綉花帳子綉花被面綉花枕套等式樣雅觀定價尤廉",
+    "clean_text": "胜德厂门市部\n大廉价，三星期，八月十三日止。\n\n本厂今年大廉价，与往年不同：今年新出品增多，售价较往年更加便宜。往年已来买过货物的士女，今年当然必须再来看看；往年未来买过的士女，今年更须速来，参观一下，便可以证明本厂各货的确是真正便宜。下列各货，为本厂最精美出品：绣花印度绸旗袍料、绣花软缎旗袍料、哔叽挖花旗袍料、绣花帐子、绣花被面、绣花枕套等，式样雅观，定价尤廉。",
+    "ai_summary": "材料为1929年9月9日《新闻报》上胜德厂门市部的大廉价广告，宣称三星期减价（8月13日止），强调今年新出品增多、售价更廉，并列出绣花印度绸旗袍料、绣花软缎旗袍料、哔叽挖花旗袍料等“最精美出品”。广告以“士女”为诉求对象，通过“参观一下”即可证明便宜的话术，将旗袍面料与绣花寝具并置促销。材料显示商家以“新出品”“雅观”“定价廉”组织商品意义，可推测其目标为有消费能力的城市女性，但无法直接证明实际销售、消费者反应或生产组织。",
+    "ai_keywords": [
+      "胜德厂门市部",
+      "大廉价",
+      "旗袍料",
+      "绣花印度绸",
+      "绣花软缎",
+      "哔叽挖花",
+      "士女",
+      "新出品",
+      "《新闻报》广告"
+    ],
+    "ai_social_issue": "材料中胜德厂以“大廉价”“新出品增多”招徕“士女”，将旗袍料与绣花帐子、被面、枕套并列为“最精美出品”。这提示商家把女性衣料消费嵌入家庭日用品的促销框架，可据此追问：城市女性作为消费主体，其购买行为如何在家庭采购与个人时尚之间被界定？\n广告反复使用“真正便宜”“定价尤廉”“式样雅观”，以“参观一下”即可证明便宜为话术。这显示商家通过报刊广告制造“价廉物美”的分类常识，可推测其试图将价格优势转化为对“士女”的消费召唤；但材料只呈现商家话语，无法直接证明消费者是否接受这一分类。\n旗袍料被命名为“绣花印度绸”“绣花软缎”“哔叽挖花”，以面料品种和装饰工艺区分商品。这提示旗袍设计在销售环节首先被拆解为面料与绣花工艺的组合，可据此追问：轻工业业态中面料供应、染织工艺与服装制作如何通过百货门市部连接？本材料无法直接证明生产组织或国产／进口面料的来源等级。\n广告以“往年已来买过货物的士女”与“往年未来买过的士女”区分顾客，并预设其“必须再来看看”“更须速来”。这显示商家以重复消费和潜在顾客为对象进行分层召唤，可推测其目标群体为有一定购买力且关注时新衣料的城市女性；但材料未提供价格、销量或顾客身份，无法直接证明阶层区隔的实际形态。",
+    "ai_research_value": "本材料可为民国时期海派旗袍的销售与媒介环节提供具体证据：1929年《新闻报》广告显示，旗袍料以“绣花印度绸”“绣花软缎”“哔叽挖花”等面料工艺名称进入百货门市部促销，并与绣花寝具并置，以“士女”为诉求对象。这有助于讨论旗袍如何被商品化、面料如何成为卖点，以及报刊广告如何建构“价廉物美”的消费话语。但材料仅呈现商家单方广告，不能证明实际消费行为、生产组织或国产面料比例，需结合商号档案、价格记录或消费者回忆互证。",
+    "ai_relation": "1）设计语汇：材料以“绣花印度绸旗袍料”“绣花软缎旗袍料”“哔叽挖花旗袍料”命名商品，显示旗袍设计在销售中被拆解为面料品种与绣花、挖花工艺的组合，而非成衣款式描述。2）身体／行动／场合效果：材料未描述领、袖、开衩、长度或腰身，无法直接说明设计对身体可见性或行动便利的影响。3）生产、销售或媒介关系：胜德厂门市部通过《新闻报》大廉价广告，将旗袍料与绣花帐子、被面、枕套并列为“最精美出品”，以“士女”为诉求对象，显示生产商门市部直接借助报刊媒介进行季节性促销，但材料未揭示面料来源、制作分工或销售渠道的具体结构。",
+    "ai_paper_use": "可用于论文“旗袍的商品化与报刊广告”或“轻工业业态中的面料与门市销售”章节，支持“旗袍料以面料工艺名称进入百货促销、商家以‘价廉物美’话语召唤城市女性消费者”的论点。最必要的比较材料是同期其他绸缎局或百货公司的旗袍料广告，以检验胜德厂话术是否具有行业共性。引用时需注意：该广告只代表商家宣传话语，不能直接证明实际价格水平、销量或消费者构成。",
+    "keywords": [
+      "贸易",
+      "国货",
+      "胜德织造厂",
+      "旗袍料",
+      "绣花印度绸",
+      "绣花软缎",
+      "哔叽",
+      "商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《新闻报》/1929年9月9日-第14版-百货零售（佚名）.docx",
+      "files/《新闻报》/1929年9月9日-第14版-百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "胜德厂门市部\n大廉价，三星期，八月十三日止。\n\n本厂今年大廉价，与往年不同：今年新出品增多，售价较往年更加便宜。往年已来买过货物的士女，今年当然必须再来看看；往年未来买过的士女，今年更须速来，参观一下，便可以证明本厂各货的确是真正便宜。下列各货，为本厂最精美出品：绣花印度绸旗袍料、绣花软缎旗袍料、哔叽挖花旗袍料、绣花帐子、绣花被面、绣花枕套等，式样雅观，定价尤廉。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793198161049_u5rycx",
+        "text": "往年已来买过货物的士女，今年当然必须再来看看；往年未来买过的士女，今年更须速来，参观一下，便可以证明本厂各货的确是真正便宜。",
+        "start": 56,
+        "end": 118,
+        "note": "以“士女”区分老顾客与潜在顾客，用“必须”“更须”制造消费紧迫感，并以“参观”证明便宜；显示商家对女性消费者的分层召唤与话术机制，但无法证明实际效果。",
+        "created_at": "2026-10-28T14:36:01.049Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_1793198192042_malcvl",
+        "text": "为本厂最精美出品：绣花印度绸旗袍料、绣花软缎旗袍料、哔叽挖花旗袍料",
+        "start": 123,
+        "end": 156,
+        "note": "以面料品种和绣花、挖花工艺命名商品，显示旗袍料在门市促销中被嵌入家用品系列；",
+        "created_at": "2026-10-28T14:36:32.042Z"
+      }
+    ],
+    "shiliao_id": "SL-2026-358",
+    "created_at": "2026-10-28T14:36:01.050Z",
+    "updated_at": "2026-10-28T14:37:08.969Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "《敢报》",
+    "title": "太成绸缎厂百货零售",
+    "author": "佚名",
+    "time": "1929年12月 8 日",
+    "version_info": "第1版",
+    "core_content": "太成绸缎厂\n门市部大贱卖大赠品一月 \n购满十元赠价值三圆之贵重物品，特别大贱卖成件衣料，买了不便宜包退还\n洋素毛葛\n男袍料四圆五角，旗袍料每件二圆七角，马挂料二圆三角\n\n电话六三四九○三马路大舞台西首",
+    "personal_analysis": "太成绸缎厂旗袍料种类与价格",
+    "ocr_original": "太成綢緞廠門市部大賤賣大贈品一月 購滿十元贈價值三圓之貴重物品 特別大賤賣成件衣料 買了不便宜包退還洋素毛葛男袍料 四圓五角 旗袍料每件二圓七角 馬掛料 二圓三角電話六三四九○三馬路大舞台西首",
+    "clean_text": "太成绸缎厂\n门市部大贱卖大赠品一月 \n购满十元赠价值三圆之贵重物品，特别大贱卖成件衣料，买了不便宜包退还\n洋素毛葛\n男袍料四圆五角，旗袍料每件二圆七角，马挂料二圆三角\n\n电话六三四九○三马路大舞台西首",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "贸易",
+      "国货",
+      "旗袍料 商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《敢报》/1929年12月 8 日-第1版-太成绸缎厂百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "太成绸缎厂\n门市部大贱卖大赠品一月 \n购满十元赠价值三圆之贵重物品，特别大贱卖成件衣料，买了不便宜包退还\n洋素毛葛\n男袍料四圆五角，旗袍料每件二圆七角，马挂料二圆三角\n\n电话六三四九○三马路大舞台西首",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-359",
+    "created_at": "2026-10-28T14:48:14.571Z",
+    "updated_at": "2026-10-28T14:48:14.571Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "三友实业社百货零售",
+    "author": "佚名",
+    "time": "1930年11月13日",
+    "version_info": "第14版",
+    "core_content": "核心观点：1930年11月13日《新闻报》刊载三友实业社百货零售广告，宣称三友绒衣料“做旗袍雅致，做小马甲出色”，强调其耐洗、不退色、经穿等品质，并标明剪料每尺八角、现成小马甲每件四元，由上海南京路门市部及邮售部销售。材料显示商家以“海上女界咸乐用之”建构女性消费认同，将面料性能、成衣价格与旗袍、小马甲款式直接关联；可推测广告同时面向零售与邮购消费者，但无法直接证明实际购买群体与穿着效果。\n\n反映的社会问题：材料中商家以“海上女界咸乐用之”为广告话术，将女性塑造为追逐时髦的消费群体，同时以“雅致”“出色”等评价规范女性穿着品味。\n\n广告将三友绒的耐洗、不退色、经穿等性能与旗袍、小马甲款式并置，并给出剪料与现成成衣两种价格，显示面料改良与服装制作、零售、邮售渠道相连。",
+    "personal_analysis": "研究价值：本材料可为轻工业业态与旗袍消费提供具体证据：三友实业社以面料性能广告连接旗袍、小马甲款式与剪料、成衣两种售价，并标明门市部与邮售部，显示国产面料通过百货零售和邮购渠道进入女装消费。\n\n论文用途：可用于“轻工业业态与旗袍消费”章节，支持国产面料品牌借助报刊广告、门市零售与邮售渠道推广旗袍及小马甲成衣的论点。",
+    "ocr_original": "三友絨衣料做旗袍雅緻做小馬甲出色尋常絲絨衣料，絨面易黏，而且入水變色，設一染污不能洗滌，惟三友絨無此缺點，文雅美緻之品質，洗晒不退，異常經穿，做婦女旗袍旣佳，而做時尙之小馬甲尤爲出色，故海上女界咸樂用之。▲剪料每尺八角，現成三友絨小馬甲每件四元▼三友實業社出品總公司門市部郵售部上海南京路浙江路東",
+    "clean_text": "三友绒衣料，做旗袍雅致，做小马甲出色\n\n寻常丝绒衣料，绒面易黏，而且入水变色，设一染污不能洗涤，惟三友绒无此缺点，文雅美致之品质，洗晒不退，异常经穿，做妇女旗袍既佳，而做时尙之小马甲尤为出色，故海上女界咸乐用之。▲剪料每尺八角，现成三友绒小马甲每件四元▼\n\n三友实业社出品总公司门市部邮售部 上海南京路浙江路东",
+    "ai_summary": "1930年11月13日《新闻报》刊载三友实业社百货零售广告，宣称三友绒衣料“做旗袍雅致，做小马甲出色”，强调其耐洗、不退色、经穿等品质，并标明剪料每尺八角、现成小马甲每件四元，由上海南京路门市部及邮售部销售。材料显示商家以“海上女界咸乐用之”建构女性消费认同，将面料性能、成衣价格与旗袍、小马甲款式直接关联；可推测广告同时面向零售与邮购消费者，但无法直接证明实际购买群体与穿着效果。",
+    "ai_keywords": [
+      "三友实业社",
+      "三友绒",
+      "旗袍",
+      "小马甲",
+      "剪料每尺八角",
+      "现成小马甲每件四元",
+      "邮售部",
+      "南京路门市部",
+      "海上女界",
+      "新闻报广告"
+    ],
+    "ai_social_issue": "材料中商家以“海上女界咸乐用之”为广告话术，将女性塑造为追逐时髦的消费群体，同时以“雅致”“出色”等评价规范女性穿着品味。这提示报刊广告可能通过命名和评价女性服装来生产消费共识，但女性实际选择与声音本材料无法直接呈现。\n广告将三友绒的耐洗、不退色、经穿等性能与旗袍、小马甲款式并置，并给出剪料与现成成衣两种价格，显示面料改良与服装制作、零售、邮售渠道相连。可据此追问国产面料如何通过百货门市部和邮售部进入城市女性日常消费，但生产组织与劳动过程本材料未涉及。\n“做旗袍雅致，做小马甲出色”将同一面料分别对应两种女装款式，提示商家以款式适用性组织商品意义。旗袍与小马甲被并置为时尚选择，可能表明服装场合与身体可见性存在分层，但材料未描述领、袖、开衩等具体设计，无法直接证明款式变化与身体解放的关系。\n广告以“寻常丝绒衣料”易黏、入水变色、不能洗涤为对照，突出三友绒的品质优势，构成国产工业品对普通丝绒的替代叙事。这提示轻工业品牌可能借助“洗晒不退”等技术话语参与国货竞争，但材料未提供销售数量或消费者反馈，需结合其他史料检验其市场影响。",
+    "ai_research_value": "本材料可为轻工业业态与旗袍消费提供具体证据：三友实业社以面料性能广告连接旗袍、小马甲款式与剪料、成衣两种售价，并标明门市部与邮售部，显示国产面料通过百货零售和邮购渠道进入女装消费。材料不能证明实际消费者构成、穿着效果或生产劳动状况，需结合销售档案、消费者回忆或其他报刊广告互证。",
+    "ai_relation": "1）设计语汇：材料仅以“雅致”“出色”评价三友绒做旗袍与小马甲的效果，未描述领、袖、开衩等具体设计。2）身体／行动／场合效果：广告未直接说明穿着后的身体可见性或行动便利，仅以“海上女界咸乐用之”暗示女性消费认同。3）生产、销售或媒介关系：材料显示三友实业社通过《新闻报》广告、南京路门市部和邮售部销售剪料与现成小马甲，将面料性能、成衣价格与女装款式相连。",
+    "ai_paper_use": "可用于“轻工业业态与旗袍消费”章节，支持国产面料品牌借助报刊广告、门市零售与邮售渠道推广旗袍及小马甲成衣的论点；需与三友实业社其他广告或销售史料比较，避免将广告话术当作实际消费事实。引用时注意材料仅呈现商家话语，缺少女性消费者直接声音。",
+    "keywords": [
+      "时代审美",
+      "贸易",
+      "国货",
+      "三友实业社",
+      "旗袍",
+      "小马甲",
+      "旗袍料",
+      "商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《新闻报》/1930年11月13日-第14版-三友实业社百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "三友绒衣料，做旗袍雅致，做小马甲出色\n\n寻常丝绒衣料，绒面易黏，而且入水变色，设一染污不能洗涤，惟三友绒无此缺点，文雅美致之品质，洗晒不退，异常经穿，做妇女旗袍既佳，而做时尙之小马甲尤为出色，故海上女界咸乐用之。▲剪料每尺八角，现成三友绒小马甲每件四元▼\n\n三友实业社出品总公司门市部邮售部 上海南京路浙江路东",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793199583476_n5glpr",
+        "text": "三友绒衣料，做旗袍雅致，做小马甲出色",
+        "start": 0,
+        "end": 18,
+        "note": "商家将同一面料与旗袍、小马甲两种女装款式直接关联，以“雅致”“出色”评价款式效果，显示广告如何以款式适用性组织商品意义；但未描述具体设计细节。",
+        "created_at": "2026-10-28T14:59:43.476Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793199583476_cj8ugi",
+        "text": "寻常丝绒衣料，绒面易黏，而且入水变色，设一染污不能洗涤，惟三友绒无此缺点，文雅美致之品质，洗晒不退，异常经穿",
+        "start": 20,
+        "end": 74,
+        "note": "以普通丝绒的缺点对照三友绒耐洗、不退色、经穿的性能，构成国产工业品的品质叙事；可连接轻工业技术话语与国货竞争，但无法证明实际市场反应。",
+        "created_at": "2026-10-28T14:59:43.476Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793199583476_cgxs2x",
+        "text": "做妇女旗袍既佳，而做时尙之小马甲尤为出色，故海上女界咸乐用之",
+        "start": 75,
+        "end": 105,
+        "note": "商家以“海上女界咸乐用之”建构女性消费认同，将旗袍与小马甲并置为时尚选择；这是广告话术，不能直接证明女性实际选择或穿着效果。",
+        "created_at": "2026-10-28T14:59:43.476Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793199583476_brhvkb",
+        "text": "剪料每尺八角，现成三友绒小马甲每件四元",
+        "start": 107,
+        "end": 126,
+        "note": "同时标明剪料与现成成衣价格，显示面料零售与成衣销售并存，为讨论旗袍制作中消费者自行剪裁与购买成衣两种路径提供价格证据；但未说明旗袍成衣价格。",
+        "created_at": "2026-10-28T14:59:43.476Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793199583476_c13tgr",
+        "text": "三友实业社出品总公司门市部邮售部 上海南京路浙江路东",
+        "start": 129,
+        "end": 155,
+        "note": "标明门市部与邮售部地址，显示销售渠道兼及到店购买与邮购，可据此讨论城市百货零售与远程消费网络；材料未提供邮售范围与销量。",
+        "created_at": "2026-10-28T14:59:43.476Z",
+        "source": "ai"
+      }
+    ],
+    "shiliao_id": "SL-2026-360",
+    "created_at": "2026-10-28T14:59:43.477Z",
+    "updated_at": "2026-10-28T14:59:43.477Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "CC女士之蓝旗袍",
+    "author": "佚名",
+    "time": "1928年9月21日",
+    "version_info": "第14版",
+    "core_content": "核心观点：1928年9月21日一篇关于上海交际花CC女士的报道称，她在公园穿蓝色布旗袍，被视为上海穿蓝旗袍的首倡者，并自述衣料为三友实业社出品的“三角牌”蓝布，每尺售价二角或二角二分。材料显示名媛穿着引发女界“争相爱穿”，将服饰风格、国货品牌与消费模仿联系起来；可推测媒介通过名媛形象为国产布料赋予“文静娴雅”的性别化意义，但消费者实际反应无法直接证明。\n\n反映的社会问题：材料中CC女士以交际花身份穿蓝布旗袍，被赞“文静娴雅”，女界“争相爱穿”。这显示名媛的穿着选择经报刊传播成为消费示范。\n\n报道详列三角牌蓝布“经穿耐洗，永不退色”及每尺二角、二角二分两种售价，并标注三友实业社门市部地址。这提示国货面料通过商号渠道和报刊叙述进入消费视野。",
+    "personal_analysis": "与海派旗袍设计史的关系：1）设计语汇：材料仅提及“蓝旗袍”与“蓝布”，未描述领、袖、开衩等具体形制。2）身体／场合效果：公园穿着蓝布旗袍被评价为“文静娴雅，妙曼美观”，提示蓝色布旗袍在公共场合产生文静而美观的视觉与性别印象。3）生产与媒介关系：衣料被明确为三友实业社三角牌蓝布，售价每尺二角及二角二分，报刊以“首倡者”叙事将产品、名媛与女界模仿相连。\n\n研究价值：本材料可为民国上海国货布匹的媒介营销与名媛消费示范提供具体证据：CC女士的穿着自述直接连接旗袍样式、三角牌蓝布、三友实业社及售价，显示轻工业品牌借交际花形象进入女界消费话语。材料不能证明实际销售规模或普通女性接受度，需结合三友实业社广告、销售记录或读者来信互证。\n\n论文用途：可用于“国货布匹的媒介营销与女性消费”章节，支持名媛穿着如何将三角牌蓝布建构为时尚国货的论点；需比较同期三友实业社广告、其他布料品牌及消费者反馈，避免将报刊叙述等同于实际消费行为。",
+    "ocr_original": "◎CC女士之藍旗袍●上海穿藍旗袍之首倡者●CC女士者。海上之名交際花也。二九年華。綽約多姿。有值女士於公園者。云女士御藍色之布旗袍。益覺文靜嫺雅妙曼美觀。見者人人讚賞。蓋海上穿藍旗袍之首倡者。有叩女士衣料何名。女士曰：『此二角牌藍布也。係三友實業社出品。經穿耐洗。永不退色云。』於是女界爭相愛穿。人人稱讚三角牌藍布之優。（每尺售價二角及二角二分兩種）\n三友實業社門市部 郵售部上海南京路浙江路東駒駒",
+    "clean_text": "CC 女士之蓝旗袍 ● 上海穿蓝旗袍之首倡者 ●\n\nCC 女士者，海上之名交际花也。二九年华，绰约多姿。有值女士于公园者，云女士御蓝色之布旗袍，益觉文静娴雅，妙曼美观，见者人人赞赏，盖海上穿蓝旗袍之首倡者。有叩女士衣料何名，女士曰：「此二角牌蓝布也，系三友实业社出品，经穿耐洗，永不退色云。」于是女界争相爱穿，人人称赞三角牌蓝布之优。（每尺售价二角及二角二分两种）\n\n三友实业社门市部、销售部，上海南京路、浙江路东。",
+    "ai_summary": "1928年9月21日一篇关于上海交际花CC女士的报道称，她在公园穿蓝色布旗袍，被视为上海穿蓝旗袍的首倡者，并自述衣料为三友实业社出品的“三角牌”蓝布，每尺售价二角或二角二分。材料显示名媛穿着引发女界“争相爱穿”，将服饰风格、国货品牌与消费模仿联系起来；可推测媒介通过名媛形象为国产布料赋予“文静娴雅”的性别化意义，但消费者实际反应无法直接证明。",
+    "ai_keywords": [
+      "蓝旗袍",
+      "三角牌蓝布",
+      "三友实业社",
+      "CC女士",
+      "交际花",
+      "国货布匹",
+      "上海南京路",
+      "女界模仿",
+      "每尺售价"
+    ],
+    "ai_social_issue": "材料中CC女士以交际花身份穿蓝布旗袍，被赞“文静娴雅”，女界“争相爱穿”。这显示名媛的穿着选择经报刊传播成为消费示范，可追问媒介如何将女性身体与国货消费绑定，制造“得体”与“时髦”的分类。\n报道详列三角牌蓝布“经穿耐洗，永不退色”及每尺二角、二角二分两种售价，并标注三友实业社门市部地址。这提示国货面料通过商号渠道和报刊叙述进入消费视野，可考察轻工业如何借名媛形象进行品牌营销与价格分层。\nCC女士被称为“海上穿蓝旗袍之首倡者”，其公园穿着被“人人赞赏”。这涉及城市公共空间中女性身体的可见性，可追问公园等场所如何成为时尚展示与观看的场域，以及“首倡者”叙事背后的媒介知识权力。\n材料将蓝布旗袍与“文静娴雅”关联，并称“女界争相爱穿”，但未呈现普通女性声音。可据此追问国货话语如何通过性别化评价塑造消费认同，以及这种认同是否掩盖了阶层差异——能消费并展示时尚者与模仿者并非同一群体。",
+    "ai_research_value": "本材料可为民国上海国货布匹的媒介营销与名媛消费示范提供具体证据：CC女士的穿着自述直接连接旗袍样式、三角牌蓝布、三友实业社及售价，显示轻工业品牌借交际花形象进入女界消费话语。材料不能证明实际销售规模或普通女性接受度，需结合三友实业社广告、销售记录或读者来信互证。",
+    "ai_relation": "1）设计语汇：材料仅提及“蓝旗袍”与“蓝布”，未描述领、袖、开衩等具体形制。2）身体／场合效果：公园穿着蓝布旗袍被评价为“文静娴雅，妙曼美观”，提示蓝色布旗袍在公共场合产生文静而美观的视觉与性别印象。3）生产与媒介关系：衣料被明确为三友实业社三角牌蓝布，售价每尺二角及二角二分，报刊以“首倡者”叙事将产品、名媛与女界模仿相连。",
+    "ai_paper_use": "可用于“国货布匹的媒介营销与女性消费”章节，支持名媛穿着如何将三角牌蓝布建构为时尚国货的论点；需比较同期三友实业社广告、其他布料品牌及消费者反馈，避免将报刊叙述等同于实际消费行为。",
+    "keywords": [
+      "三友实业社",
+      "国货布匹",
+      "流行风尚",
+      "旗袍面料",
+      "商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《新闻报》/1928年9月21日-第14版-CC女士之蓝旗袍（佚名）.docx",
+      "files/《新闻报》/1928年9月21日-第14版-CC女士之蓝旗袍（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "CC 女士之蓝旗袍 ● 上海穿蓝旗袍之首倡者 ●\n\nCC 女士者，海上之名交际花也。二九年华，绰约多姿。有值女士于公园者，云女士御蓝色之布旗袍，益觉文静娴雅，妙曼美观，见者人人赞赏，盖海上穿蓝旗袍之首倡者。有叩女士衣料何名，女士曰：「此二角牌蓝布也，系三友实业社出品，经穿耐洗，永不退色云。」于是女界争相爱穿，人人称赞三角牌蓝布之优。（每尺售价二角及二角二分两种）\n\n三友实业社门市部、销售部，上海南京路、浙江路东。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793202262306_y2g264",
+        "text": "云女士御蓝色之布旗袍，益觉文静娴雅，妙曼美观，见者人人赞赏，盖海上穿蓝旗袍之首倡者。",
+        "start": 61,
+        "end": 103,
+        "note": "直接呈现蓝布旗袍的视觉与性别评价，并以“首倡者”赋予CC女士时尚引领地位，显示报刊通过赞赏话语制造风格权威。",
+        "created_at": "2026-10-28T15:44:22.306Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793202262306_awjycv",
+        "text": "此二角牌蓝布也，系三友实业社出品，经穿耐洗，永不退色云。",
+        "start": 117,
+        "end": 145,
+        "note": "以CC女士自述方式点明布料品牌、生产商与耐用品质，将服饰外观与轻工业产品性能连接，是国货话语进入时尚叙述的关键证据。",
+        "created_at": "2026-10-28T15:44:22.306Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793202262306_nkzuzo",
+        "text": "（每尺售价二角及二角二分两种）",
+        "start": 167,
+        "end": 182,
+        "note": "提供具体价格信息，提示三角牌蓝布存在价格分层，为分析消费门槛与阶层差异提供数据；但材料未说明不同售价对应的规格或购买者。",
+        "created_at": "2026-10-28T15:44:22.306Z",
+        "source": "ai"
+      }
+    ],
+    "shiliao_id": "SL-2026-361",
+    "created_at": "2026-10-28T15:44:22.307Z",
+    "updated_at": "2026-10-29T05:11:28.667Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "立兴祥绸缎洋货局百货零售",
+    "author": "佚名",
+    "time": "1929年10月13日",
+    "version_info": "第3版",
+    "core_content": "小东门，立兴祥绸缎洋货局披露：新发明纯粹丝织品，不惜牺牲，特别大贱卖。\n\n立丽绸旗袍料，每件八尺，实洋三元五角；\n真美绸旗袍料，每件八尺，实洋一元五角；\n真素毛葛袍料，每件十三尺，实洋九元。\n\n花色繁多，不逮细载。",
+    "personal_analysis": "立兴祥绸缎洋货局的旗袍面料与价格，洋货绸缎",
+    "ocr_original": "立興祥綢緞洋貨局百货零售《新闻报》 1929 年 10 月 13 日 [ 0002 版",
+    "clean_text": "小东门，立兴祥绸缎洋货局披露：新发明纯粹丝织品，不惜牺牲，特别大贱卖。\n\n立丽绸旗袍料，每件八尺，实洋三元五角；\n真美绸旗袍料，每件八尺，实洋一元五角；\n真素毛葛袍料，每件十三尺，实洋九元。\n\n花色繁多，不逮细载。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "贸易",
+      "旗袍料",
+      "商业广告",
+      "洋货",
+      "价格"
+    ],
+    "importance": 1,
+    "document_paths": [
+      "files/《新闻报》/1929年10月13日-第3版-立兴祥绸缎洋货局百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "小东门，立兴祥绸缎洋货局披露：新发明纯粹丝织品，不惜牺牲，特别大贱卖。\n\n立丽绸旗袍料，每件八尺，实洋三元五角；\n真美绸旗袍料，每件八尺，实洋一元五角；\n真素毛葛袍料，每件十三尺，实洋九元。\n\n花色繁多，不逮细载。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-362",
+    "created_at": "2026-10-29T05:16:19.309Z",
+    "updated_at": "2026-10-29T05:21:45.041Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "民报",
+    "title": "永昌绸庄百货零售",
+    "author": "佚名",
+    "time": "1929年1月4日",
+    "version_info": "第4版",
+    "core_content": "永昌绸庄\n地址：北大街\n自制最新大衣兜蓬\n电话：三一二\n\n经理：上海胜德厂，种新出品\n\n绣花旗袍料：此种旗袍有素绸、软缎、哔叽、丝绒、挖花等，绣成花样甚多，配色得宜，为近季最时行之新装衣料，居家宴会穿之，均极相称，且定价便宜。\n\n绣花帐子：有素绸及洋纱二种，四周都绣最新花边，美丽异常，为市上最新发明，出品售价亦廉。\n\n绣花被面：以绸、绸成，有绣凤、穿牡丹等花式，颜色均极娇艳，用之于婚嫁时更为适宜。\n\n新式枕头套：以新出之绣花绒制成，四周围以花边，非常夺目，以配绣花帐子及被面者，更为合适。",
+    "personal_analysis": "旗袍面料种类多样，花样丰富。\n图像上的旗袍短下摆、收腰、花边异形下摆",
+    "ocr_original": "永昌綢莊百货零售《民报(无锡)》 1929 年 1 月 4 日 [ 0004 版",
+    "clean_text": "永昌绸庄\n地址：北大街\n自制最新大衣兜蓬\n电话：三一二\n\n经理：上海胜德厂，种新出品\n\n绣花旗袍料：此种旗袍有素绸、软缎、哔叽、丝绒、挖花等，绣成花样甚多，配色得宜，为近季最时行之新装衣料，居家宴会穿之，均极相称，且定价便宜。\n\n绣花帐子：有素绸及洋纱二种，四周都绣最新花边，美丽异常，为市上最新发明，出品售价亦廉。\n\n绣花被面：以绸、绸成，有绣凤、穿牡丹等花式，颜色均极娇艳，用之于婚嫁时更为适宜。\n\n新式枕头套：以新出之绣花绒制成，四周围以花边，非常夺目，以配绣花帐子及被面者，更为合适。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "时代审美",
+      "国货",
+      "旗袍料",
+      "商业广告"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《民报》/1929年1月4日-第4版-永昌绸庄百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "永昌绸庄\n地址：北大街\n自制最新大衣兜蓬\n电话：三一二\n\n经理：上海胜德厂，种新出品\n\n绣花旗袍料：此种旗袍有素绸、软缎、哔叽、丝绒、挖花等，绣成花样甚多，配色得宜，为近季最时行之新装衣料，居家宴会穿之，均极相称，且定价便宜。\n\n绣花帐子：有素绸及洋纱二种，四周都绣最新花边，美丽异常，为市上最新发明，出品售价亦廉。\n\n绣花被面：以绸、绸成，有绣凤、穿牡丹等花式，颜色均极娇艳，用之于婚嫁时更为适宜。\n\n新式枕头套：以新出之绣花绒制成，四周围以花边，非常夺目，以配绣花帐子及被面者，更为合适。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-363",
+    "created_at": "2026-10-29T05:25:58.035Z",
+    "updated_at": "2026-10-29T05:26:41.850Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "罗宾汉",
+    "title": "太成绸厂门市部百货零售",
+    "author": "佚名",
+    "time": "1929年10 月23日",
+    "version_info": "第1版",
+    "core_content": "三马路大舞台西首\n大成绸厂门市部 开幕\n\n伟大牺牲，破天荒，照批发的卖价另剪出售，廉价一月，打九折，再送贵重赠品，自古未有。\n\n（一）素毛葛马褂，每件二元\n（二）花素毛葛男袍料，每件二元四角\n（三）素毛葛男袍料，每件四元\n（四）织成新装旗袍马甲，每件三元一角\n（五）美丽绸旗袍料，每件一元\n（六）印度绸衬衫，每件二元四角\n\n▲成件衣料，每日每种十件为限，每人限买一件\n高贵花色，应有尽有，惠顾参观，方知诚实。",
+    "personal_analysis": "旗袍面料：美丽绸，价格远低于其他面料",
+    "ocr_original": "太成綢廠門市部百货零售《罗宾汉》  [ 0001 版",
+    "clean_text": "《罗宾汉》 1929 年 10 月 23 日 [ 0001 版",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "太成绸缎厂",
+      "旗袍面料",
+      "商业广告",
+      "消费",
+      "价格"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《罗宾汉》/1929年10 月23日-第1版-太成绸厂门市部百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "《罗宾汉》 1929 年 10 月 23 日 [ 0001 版",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-364",
+    "created_at": "2026-10-29T05:31:40.330Z",
+    "updated_at": "2026-10-29T05:31:40.330Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "时报",
+    "title": "绮华公司三周纪念 ：大廉价并加赠品十九天",
+    "author": "佚名",
+    "time": "1928 年11月11日",
+    "version_info": "第8版",
+    "core_content": "绮华公司三周纪念\n\n大廉价并加赠品十九天\n\n本公司开幕届指三载，扩充商场凡三次，增设部份有六部，布置则极其华丽，陈列则井井有条，底张等员，迎送款客，对于货物之搜罗无不尽善，而定价之克己，尤为业界所共知，营业遂今蒸蒸日上，此固由各界仕女联络光顾之赐，抑亦本公司办事人员精益求精之所致也。兹际秋老，正需采办秋冬衣饰之时，适逢敝公司又届周年纪念，举行特别大廉价，并加赠品时机，既巧，当可坐失，尚望诸女士早日光临，不胜盼祷之至。\n\n营业要纲\n各种花边、手帕、丝绒、妇女饰品、新装大衣、丝毛围巾、男女理发\n减价时期：九月十九起，限期十九天\n\n下列各货为胜德厂最新出品\n本公司纪念期内另加赠品\n\n▲绣花旗袍料：此种旗料有素绸、软缎、哗叽、丝绒、挖花等，绣成花样甚多，配色得宜，为近季最时行之新式衣料，居家宴会穿之，均极相称，且定价便宜。\n▲绣花帐子：有素绸及洋纱二种，四周都绣最新花边，美丽异常，为市上最新发明出品，售价亦廉。\n▲绣花被面：以绸绸绣成，有凤穿牡丹等花式，颜色均极娇艳，用之于婚嫁时更为适宜。\n▲新式枕头套：以新出之绿花绒制成，四周围以花边，非常夺目，以配绣花帐子及被面者更为合适。\n\n上列各货均由本公司经售",
+    "personal_analysis": "旗袍面料成为招徕妇女顾客的重要手段，面料种类花样众多",
+    "ocr_original": "# 綺華公司三週紀念\n\n大廉價並加贈品十九天\n\n本公司開幕屆指三載，擴充商場凡三次，增設部份有六部，佈置則極其華麗，陳列則井井有條，底張等員，迎送款客，對於貨物之搜羅無不盡善，而定價之克己，尤為業界所共知，營業遂今蒸蒸日上，此固由各界仕女聯絡光顧之賜，抑亦本公司辦事人員精益求精之所致也。茲際秋老，正需採辦秋冬衣飾之時，適逢敝公司又屆週年紀念，舉行特別大廉價，並加贈品時機，既巧，當可坐失，尚望諸女士早日光臨，不勝盼禱之至。\n\n營業要綱\n各種花邊、手帕、絲絨、婦女飾品、新裝大衣、絲毛圍巾、男女理髮\n減價時期：九月十九起，限期十九天\n\n下列各貨為勝德廠最新出品\n本公司紀念期內另加贈品\n\n▲繡花旗袍料：此種旗料有素綢、軟緞、嘩嘰、絲絨、挖花等，繡成花樣甚多，配色得宜，為近季最時行之新式衣料，居家宴會穿之，均極相稱，且定價便宜。\n▲繡花帳子：有素綢及洋紗二種，四週都繡最新花邊，美麗異常，為市上最新發明出品，售價亦廉。\n▲繡花被面：以綢綢繡成，有鳳穿牡丹等花式，顏色均極嬌艷，用之於婚嫁時更為適宜。\n▲新式枕頭套：以新出之綠花絨製成，四週圍以花邊，非常奪目，以配繡花帳子及被面者更為合適。\n\n上列各貨均由本公司經售",
+    "clean_text": "绮华公司三周纪念\n\n大廉价并加赠品十九天\n\n本公司开幕届指三载，扩充商场凡三次，增设部份有六部，布置则极其华丽，陈列则井井有条，底张等员，迎送款客，对于货物之搜罗无不尽善，而定价之克己，尤为业界所共知，营业遂今蒸蒸日上，此固由各界仕女联络光顾之赐，抑亦本公司办事人员精益求精之所致也。兹际秋老，正需采办秋冬衣饰之时，适逢敝公司又届周年纪念，举行特别大廉价，并加赠品时机，既巧，当可坐失，尚望诸女士早日光临，不胜盼祷之至。\n\n营业要纲\n各种花边、手帕、丝绒、妇女饰品、新装大衣、丝毛围巾、男女理发\n减价时期：九月十九起，限期十九天\n\n下列各货为胜德厂最新出品\n本公司纪念期内另加赠品\n\n▲绣花旗袍料：此种旗料有素绸、软缎、哗叽、丝绒、挖花等，绣成花样甚多，配色得宜，为近季最时行之新式衣料，居家宴会穿之，均极相称，且定价便宜。\n▲绣花帐子：有素绸及洋纱二种，四周都绣最新花边，美丽异常，为市上最新发明出品，售价亦廉。\n▲绣花被面：以绸绸绣成，有凤穿牡丹等花式，颜色均极娇艳，用之于婚嫁时更为适宜。\n▲新式枕头套：以新出之绿花绒制成，四周围以花边，非常夺目，以配绣花帐子及被面者更为合适。\n\n上列各货均由本公司经售",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "时代审美",
+      "消费文化",
+      "国货",
+      "旗袍料",
+      "商业广告"
+    ],
+    "importance": 1,
+    "document_paths": [
+      "files/《时报》/1928 年11月11日-第8版-绮华公司三周纪念 ：大廉价并加赠品十九天（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "绮华公司三周纪念\n\n大廉价并加赠品十九天\n\n本公司开幕届指三载，扩充商场凡三次，增设部份有六部，布置则极其华丽，陈列则井井有条，底张等员，迎送款客，对于货物之搜罗无不尽善，而定价之克己，尤为业界所共知，营业遂今蒸蒸日上，此固由各界仕女联络光顾之赐，抑亦本公司办事人员精益求精之所致也。兹际秋老，正需采办秋冬衣饰之时，适逢敝公司又届周年纪念，举行特别大廉价，并加赠品时机，既巧，当可坐失，尚望诸女士早日光临，不胜盼祷之至。\n\n营业要纲\n各种花边、手帕、丝绒、妇女饰品、新装大衣、丝毛围巾、男女理发\n减价时期：九月十九起，限期十九天\n\n下列各货为胜德厂最新出品\n本公司纪念期内另加赠品\n\n▲绣花旗袍料：此种旗料有素绸、软缎、哗叽、丝绒、挖花等，绣成花样甚多，配色得宜，为近季最时行之新式衣料，居家宴会穿之，均极相称，且定价便宜。\n▲绣花帐子：有素绸及洋纱二种，四周都绣最新花边，美丽异常，为市上最新发明出品，售价亦廉。\n▲绣花被面：以绸绸绣成，有凤穿牡丹等花式，颜色均极娇艳，用之于婚嫁时更为适宜。\n▲新式枕头套：以新出之绿花绒制成，四周围以花边，非常夺目，以配绣花帐子及被面者更为合适。\n\n上列各货均由本公司经售",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-365",
+    "created_at": "2026-10-29T05:36:18.059Z",
+    "updated_at": "2026-10-29T05:37:39.186Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "旗袍流行款式",
+      "轻工业业态"
+    ],
+    "source": "时报",
+    "title": "九华绸缎商店百货零售",
+    "author": "佚名",
+    "time": "1928年6月3日",
+    "version_info": "第2版",
+    "core_content": "1928年6月3日南京九华绸缎商店的国货促销广告，以‘旧耻新讐’‘一致采用国货’为号召，强调薄利推销。材料详列绸纺、漂白绸纺、细葛、单绉、双绉等国产面料的价格，并与‘舶来品’比价，同时按女旗袍料、西装衬衫料、长衫料、短衫裤料分类标价。广告将民族主义话语与价格优势结合，通过品类细分和用途说明引导消费。材料显示商家以‘国货’为卖点，用具体价格和用途分类构建消费选择，可推测其目标为有制衣需求的市民，但消费者实际反应无法直接证明。\n\n反映的社会问题：材料中九华商店以‘旧耻新讐’‘一致采用国货’动员消费，同时用低于舶来品的价格促销，将民族主义情感与价格优势结合。这提示国货运动可能通过商业话语将消费行为政治化。\n\n广告按女旗袍料、西装衬衫料、长衫料、短衫裤料分类标价，并说明面料用途，如‘制长衫、女衣及男女衬衫均甚合宜’。这种分类将不同性别、款式的服装与面料价格对应，可能反映商家对消费需求的细分，但材料未显示消费者实际购买情况，可据此追问服装品类与性别分工如何被商业话语塑造。\n\n九华强调‘薄利推销’‘本外埠惠顾批发，照价一律’，并列出电话和地址，显示其零售与批发并重的销售模式。\n\n广告将国产双绉与‘上海来原品’（舶来品）对比，称‘与上海来原品为同等之货’而价格更低。这种比价话语既承认外来样式的参照地位，又强调国货的性价比，可能反映国货与舶来品竞争中的等级关系。",
+    "personal_analysis": "图上七个模特中，女性模特有四个，说明女性已经是服饰消费的重要组成部分。\n\n与海派旗袍设计史的关系：1）设计语汇：材料列出女旗袍料可选绸纺、白纺、细葛、单绉、双绉，并说明双绉‘软而且凉’，提示面料选择与夏季穿着舒适性相关。2）身体／行动／场合效果：广告称漂白绸纺‘制长衫、女衣及男女衬衫均甚合宜’，细葛‘制夏服男女外衣、衫料均甚合宜’，显示面料用途与服装场合的关联。3）生产、销售或媒介关系：材料显示九华以‘薄利推销国货’为职志，通过价目表和比价话语进行媒介营销。\n\n研究价值：本材料可为民国时期国货运动与轻工业业态研究提供具体证据：展示商店如何以民族主义话语和价格策略推销国产面料，并按服装品类（女旗袍料、西装衬衫料等）细分市场。材料还可用于分析旗袍面料的商业命名（如双绉、单绉）和价格层次。\n\n论文用途：可用于论文中‘国货运动与旗袍面料消费’或‘轻工业业态中的商业话语’章节，支持商家如何将民族主义与价格策略结合以推广国产旗袍面料的论点。需比较同时期其他绸缎商店广告或消费者记录，避免将广告话语等同于消费实践。引用时注意材料仅代表商家立场，不能推断女性消费者的主体选择。",
+    "ocr_original": "下列國出產品之精良久已蜚聲國內外\n九華：售價之低廉足使各界稱叫絕\n\n舊恥新讐，國難不已，將如之何！\n願同胞一致採用國貨\n南京九華，專是售國貨綢緞的商店\n\n即屆夏令單衣為各界所必需，國貨之中有至優至廉適宜夏令單衣之衣料也，請各界惠顧素以薄利推銷國貨為職志之\n九華綢緞商店 購之\n\n上列各貨完全國產，細匀光潔，質地優良，夏衣最為合宜。九華綢緞商店發售各貨，歷來僅取薄利，上列之價以提倡國貨為主旨，並此薄利而不圖，本外埠惠顧批發，照價一律。其餘最近新出花色名目繁多，不及備載，尚祈惠顧諸公駕臨選購，以贊助國產之暢銷，乃幸。\n\n南京科巷街 九華綢緞商店\n電話：中央三二六五\n\n（左上商品介紹）\n綢紡：完全天蠶織維紡織而成，最適夏季男女衫褲之用，市上售價每尺四角有半以上，九華僅售三角六分，較任何舶來品為廉。\n漂白綢紡：即上項之貨加以漂白色，澤光潔，製長衫、女衣及男女襯衫均甚合宜，九華每尺僅售三角八分。\n細葛：每一名六號葛，質地密緻細巧，光潔花紋，雅致耐用，製夏服男女外衣、衫料均甚合宜，市上售價每尺八角以上，九華僅售四角八分。\n單縐：一名福井縐，又名印度縐，市上售價每尺一元二角，九華每尺六角。\n雙縐：一名法福縐，為國貨最近出，品係用二種縐線織成，軟而且涼，與上海來原品為同等之貨，該舶來品每尺售一元八角，九華僅售一元一角。\n\n（下方價目表）\n女旗袍料：\n綢紡：約二元三角\n白紡：約二元四角\n細葛：約三元六角\n單縐：約五元零\n雙縐：約六元八角\n\n西裝襯衫料：\n綢紡：約二元八角\n白紡：約三元六角\n細葛：約五元零\n單縐：約六元六角\n雙縐：約八元五角\n\n長衫料：\n綢紡：約四元五角\n白紡：約四元八角\n細葛：約六元\n單縐：約八元五角\n雙縐：約十二元零\n\n短衫、褲料：\n綢紡：約四元零\n白紡：約四元三角\n細葛：約五元六角\n單縐：約八元二角\n雙縐：約十一元",
+    "clean_text": "下列国出产品之精良久已蜚声国内外\n九华：售价之低廉足使各界称叫绝\n\n旧耻新讐，国难不已，将如之何！\n愿同胞一致采用国货\n南京九华，专是售国货绸缎的商店\n\n即届夏令单衣为各界所必需，国货之中有至优至廉适宜夏令单衣之衣料也，请各界惠顾素以薄利推销国货为职志之\n九华绸缎商店 购之\n\n上列各货完全国产，细匀光洁，质地优良，夏衣最为合宜。九华绸缎商店发售各货，历来仅取薄利，上列之价以提倡国货为主旨，并此薄利而不图，本外埠惠顾批发，照价一律。其余最近新出花色名目繁多，不及备载，尚祈惠顾诸公驾临选购，以赞助国产之畅销，乃幸。\n\n南京科巷街 九华绸缎商店\n电话：中央三二六五\n\n（左上商品介绍）\n绸纺：完全天蚕织维纺织而成，最适夏季男女衫裤之用，市上售价每尺四角有半以上，九华仅售三角六分，较任何舶来品为廉。\n漂白绸纺：即上项之货加以漂白色，泽光洁，制长衫、女衣及男女衬衫均甚合宜，九华每尺仅售三角八分。\n细葛：每一名六号葛，质地密致细巧，光洁花纹，雅致耐用，制夏服男女外衣、衫料均甚合宜，市上售价每尺八角以上，九华仅售四角八分。\n单绉：一名福井绉，又名印度绉，市上售价每尺一元二角，九华每尺六角。\n双绉：一名法福绉，为国货最近出，品系用二种绉线织成，软而且凉，与上海来原品为同等之货，该舶来品每尺售一元八角，九华仅售一元一角。\n\n（下方价目表）\n女旗袍料：\n绸纺：约二元三角\n白纺：约二元四角\n细葛：约三元六角\n单绉：约五元零\n双绉：约六元八角\n\n西装衬衫料：\n绸纺：约二元八角\n白纺：约三元六角\n细葛：约五元零\n单绉：约六元六角\n双绉：约八元五角\n\n长衫料：\n绸纺：约四元五角\n白纺：约四元八角\n细葛：约六元\n单绉：约八元五角\n双绉：约十二元零\n\n短衫、裤料：\n绸纺：约四元零\n白纺：约四元三角\n细葛：约五元六角\n单绉：约八元二角\n双绉：约十一元",
+    "ai_summary": "1928年6月3日南京九华绸缎商店的国货促销广告，以‘旧耻新讐’‘一致采用国货’为号召，强调薄利推销。材料详列绸纺、漂白绸纺、细葛、单绉、双绉等国产面料的价格，并与‘舶来品’比价，同时按女旗袍料、西装衬衫料、长衫料、短衫裤料分类标价。广告将民族主义话语与价格优势结合，通过品类细分和用途说明引导消费。材料显示商家以‘国货’为卖点，用具体价格和用途分类构建消费选择，可推测其目标为有制衣需求的市民，但消费者实际反应无法直接证明。",
+    "ai_keywords": [
+      "九华绸缎商店",
+      "国货运动",
+      "绸纺",
+      "双绉",
+      "女旗袍料",
+      "薄利推销",
+      "舶来品比价",
+      "南京科巷街",
+      "夏令衣料",
+      "价目表"
+    ],
+    "ai_social_issue": "材料中九华商店以‘旧耻新讐’‘一致采用国货’动员消费，同时用低于舶来品的价格促销，将民族主义情感与价格优势结合。这提示国货运动可能通过商业话语将消费行为政治化，但消费者是否因此选择国货，本材料无法直接证明，需结合销售记录或消费者回忆检验。\n广告按女旗袍料、西装衬衫料、长衫料、短衫裤料分类标价，并说明面料用途，如‘制长衫、女衣及男女衬衫均甚合宜’。这种分类将不同性别、款式的服装与面料价格对应，可能反映商家对消费需求的细分，但材料未显示消费者实际购买情况，可据此追问服装品类与性别分工如何被商业话语塑造。\n九华强调‘薄利推销’‘本外埠惠顾批发，照价一律’，并列出电话和地址，显示其零售与批发并重的销售模式。这提示轻工业业态中商店可能通过统一价格和批发网络扩大市场，但材料未涉及生产环节和行业组织，需结合其他材料考察国货绸缎的产销关系。\n广告将国产双绉与‘上海来原品’（舶来品）对比，称‘与上海来原品为同等之货’而价格更低。这种比价话语既承认外来样式的参照地位，又强调国货的性价比，可能反映国货与舶来品竞争中的等级关系，但材料未说明‘上海来原品’的具体来源，需谨慎对待‘中西并置’的解释。",
+    "ai_research_value": "本材料可为民国时期国货运动与轻工业业态研究提供具体证据：展示商店如何以民族主义话语和价格策略推销国产面料，并按服装品类（女旗袍料、西装衬衫料等）细分市场。材料还可用于分析旗袍面料的商业命名（如双绉、单绉）和价格层次。但材料仅呈现商家单方面广告话语，不能证明消费者实际选择或穿着效果，需结合报刊广告、销售档案或口述史互证。",
+    "ai_relation": "1）设计语汇：材料列出女旗袍料可选绸纺、白纺、细葛、单绉、双绉，并说明双绉‘软而且凉’，提示面料选择与夏季穿着舒适性相关。2）身体／行动／场合效果：广告称漂白绸纺‘制长衫、女衣及男女衬衫均甚合宜’，细葛‘制夏服男女外衣、衫料均甚合宜’，显示面料用途与服装场合的关联，但未涉及具体款式设计。3）生产、销售或媒介关系：材料显示九华以‘薄利推销国货’为职志，通过价目表和比价话语进行媒介营销，连接国产面料与消费者，但未涉及生产环节。",
+    "ai_paper_use": "可用于论文中‘国货运动与旗袍面料消费’或‘轻工业业态中的商业话语’章节，支持商家如何将民族主义与价格策略结合以推广国产旗袍面料的论点。需比较同时期其他绸缎商店广告或消费者记录，避免将广告话语等同于消费实践。引用时注意材料仅代表商家立场，不能推断女性消费者的主体选择。",
+    "keywords": [
+      "消费文化",
+      "贸易",
+      "国货",
+      "九华绸缎商店",
+      "国货运动",
+      "旗袍料",
+      "舶来品比价",
+      "价目表",
+      "商业广告"
+    ],
+    "importance": 3,
+    "document_paths": [
+      "files/《时报》/1928年6月3日-第2版-九华绸缎商店百货零售（佚名）.docx",
+      "files/《时报》/1928年6月3日-第2版-九华绸缎商店百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "下列国出产品之精良久已蜚声国内外\n九华：售价之低廉足使各界称叫绝\n\n旧耻新讐，国难不已，将如之何！\n愿同胞一致采用国货\n南京九华，专是售国货绸缎的商店\n\n即届夏令单衣为各界所必需，国货之中有至优至廉适宜夏令单衣之衣料也，请各界惠顾素以薄利推销国货为职志之\n九华绸缎商店 购之\n\n上列各货完全国产，细匀光洁，质地优良，夏衣最为合宜。九华绸缎商店发售各货，历来仅取薄利，上列之价以提倡国货为主旨，并此薄利而不图，本外埠惠顾批发，照价一律。其余最近新出花色名目繁多，不及备载，尚祈惠顾诸公驾临选购，以赞助国产之畅销，乃幸。\n\n南京科巷街 九华绸缎商店\n电话：中央三二六五\n\n（左上商品介绍）\n绸纺：完全天蚕织维纺织而成，最适夏季男女衫裤之用，市上售价每尺四角有半以上，九华仅售三角六分，较任何舶来品为廉。\n漂白绸纺：即上项之货加以漂白色，泽光洁，制长衫、女衣及男女衬衫均甚合宜，九华每尺仅售三角八分。\n细葛：每一名六号葛，质地密致细巧，光洁花纹，雅致耐用，制夏服男女外衣、衫料均甚合宜，市上售价每尺八角以上，九华仅售四角八分。\n单绉：一名福井绉，又名印度绉，市上售价每尺一元二角，九华每尺六角。\n双绉：一名法福绉，为国货最近出，品系用二种绉线织成，软而且凉，与上海来原品为同等之货，该舶来品每尺售一元八角，九华仅售一元一角。\n\n（下方价目表）\n女旗袍料：\n绸纺：约二元三角\n白纺：约二元四角\n细葛：约三元六角\n单绉：约五元零\n双绉：约六元八角\n\n西装衬衫料：\n绸纺：约二元八角\n白纺：约三元六角\n细葛：约五元零\n单绉：约六元六角\n双绉：约八元五角\n\n长衫料：\n绸纺：约四元五角\n白纺：约四元八角\n细葛：约六元\n单绉：约八元五角\n双绉：约十二元零\n\n短衫、裤料：\n绸纺：约四元零\n白纺：约四元三角\n细葛：约五元六角\n单绉：约八元二角\n双绉：约十一元",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793252940237_nxym3n",
+        "text": "双绉：一名法福绉，为国货最近出，品系用二种绉线织成，软而且凉，与上海来原品为同等之货，该舶来品每尺售一元八角，九华仅售一元一角。",
+        "start": 495,
+        "end": 559,
+        "note": "以‘上海来原品’为参照，强调国货双绉的同等品质和低价，反映国货与舶来品的竞争关系，但未说明‘上海来原品’的具体来源。",
+        "created_at": "2026-10-29T05:49:00.237Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_1793252952211_mqg0hy",
+        "text": "女旗袍料：",
+        "start": 569,
+        "end": 574,
+        "note": "",
+        "created_at": "2026-10-29T05:49:12.211Z"
+      }
+    ],
+    "shiliao_id": "SL-2026-366",
+    "created_at": "2026-10-29T05:49:00.238Z",
+    "updated_at": "2026-10-29T05:50:54.245Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "申报",
+    "title": "生兴隆国产疋头绸缎号百货零售",
+    "author": "佚名",
+    "time": "1928年6月12日",
+    "version_info": "第14版",
+    "core_content": "二尺阔上等云纱，每尺七角\n二尺阔本牌不脱拷铁机云纱，每尺九角五分\n二尺阔本牌不脱拷电机云纱，每尺一元一角\n二尺长上等绣牌过乌拷纺绸，每疋十一元，每客限买一疋\n国货格子毛巾纱，长一丈，减沽一元\n格子蔴纱，长一丈二尺五寸，减沽一元\n二尺上等雪白香云纱，每尺七角五分\n上等本牌肥皂，减沽每元九条，每客限买一元\n超等雪白银丝夏布，每疋由四元起至十五元止\n国货明星纱新花旗袍，每件减沽四元\n国货生丝纺新花旗袍，每件减沽三元五角",
+    "personal_analysis": "国货旗袍面料与折扣、价格",
+    "ocr_original": "二尺闊上等雲紗，每尺七角\n二尺闊本牌不脫拷鐵機雲紗，每尺九角五分\n二尺闊本牌不脫拷電機雲紗，每尺一元一角\n二尺長上等繡牌過烏拷紡綢，每疋十一元，每客限買一疋\n國貨格子毛巾紗，長一丈，減沽一元\n格子蔴紗，長一丈二尺五寸，減沽一元\n二尺上等雪白香雲紗，每尺七角五分\n上等本牌肥皂，減沽每元九條，每客限買一元\n超等雪白銀絲夏布，每疋由四元起至十五元止\n國貨明星紗新花旗袍，每件減沽四元\n國貨生絲紡新花旗袍，每件減沽三元五角",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "时代审美",
+      "国货",
+      "旗袍料",
+      "商业广告"
+    ],
+    "importance": 1,
+    "document_paths": [
+      "files/《申报》/1928年6月12日-第14版-生兴隆国产疋头绸缎号百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-367",
+    "created_at": "2026-10-29T05:54:52.697Z",
+    "updated_at": "2026-10-29T05:54:52.697Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "消费生活",
+      "轻工业业态"
+    ],
+    "source": "工商新闻",
+    "title": "绮华公司：女界新年宜备之必要品（佚名）",
+    "author": "佚名",
+    "time": "1929年1月1日",
+    "version_info": "第9版",
+    "core_content": "核心观点：1929年元旦，绮华公司在《工商新闻》刊登广告，以“女界新年宜备之必要品”为名，推销绣花旗袍料、绣花披肩料、绣花被面及欧美进口真皮手提袋，并宣传其新装部可定制大衣、披肩、结婚礼服、舞衣等，二楼设理发所。材料显示商家将节日消费、女性社交需求与国产绣品、进口皮具并置，通过“价廉”“公道”“经济”“美观”等话语构建女性消费主体，同时以“必要品”之名将消费自然化。可推测其目标为有一定消费能力的都市女性。\n\n反映的社会问题：材料中绮华公司以“女界新年宜备之必要品”为标题，将绣花旗袍料、披肩料、被面、手提袋列为女性新年必备，通过“必要”话语将节日消费自然化，可据此追问商家如何借节日与性别身份制造消费需求，以及“必要品”背后隐含的阶层门槛——能购置“价廉”绣料与欧美皮夹的女性并非全体。\n\n绮华公司设新装部定制大衣、披肩、结婚礼服、舞衣、戏服，并附设男女理发所，显示服装销售与定制、美容服务结合，形成一站式消费空间。\n\n广告以“新年更始”“百物更新”为修辞，将服饰消费与节庆更新、社交体面联系起来，并区分“平时及婚嫁喜庆”等场合，提示服装消费与城市公共生活、人生礼仪的关联。",
+    "personal_analysis": "与海派旗袍设计史的关系：1）设计语汇：材料提及“成件绣花旗袍料”，以光缎、哗哗等绣成，用于制骆驼绒、棉袍皮袍，属旗袍面料层面的设计选择。2）身体／行动／场合效果：广告将旗袍料与新年、时装、定制联系，提示旗袍作为节日社交服装的场合属性。3）生产、销售或媒介关系：绮华公司新装部提供定制，并附设理发所，显示销售与定制服务结合。\n\n研究价值：本材料可为民国上海轻工业业态与消费媒介研究提供具体证据：展示1929年南京路商号如何以“女界新年必要品”为名，将绣花旗袍料、披肩料、被面与进口皮具并置销售，并附设定制新装部与理发所，体现成衣与定制、国产与进口、商品与服务的组合营销。\n\n论文用途：可用于论文“轻工业业态与消费媒介”章节，分析1929年上海商号如何通过报刊广告将旗袍料、披肩料、进口皮具组合为“女界新年必要品”，支持“商家以性别化节日话语组织销售”的论点。",
+    "ocr_original": "# 恭祝各界新年進步\n\n綺華公司同人鞠躬\n\n女界新年宜備之必要品\n（一）成件繡花旗袍料：有各色光緞及嘩嘩等綉成，用之以製駱駝絨、棉袍皮袍，均甚適宜，為近季最新綉機出品，亦現在最盛行之時裝衣料，在此新年更始之時，宜駕臨敝公司新裝部購置，或定製，價既廉，袍又美，誠難得之時裝也。\n（二）整幅繡花披肩料：以各色光緞及毛葛等料綉成為製斗篷、無匹衣料，售價較其他披肩料低廉，女士穿之，於經濟及美觀均甚合適。\n（三）獨幅繡花被面：以印度綢等料綉成，獨幅無縫，為平時及婚嫁喜慶者所不可少，但當新年伊始，百物更新之時，各人尤宜備置一新被面，以娛夜寢，售價且亦公道。\n（四）真皮手提袋：本公司為應女界新年之用，特由歐美定到大批真皮手夾，色式均甚別緻，且內有格數可分裝各物，出遊時應備化裝品及鈔洋而無混淆之虞。\n\n新裝部 精製女界大衣、披肩、結婚禮服、應時新裝、舞衣、戲服\n二樓 並設男女理髮所\n\n綺華公司\n在南京路虹廟對過",
+    "clean_text": "恭祝各界新年进步，绮华公司同人鞠躬\n\n女界新年宜备之必要品\n（一）成件绣花旗袍料：有各色光缎及哗哗等绣成，用之以制骆驼绒、棉袍皮袍，均甚适宜，为近季最新绣机出品，亦现在最盛行之时装衣料，在此新年更始之时，宜驾临敝公司新装部购置，或定制，价既廉，袍又美，诚难得之时装也。\n（二）整幅绣花披肩料：以各色光缎及毛葛等料绣成为制斗篷、无匹衣料，售价较其他披肩料低廉，女士穿之，于经济及美观均甚合适。\n（三）独幅绣花被面：以印度绸等料绣成，独幅无缝，为平时及婚嫁喜庆者所不可少，但当新年伊始，百物更新之时，各人尤宜备置一新被面，以娱夜寝，售价且亦公道。\n（四）真皮手提袋：本公司为应女界新年之用，特由欧美定到大批真皮手夹，色式均甚别致，且内有格数可分装各物，出游时应备化装品及钞洋而无混淆之虞。\n\n新装部 精制女界大衣、披肩、结婚礼服、应时新装、舞衣、戏服\n二楼 并设男女理发所\n\n绮华公司\n在南京路虹庙对过",
+    "ai_summary": "1929年元旦，绮华公司在《工商新闻》刊登广告，以“女界新年宜备之必要品”为名，推销绣花旗袍料、绣花披肩料、绣花被面及欧美进口真皮手提袋，并宣传其新装部可定制大衣、披肩、结婚礼服、舞衣等，二楼设理发所。材料显示商家将节日消费、女性社交需求与国产绣品、进口皮具并置，通过“价廉”“公道”“经济”“美观”等话语构建女性消费主体，同时以“必要品”之名将消费自然化。可推测其目标为有一定消费能力的都市女性，但材料无法直接证明实际消费者构成。",
+    "ai_keywords": [
+      "绮华公司",
+      "绣花旗袍料",
+      "绣花披肩料",
+      "真皮手提袋",
+      "新装部",
+      "南京路",
+      "新年消费",
+      "女界",
+      "时装衣料",
+      "定制服装"
+    ],
+    "ai_social_issue": "材料中绮华公司以“女界新年宜备之必要品”为标题，将绣花旗袍料、披肩料、被面、手提袋列为女性新年必备，通过“必要”话语将节日消费自然化，可据此追问商家如何借节日与性别身份制造消费需求，以及“必要品”背后隐含的阶层门槛——能购置“价廉”绣料与欧美皮夹的女性并非全体。\n广告同时推销国产绣花衣料与“由欧美定到大批真皮手夹”，并称后者“色式均甚别致”，显示国货与进口货并置销售，但未直接评价优劣；可推测商家以“别致”强调进口皮具的时尚价值，与绣花料的“价廉”“盛行”形成不同卖点，提示跨文化商品等级可能通过广告话语被建构，需结合其他材料检验。\n绮华公司设新装部定制大衣、披肩、结婚礼服、舞衣、戏服，并附设男女理发所，显示服装销售与定制、美容服务结合，形成一站式消费空间；材料未提供生产组织或劳动分工信息，但“定制”与“成件”并列提示轻工业业态中成衣与定制并存，可追问此类商号如何组织生产、依赖何种技艺劳动。\n广告以“新年更始”“百物更新”为修辞，将服饰消费与节庆更新、社交体面联系起来，并区分“平时及婚嫁喜庆”等场合，提示服装消费与城市公共生活、人生礼仪的关联；但材料仅呈现商家话语，缺少消费者声音，无法直接证明女性如何实际使用这些商品或赋予其意义。",
+    "ai_research_value": "本材料可为民国上海轻工业业态与消费媒介研究提供具体证据：展示1929年南京路商号如何以“女界新年必要品”为名，将绣花旗袍料、披肩料、被面与进口皮具并置销售，并附设定制新装部与理发所，体现成衣与定制、国产与进口、商品与服务的组合营销。材料不能证明实际消费群体构成或生产劳动状况，需结合商号档案、报刊广告比较及消费者回忆互证。",
+    "ai_relation": "1）设计语汇：材料提及“成件绣花旗袍料”，以光缎、哗哗等绣成，用于制骆驼绒、棉袍皮袍，属旗袍面料层面的设计选择，未涉及领袖开衩等具体形制。2）身体／行动／场合效果：广告将旗袍料与新年、时装、定制联系，提示旗袍作为节日社交服装的场合属性，但未描述穿着后的身体效果。3）生产、销售或媒介关系：绮华公司新装部提供定制，并附设理发所，显示销售与定制服务结合，但材料未揭示生产组织或技艺分工。",
+    "ai_paper_use": "可用于论文“轻工业业态与消费媒介”章节，分析1929年上海商号如何通过报刊广告将旗袍料、披肩料、进口皮具组合为“女界新年必要品”，支持“商家以性别化节日话语组织销售”的论点；需与同期其他商号广告比较，避免将一家商号话语视为行业全貌。引用时注意区分广告宣称与实际消费。",
+    "keywords": [
+      "现代",
+      "时代审美",
+      "消费文化",
+      "国货",
+      "绮华公司",
+      "旗袍料",
+      "绣花披肩料",
+      "新年消费",
+      "定制服装",
+      "性别消费",
+      "她经济"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《工商新闻》/1929年1月1日-第9版-绮华公司：女界新年宜备之必要品（佚名）.jpg",
+      "files/《工商新闻》/1929年1月1日-第9版-绮华公司：女界新年宜备之必要品（佚名）.docx"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "恭祝各界新年进步，绮华公司同人鞠躬\n\n女界新年宜备之必要品\n（一）成件绣花旗袍料：有各色光缎及哗哗等绣成，用之以制骆驼绒、棉袍皮袍，均甚适宜，为近季最新绣机出品，亦现在最盛行之时装衣料，在此新年更始之时，宜驾临敝公司新装部购置，或定制，价既廉，袍又美，诚难得之时装也。\n（二）整幅绣花披肩料：以各色光缎及毛葛等料绣成为制斗篷、无匹衣料，售价较其他披肩料低廉，女士穿之，于经济及美观均甚合适。\n（三）独幅绣花被面：以印度绸等料绣成，独幅无缝，为平时及婚嫁喜庆者所不可少，但当新年伊始，百物更新之时，各人尤宜备置一新被面，以娱夜寝，售价且亦公道。\n（四）真皮手提袋：本公司为应女界新年之用，特由欧美定到大批真皮手夹，色式均甚别致，且内有格数可分装各物，出游时应备化装品及钞洋而无混淆之虞。\n\n新装部 精制女界大衣、披肩、结婚礼服、应时新装、舞衣、戏服\n二楼 并设男女理发所\n\n绮华公司\n在南京路虹庙对过",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793253974489_pmrcgx",
+        "text": "女界新年宜备之必要品",
+        "start": 19,
+        "end": 29,
+        "note": "广告标题以“必要品”定义女性新年消费，将节日购物自然化，是分析商家如何借性别与节庆制造消费需求的关键话语。\n\n如同近些年来的“新年战袍”。",
+        "created_at": "2026-10-29T06:06:14.489Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793253974489_uv5lvm",
+        "text": "成件绣花旗袍料：有各色光缎及哗哗等绣成，用之以制骆驼绒、棉袍皮袍，均甚适宜，为近季最新绣机出品，亦现在最盛行之时装衣料",
+        "start": 33,
+        "end": 92,
+        "note": "具体说明旗袍料的面料、用途与“最新绣机出品”“最盛行”等评价，连接绣机生产、时装话语与消费引导，但未涉及旗袍形制。",
+        "created_at": "2026-10-29T06:06:14.489Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_1793254074749_pjketp",
+        "text": "二楼 并设男女理发所\n",
+        "start": 374,
+        "end": 385,
+        "note": "服装、妆造一站式体验",
+        "created_at": "2026-10-29T06:07:54.749Z"
+      }
+    ],
+    "shiliao_id": "SL-2026-368",
+    "created_at": "2026-10-29T06:06:14.490Z",
+    "updated_at": "2026-10-29T06:07:54.749Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "旗袍流行款式",
+      "轻工业业态"
+    ],
+    "source": "金刚钻",
+    "title": "三星厂总发行所百货零售",
+    "author": "佚名",
+    "time": "1927年10月9日",
+    "version_info": "第1版",
+    "core_content": "电光布、三星绒，为制单旗袍、夹旗袍与单衫、夹袄最佳之料。各种美丽格子，浓艳淡雅俱全。\n每尺二角四分、每尺六角\n\n三星厂总发行所\n南京路石路西\n电话：中央二八三四",
+    "personal_analysis": "旗袍用料：电光布、三星绒与价格\n图上格纹旗袍",
+    "ocr_original": "電光布、三星絨，為製單旗袍、夾旗袍與單衫、夾襖最佳之料。各種美麗格子，濃艷淡雅俱全。\n每尺二角四分、每尺六角\n\n三星廠總發行所\n南京路石路西\n電話：中央二八三四",
+    "clean_text": "电光布、三星绒，为制单旗袍、夹旗袍与单衫、夹袄最佳之料。各种美丽格子，浓艳淡雅俱全。\n每尺二角四分、每尺六角\n\n三星厂总发行所\n南京路石路西\n电话：中央二八三四",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "时代审美",
+      "国货",
+      "旗袍料",
+      "商业广告"
+    ],
+    "importance": 1,
+    "document_paths": [
+      "files/《金刚钻》/1927年10月9日-第1版-三星厂总发行所百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "电光布、三星绒，为制单旗袍、夹旗袍与单衫、夹袄最佳之料。各种美丽格子，浓艳淡雅俱全。\n每尺二角四分、每尺六角\n\n三星厂总发行所\n南京路石路西\n电话：中央二八三四",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-369",
+    "created_at": "2026-10-29T06:12:38.554Z",
+    "updated_at": "2026-10-29T06:12:48.059Z"
+  },
+  {
+    "type": "报刊文章",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [
+      "价值重构型"
+    ],
+    "topics": [
+      "旗袍流行款式",
+      "民族国家"
+    ],
+    "source": "金刚钻",
+    "title": "“旗袍”流行到日本",
+    "author": "盦宝",
+    "time": "1934年5月13日",
+    "version_info": "第1版",
+    "core_content": "核心观点：1934年5月13日《金刚钻》刊文，以民族国家视角比较日、西、中女装，认为中国女装“酌乎其中”最合宜。材料显示，中国旗袍渐流行于东京，穿着者从艺妓、咖星扩展至新剧演员、影戏明星及一般夫人、小姐；但东京摩登女子的中国装多由红帮裁缝所开洋服商制作，式样采自上海二三年前，故“摩登而不摩登”。可推测，此话语将旗袍海外流行视为“国光”，同时暴露上海时尚的滞后传播与裁缝技术局限。\n\n反映的社会问题：材料以“曲线美”“肉感”评价日、西、中女装，将中国女装定位为“酌乎其中”，实为男性作者对女性身体的规范与想象；旗袍经艺妓、咖星、新剧演员、影戏明星扩展至夫人、小姐，显示媒介与身份示范推动时尚传播。\n\n东京中国装由红帮裁缝所开洋服商制作，却采上海二三年前式样，提示生产技术与信息流通滞后。\n\n国货/国粹话语将女性服装商品化并纳入民族认同。",
+    "personal_analysis": "与海派旗袍设计史的关系：1）设计语汇：材料未描述具体领、袖、开衩等，仅提“上海二三年前的式样”，提示式样存在时间差。2）身体/场合效果：作者以“曲线美”评价中国女装。3）生产/媒介关系：红帮裁缝在东京开洋服商制作中国装，报刊将明星、夫人穿着视为时髦，连接生产、媒介与消费，旗袍也与国家女性形象（尤其是国际范围内）联系起来。\n\n研究价值：本材料可为旗袍海外传播与上海时尚中心地位提供证据：显示1930年代东京对中国旗袍的接受群体扩大，以及红帮裁缝在海外开店但技术/式样滞后的具体细节。\n\n论文用途：可用于“旗袍的跨地域传播与上海时尚中心”章节，支持论点：1930年代旗袍已流行至东京，但依赖上海式样与红帮裁缝网络，存在时间滞后。",
+    "ocr_original": "日本的衣服、牢守着我國唐宋時的遺風、既不經濟、又不便利、可算是時代落伍的一種裝束、尤其是婦女的衣裝、細腰的中間、不束輕羅、偏結重帶、把女子天然的曲線美、一概抹然、論到西洋婦女的裝束、彷彿是半裸體的性貨、又太把女性的肉感顯露了、所以酌乎其中、要算我們貴國的女裝最爲合宜、這可不是吹法螺、倒是世界的公論呢、近年日本的婦女界、提倡改良服裝的很多、無奈積重難返、仍然不見改良、惟我門貴國的女裝、却漸漸的流行到東京來了、在前穿中國裝的、不過有些藝妓和咖星之類、最近忽然推廣了、新劇演員影戲明星等等、穿中國衣服的、固然不在少數、就是一般夫人們令孃們、(卽小姐們)也漸漸認識中國衣服的好處、喜歡做一二件學學時髦、出出風頭、所可惜者、我們貴國人只有幾家紅幫裁縫、在東京開了幾爿裝店、名曰洋服商、要他做支那服、實在不很高明、所以東京摩登女子的中國裝、可稱摩登而不摩登、就算有些摩登、也不免時代落伍、採取了上海二三年前的式樣、故摩登其摩登、非我們之所謂摩登也、我們的烹調、膾灸各國人士的口、這是光榮的、我們麻雀、飛行到美國和日本、現在日本各處的麻雀俱樂部、都是滿坑滿谷、這也是光榮吧、如今中國的旗袍、流傳到海外、可算得第三種光輝、人說這也是我們貴國的國光、",
+    "clean_text": "日本的衣服，牢守着我国唐宋时的遗风，既不经济，又不便利，可算是时代落伍的一种装束。尤其是妇女的衣装，细腰的中间，不束轻罗，偏结重带，把女子天然的曲线美，一概抹煞。论到西洋妇女的装束，仿佛是半裸体的性货，又太把女性的肉感显露了。所以酌乎其中，要算我们贵国的女装最为合宜。这可不是吹法螺，倒是世界的公论呢。\n\n近年日本的妇女界，提倡改良服装的很多，无奈积重难返，仍然不见改良。惟我们贵国的女装，却渐渐的流行到东京来了。在前穿中国装的，不过有些艺妓和咖星之类；最近忽然推广了，新剧演员、影戏明星等等，穿中国衣服的，固然不在少数，就是一般夫人们、令娘们（即小姐们），也渐渐认识中国衣服的好处，喜欢做一二件，学学时髦，出出风头。\n\n所可惜者，我们贵国人只有几家红帮裁缝，在东京开了几爿装店，名曰洋服商。要他做支那服，实在不很高明。所以东京摩登女子的中国装，可称摩登而不摩登；就算有些摩登，也不免时代落伍，采取了上海二三年前的式样。故摩登其摩登，非我们之所谓摩登也。\n\n我们的烹调，脍炙各国人士的口，这是光荣的；我们麻雀，飞行到美国和日本，现在日本各处的麻雀俱乐部，都是满坑满谷，这也是光荣吧。如今中国的旗袍，流传到海外，可算得第三种光辉。人说这也是我们贵国的国光。",
+    "ai_summary": "1934年5月13日《金刚钻》刊文，以民族国家视角比较日、西、中女装，认为中国女装“酌乎其中”最合宜。材料显示，中国旗袍渐流行于东京，穿着者从艺妓、咖星扩展至新剧演员、影戏明星及一般夫人、小姐；但东京摩登女子的中国装多由红帮裁缝所开洋服商制作，式样采自上海二三年前，故“摩登而不摩登”。可推测，此话语将旗袍海外流行视为“国光”，同时暴露上海时尚的滞后传播与裁缝技术局限。",
+    "ai_keywords": [
+      "旗袍",
+      "东京",
+      "红帮裁缝",
+      "洋服商",
+      "摩登",
+      "上海式样",
+      "艺妓",
+      "影戏明星",
+      "国光",
+      "曲线美"
+    ],
+    "ai_social_issue": "材料以“曲线美”“肉感”评价日、西、中女装，将中国女装定位为“酌乎其中”，实为男性作者对女性身体的规范与想象；可追问：谁有权定义“合宜”女装，女性穿着者是否认同此标准。\n旗袍经艺妓、咖星、新剧演员、影戏明星扩展至夫人、小姐，显示媒介与身份示范推动时尚传播；可追问：明星、名媛的穿着如何被报刊转化为消费模仿对象，阶层区隔如何通过“学时髦”体现。\n东京中国装由红帮裁缝所开洋服商制作，却采上海二三年前式样，提示生产技术与信息流通滞后；可追问：上海作为时尚中心如何通过裁缝网络向海外输出样式，又为何出现“摩登而不摩登”的时间差。\n作者将旗袍流行与烹调、麻雀并列为“国光”，以民族国家话语赋予消费现象以荣誉；可追问：国货/国粹话语如何将女性服装商品化并纳入民族认同，这种话语是否掩盖了生产与消费中的不平等。",
+    "ai_research_value": "本材料可为旗袍海外传播与上海时尚中心地位提供证据：显示1930年代东京对中国旗袍的接受群体扩大，以及红帮裁缝在海外开店但技术/式样滞后的具体细节。材料不能证明实际消费者感受或销售规模，需结合东京报刊、裁缝店档案或海关贸易数据互证。",
+    "ai_relation": "1）设计语汇：材料未描述具体领、袖、开衩等，仅提“上海二三年前的式样”，提示式样存在时间差。2）身体/场合效果：作者以“曲线美”评价中国女装，认为其介于日装“抹煞曲线”与西装“显露肉感”之间，但未说明具体场合。3）生产/媒介关系：红帮裁缝在东京开洋服商制作中国装，报刊将明星、夫人穿着视为时髦，连接生产、媒介与消费。",
+    "ai_paper_use": "可用于“旗袍的跨地域传播与上海时尚中心”章节，支持论点：1930年代旗袍已流行至东京，但依赖上海式样与红帮裁缝网络，存在时间滞后。需比较日本本土裁缝或和服改良材料，避免将报刊宣传等同于实际流行程度。",
+    "keywords": [
+      "海派",
+      "现代",
+      "时代审美",
+      "消费文化",
+      "旗袍",
+      "日本",
+      "红帮裁缝",
+      "摩登",
+      "跨地域传播",
+      "上海时尚",
+      "国际影响"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《金刚钻》/1934年5月13日-第1版-“旗袍”流行到日本（盦宝）.docx",
+      "files/《金刚钻》/1934年5月13日-第1版-“旗袍”流行到日本（盦宝）.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "日本的衣服，牢守着我国唐宋时的遗风，既不经济，又不便利，可算是时代落伍的一种装束。尤其是妇女的衣装，细腰的中间，不束轻罗，偏结重带，把女子天然的曲线美，一概抹煞。论到西洋妇女的装束，仿佛是半裸体的性货，又太把女性的肉感显露了。所以酌乎其中，要算我们贵国的女装最为合宜。这可不是吹法螺，倒是世界的公论呢。\n\n近年日本的妇女界，提倡改良服装的很多，无奈积重难返，仍然不见改良。惟我们贵国的女装，却渐渐的流行到东京来了。在前穿中国装的，不过有些艺妓和咖星之类；最近忽然推广了，新剧演员、影戏明星等等，穿中国衣服的，固然不在少数，就是一般夫人们、令娘们（即小姐们），也渐渐认识中国衣服的好处，喜欢做一二件，学学时髦，出出风头。\n\n所可惜者，我们贵国人只有几家红帮裁缝，在东京开了几爿装店，名曰洋服商。要他做支那服，实在不很高明。所以东京摩登女子的中国装，可称摩登而不摩登；就算有些摩登，也不免时代落伍，采取了上海二三年前的式样。故摩登其摩登，非我们之所谓摩登也。\n\n我们的烹调，脍炙各国人士的口，这是光荣的；我们麻雀，飞行到美国和日本，现在日本各处的麻雀俱乐部，都是满坑满谷，这也是光荣吧。如今中国的旗袍，流传到海外，可算得第三种光辉。人说这也是我们贵国的国光。",
+    "related_records": [
+      {
+        "id": "SL-2026-104",
+        "relation": ""
+      }
+    ],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793255157688_z2p13d",
+        "text": "在前穿中国装的，不过有些艺妓和咖星之类；最近忽然推广了，新剧演员、影戏明星等等，穿中国衣服的，固然不在少数，就是一般夫人们、令娘们（即小姐们），也渐渐认识中国衣服的好处，喜欢做一二件，学学时髦，出出风头。",
+        "start": 207,
+        "end": 309,
+        "note": "具体列出穿着者从艺妓、咖星扩展至演员、明星、夫人、小姐，显示媒介身份与阶层模仿机制，旗袍在日本成为了全阶层的时尚选择。",
+        "created_at": "2026-10-29T06:25:57.688Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793255157688_b1c6af",
+        "text": "所可惜者，我们贵国人只有几家红帮裁缝，在东京开了几爿装店，名曰洋服商。要他做支那服，实在不很高明。",
+        "start": 311,
+        "end": 360,
+        "note": "明示红帮裁缝在东京开洋服商但制作中国装不很高明，连接生产技术与海外传播局限；可追问裁缝技术分工与品牌问题。",
+        "created_at": "2026-10-29T06:25:57.688Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793255157688_pucl3u",
+        "text": "所以东京摩登女子的中国装，可称摩登而不摩登；就算有些摩登，也不免时代落伍，采取了上海二三年前的式样。",
+        "start": 360,
+        "end": 410,
+        "note": "指出东京中国装采上海二三年前式样，形成“摩登而不摩登”的时间差；可支持上海时尚中心论，但需其他材料验证式样传播周期。",
+        "created_at": "2026-10-29T06:25:57.688Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793255157688_u7d2en",
+        "text": "如今中国的旗袍，流传到海外，可算得第三种光辉。人说这也是我们贵国的国光。",
+        "start": 491,
+        "end": 527,
+        "note": "将旗袍海外流行与烹调、麻雀并列为“国光”，显示民族国家话语对女性服装的挪用；可追问国货/国粹话语如何商品化女性身体。",
+        "created_at": "2026-10-29T06:25:57.688Z",
+        "source": "ai"
+      }
+    ],
+    "shiliao_id": "SL-2026-370",
+    "created_at": "2026-10-29T06:25:57.689Z",
+    "updated_at": "2026-10-29T06:26:37.163Z"
+  },
+  {
+    "type": "报刊文章",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "旗袍流行款式"
+    ],
+    "source": "金刚钻",
+    "title": "一九三零式之旗袍",
+    "author": "成衣",
+    "time": "1930年2月24日",
+    "version_info": "第3版",
+    "core_content": "对比1929与1930年旗袍式样。材料显示：1929年式长度覆膝露胫（小腿）、腰窄、领高袖短、边缘钮扣隐去，被指为“欧化”；1930年式长可齐踝、身材甚窄、袖长而直、领高而硬、下裾开叉三四寸、双扁阔滚、如意袖端下襟、恢复盘扣，被指为“满州化”。\n\n文章以“繁华—奢侈—变化”为逻辑，将上海比作巴黎，视旗袍变迁为全国新风向，并预言1930年式将风靡一时。可推测，该文通过“欧化/满州化”分类参与时尚话语建构，但仅呈现媒体视角，无法证明实际消费与生产状况。\n\n材料将旗袍变化归因于都市繁华，并把上海类比巴黎、称为“全国新粧之矫矢”。这提示媒体通过城市等级与“奢侈”话语建构时尚中心—边缘关系。\n\n文章详述1929年式“腰身奇窄，凸乳而耸臀”“覆膝而露胫”，1930年式“身材甚窄”“行步乃不能高视阔步”。这些设计描述显示旗袍通过收紧腰身、控制开衩与长度来规范女性身体可见性与行动姿态。",
+    "personal_analysis": "与海派旗袍设计史的关系：1）设计语汇：材料明示1929年式“长度到膝盖、露出小腿，腰身收得极紧，领子很高、袖子很短，看不到传统镶边和纽扣，改用按扣”，1930年式“衣长能够到脚踝，衣身剪裁窄瘦，袖子长且笔直，领子高而挺硬，下摆开衩三四寸，边缘镶双道宽滚边，袖口、衣襟做成如意纹样造型，重新使用盘扣”。2）身体／行动／场合效果：材料称1930年式“行步乃不能高视阔步，而不得不作微步凌波”，显示设计对行动姿态的约束；1929年式“邻于欧化”，1930年式“颇有旗装风味”。\n\n研究价值：本材料可为旗袍设计史提供1929—1930年式样细节的共时对比证据，包括长度、腰身、领袖、开衩、滚边与钮扣的具体变化；也可为性别研究提供媒体如何以“娇姿”“妍媚”“微步凌波”评价女性身体的文本。\n\n论文用途：可用于论文“旗袍式样变迁与媒体话语”章节，支持“报刊通过欧化/满州化分类和身体评价参与时尚建构”的论点；也可用于设计细节对比，说明腰身、开衩、滚边与钮扣如何改变身体可见性。",
+    "ocr_original": "都會愈繁華，則婦女粧飾愈奢侈，而其變化愈繁，世稱巴黎為西方婦女時粧之發源地，朝與夕革，為歐美閨媛宗仰；上海為遠東首埠，繁華不亞法京，故婦女服飾靡麗，花樣翻新，亦為全國新粧之矯矢。近歲以還，風尚所趨，婦女尠不御旗袍，致流行數百載之長裙短襖，幾不復映吾人眼帘矣。然而即此旗袍一事，其式樣之間，亦既幾度變遷：若領之由高而低、低而復高，袖之由長而短、短而復長，以及滾線綴邊、釘珠緣絮等等，推陳出新，幻化靡極。至客歲一九二九年盛行之式，則長度奇短，覆膝而露脛，腰身奇窄，凸乳而聳臀；領高護頸，袖短掩肘，悉泯邊緣鈕扣之痕，而內敷以撳鈕。客歲時髦女子之旗袍，鮮不作此式。至領以上，則髮短齊肩；裙以下，則襪長侵股，其儀態蓋鄰於歐化，是一九二九年式之旗袍，為歐化之式也。今萬象既更，舊式代謝，於是當歲尾年頭，旗袍又有革新之式樣，發現於繁華之市、交際之場焉。其助長嬌姿、增加妍媚，實優於舊式多多。其式蓋長可齊踝，身材甚窄，袖長而直，領高而硬；其裾緣既小，於是行步乃不能高視闊步，而不得不作微步凌波矣。兼有下裾開叉三四寸者，四緣復綴以雙扁闊滾；袖端下襟，作如意之式，鈕扣則廢止撳鈕，而恢復盤香。其式頗有旗裝風味，是一九三零年式之旗袍，為滿州化之式也。茲新春伊始，此式必風靡一時，故稱之為一九三零式焉。",
+    "clean_text": "都会愈繁华，则妇女粧饰愈奢侈，而其变化愈繁，世称巴黎为西方妇女时粧之发源地，朝与夕革，为欧美闺媛宗仰；上海为远东首埠，繁华不亚法京，故妇女服饰靡丽，花样翻新，亦为全国新粧之矫矢。近岁以还，风尚所趋，妇女尠不御旗袍，致流行数百载之长裙短袄，几不复映吾人眼帘矣。\n\n然而即此旗袍一事，其式样之间，亦既几度变迁：若领之由高而低、低而复高，袖之由长而短、短而复长，以及滚线缀边、钉珠缘絮等等，推陈出新，幻化靡极。至客岁一九二九年盛行之式，则长度奇短，覆膝而露胫，腰身奇窄，凸乳而耸臀；领高护颈，袖短掩肘，悉泯边缘钮扣之痕，而内敷以揿钮。客岁时髦女子之旗袍，鲜不作此式。至领以上，则发短齐肩；裙以下，则袜长侵股，其仪态盖邻于欧化，是一九二九年式之旗袍，为欧化之式也。\n\n今万象既更，旧式代谢，于是当岁尾年头，旗袍又有革新之式样，发现于繁华之市、交际之场焉。其助长娇姿、增加妍媚，实优于旧式多多。其式盖长可齐踝，身材甚窄，袖长而直，领高而硬；其裾缘既小，于是行步乃不能高视阔步，而不得不作微步凌波矣。兼有下裾开叉三四寸者，四缘复缀以双扁阔滚；袖端下襟，作如意之式，钮扣则废止揿钮，而恢复盘香。其式颇有旗装风味，是一九三零年式之旗袍，为满州化之式也。兹新春伊始，此式必风靡一时，故称之为一九三零式焉。",
+    "ai_summary": "1930年2月24日《金刚钻》刊文对比1929与1930年旗袍式样。材料显示：1929年式长度覆膝露胫、腰身奇窄、领高袖短、边缘钮扣隐去，被指为“欧化”；1930年式长可齐踝、身材甚窄、袖长而直、领高而硬、下裾开叉三四寸、双扁阔滚、如意袖端下襟、恢复盘香钮扣，被指为“满州化”。文章以“繁华—奢侈—变化”为逻辑，将上海比作巴黎，视旗袍变迁为全国新风向，并预言1930年式将风靡一时。可推测，该文通过“欧化/满州化”分类参与时尚话语建构，但仅呈现媒体视角，无法证明实际消费与生产状况。",
+    "ai_keywords": [
+      "1930年式旗袍",
+      "1929年式旗袍",
+      "欧化",
+      "满州化",
+      "旗袍式样变迁",
+      "下裾开叉",
+      "盘香钮扣",
+      "双扁阔滚",
+      "上海时尚",
+      "《金刚钻》"
+    ],
+    "ai_social_issue": "材料以“都会愈繁华，则妇女粧饰愈奢侈”开篇，将旗袍变化归因于都市繁华，并把上海类比巴黎、称为“全国新粧之矫矢”。这提示媒体通过城市等级与“奢侈”话语建构时尚中心—边缘关系，可追问：谁有权力定义“新粧”？内地与下层女性如何被置于模仿者位置？\n文章详述1929年式“腰身奇窄，凸乳而耸臀”“覆膝而露胫”，1930年式“身材甚窄”“行步乃不能高视阔步”。这些设计描述显示旗袍通过收紧腰身、控制开衩与长度来规范女性身体可见性与行动姿态，可追问：这种“娇姿”“妍媚”的评价如何将女性身体置于被观看与自我规训的位置？\n文章将1929年式称为“欧化之式”，1930年式称为“满州化之式”，以“欧化/满州化”二元标签概括式样差异。这提示媒体通过民族—外来分类制造时尚知识，但材料未说明具体借鉴路径，可追问：这种分类是设计事实还是话语建构？国货与外来样式在轻工业中如何竞争与转化？\n文章预言1930年式“必风靡一时”，但未提供销量、生产者或消费者反馈。这提示报刊通过“新春伊始”的时间叙事和“繁华之市、交际之场”的空间叙事制造流行预期，可追问：媒介如何参与商品意义生产？实际生产组织、面料供应与消费分层需结合其他材料检验。",
+    "ai_research_value": "本材料可为旗袍设计史提供1929—1930年式样细节的共时对比证据，包括长度、腰身、领袖、开衩、滚边与钮扣的具体变化；也可为性别研究提供媒体如何以“娇姿”“妍媚”“微步凌波”评价女性身体的文本。但材料仅代表《金刚钻》编辑视角，不能证明实际穿着普及度、消费者感受或生产销售机制，需结合服装实物、商号广告、行业档案等互证。",
+    "ai_relation": "1）设计语汇：材料明示1929年式“覆膝露胫、腰身奇窄、领高袖短、隐边缘钮扣用揿钮”，1930年式“长可齐踝、身材甚窄、袖长而直、领高而硬、下裾开叉三四寸、双扁阔滚、如意袖端下襟、恢复盘香钮扣”。2）身体／行动／场合效果：材料称1930年式“行步乃不能高视阔步，而不得不作微步凌波”，显示设计对行动姿态的约束；1929年式“邻于欧化”，1930年式“颇有旗装风味”，提示场合与风格标签的关联。3）生产、销售或媒介关系：材料仅显示报刊以“新春伊始”“必风靡一时”预言流行，未提供生产与销售证据。",
+    "ai_paper_use": "可用于论文“旗袍式样变迁与媒体话语”章节，支持“报刊通过欧化/满州化分类和身体评价参与时尚建构”的论点；也可用于设计细节对比，说明腰身、开衩、滚边与钮扣如何改变身体可见性。需比较同期其他报刊、服装实物或商号广告，避免将媒体预言当作实际流行证据。",
+    "keywords": [
+      "时代审美",
+      "现代化",
+      "2030年代旗袍",
+      "旗袍式样变迁",
+      "开叉",
+      "钮扣",
+      "盘扣",
+      "设计迭代",
+      "按扣",
+      "滚边",
+      "装饰",
+      "上海时尚"
+    ],
+    "importance": 3,
+    "document_paths": [
+      "files/《金刚钻》/1930年2月24日-第3版-一九三零式之旗袍（成衣）.docx",
+      "files/《金刚钻》/1930年2月24日-第3版-一九三零式之旗袍（成衣）.pdf"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "都会愈繁华，则妇女粧饰愈奢侈，而其变化愈繁，世称巴黎为西方妇女时粧之发源地，朝与夕革，为欧美闺媛宗仰；上海为远东首埠，繁华不亚法京，故妇女服饰靡丽，花样翻新，亦为全国新粧之矫矢。近岁以还，风尚所趋，妇女尠不御旗袍，致流行数百载之长裙短袄，几不复映吾人眼帘矣。\n\n然而即此旗袍一事，其式样之间，亦既几度变迁：若领之由高而低、低而复高，袖之由长而短、短而复长，以及滚线缀边、钉珠缘絮等等，推陈出新，幻化靡极。至客岁一九二九年盛行之式，则长度奇短，覆膝而露胫，腰身奇窄，凸乳而耸臀；领高护颈，袖短掩肘，悉泯边缘钮扣之痕，而内敷以揿钮。客岁时髦女子之旗袍，鲜不作此式。至领以上，则发短齐肩；裙以下，则袜长侵股，其仪态盖邻于欧化，是一九二九年式之旗袍，为欧化之式也。\n\n今万象既更，旧式代谢，于是当岁尾年头，旗袍又有革新之式样，发现于繁华之市、交际之场焉。其助长娇姿、增加妍媚，实优于旧式多多。其式盖长可齐踝，身材甚窄，袖长而直，领高而硬；其裾缘既小，于是行步乃不能高视阔步，而不得不作微步凌波矣。兼有下裾开叉三四寸者，四缘复缀以双扁阔滚；袖端下襟，作如意之式，钮扣则废止揿钮，而恢复盘香。其式颇有旗装风味，是一九三零年式之旗袍，为满州化之式也。兹新春伊始，此式必风靡一时，故称之为一九三零式焉。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [
+      {
+        "id": "ann_ai_1793255868542_awagf0",
+        "text": "都会愈繁华，则妇女粧饰愈奢侈，而其变化愈繁，世称巴黎为西方妇女时粧之发源地，朝与夕革，为欧美闺媛宗仰；上海为远东首埠，繁华不亚法京，故妇女服饰靡丽，花样翻新，亦为全国新粧之矫矢。",
+        "start": 0,
+        "end": 89,
+        "note": "以都市繁华—奢侈—变化为逻辑，将上海类比巴黎并定位为全国时尚中心，揭示媒体通过城市等级建构时尚话语。",
+        "created_at": "2026-10-29T06:37:48.542Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793255868542_4xdtk4",
+        "text": "至客岁一九二九年盛行之式，则长度奇短，覆膝而露胫，腰身奇窄，凸乳而耸臀；领高护颈，袖短掩肘，悉泯边缘钮扣之痕，而内敷以揿钮。",
+        "start": 202,
+        "end": 264,
+        "note": "【1929 年（欧化风格）旗袍特征】\n衣长较短，到膝盖位置、露出小腿；腰身剪裁极收窄，凸显身体曲线；高领护住颈部，袖子短至肘部；省去外露镶边与传统纽扣，内里使用按扣；搭配齐肩短发、长筒丝袜，整体偏向西洋审美。",
+        "created_at": "2026-10-29T06:37:48.542Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793255868542_trm90w",
+        "text": "其式盖长可齐踝，身材甚窄，袖长而直，领高而硬；其裾缘既小，于是行步乃不能高视阔步，而不得不作微步凌波矣。",
+        "start": 392,
+        "end": 444,
+        "note": "明示1930年式长度、腰身、袖领与裾缘设计，并直接关联行动限制，是分析设计—身体—姿态关系的核心证据；评价性措辞显示性别化审美。",
+        "created_at": "2026-10-29T06:37:48.542Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793255868542_1tv16x",
+        "text": "兼有下裾开叉三四寸者，四缘复缀以双扁阔滚；袖端下襟，作如意之式，钮扣则废止揿钮，而恢复盘香。",
+        "start": 444,
+        "end": 490,
+        "note": "记录开衩尺寸、滚边与钮扣工艺细节，证明1930年式在装饰与结构上的具体变化，可用于设计史分析；但未说明制作者与生产成本。",
+        "created_at": "2026-10-29T06:37:48.542Z",
+        "source": "ai"
+      },
+      {
+        "id": "ann_ai_1793255868542_9bnpl0",
+        "text": "其式颇有旗装风味，是一九三零年式之旗袍，为满州化之式也。",
+        "start": 490,
+        "end": 518,
+        "note": "【1930 年（偏旗装复古风格）旗袍特征】\n衣长加长至脚踝，衣身依旧窄瘦；袖子修长顺直，高领硬挺；下摆开衩约三四寸，衣身边缘装饰双道宽扁滚边；袖口、衣襟做成如意云头造型；舍弃按扣，改用传统盘香扣，带有传统旗装韵味。",
+        "created_at": "2026-10-29T06:37:48.542Z",
+        "source": "ai"
+      }
+    ],
+    "shiliao_id": "SL-2026-371",
+    "created_at": "2026-10-29T06:37:48.544Z",
+    "updated_at": "2026-10-29T06:39:35.911Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "时报",
+    "title": "都锦生丝织厂沪行百货零售",
+    "author": "佚名",
+    "time": "1927年11月12日",
+    "version_info": "第8版",
+    "core_content": "旗袍 —— 湖霞缎\n花样新奇，特出心裁；\n质地细密，永不发毛；\n艳丽无比，定价克己。\n\n上海北四川路十二号，\n都锦生丝织厂沪行。",
+    "personal_analysis": "用于制作旗袍的湖霞缎，质地特点",
+    "ocr_original": "旗袍 —— 湖霞緞\n花樣新奇，特出心裁；\n質地細密，永不發毛；\n豔麗無比，定價克己。\n\n上海北四川路十二號，\n都錦生絲織廠滬行。",
+    "clean_text": "旗袍 —— 湖霞缎\n花样新奇，特出心裁；\n质地细密，永不发毛；\n艳丽无比，定价克己。\n\n上海北四川路十二号，\n都锦生丝织厂沪行。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "旗袍料",
+      "商业广告",
+      "湖霞缎"
+    ],
+    "importance": 1,
+    "document_paths": [
+      "files/《时报》/1927年11月12日-第8版-都锦生丝织厂沪行百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "旗袍 —— 湖霞缎\n花样新奇，特出心裁；\n质地细密，永不发毛；\n艳丽无比，定价克己。\n\n上海北四川路十二号，\n都锦生丝织厂沪行。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-372",
+    "created_at": "2026-10-29T06:45:52.266Z",
+    "updated_at": "2026-10-29T06:45:52.266Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "利丰公司绸缎部百货零售",
+    "author": "佚名",
+    "time": "1925年3月22日",
+    "version_info": "第17版",
+    "core_content": "最新发明破天荒，从古未有\n不怕雨雪、不怕潮湿之绸缎\n\n本公司向织各种铁机缎、铁机纱及铁机线春等，批发各省。近年各省人士多喜改穿直贡呢哗叽，推其原故，皆云直贡呢哗叽，不惧雨雪、不怕潮湿，故各界乐用。本厂为改良国货，与洋货竞争起见，特在美国定购炼丝机一种，炼成之丝光亮坚结，织成绸缎，不怕雨雪、不怕潮湿。制成衣服，在应酬场中偶沾茶酒，不至变色；做宝重皮袍面子，能保护皮板，不至受潮，途遇小雨亦不至湿。（惟衣服缝线处，若遇大雨，难免入水，祈留意。）若原块绸缎，能盛水不漏，与碗装水无异。如不见信，可当面试验。今为推销各省人士试用起见，特剪样。\n\n马褂料\n顶上云霞缎，七尺，洋九元一角；\n顶上云霞缎，七尺，洋五元六角。\n\n女袄料、长袍料\n顶上云霞缎（一丈三尺），洋十六元九角；\n顶上云霞缎（一丈三尺），洋十元零四角。\n\n女旗袍料\n顶上云霞缎（一丈三尺），洋八元八角；\n顶上云霞缎（一丈三尺），洋十四元三角。\n\n女裤料\n顶上云霞缎（五尺），洋六元五角；\n顶上云霞缎（五尺），洋四元正。\n\n裙料\n顶上云霞缎（六尺），洋七元八角；\n顶上云霞缎（六尺），洋四元八角。\n\n特制时式华丝线葛，袍褂雨衣：\n黑色华丝线葛马褂式雨衣一件，洋四元三角；\n各色华丝线葛套袍式雨衣一件，洋八元五角。\n\n以上袍褂尺寸大小均有。\n诸君如欲参观，或试验，及购买等，可至上海英界新世界对过二马路口利丰公司申庄，接洽极表欢迎。外埠函购，请直寄杭州清泰门直街利丰总公司批发处，当即由邮局寄奉。如需绸缎样子及价目表，函索即寄，不取分文。",
+    "personal_analysis": "旗袍面料云霞缎的价格，利丰公司研发出防水缎面料",
+    "ocr_original": "最新發明破天荒，從古未有\n不怕雨雪、不怕潮濕之綢緞\n\n本公司向織各種鐵機緞、鐵機紗及鐵機線春等，批發各省。近年各省人士多喜改穿直貢呢嘩嘰，推其原故，皆云直貢呢嘩嘰，不懼雨雪、不怕潮濕，故各界樂用。本廠為改良國貨，與洋貨競爭起見，特在美國定購煉絲機一種，煉成之絲光亮堅結，織成綢緞，不怕雨雪、不怕潮濕。製成衣服，在應酬場中偶沾茶酒，不至變色；做寶重皮袍面子，能保護皮板，不至受潮，途遇小雨亦不至濕。（惟衣服縫線處，若遇大雨，難免入水，祈留意。）若原塊綢緞，能盛水不漏，與碗裝水無異。如不見信，可當面試驗。今為推銷各省人士試用起見，特剪樣。\n\n馬褂料\n頂上雲霞緞，七尺，洋九元一角；\n頂上雲霞緞，七尺，洋五元六角。\n\n女襖料、長袍料\n頂上雲霞緞（一丈三尺），洋十六元九角；\n頂上雲霞緞（一丈三尺），洋十元零四角。\n\n女旗袍料\n頂上雲霞緞（一丈三尺），洋八元八角；\n頂上雲霞緞（一丈三尺），洋十四元三角。\n\n女褲料\n頂上雲霞緞（五尺），洋六元五角；\n頂上雲霞緞（五尺），洋四元正。\n\n裙料\n頂上雲霞緞（六尺），洋七元八角；\n頂上雲霞緞（六尺），洋四元八角。\n\n特製時式華絲線葛，袍褂雨衣：\n黑色華絲線葛馬褂式雨衣一件，洋四元三角；\n各色華絲線葛套袍式雨衣一件，洋八元五角。\n\n以上袍褂尺寸大小均有。\n諸君如欲參觀，或試驗，及購買等，可至上海英界新世界對過二馬路口利豐公司申莊，接洽極表歡迎。外埠函購，請直寄杭州清泰門直街利豐總公司批發處，當即由郵局寄奉。如需綢緞樣子及價目表，函索即寄，不取分文。",
+    "clean_text": "最新发明破天荒，从古未有\n不怕雨雪、不怕潮湿之绸缎\n\n本公司向织各种铁机缎、铁机纱及铁机线春等，批发各省。近年各省人士多喜改穿直贡呢哗叽，推其原故，皆云直贡呢哗叽，不惧雨雪、不怕潮湿，故各界乐用。本厂为改良国货，与洋货竞争起见，特在美国定购炼丝机一种，炼成之丝光亮坚结，织成绸缎，不怕雨雪、不怕潮湿。制成衣服，在应酬场中偶沾茶酒，不至变色；做宝重皮袍面子，能保护皮板，不至受潮，途遇小雨亦不至湿。（惟衣服缝线处，若遇大雨，难免入水，祈留意。）若原块绸缎，能盛水不漏，与碗装水无异。如不见信，可当面试验。今为推销各省人士试用起见，特剪样。\n\n马褂料\n顶上云霞缎，七尺，洋九元一角；\n顶上云霞缎，七尺，洋五元六角。\n\n女袄料、长袍料\n顶上云霞缎（一丈三尺），洋十六元九角；\n顶上云霞缎（一丈三尺），洋十元零四角。\n\n女旗袍料\n顶上云霞缎（一丈三尺），洋八元八角；\n顶上云霞缎（一丈三尺），洋十四元三角。\n\n女裤料\n顶上云霞缎（五尺），洋六元五角；\n顶上云霞缎（五尺），洋四元正。\n\n裙料\n顶上云霞缎（六尺），洋七元八角；\n顶上云霞缎（六尺），洋四元八角。\n\n特制时式华丝线葛，袍褂雨衣：\n黑色华丝线葛马褂式雨衣一件，洋四元三角；\n各色华丝线葛套袍式雨衣一件，洋八元五角。\n\n以上袍褂尺寸大小均有。\n诸君如欲参观，或试验，及购买等，可至上海英界新世界对过二马路口利丰公司申庄，接洽极表欢迎。外埠函购，请直寄杭州清泰门直街利丰总公司批发处，当即由邮局寄奉。如需绸缎样子及价目表，函索即寄，不取分文。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "旗袍料",
+      "商业广告",
+      "云霞缎",
+      "利丰公司"
+    ],
+    "importance": 1,
+    "document_paths": [
+      "files/《新闻报》/1925年3月22日-第17版-利丰公司绸缎部百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "最新发明破天荒，从古未有\n不怕雨雪、不怕潮湿之绸缎\n\n本公司向织各种铁机缎、铁机纱及铁机线春等，批发各省。近年各省人士多喜改穿直贡呢哗叽，推其原故，皆云直贡呢哗叽，不惧雨雪、不怕潮湿，故各界乐用。本厂为改良国货，与洋货竞争起见，特在美国定购炼丝机一种，炼成之丝光亮坚结，织成绸缎，不怕雨雪、不怕潮湿。制成衣服，在应酬场中偶沾茶酒，不至变色；做宝重皮袍面子，能保护皮板，不至受潮，途遇小雨亦不至湿。（惟衣服缝线处，若遇大雨，难免入水，祈留意。）若原块绸缎，能盛水不漏，与碗装水无异。如不见信，可当面试验。今为推销各省人士试用起见，特剪样。\n\n马褂料\n顶上云霞缎，七尺，洋九元一角；\n顶上云霞缎，七尺，洋五元六角。\n\n女袄料、长袍料\n顶上云霞缎（一丈三尺），洋十六元九角；\n顶上云霞缎（一丈三尺），洋十元零四角。\n\n女旗袍料\n顶上云霞缎（一丈三尺），洋八元八角；\n顶上云霞缎（一丈三尺），洋十四元三角。\n\n女裤料\n顶上云霞缎（五尺），洋六元五角；\n顶上云霞缎（五尺），洋四元正。\n\n裙料\n顶上云霞缎（六尺），洋七元八角；\n顶上云霞缎（六尺），洋四元八角。\n\n特制时式华丝线葛，袍褂雨衣：\n黑色华丝线葛马褂式雨衣一件，洋四元三角；\n各色华丝线葛套袍式雨衣一件，洋八元五角。\n\n以上袍褂尺寸大小均有。\n诸君如欲参观，或试验，及购买等，可至上海英界新世界对过二马路口利丰公司申庄，接洽极表欢迎。外埠函购，请直寄杭州清泰门直街利丰总公司批发处，当即由邮局寄奉。如需绸缎样子及价目表，函索即寄，不取分文。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-373",
+    "created_at": "2026-10-29T06:59:33.528Z",
+    "updated_at": "2026-10-29T06:59:42.430Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "湖州丝绵被服公司百货零售",
+    "author": "佚名",
+    "time": "1925年9月23日",
+    "version_info": "第9版",
+    "core_content": "金风玉露，天气渐寒，诸君欲办轻柔温煖之国产丝绵被服，请至大马路上海商场三楼湖州丝绵被服公司选购可也。\n\n本公司并代客翻做各种丝绵，缫胎并整缫旧缫胎。\n\n价目表\n\n男长袍：十元\n大男袄：五元五角\n小男袄：四元五角\n男裤：四元\n男马夹：三元\n旗袍：八元\n\n大女袄：五元五角\n小女袄：四元\n女紧身：三元\n女马夹：二元\n大女裤：四元\n小女裤：三元五角\n\n特重大面，均加议。",
+    "personal_analysis": "旗袍价格八元",
+    "ocr_original": "湖州絲綿被服公司百货零售《新闻报》 1925 年 9 月 23 日 [ 0009 版\n\n金風玉露，天氣漸寒，諸君欲辦輕柔溫煖之國產絲綿被服，請至大馬路上海商場三樓湖州絲綿被服公司選購可也。\n\n本公司並代客翻做各種絲綿，繅胎並整繅舊繅胎。\n\n#### 價目表\n\n男長袍：十元\n大男襖：五元五角\n小男襖：四元五角\n男褲：四元\n男馬夾：三元\n男族袍：八元\n\n大女襖：五元五角\n小女襖：四元\n女緊身：三元\n女馬夾：二元\n大女褲：四元\n小女褲：三元五角\n\n特重大面，均加議。",
+    "clean_text": "金风玉露，天气渐寒，诸君欲办轻柔温煖之国产丝绵被服，请至大马路上海商场三楼湖州丝绵被服公司选购可也。\n\n本公司并代客翻做各种丝绵，缫胎并整缫旧缫胎。\n价目表\n\n男长袍：十元\n大男袄：五元五角\n小男袄：四元五角\n男裤：四元\n男马夹：三元\n男族袍：八元\n\n大女袄：五元五角\n小女袄：四元\n女紧身：三元\n女马夹：二元\n大女裤：四元\n小女裤：三元五角\n\n特重大面，均加议。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [],
+    "importance": 2,
+    "document_paths": [
+      "files/《新闻报》/1925年9月23日-第9版-湖州丝绵被服公司百货零售《新闻报》（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "金风玉露，天气渐寒，诸君欲办轻柔温煖之国产丝绵被服，请至大马路上海商场三楼湖州丝绵被服公司选购可也。\n\n本公司并代客翻做各种丝绵，缫胎并整缫旧缫胎。\n价目表\n\n男长袍：十元\n大男袄：五元五角\n小男袄：四元五角\n男裤：四元\n男马夹：三元\n男族袍：八元\n\n大女袄：五元五角\n小女袄：四元\n女紧身：三元\n女马夹：二元\n大女裤：四元\n小女裤：三元五角\n\n特重大面，均加议。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-374",
+    "created_at": "2026-10-29T07:03:29.786Z",
+    "updated_at": "2026-10-29T07:20:47.107Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "美大公司百货零售",
+    "author": "佚名",
+    "time": "1928 年3月21日",
+    "version_info": "第14版",
+    "core_content": "上海四马路，美大公司\n二月廿六日起，星期三\n绸缎、绮绫、梯葛\n呢绒、哗叽、洋货\n▲大减价\n并赠仕女屏条一堂，精绘名人\n\n各界最欢迎、最称便之\n**各种男女衣料**\n\n铁机厂缎，袍料丈四，减售十八元\n文华葛，袍料丈四，减售十三元\n加阔缎经葛，袍料丈四，减售十元\n合色哗叽，袍料丈三，减售十三元\n华达呢，袍料丈三，减售十二元\n缎锦葛，衬裤料丈三，减售四元\n纯毛葛，衬裤料丈三，减售四元\n纯素哗叽，旗袍料丈一，减售九元\n明星绨，旗袍料丈一，减售六元\n春花呢，旗袍料丈一，减售八元\n团花毛葛，褂料八尺，减售五元二\n元直贡呢，褂料八尺，减售六元八\n条格哗叽，袍料丈三，减售五元八\n象皮雨衣料，每件，减售二元一角\n电印克罗绸，每尺，七角半\n印度绸套裙，五元二角\n软缎套裙，六元三角\n\n▲大批新式玲珑电印闺女衣料，陈列百种，欢迎参观，定价从廉\n尚有各种每件一元衣料，数百种\n▲外埠函购，赠品照给，寄费奉赠",
+    "personal_analysis": "1. 美大公司，店址上海四马路，二月二十六日起举办大减价活动，消费即赠仕女屏条，同时经营绸缎、绮绫、梯葛、呢绒、哗叽等国产与洋货衣料，旗袍料是重要品类。\n\n2. 面料品类丰富：包含铁机厂缎、文华葛、华达呢、明星绨、春花呢、直贡呢、哗叽、印度绸、软缎等，既有适合旗袍的面料，也有褂料、衬裤料、雨衣料、套裙面料。\n\n3. 营销方式：设低价引流款（一元衣料）；支持外埠邮购，邮费商家承担、赠品同样发放，是民国上海绸布行常见促销手段。",
+    "ocr_original": "1. **美大公司**，店址上海四馬路，二月二十六日起舉辦大減價活動，消費即贈仕女屏條，同時經營綢緞、綺綾、梯葛、呢絨、嘩嘰等國產與洋貨衣料，旗袍料是重要品類。\n2. 面料品類豐富：包含鐵機廠緞、文華葛、華達呢、明星綈、春花呢、直貢呢、嘩嘰、印度綢、軟緞等，既有適合旗袍的面料，也有褂料、襯褲料、雨衣料、套裙面料。\n3. 營銷方式：設低價引流款（一元衣料）；支持外埠郵購，郵費商家承擔、贈品同樣發放，是民國上海綢布行常見促銷手段。\n4. 面料用途：除旗袍外，同時供袍、褂、裙、雨衣等多類服裝裁製，反映當時面料跨服裝類別流通的特點。",
+    "clean_text": "",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "旗袍料",
+      "商业广告",
+      "价格"
+    ],
+    "importance": 2,
+    "document_paths": [
+      "files/《新闻报》/1928 年3月21日-第14版-美大公司百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-375",
+    "created_at": "2026-10-29T07:07:02.315Z",
+    "updated_at": "2026-10-29T07:07:02.315Z"
+  },
+  {
+    "type": "广告",
+    "image_form": "",
+    "video_kind": "",
+    "video_release_time": "",
+    "video_location": "",
+    "video_date_confidence": "",
+    "video_source_url": "",
+    "video_rights": "",
+    "video_media_file": "",
+    "video_original_filename": "",
+    "video_segments": [],
+    "opinion_types": [],
+    "topics": [
+      "轻工业业态"
+    ],
+    "source": "新闻报",
+    "title": "大章德绸缎呢绒局百货零售",
+    "author": "佚名",
+    "time": "1928年10月21日",
+    "version_info": "第5版",
+    "core_content": "印花软缎旗袍料，每件洋六元。\n三闪色厂缎，每尺洋八角半。\n闪色明星绫，每尺洋六角半。\n各色线春，每两洋八角九分。\n各色厂缎，每尺洋一元。\n各色厂葛，每尺洋八角。\n各色华丝葛，每尺洋四角半。\n卥顶衣湖绸，每尺洋三角半。",
+    "personal_analysis": "大章德绸缎厂印花软缎旗袍料的价格",
+    "ocr_original": "印花軟緞旗袍料，每件洋六元。\n三閃色廠緞，每尺洋八角半。\n閃色明星綾，每尺洋六角半。\n各色線春，每兩洋八角九分。\n各色廠緞，每尺洋一元。\n各色廠葛，每尺洋八角。\n各色華絲葛，每尺洋四角半。\n卥頂衣湖綢，每尺洋三角半。",
+    "clean_text": "印花软缎旗袍料，每件洋六元。\n三闪色厂缎，每尺洋八角半。\n闪色明星绫，每尺洋六角半。\n各色线春，每两洋八角九分。\n各色厂缎，每尺洋一元。\n各色厂葛，每尺洋八角。\n各色华丝葛，每尺洋四角半。\n卥顶衣湖绸，每尺洋三角半。",
+    "ai_summary": "",
+    "ai_keywords": [],
+    "ai_social_issue": "",
+    "ai_research_value": "",
+    "ai_relation": "",
+    "ai_paper_use": "",
+    "keywords": [
+      "国货",
+      "大章德绸缎厂",
+      "旗袍面料",
+      "商业广告"
+    ],
+    "importance": 1,
+    "document_paths": [
+      "files/《新闻报》/1928年10月21日-第5版-大章德绸缎呢绒局百货零售（佚名）.jpg"
+    ],
+    "image_paths": [],
+    "docx_preview_text": "印花软缎旗袍料，每件洋六元。\n三闪色厂缎，每尺洋八角半。\n闪色明星绫，每尺洋六角半。\n各色线春，每两洋八角九分。\n各色厂缎，每尺洋一元。\n各色厂葛，每尺洋八角。\n各色华丝葛，每尺洋四角半。\n卥顶衣湖绸，每尺洋三角半。",
+    "related_records": [],
+    "female_authored": false,
+    "annotations": [],
+    "shiliao_id": "SL-2026-376",
+    "created_at": "2026-10-29T07:20:16.452Z",
+    "updated_at": "2026-10-29T07:20:16.452Z"
   }
 ];

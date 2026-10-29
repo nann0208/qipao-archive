@@ -2,6 +2,7 @@
 
 let currentTypeFilter = '';
 let currentImageFormFilter = '';
+let currentVideoKindFilter = '';
 let currentTopicFilter = '';
 let currentKeyword = '';
 let currentSort = 'asc';
@@ -23,6 +24,11 @@ function init() {
     showDataLoadFailureBanner();
   }
 
+  // 数据恢复合并后，先核对浏览器中仍留存的新增记录，再处理编号冲突。
+  if (typeof reconcileImportedRecords === 'function') {
+    reconcileImportedRecords();
+  }
+
   // 🛡️ 启动时检查 IndexedDB 备份（localStorage 空但 IndexedDB 有数据时提示恢复）
   if (typeof checkAndRestoreBackup === 'function') {
     checkAndRestoreBackup();
@@ -30,9 +36,9 @@ function init() {
 
   // 🧹 启动时清理脏数据（重复的新增记录）
   if (typeof cleanupDuplicates === 'function') {
-    const removed = cleanupDuplicates();
-    if (removed > 0) {
-      console.log(`[清理] 移除了 ${removed} 条重复的本地记录`);
+    const repaired = cleanupDuplicates();
+    if (repaired > 0) {
+      console.log(`[编号修复] 为 ${repaired} 条本地记录分配了不冲突的新编号，记录内容已保留`);
     }
   }
 
@@ -48,6 +54,7 @@ function init() {
   updateSourceFilterDisplay();
   updateSourceFilterVisibility();
   updateImageFormFilterVisibility();
+  updateVideoKindFilterVisibility();
   updateOpinionFilterVisibility();
   updateFemaleFilterVisibility();
 
@@ -219,6 +226,7 @@ function saveState() {
     opinions: currentOpinionFilters,
     female: currentFemaleFilter,
     imageForm: currentImageFormFilter,
+    videoKind: currentVideoKindFilter,
     page: currentPage,
     view: currentView
   };
@@ -241,6 +249,7 @@ function restoreState() {
     currentOpinionFilters = state.opinions || [];
     currentFemaleFilter = state.female || '';
     currentImageFormFilter = state.imageForm || '';
+    currentVideoKindFilter = state.videoKind || '';
     currentPage = state.page || 1;
     currentView = state.view || 'card';
   } catch (e) {
@@ -326,6 +335,8 @@ function clearAllFilters() {
   currentSources = [];
   tempSources = [];
   currentKeyword = '';
+  currentImageFormFilter = '';
+  currentVideoKindFilter = '';
   currentSort = 'asc';
 
   // 重置 UI
@@ -348,6 +359,8 @@ function clearAllFilters() {
   renderFilters();
   updateYearFilterDisplay();
   updateSourceFilterDisplay();
+  updateImageFormFilterVisibility();
+  updateVideoKindFilterVisibility();
   render();
 }
 
@@ -398,7 +411,7 @@ function createListRow(record) {
     <span class="list-meta" data-copy="${escapeHtml(timeText)}">${timeText ? `📅 ${escapeHtml(timeText)}` : ''}<span class="copy-hint">${escapeHtml(timeText)}</span></span>
     <span class="list-meta" data-copy="${escapeHtml(versionText)}">${versionText ? `📑 ${escapeHtml(versionText)}` : ''}<span class="copy-hint">${escapeHtml(versionText)}</span></span>
     <span class="list-importance">${importance}${opinionDots ? `<span class="list-opinion-dots">${opinionDots}</span>` : ''}${record.female_authored ? '<span class="card-female-icon" title="女性署名史料" style="font-size:12px;">♀</span>' : ''}</span>
-    <span class="list-docs">${docCount > 0 ? `📎${docCount}` : ''}</span>
+    <span class="list-docs">${record.type === '影像资料' && (record.video_media_file || record.video_source_url) ? '▶' : (docCount > 0 ? `📎${docCount}` : '')}</span>
   `;
 
   row.querySelectorAll('.list-meta[data-copy]').forEach(el => {
@@ -428,6 +441,7 @@ function renderFilters() {
   const topicBar = document.getElementById('topic-filters');
   const importanceBar = document.getElementById('importance-filters');
   const imageFormBar = document.getElementById('image-form-filters');
+  const videoKindBar = document.getElementById('video-kind-filters');
 
   // 类型筛选
   typeBar.innerHTML = '';
@@ -454,6 +468,18 @@ function renderFilters() {
       const chip = createChip(form, '', () => setImageFormFilter(form));
       if (currentImageFormFilter === form) chip.classList.add('active');
       imageFormBar.appendChild(chip);
+    });
+  }
+
+  if (videoKindBar) {
+    videoKindBar.innerHTML = '';
+    const allVideoKinds = createChip('全部', '', () => setVideoKindFilter(''));
+    if (!currentVideoKindFilter) allVideoKinds.classList.add('active');
+    videoKindBar.appendChild(allVideoKinds);
+    ALL_VIDEO_KINDS.forEach(kind => {
+      const chip = createChip(kind, '', () => setVideoKindFilter(kind));
+      if (currentVideoKindFilter === kind) chip.classList.add('active');
+      videoKindBar.appendChild(chip);
     });
   }
 
@@ -536,9 +562,11 @@ function setTypeFilter(type) {
   }
   currentTypeFilter = type;
   if (type !== '图像') currentImageFormFilter = '';
+  if (type !== '影像资料') currentVideoKindFilter = '';
   resetPage();
   updateSourceFilterVisibility();
   updateImageFormFilterVisibility();
+  updateVideoKindFilterVisibility();
   updateOpinionFilterVisibility();
   renderFilters();
   updateFemaleFilterVisibility();
@@ -552,6 +580,18 @@ function updateImageFormFilterVisibility() {
 
 function setImageFormFilter(form) {
   currentImageFormFilter = form;
+  resetPage();
+  renderFilters();
+  render();
+}
+
+function updateVideoKindFilterVisibility() {
+  const row = document.getElementById('video-kind-filter-row');
+  if (row) row.style.display = currentTypeFilter === '影像资料' ? '' : 'none';
+}
+
+function setVideoKindFilter(kind) {
+  currentVideoKindFilter = kind;
   resetPage();
   renderFilters();
   render();
@@ -624,6 +664,13 @@ function getSourceFilterConfig(type) {
       modalTitle: '选择刊物名称（按拼音排序）'
     };
   }
+  if (type === '广告') {
+    return {
+      label: '刊物来源',
+      btn: '选择刊物',
+      modalTitle: '选择刊物来源（广告与报刊文章共用）'
+    };
+  }
   if (type === '档案文件') {
     return {
       label: '档案来源',
@@ -636,6 +683,13 @@ function getSourceFilterConfig(type) {
       label: '图像来源',
       btn: '选择图像来源',
       modalTitle: '选择图像来源（按拼音排序）'
+    };
+  }
+  if (type === '影像资料') {
+    return {
+      label: '影像来源',
+      btn: '选择来源',
+      modalTitle: '选择影像来源'
     };
   }
   if (type === '文学作品') {
@@ -953,6 +1007,7 @@ function render() {
   let records = loadAllRecords();
   records = filterByType(records, currentTypeFilter);
   records = filterByImageForm(records, currentImageFormFilter);
+  records = filterByVideoKind(records, currentVideoKindFilter);
   records = filterByTopic(records, currentTopicFilter);
   records = filterByImportance(records, currentImportance);
   records = filterByYears(records, currentYears);
@@ -960,7 +1015,7 @@ function render() {
   if (currentFemaleFilter === 'yes') records = records.filter(r => !!r.female_authored);
   else if (currentFemaleFilter === 'no') records = records.filter(r => !r.female_authored);
   // 应用来源筛选：报刊文章/图像用 source，档案文件用 archive_holder，文学作品用 author
-  if (currentTypeFilter === '报刊文章' || currentTypeFilter === '图像') {
+  if (currentTypeFilter === '报刊文章' || currentTypeFilter === '图像' || currentTypeFilter === '影像资料') {
     records = filterBySources(records, currentSources);
   } else if (currentTypeFilter === '档案文件') {
     records = filterByArchiveHolders(records, currentSources);
@@ -1234,11 +1289,20 @@ function makeEmpty() {
   const empty = document.createElement('div');
   empty.id = 'cards-grid';
   empty.className = 'empty-state';
+  const hasActiveFilters = Boolean(
+    currentKeyword || currentTypeFilter || currentTopicFilter || currentImportance ||
+    currentYears.length || currentSources.length || currentOpinionFilters.length ||
+    currentFemaleFilter || currentImageFormFilter || currentVideoKindFilter
+  );
   empty.innerHTML = `
     <div class="icon">📭</div>
     <div>没有匹配的史料记录</div>
     <div style="font-size: 12px; margin-top: 8px;">尝试调整筛选条件或搜索关键词</div>
+    ${hasActiveFilters ? '<button id="empty-clear-filters" class="btn" style="margin-top: 16px;">✕ 清除当前筛选</button>' : ''}
   `;
+  if (hasActiveFilters) {
+    empty.querySelector('#empty-clear-filters').addEventListener('click', clearAllFilters);
+  }
   return empty;
 }
 
@@ -1255,9 +1319,11 @@ function createCard(record) {
   ).join('');
   const imageFormTag = record.type === '图像' && record.image_form
     ? `<span class="card-topic-tag image-form-tag">${escapeHtml(record.image_form)}</span>` : '';
+  const videoKindTag = record.type === '影像资料' && record.video_kind
+    ? `<span class="card-topic-tag image-form-tag">${escapeHtml(record.video_kind)}</span>` : '';
 
   const docCount = (record.document_paths || []).length;
-  const hasDocs = docCount > 0;
+  const hasDocs = docCount > 0 || (record.type === '影像资料' && (record.video_media_file || record.video_source_url));
 
   // 如果有搜索关键词，对标题和内容进行高亮
   const kw = record._searchKeyword || '';
@@ -1294,7 +1360,7 @@ function createCard(record) {
         ${femaleIcon}
       </span>
     </div>
-    ${(topics || imageFormTag) ? `<div class="card-topics">${topics}${imageFormTag}</div>` : ''}
+    ${(topics || imageFormTag || videoKindTag) ? `<div class="card-topics">${topics}${imageFormTag}${videoKindTag}</div>` : ''}
     <h3 class="card-title">${titleText}</h3>
     <div class="card-meta">
       ${record.author ? `<span>✍️ ${escapeHtml(record.author)}</span>` : ''}
@@ -1306,7 +1372,7 @@ function createCard(record) {
     ${docxSnippet}
     <div class="card-actions">
       <a href="detail.html?id=${encodeURIComponent(record.shiliao_id)}${kwParam}" class="card-btn primary">查看详情</a>
-      ${hasDocs ? `<a href="detail.html?id=${encodeURIComponent(record.shiliao_id)}&open=1${kwParam}" class="card-btn">📎 ${docCount} 个原文</a>` : '<span class="card-btn" style="opacity:0.5;cursor:default;">无原文</span>'}
+      ${hasDocs ? `<a href="detail.html?id=${encodeURIComponent(record.shiliao_id)}&open=1${kwParam}" class="card-btn">${record.type === '影像资料' ? '🎞️ 查看资料' : `📎 ${docCount} 个原文`}</a>` : '<span class="card-btn" style="opacity:0.5;cursor:default;">无原文</span>'}
     </div>
   `;
 

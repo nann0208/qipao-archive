@@ -19,17 +19,19 @@ if errorlevel 1 goto startup_failed
 if errorlevel 1 goto startup_failed
 
 :env_ready
+REM QuickEdit selection freezes every process attached to this console, including uploads.
+REM Keep the service responsive if the console is clicked accidentally.
+".venv\Scripts\python.exe" -c "import ctypes; k=ctypes.windll.kernel32; k.GetStdHandle.restype=ctypes.c_void_p; k.GetConsoleMode.argtypes=[ctypes.c_void_p,ctypes.POINTER(ctypes.c_uint)]; k.SetConsoleMode.argtypes=[ctypes.c_void_p,ctypes.c_uint]; h=k.GetStdHandle(-10); mode=ctypes.c_uint(); ok=k.GetConsoleMode(h,ctypes.byref(mode)); k.SetConsoleMode(h,(mode.value|0x80)&~0x40) if ok else None" >nul 2>nul
 ".venv\Scripts\python.exe" -c "import opencc, pymupdf" >nul 2>nul
 if errorlevel 1 (
   echo [Update] Installing OCR and text conversion components...
   ".venv\Scripts\python.exe" -m pip install -r requirements.txt
   if errorlevel 1 goto startup_failed
 )
-if not exist ".env" goto config_missing
-
 echo.
-echo AI service starting at http://127.0.0.1:8765
-echo Keep this window open while using AI analysis.
+echo Local media and AI service starting at http://127.0.0.1:8765
+echo Keep this window open while uploading or playing video.
+echo AI analysis needs ai_service\.env; video upload does not.
 echo.
 ".venv\Scripts\python.exe" server.py
 if errorlevel 1 goto startup_failed
@@ -38,12 +40,6 @@ goto end
 :python_missing
 echo.
 echo [ERROR] Python was not found. Install Python and enable Add Python to PATH.
-goto hold_window
-
-:config_missing
-echo.
-echo [ERROR] ai_service\.env was not found.
-echo Copy .env.example to .env and configure ARK_API_KEY and ARK_MODEL.
 goto hold_window
 
 :startup_failed

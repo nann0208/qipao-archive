@@ -5,6 +5,7 @@ let relatedRecords = []; // [{id, relation}]
 let aiSelectedFiles = [];
 let aiPreviewUrls = [];
 let aiHighlightCandidates = [];
+let videoUploading = false;
 
 const SUGGESTED_KEYWORDS = [
   '高开叉', '海派', '现代', '保守', '西化', '传统',
@@ -40,6 +41,7 @@ function init() {
   bindEvents();
   bindRelatedSearch();
   updateOpinionTypeVisibility(); // 确保初始状态正确显示/隐藏
+  updateVideoFieldVisibility();
 }
 
 function renderOpinionTypeChips() {
@@ -113,6 +115,19 @@ function renderKeywordSuggestions() {
 function fillForm(r) {
   document.getElementById('field-type').value = r.type || '报刊文章';
   document.getElementById('field-image-form').value = r.image_form || '';
+  document.getElementById('field-video-kind').value = r.video_kind || '';
+  document.getElementById('field-video-release-time').value = r.video_release_time || '';
+  document.getElementById('field-video-location').value = r.video_location || '';
+  document.getElementById('field-video-date-confidence').value = r.video_date_confidence || '';
+  document.getElementById('field-video-source-url').value = r.video_source_url || '';
+  document.getElementById('field-video-rights').value = r.video_rights || '';
+  document.getElementById('field-video-media-file').value = r.video_media_file || '';
+  document.getElementById('field-video-original-filename').value = r.video_original_filename || '';
+  document.getElementById('field-video-segments').value = (r.video_segments || [])
+    .map(segment => `${segment.start}-${segment.end} ${segment.note || ''}`.trim()).join('\n');
+  if (r.video_media_file) {
+    document.getElementById('video-upload-status').textContent = `已关联：${r.video_original_filename || r.video_media_file}`;
+  }
   document.getElementById('field-source').value = r.source || '';
   document.getElementById('field-title').value = r.title || '';
   document.getElementById('field-author').value = r.author || '';
@@ -172,6 +187,7 @@ function fillForm(r) {
 
 function bindEvents() {
   document.getElementById('btn-submit').addEventListener('click', submit);
+  document.getElementById('btn-upload-video').addEventListener('click', uploadVideo);
   document.getElementById('btn-generate-filename').addEventListener('click', generateAndCopyFilename);
   document.getElementById('btn-parse-filename').addEventListener('click', parseFilenameIntoFields);
   document.getElementById('btn-cancel').addEventListener('click', () => {
@@ -188,6 +204,7 @@ function bindEvents() {
 
   document.getElementById('btn-ai-ocr')?.addEventListener('click', runOCR);
   document.getElementById('btn-ai-convert')?.addEventListener('click', convertOCRText);
+  document.getElementById('btn-ai-punctuate')?.addEventListener('click', punctuateCleanText);
   document.getElementById('btn-ai-analyze')?.addEventListener('click', analyzeCleanText);
   bindAIImageInput();
 
@@ -198,6 +215,7 @@ function bindEvents() {
     updateArchiveHolderVisibility();
     updateImageFormVisibility();
     updateOpinionTypeVisibility();
+    updateVideoFieldVisibility();
   });
 
   // 来源下拉变化时，自动填入输入框
@@ -226,6 +244,78 @@ function bindEvents() {
   updateArchiveHolderVisibility();
   updateImageFormVisibility();
   updateOpinionTypeVisibility();
+  updateVideoFieldVisibility();
+}
+
+function updateVideoFieldVisibility() {
+  const isVideo = document.getElementById('field-type').value === '影像资料';
+  document.getElementById('video-fields').style.display = isVideo ? '' : 'none';
+  document.getElementById('field-time-label').textContent = isVideo ? '画面拍摄时间' : '时间';
+  document.getElementById('field-version-label').textContent = isVideo ? '馆藏编号／片号' : '版次/期号/档案号/页码';
+}
+
+async function uploadVideo() {
+  const input = document.getElementById('video-file-input');
+  const status = document.getElementById('video-upload-status');
+  const file = input.files[0];
+  if (!file) {
+    status.textContent = '请先选择一个视频文件。';
+    return;
+  }
+  if (!['.mp4', '.webm', '.mov', '.mkv', '.avi'].some(ext => file.name.toLowerCase().endsWith(ext))) {
+    status.textContent = '支持 MP4、WebM、MOV、MKV、AVI；建议使用 MP4。';
+    return;
+  }
+  if (!['localhost', '127.0.0.1'].includes(location.hostname)) {
+    status.textContent = '上传仅在本地服务中可用，请通过“启动.bat”打开数据库。';
+    return;
+  }
+  const button = document.getElementById('btn-upload-video');
+  const submitButton = document.getElementById('btn-submit');
+  videoUploading = true;
+  button.disabled = true;
+  submitButton.disabled = true;
+  status.textContent = `正在上传 ${file.name}（${(file.size / 1024 / 1024).toFixed(1)} MB）…`;
+  try {
+    const body = new FormData();
+    body.append('file', file, file.name);
+    const response = await fetch('http://127.0.0.1:8765/api/media/upload', { method: 'POST', body });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || !result.ok) throw new Error(result.detail || '上传失败');
+    document.getElementById('field-video-media-file').value = result.file;
+    document.getElementById('field-video-original-filename').value = result.original_name;
+    status.textContent = result.reused
+      ? `✓ 已找到内容相同的文件，直接关联“${result.file}”，没有新增副本。请点击页面底部“保存史料”。`
+      : `✓ 已上传：${result.original_name}。请点击页面底部“保存史料”，将视频关联到这条记录。`;
+    input.value = '';
+  } catch (error) {
+    status.textContent = error instanceof TypeError
+      ? '无法连接本地上传服务。若服务窗口标题出现“选择”，请在窗口按 Esc；仍未启动时关闭旧窗口，再运行“启动.bat”。'
+      : `上传失败：${error.message}。请检查本地服务窗口中的错误信息。`;
+  } finally {
+    videoUploading = false;
+    button.disabled = false;
+    submitButton.disabled = false;
+  }
+}
+
+function parseVideoTime(value) {
+  const parts = value.split(':').map(Number);
+  if (!parts.every(Number.isInteger) || parts.some(part => part < 0)) return null;
+  if (parts.length === 2 && parts[1] < 60) return parts[0] * 60 + parts[1];
+  if (parts.length === 3 && parts[1] < 60 && parts[2] < 60) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  return null;
+}
+
+function parseVideoSegments(value) {
+  return value.split('\n').map(line => line.trim()).filter(Boolean).map((line, index) => {
+    const match = line.match(/^(\d{1,3}:\d{2}(?::\d{2})?)\s*[-–—]\s*(\d{1,3}:\d{2}(?::\d{2})?)\s+(.+)$/);
+    if (!match || parseVideoTime(match[1]) === null || parseVideoTime(match[2]) === null
+        || parseVideoTime(match[2]) <= parseVideoTime(match[1])) {
+      throw new Error(`片段第 ${index + 1} 行格式有误，请填写“00:12:35-00:12:48 画面说明”。`);
+    }
+    return { start: match[1], end: match[2], note: match[3].trim() };
+  });
 }
 
 // 标准文本与 Word 文字提取框保持同步，避免人工修订后导出的 DOCX 仍使用旧版本。
@@ -536,6 +626,36 @@ async function convertOCRText() {
   }
 }
 
+async function punctuateCleanText() {
+  const button = document.getElementById('btn-ai-punctuate');
+  const cleanText = document.getElementById('field-clean-text');
+  const text = cleanText.value.trim();
+  if (!text) {
+    setAIStatus('请先完成繁简转换，或在标准文本框中粘贴文字。', 'error', 'punctuate');
+    return;
+  }
+  button.disabled = true;
+  button.textContent = '正在断句排版…';
+  setAIStatus('DeepSeek 正在整理断句、标点、段落和阅读顺序。', 'loading', 'punctuate');
+  try {
+    const response = await fetch('http://127.0.0.1:8765/api/punctuate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.detail || '智能断句服务暂时无法使用。');
+    cleanText.value = payload.text || text;
+    document.getElementById('field-docx-preview').value = cleanText.value;
+    setAIStatus('断句排版完成，请复核', 'success', 'punctuate');
+  } catch (error) {
+    setAIRequestError(error, '智能断句失败', 'punctuate');
+  } finally {
+    button.disabled = false;
+    button.textContent = 'DeepSeek 断句排版';
+  }
+}
+
 async function analyzeCleanText() {
   const button = document.getElementById('btn-ai-analyze');
   const text = document.getElementById('field-clean-text').value.trim();
@@ -746,8 +866,9 @@ function populateSourceSelect() {
   select.innerHTML = '';
   const placeholder = document.createElement('option');
   placeholder.value = '';
+  const sourceLabel = type === '广告' ? '广告 / 报刊文章' : type;
   placeholder.textContent = sources.length > 0
-    ? `— 从已有 ${sources.length} 个「${type}」来源中选择 —`
+    ? `— 从已有 ${sources.length} 个「${sourceLabel}」来源中选择 —`
     : `— 该类型暂无已有来源 —`;
   select.appendChild(placeholder);
 
@@ -794,6 +915,7 @@ function populateArchiveHolderSelect() {
 
 
 function submit() {
+  if (videoUploading) return;
   const title = document.getElementById('field-title').value.trim();
   if (!title) {
     alert('请填写「题名」字段');
@@ -844,6 +966,24 @@ function submit() {
   }
 
   const recordType = document.getElementById('field-type').value;
+  let videoSegments = [];
+  if (recordType === '影像资料') {
+    if (document.getElementById('video-file-input').files.length > 0) {
+      alert('已选择视频文件，请先点击“上传视频”，看到上传成功后再保存史料。');
+      return;
+    }
+    const sourceUrl = document.getElementById('field-video-source-url').value.trim();
+    if (sourceUrl && !/^https?:\/\//i.test(sourceUrl)) {
+      alert('来源链接须以 http:// 或 https:// 开头。');
+      return;
+    }
+    try {
+      videoSegments = parseVideoSegments(document.getElementById('field-video-segments').value);
+    } catch (error) {
+      alert(error.message);
+      return;
+    }
+  }
   // 收集相关史料（同步最新的 relation 输入值）
   const relatedInputs = document.querySelectorAll('#related-list .related-record-item');
   relatedInputs.forEach(item => {
@@ -870,6 +1010,15 @@ function submit() {
   const record = {
     type: recordType,
     image_form: recordType === '图像' ? document.getElementById('field-image-form').value : '',
+    video_kind: recordType === '影像资料' ? document.getElementById('field-video-kind').value : '',
+    video_release_time: recordType === '影像资料' ? document.getElementById('field-video-release-time').value.trim() : '',
+    video_location: recordType === '影像资料' ? document.getElementById('field-video-location').value.trim() : '',
+    video_date_confidence: recordType === '影像资料' ? document.getElementById('field-video-date-confidence').value : '',
+    video_source_url: recordType === '影像资料' ? document.getElementById('field-video-source-url').value.trim() : '',
+    video_rights: recordType === '影像资料' ? document.getElementById('field-video-rights').value.trim() : '',
+    video_media_file: recordType === '影像资料' ? document.getElementById('field-video-media-file').value : '',
+    video_original_filename: recordType === '影像资料' ? document.getElementById('field-video-original-filename').value : '',
+    video_segments: videoSegments,
     opinion_types: recordType === '报刊文章' ? opinionTypes : [],
     topics,
     source: document.getElementById('field-source') ? document.getElementById('field-source').value.trim() : '',

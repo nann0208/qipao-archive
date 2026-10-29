@@ -1,4 +1,4 @@
-const CACHE_NAME = 'qipao-pwa-v11';
+const CACHE_NAME = 'qipao-pwa-v12';
 const DATA_URL = 'https://nann0208.github.io/qipao-archive/data/data.js';
 
 const STATIC_ASSETS = [

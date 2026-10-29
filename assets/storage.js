@@ -5,6 +5,11 @@ const STORAGE_KEYS = {
   NEW_RECORDS: 'shiliao_new_v1',
   DELETED: 'shiliao_deleted_v1'
 };
+const ID_COUNTER_KEY = 'shiliao_id_counter_v1';
+// 页面刚载入时的主数据库快照，用于导出前确认磁盘数据没有在此期间变化。
+const BASE_DATA_SNAPSHOT = JSON.stringify(window.INITIAL_DATA || []);
+// 恢复后的 2026 年编号已使用至 361；即使 data.js 被旧备份替换，也不能重用这些编号。
+const KNOWN_ID_HIGH_WATER = { 2026: 361 };
 
 // 主题配色（与 style.css 同步）
 const TOPIC_COLORS = {
@@ -25,7 +30,9 @@ const TYPE_ICONS = {
   '专著': '📖',
   '档案文件': '📜',
   '图像': '🖼️',
-  '文学作品': '✒️'
+  '文学作品': '✒️',
+  '影像资料': '🎞️',
+  '广告': '📣'
 };
 
 const IMPORTANCE_LABELS = {
@@ -39,8 +46,9 @@ const ALL_TOPICS = [
   '国货展览会', '外贸', '服制条例', '服装制作工艺', '民族国家', '更名争议'
 ];
 
-const ALL_TYPES = ['报刊文章', '专著', '档案文件', '图像', '文学作品'];
+const ALL_TYPES = ['报刊文章', '专著', '档案文件', '图像', '文学作品', '影像资料', '广告'];
 const ALL_IMAGE_FORMS = ['插画/漫画/速写', '摄影', '其他图像', '未注明'];
+const ALL_VIDEO_KINDS = ['同时代影像', '后期纪录片', '影视再现', '来源待考'];
 
 // 类型专属配色（只为需要醒目区分的类型设置；未列出的用默认强调色）
 const TYPE_CHIP_COLORS = {};
@@ -77,8 +85,66 @@ function getDeleted() {
   }
 }
 
+// 合并恢复后，浏览器中可能还留着已写入 data.js 的新增记录。
+// 用创建时间识别同一条史料；如果浏览器版本后来又被编辑过，则把较新的版本保留为修改。
+function reconcileImportedRecords() {
+  const initialByCreatedAt = new Map(
+    (window.INITIAL_DATA || []).filter(r => r.created_at).map(r => [r.created_at, r])
+  );
+  if (initialByCreatedAt.size === 0) return 0;
+
+  const newRecords = getNewRecords();
+  if (newRecords.length === 0) return 0;
+  const overrides = getOverrides();
+  const retained = [];
+  let reconciled = 0;
+  let newerCount = 0;
+
+  for (const record of newRecords) {
+    const imported = record.created_at && initialByCreatedAt.get(record.created_at);
+    if (!imported) {
+      retained.push(record);
+      continue;
+    }
+    const localTime = Date.parse(record.updated_at || record.created_at);
+    const importedTime = Date.parse(imported.updated_at || imported.created_at);
+    if (Number.isFinite(localTime) && Number.isFinite(importedTime) && localTime > importedTime) {
+      const existingTime = Date.parse(overrides[imported.shiliao_id]?.updated_at || '');
+      if (!Number.isFinite(existingTime) || localTime > existingTime) {
+        const { _searchKeyword, ...latest } = record;
+        overrides[imported.shiliao_id] = {
+          ...latest,
+          shiliao_id: imported.shiliao_id,
+          created_at: imported.created_at
+        };
+        newerCount++;
+      }
+    }
+    reconciled++;
+  }
+
+  if (reconciled > 0) {
+    // 留下本次清理前的浏览器原始数据，便于核对和回退。
+    const safetyKey = 'shiliao_recovery_before_reconcile_20261029';
+    if (!localStorage.getItem(safetyKey)) {
+      localStorage.setItem(safetyKey, JSON.stringify({
+        savedAt: new Date().toISOString(),
+        newRecords,
+        overrides: getOverrides(),
+        deleted: getDeleted()
+      }));
+    }
+    localStorage.setItem(STORAGE_KEYS.NEW_RECORDS, JSON.stringify(retained));
+    if (newerCount > 0) localStorage.setItem(STORAGE_KEYS.OVERRIDES, JSON.stringify(overrides));
+    backupToIDB();
+    console.log(`[恢复合并] 已核对 ${reconciled} 条已写入 data.js 的浏览器记录；其中 ${newerCount} 条有较新的浏览器修改。`);
+  }
+  return reconciled;
+}
+
 // 加载所有记录（合并初始数据 + localStorage 修改 + 新增 - 删除）
 function loadAllRecords() {
+  reconcileImportedRecords();
   const initial = window.INITIAL_DATA || [];
   const overrides = getOverrides();
   const newRecords = getNewRecords();
@@ -108,29 +174,32 @@ function getRecord(id) {
   return all.find(r => r.shiliao_id === id);
 }
 
-// 🧹 清理 localStorage 里的脏数据（重复的新增记录 / 与初始数据 id 冲突的记录）
-// 返回清理了多少条。供首页启动时自动调用。
+// 🧹 修复 localStorage 里的重复编号；保留每条记录，只给冲突项分配新编号。
+// 返回修复了多少条。供首页启动时自动调用。
 function cleanupDuplicates() {
   const initialIds = new Set((window.INITIAL_DATA || []).map(r => r.shiliao_id));
   const newRecords = getNewRecords();
   const seen = new Set();
   const cleaned = [];
-  let removed = 0;
+  let repaired = 0;
 
   for (const r of newRecords) {
-    // 与初始数据 id 冲突的新增记录 → 丢弃（初始数据优先）
-    if (initialIds.has(r.shiliao_id)) { removed++; continue; }
-    // newRecords 内部重复 → 只留第一条
-    if (seen.has(r.shiliao_id)) { removed++; continue; }
-    seen.add(r.shiliao_id);
-    cleaned.push(r);
+    let record = r;
+    if (record.shiliao_id && (initialIds.has(record.shiliao_id) || seen.has(record.shiliao_id))) {
+      const oldId = record.shiliao_id;
+      record = { ...record, shiliao_id: generateNewId(), updated_at: new Date().toISOString() };
+      repaired++;
+      console.warn(`[编号修复] 保留记录“${record.title || '未命名'}”，编号从 ${oldId} 调整为 ${record.shiliao_id}。`);
+    }
+    if (record.shiliao_id) seen.add(record.shiliao_id);
+    cleaned.push(record);
   }
 
-  if (removed > 0) {
+  if (repaired > 0) {
     localStorage.setItem(STORAGE_KEYS.NEW_RECORDS, JSON.stringify(cleaned));
     backupToIDB();
   }
-  return removed;
+  return repaired;
 }
 
 // 生成新的史料编号
@@ -139,11 +208,19 @@ function generateNewId() {
   const year = new Date().getFullYear();
   const prefix = `SL-${year}-`;
   const yearRecords = all.filter(r => r.shiliao_id && r.shiliao_id.startsWith(prefix));
-  const maxNum = yearRecords.reduce((max, r) => {
+  const dataMax = yearRecords.reduce((max, r) => {
     const num = parseInt(r.shiliao_id.split('-')[2]) || 0;
     return Math.max(max, num);
   }, 0);
-  return `${prefix}${String(maxNum + 1).padStart(3, '0')}`;
+  // 保留编号高水位，避免本地新增记录导出/清缓存后再次分配同一个编号。
+  const counterKey = `${ID_COUNTER_KEY}_${year}`;
+  const savedMax = Math.max(
+    Number(localStorage.getItem(counterKey)) || 0,
+    KNOWN_ID_HIGH_WATER[year] || 0
+  );
+  const next = Math.max(dataMax, savedMax) + 1;
+  localStorage.setItem(counterKey, String(next));
+  return `${prefix}${String(next).padStart(3, '0')}`;
 }
 
 // 添加新记录
@@ -221,6 +298,9 @@ function searchRecords(records, keyword) {
     const haystack = [
       r.shiliao_id,
       r.title, r.source, r.author, r.time, r.version_info, r.image_form,
+      r.video_kind, r.video_release_time, r.video_location, r.video_original_filename,
+      r.video_source_url, r.video_rights,
+      ...(r.video_segments || []).map(s => `${s.start || ''} ${s.end || ''} ${s.note || ''}`),
       r.core_content, r.personal_analysis, r.quotes,
       r.clean_text, r.docx_preview_text,
       r.ai_summary, r.ai_social_issue, r.ai_research_value,
@@ -248,6 +328,11 @@ function filterByType(records, type) {
 function filterByImageForm(records, form) {
   if (!form) return records;
   return records.filter(r => (r.image_form || '未注明') === form);
+}
+
+function filterByVideoKind(records, kind) {
+  if (!kind) return records;
+  return records.filter(r => r.video_kind === kind);
 }
 
 // 按议题筛选
@@ -284,11 +369,12 @@ function getIncompleteIssues(r) {
   if (!r.core_content || !r.core_content.trim()) issues.push('缺少核心内容');
   if (!r.topics || r.topics.length === 0) issues.push('缺少议题');
   // 没有任何关联文件 或 有 docx 但未提取文字 → 提醒
-  const hasDocs = r.document_paths && r.document_paths.length > 0;
+  const hasDocs = (r.document_paths && r.document_paths.length > 0)
+    || (r.type === '影像资料' && (r.video_media_file || r.video_source_url));
   const hasDocxButNoText = hasDocs
     && r.document_paths.some(p => p.toLowerCase().endsWith('.docx'))
     && (!r.docx_preview_text || !r.docx_preview_text.trim());
-  if (!hasDocs) issues.push('缺少原文档案');
+  if (!hasDocs) issues.push(r.type === '影像资料' ? '缺少视频或来源链接' : '缺少原文档案');
   else if (hasDocxButNoText) issues.push('Word未提取');
   return issues;
 }
@@ -403,8 +489,8 @@ function restoreFromBackup(snapshot) {
   return true;
 }
 
-// 启动时检查：如果 localStorage 空了但 IndexedDB 有数据，提示恢复
-async function checkAndRestoreBackup() {
+// 比较 localStorage 与 IndexedDB 快照；即使 localStorage 只剩部分记录，也提示找回缺失新增项。
+async function checkAndRestoreBackup(options = {}) {
   const ls_new = getNewRecords();
   const ls_overrides = getOverrides();
   const ls_deleted = getDeleted();
@@ -412,12 +498,54 @@ async function checkAndRestoreBackup() {
                   Object.keys(ls_overrides).length === 0 &&
                   ls_deleted.length === 0;
 
-  if (!lsEmpty) return; // localStorage 有数据，无需恢复
-
   const backup = await readIDBBackup('main');
   if (!backup) return;
 
-  const newCount = (backup.newRecords || []).length;
+  const initial = window.INITIAL_DATA || [];
+  const initialIds = new Set(initial.map(r => r.shiliao_id).filter(Boolean));
+  const currentIds = new Set([...initialIds, ...ls_new.map(r => r.shiliao_id).filter(Boolean)]);
+  const currentCreatedAt = new Set([...initial, ...ls_new].map(r => r.created_at).filter(Boolean));
+  const deletedIds = new Set([...ls_deleted, ...(backup.deleted || [])]);
+  const missingNewRecords = (backup.newRecords || []).filter(r =>
+    r && r.shiliao_id &&
+    !(r.created_at ? currentCreatedAt.has(r.created_at) : currentIds.has(r.shiliao_id)) &&
+    !deletedIds.has(r.shiliao_id)
+  );
+
+  if (missingNewRecords.length > 0) {
+    const time = new Date(backup.savedAt).toLocaleString('zh-CN');
+    const msg = `🛡️ 本地数据与自动备份不一致。\n\n` +
+      `自动备份中有 ${missingNewRecords.length} 条带编号的新增史料，当前数据库中没有。\n` +
+      `备份时间：${time}\n\n` +
+      `是否恢复这些缺失记录？现有记录不会被覆盖。`;
+    if (!confirm(msg)) return options.blockOnDecline ? 'declined' : false;
+
+    const merged = [...ls_new];
+    const mergedCreatedAt = new Set(merged.map(r => r.created_at).filter(Boolean));
+    for (const record of missingNewRecords) {
+      if (!record.created_at || !mergedCreatedAt.has(record.created_at)) {
+        merged.push(record);
+        if (record.created_at) mergedCreatedAt.add(record.created_at);
+      }
+    }
+    localStorage.setItem(STORAGE_KEYS.NEW_RECORDS, JSON.stringify(merged));
+    cleanupDuplicates();
+    for (const id of getNewRecords().map(r => r.shiliao_id).filter(Boolean)) {
+      const match = String(id).match(/^SL-(\d{4})-(\d+)$/);
+      const counterKey = match && `${ID_COUNTER_KEY}_${match[1]}`;
+      if (match && Number(match[2]) > (Number(localStorage.getItem(counterKey)) || 0)) {
+        localStorage.setItem(counterKey, match[2]);
+      }
+    }
+    await backupToIDB();
+    alert(`✓ 已从 ${time} 的自动备份恢复 ${missingNewRecords.length} 条史料。请马上导出 data.js 保存。`);
+    location.reload();
+    return true;
+  }
+
+  if (!lsEmpty) return false; // 当前数据非空且没有缺失新增记录，无需恢复完整快照。
+
+  const newCount = missingNewRecords.length;
   const overrideCount = Object.keys(backup.overrides || {}).length;
   const deletedCount = (backup.deleted || []).length;
   const total = newCount + overrideCount + deletedCount;
@@ -433,10 +561,12 @@ async function checkAndRestoreBackup() {
     `是否立即恢复？（强烈建议立即恢复并导出 data.js 永久保存）`;
 
   if (confirm(msg)) {
-    restoreFromBackup(backup);
+    restoreFromBackup({ ...backup, newRecords: missingNewRecords });
     alert('✓ 已恢复！请立即点击「⬇ 导出」按钮，将数据保存到 data.js 文件！');
     location.reload();
+    return true;
   }
+  return false;
 }
 
 // 记录最后一次导出时间
@@ -543,8 +673,11 @@ function filterBySources(records, sourcesArray) {
 function getSourcesByType(type) {
   const all = loadAllRecords();
   const sources = new Set();
+  // 广告通常刊登在报刊中，与报刊文章共用刊物来源；同时保留广告自身已有的来源。
+  const sourceTypes = type === '广告' ? new Set(['广告', '报刊文章']) : null;
   all.forEach(r => {
-    if ((!type || r.type === type) && r.source && r.source.trim()) {
+    const typeMatches = !type || (sourceTypes ? sourceTypes.has(r.type) : r.type === type);
+    if (typeMatches && r.source && r.source.trim()) {
       sources.add(r.source.trim());
     }
   });
@@ -678,14 +811,41 @@ window.INITIAL_DATA = ${JSON.stringify(all, null, 2)};
 }
 
 async function replaceDataFileLocally() {
+  // 导出前先检查自动备份，防止只剩部分 localStorage 时把主数据文件覆盖成不完整版本。
+  const backupCheck = await checkAndRestoreBackup({ blockOnDecline: true });
+  if (backupCheck === true) {
+    throw new Error('已从自动备份恢复记录，请等待页面刷新后再导出。');
+  }
+  if (backupCheck === 'declined') {
+    throw new Error('自动备份中有当前数据库缺少的史料，已取消覆盖。');
+  }
+  const currentFile = await fetch(`data/data.js?export-check=${Date.now()}`, { cache: 'no-store' });
+  if (!currentFile.ok) throw new Error('无法核对磁盘上的 data.js，已取消导出。');
+  const currentSource = await currentFile.text();
+  const marker = 'window.INITIAL_DATA = ';
+  if (!currentSource.includes(marker)) throw new Error('磁盘上的 data.js 格式异常，已取消导出。');
+  let currentBase;
+  try {
+    currentBase = JSON.parse(currentSource.split(marker, 2)[1].trim().replace(/;$/, ''));
+  } catch (_) {
+    throw new Error('无法解析磁盘上的 data.js，已取消导出。');
+  }
+  if (JSON.stringify(currentBase) !== BASE_DATA_SNAPSHOT) {
+    throw new Error('网页载入后主数据库已更新。请刷新网页并核对记录，再点击导出。');
+  }
   const all = loadAllRecords();
+  const ids = all.map(r => r.shiliao_id).filter(Boolean);
+  if (new Set(ids).size !== ids.length) {
+    throw new Error('发现重复的史料编号，已停止覆盖数据库；请先恢复或整理本地数据。');
+  }
   const response = await fetch('http://127.0.0.1:8765/export-data', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ records: all })
+    body: JSON.stringify({ records: all, base_records: JSON.parse(BASE_DATA_SNAPSHOT) })
   });
   const payload = await response.json().catch(() => ({}));
-  if (!response.ok || !payload.ok) {
+  if (!response.ok || !payload.ok || payload.count !== all.length ||
+      (Array.isArray(payload.record_ids) && ids.some(id => !payload.record_ids.includes(id)))) {
     throw new Error(payload.detail || '本地服务未能写入 data.js');
   }
   markExported();
@@ -693,6 +853,7 @@ async function replaceDataFileLocally() {
   localStorage.removeItem(STORAGE_KEYS.OVERRIDES);
   localStorage.removeItem(STORAGE_KEYS.NEW_RECORDS);
   localStorage.removeItem(STORAGE_KEYS.DELETED);
+  await backupToIDB(); // 导出成功后同步清爽快照，避免下次启动看到过期备份。
   return payload;
 }
 

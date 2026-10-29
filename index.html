@@ -62,6 +62,10 @@
       <span class="filter-label">图像形式</span>
       <div id="image-form-filters" style="display: contents;"></div>
     </div>
+    <div id="video-kind-filter-row" class="filter-row" style="margin-bottom: 8px; display: none;">
+      <span class="filter-label">影像类别</span>
+      <div id="video-kind-filters" style="display: contents;"></div>
+    </div>
     <div id="opinion-filter-row" class="filter-row" style="margin-bottom: 8px; display: none;">
       <span class="filter-label">舆论类型</span>
       <div id="opinion-filters" style="display: contents;"></div>
@@ -179,8 +183,8 @@
   </div>
 
   <script src="data/data.js"></script>
-  <script src="assets/storage.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/storage.js?v=4"></script>
+  <script src="assets/app.js?v=6"></script>
   <script>
     // AI 助手只在本机服务中显示；GitHub Pages 不会出现此入口。
     if (['localhost', '127.0.0.1'].includes(location.hostname)) {

@@ -21,7 +21,48 @@ function init() {
   }
 
   renderDetail();
-  renderPreview(0);
+  renderPreview(currentRecord.type === '影像资料' ? -1 : 0);
+}
+
+function safeVideoSourceUrl(value) {
+  try {
+    const url = new URL(value);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch (_) {
+    return '';
+  }
+}
+
+function videoTimeSeconds(value) {
+  const parts = String(value || '').split(':').map(Number);
+  if (!parts.every(Number.isInteger)) return 0;
+  return parts.reduce((total, part) => total * 60 + part, 0);
+}
+
+function buildVideoSection(r) {
+  if (r.type !== '影像资料') return '';
+  const sourceUrl = safeVideoSourceUrl(r.video_source_url);
+  const segments = Array.isArray(r.video_segments) ? r.video_segments : [];
+  return `
+    <div class="detail-section">
+      <div class="detail-label">影像来源与考证</div>
+      <div class="video-metadata">
+        <div><strong>影像类别：</strong>${escapeHtml(r.video_kind || '未分类')}</div>
+        <div><strong>制作／发行时间：</strong>${escapeHtml(r.video_release_time || '待补充')}</div>
+        <div><strong>画面地点：</strong>${escapeHtml(r.video_location || '待考证')}</div>
+        <div><strong>年代辨认：</strong>${escapeHtml(r.video_date_confidence || '尚未判断')}</div>
+        ${r.video_rights ? `<div><strong>来源与使用说明：</strong>${escapeHtml(r.video_rights)}</div>` : ''}
+        ${sourceUrl ? `<div><strong>出处：</strong><a href="${escapeAttr(sourceUrl)}" target="_blank" rel="noopener noreferrer">打开馆藏／平台页面 ↗</a></div>` : ''}
+      </div>
+    </div>
+    <div class="detail-section">
+      <div class="detail-label">片段时间码 (${segments.length})</div>
+      ${segments.length ? `<div class="video-segment-list">${segments.map(s => `
+        <div class="video-segment">
+          <button type="button" class="btn video-seek" data-seconds="${videoTimeSeconds(s.start)}" ${!r.video_media_file || window.READ_ONLY ? 'disabled' : ''}>▶ ${escapeHtml(s.start)}–${escapeHtml(s.end)}</button>
+          <span>${escapeHtml(s.note || '')}</span>
+        </div>`).join('')}</div>` : '<div class="form-help">尚未记录片段。编辑此资料时可逐段添加服饰观察。</div>'}
+    </div>`;
 }
 
 function buildRelatedSection(r) {
@@ -86,10 +127,14 @@ function renderDetail() {
   ).join('');
 
   const docPaths = r.document_paths || [];
-  const fileList = docPaths.map((p, i) => {
+  const videoItem = r.type === '影像资料' ? `<div class="file-item active" data-index="-1">
+    <span class="filename">${r.video_media_file ? escapeHtml(r.video_original_filename || '本地视频') : '影像来源'}</span>
+    <span class="ext-badge">VIDEO</span>
+  </div>` : '';
+  const fileList = videoItem + docPaths.map((p, i) => {
     const fname = p.split('/').pop();
     const ext = fname.split('.').pop().toLowerCase();
-    return `<div class="file-item ${i === 0 ? 'active' : ''}" data-index="${i}">
+    return `<div class="file-item ${i === 0 && !videoItem ? 'active' : ''}" data-index="${i}">
       <span class="filename">${escapeHtml(fname)}</span>
       <span class="ext-badge">${escapeHtml(ext)}</span>
     </div>`;
@@ -130,11 +175,11 @@ function renderDetail() {
         <div>${escapeHtml(r.author || '—')}</div>
       </div>
       <div class="detail-meta-item">
-        <div class="label">时间</div>
+        <div class="label">${r.type === '影像资料' ? '画面拍摄时间' : '时间'}</div>
         <div>${escapeHtml(r.time || '—')}</div>
       </div>
       <div class="detail-meta-item" style="grid-column: span 2;">
-        <div class="label">版次/期号/档案号</div>
+        <div class="label">${r.type === '影像资料' ? '馆藏编号／片号' : '版次/期号/档案号'}</div>
         <div>${escapeHtml(r.version_info || '—')}</div>
       </div>
       ${r.type === '档案文件' ? `
@@ -147,6 +192,8 @@ function renderDetail() {
     <div style="margin-bottom: 20px;">
       <button id="btn-cite" class="btn">🔗 引用</button>
     </div>
+
+    ${buildVideoSection(r)}
 
     ${r.core_content ? `
     <div class="detail-section">
@@ -173,8 +220,8 @@ function renderDetail() {
     </div>` : ''}
 
     <div class="detail-section">
-      <div class="detail-label">原始文件 (${docPaths.length})</div>
-      ${docPaths.length > 0 ? `<div class="file-list" id="file-list">${fileList}</div>` : '<div style="font-size: 12px; color: var(--color-text-muted);">尚未关联文档</div>'}
+      <div class="detail-label">关联文件 (${docPaths.length + (videoItem ? 1 : 0)})</div>
+      ${fileList ? `<div class="file-list" id="file-list">${fileList}</div>` : '<div style="font-size: 12px; color: var(--color-text-muted);">尚未关联文档</div>'}
     </div>
 
     ${docPaths.some(p => p.toLowerCase().endsWith('.docx')) ? `
@@ -205,6 +252,20 @@ function renderDetail() {
       currentFileIndex = idx;
       document.querySelectorAll('.file-item').forEach(el => el.classList.toggle('active', parseInt(el.dataset.index) === idx));
       renderPreview(idx);
+    });
+  });
+  document.querySelectorAll('.video-seek').forEach(button => {
+    button.addEventListener('click', () => {
+      const player = document.getElementById('video-player');
+      if (!player) {
+        currentFileIndex = -1;
+        renderPreview(-1);
+      }
+      const activePlayer = document.getElementById('video-player');
+      if (activePlayer) {
+        activePlayer.currentTime = Number(button.dataset.seconds);
+        activePlayer.play().catch(() => {});
+      }
     });
   });
 
@@ -244,6 +305,23 @@ function renderPreview(index) {
   const docPaths = currentRecord.document_paths || [];
   const preview = document.getElementById('preview-area');
   const toolbar = document.getElementById('preview-toolbar');
+
+  if (currentRecord.type === '影像资料' && index === -1) {
+    const mediaFile = currentRecord.video_media_file || '';
+    const sourceUrl = safeVideoSourceUrl(currentRecord.video_source_url);
+    toolbar.innerHTML = `<span>${escapeHtml(currentRecord.video_original_filename || '影像资料')}</span>`;
+    if (mediaFile && !window.READ_ONLY && !/[\\/]/.test(mediaFile)
+        && !mediaFile.startsWith('.') && /\.(mp4|webm|mov|mkv|avi)$/i.test(mediaFile)) {
+      const videoUrl = `http://127.0.0.1:8765/api/media/${encodeURIComponent(mediaFile)}`;
+      preview.innerHTML = `<div class="video-preview"><video id="video-player" controls preload="metadata" src="${escapeAttr(videoUrl)}"></video>
+        <p>若浏览器无法播放此格式，可<a href="${escapeAttr(videoUrl)}" target="_blank" rel="noopener noreferrer">打开原视频 ↗</a>或改用 MP4；文件仍保存在本地“影像资料”文件夹。</p></div>`;
+    } else {
+      preview.innerHTML = `<div class="preview-empty"><div style="font-size: 36px; margin-bottom: 12px;">🎞️</div>
+        <div>${window.READ_ONLY && mediaFile ? '本地影像未公开' : '尚未上传本地视频'}</div>
+        ${sourceUrl ? `<p><a href="${escapeAttr(sourceUrl)}" target="_blank" rel="noopener noreferrer">打开来源页面 ↗</a></p>` : ''}</div>`;
+    }
+    return;
+  }
 
   if (docPaths.length === 0) {
     if (currentRecord.docx_preview_text) {
@@ -795,6 +873,12 @@ function buildCitations(r) {
       icon: '✒️',
       label: '文学作品',
       text: `${author}. ${title}[M]. 【出版地】: ${source || '【出版者】'}, ${year}.`
+    });
+  } else if (r.type === '影像资料') {
+    items.push({
+      icon: '🎞️',
+      label: '影像资料（请按目标期刊格式调整）',
+      text: `${author}. ${title}[V]. ${source || '【馆藏机构／平台】'}, ${r.video_release_time || time || '【制作／发行时间】'}${r.video_source_url ? `. ${r.video_source_url}` : ''}.`
     });
   } else {
     // 图像或其他类型 —— 提供一个通用参考格式

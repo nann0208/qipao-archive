@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>史料库紧急备份</title>
+  <style>
+    body { margin: 0; background: #f8f4ee; color: #332a28; font: 17px/1.7 system-ui, sans-serif; }
+    main { max-width: 720px; margin: 48px auto; padding: 32px; background: white; border: 1px solid #e7d8cc; border-radius: 16px; }
+    h1 { margin-top: 0; color: #83293b; font-size: 28px; }
+    .count { font-size: 28px; font-weight: 700; color: #83293b; }
+    .notice { padding: 12px 16px; background: #fff1c6; border-radius: 8px; }
+    button { margin-top: 16px; padding: 12px 22px; border: 0; border-radius: 8px; background: #83293b; color: white; font: inherit; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    small { color: #766b66; }
+  </style>
+  <script src="data/data.js"></script>
+</head>
+<body>
+  <main>
+    <h1>史料库紧急备份</h1>
+    <p class="notice">此页只读取数据并下载备份文件，不会覆盖 data.js，也不会清除浏览器中的记录。</p>
+    <p>当前网页来源：<strong id="origin"></strong></p>
+    <p>读到的本地改动：<span class="count" id="changes">读取中…</span></p>
+    <p id="detail"></p>
+    <p>主数据库记录：<strong id="base-count"></strong> 条</p>
+    <p>请对照首页黄色提示中的数字。若首页显示 11 条，这里也应显示 11 条；数字不一致时，请回到显示 11 条的同一个浏览器打开本页。</p>
+    <button id="download" type="button" disabled>下载紧急备份 JSON</button>
+    <p id="status" role="status"></p>
+    <small>下载后请确认文件确实出现在“下载”文件夹，再关闭电脑。保留浏览器数据，暂时不要点击首页的导出或重置按钮。</small>
+  </main>
+  <script>
+    (() => {
+      const $ = id => document.getElementById(id);
+      const parse = (raw, fallback) => {
+        try { return JSON.parse(raw || '') || fallback; } catch (_) { return fallback; }
+      };
+      const read = () => {
+        const raw = {};
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('shiliao_')) raw[key] = localStorage.getItem(key);
+        }
+        const newRecords = parse(raw.shiliao_new_v1, []);
+        const overrides = parse(raw.shiliao_overrides_v1, {});
+        const deleted = parse(raw.shiliao_deleted_v1, []);
+        const initial = Array.isArray(window.INITIAL_DATA) ? window.INITIAL_DATA : [];
+        const removed = new Set(Array.isArray(deleted) ? deleted : []);
+        const merged = initial.filter(r => !removed.has(r.shiliao_id))
+          .map(r => overrides[r.shiliao_id] ? { ...r, ...overrides[r.shiliao_id] } : r)
+          .concat((Array.isArray(newRecords) ? newRecords : []).filter(r => !removed.has(r.shiliao_id)));
+        const changes = (Array.isArray(newRecords) ? newRecords.length : 0) +
+          Object.keys(overrides).length + (Array.isArray(deleted) ? deleted.length : 0);
+        return { raw, newRecords, overrides, deleted, initial, merged, changes };
+      };
+      let snapshot;
+      try {
+        snapshot = read();
+        $('origin').textContent = location.origin;
+        $('changes').textContent = `${snapshot.changes} 条`;
+        $('detail').textContent = `新增 ${snapshot.newRecords.length} 条，修改 ${Object.keys(snapshot.overrides).length} 条，删除标记 ${snapshot.deleted.length} 条。`;
+        $('base-count').textContent = snapshot.initial.length;
+        $('download').disabled = false;
+      } catch (error) {
+        $('changes').textContent = '读取失败';
+        $('status').textContent = `无法读取浏览器数据：${error.message}`;
+        return;
+      }
+      $('download').addEventListener('click', () => {
+        // 再读取一次，确保下载的是点击时最新的本地数据。
+        const current = read();
+        const backup = {
+          format: 'shiliao-emergency-backup-v1',
+          capturedAt: new Date().toISOString(),
+          origin: location.origin,
+          baseRecords: current.initial,
+          localStorage: current.raw,
+          newRecords: current.newRecords,
+          overrides: current.overrides,
+          deleted: current.deleted,
+          mergedRecords: current.merged,
+          localChangeCount: current.changes
+        };
+        const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const stamp = new Date().toLocaleString('sv-SE').replace(/[ :]/g, '-');
+        a.href = url;
+        a.download = `史料库-紧急备份-${stamp}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+        $('status').textContent = `已生成备份：本地改动 ${current.changes} 条、主数据库 ${current.initial.length} 条。请到“下载”文件夹确认文件存在。`;
+      });
+    })();
+  </script>
+</body>
+</html>
