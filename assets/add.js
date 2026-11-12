@@ -16,6 +16,7 @@ const SUGGESTED_KEYWORDS = [
 function init() {
   const params = new URLSearchParams(location.search);
   editingId = params.get('id');
+  populateImageSourceFields();
 
   // AI 中间服务只在本机运行，公开网页端不显示该入口。
   const isLocalSite = location.hostname.includes('localhost') || location.hostname.includes('127.0.0.1');
@@ -115,6 +116,14 @@ function renderKeywordSuggestions() {
 function fillForm(r) {
   document.getElementById('field-type').value = r.type || '报刊文章';
   document.getElementById('field-image-form').value = r.image_form || '';
+  const channelSelect = document.getElementById('field-image-source-channel');
+  if (r.image_source_channel && !Array.from(channelSelect.options).some(option => option.value === r.image_source_channel)) {
+    channelSelect.add(new Option(r.image_source_channel, r.image_source_channel));
+  }
+  channelSelect.value = r.image_source_channel || '';
+  document.getElementById('field-image-provider').value = r.image_provider || '';
+  document.getElementById('field-image-source-url').value = r.image_source_url || '';
+  document.getElementById('field-image-rights').value = r.image_rights || '';
   document.getElementById('field-video-kind').value = r.video_kind || '';
   document.getElementById('field-video-release-time').value = r.video_release_time || '';
   document.getElementById('field-video-location').value = r.video_location || '';
@@ -248,10 +257,14 @@ function bindEvents() {
 }
 
 function updateVideoFieldVisibility() {
-  const isVideo = document.getElementById('field-type').value === '影像资料';
+  const type = document.getElementById('field-type').value;
+  const isVideo = type === '影像资料';
   document.getElementById('video-fields').style.display = isVideo ? '' : 'none';
   document.getElementById('field-time-label').textContent = isVideo ? '画面拍摄时间' : '时间';
-  document.getElementById('field-version-label').textContent = isVideo ? '馆藏编号／片号' : '版次/期号/档案号/页码';
+  document.getElementById('field-version-label').textContent = isVideo ? '馆藏编号／片号'
+    : type === '图像' ? '版次／页码／馆藏号／资源编号' : '版次/期号/档案号/页码';
+  document.getElementById('field-version').placeholder = type === '图像'
+    ? '如：第283期-第8页 / 0664864（保留编号开头的0）' : '如：第3版 / 第5卷-第2期 / 第168页';
 }
 
 async function uploadVideo() {
@@ -839,8 +852,25 @@ function updateOpinionTypeVisibility() {
 
 function updateImageFormVisibility() {
   const type = document.getElementById('field-type').value;
+  const isImage = type === '图像';
   const row = document.getElementById('image-form-group');
-  if (row) row.style.display = type === '图像' ? '' : 'none';
+  if (row) row.style.display = isImage ? '' : 'none';
+  document.getElementById('image-source-fields').style.display = isImage ? '' : 'none';
+  document.getElementById('field-source-label').textContent = isImage ? '原始出处' : '来源';
+  document.getElementById('field-source').placeholder = isImage
+    ? '原刊物、图书或档案系列，如：良友；不详可暂留空' : '或输入新来源（如：申报 / 商务印书馆）';
+}
+
+function populateImageSourceFields() {
+  const channelSelect = document.getElementById('field-image-source-channel');
+  IMAGE_SOURCE_CHANNELS.forEach(channel => channelSelect.add(new Option(channel, channel)));
+  const providers = [...new Set(loadAllRecords()
+    .filter(r => r.type === '图像' && r.image_provider)
+    .map(r => r.image_provider.trim()).filter(Boolean))];
+  const options = document.getElementById('image-provider-options');
+  providers.sort((a, b) => a.localeCompare(b, 'zh-Hans-CN')).forEach(provider => {
+    options.appendChild(new Option(provider, provider));
+  });
 }
 
 // 控制「收藏机构」字段的显隐（仅在档案文件时显示）
@@ -966,6 +996,11 @@ function submit() {
   }
 
   const recordType = document.getElementById('field-type').value;
+  const imageSourceUrl = document.getElementById('field-image-source-url').value.trim();
+  if (recordType === '图像' && imageSourceUrl && !safeSourceUrl(imageSourceUrl)) {
+    alert('图像资源链接须为有效的 http:// 或 https:// 网页地址。');
+    return;
+  }
   let videoSegments = [];
   if (recordType === '影像资料') {
     if (document.getElementById('video-file-input').files.length > 0) {
@@ -1010,6 +1045,10 @@ function submit() {
   const record = {
     type: recordType,
     image_form: recordType === '图像' ? document.getElementById('field-image-form').value : '',
+    image_source_channel: recordType === '图像' ? document.getElementById('field-image-source-channel').value : '',
+    image_provider: recordType === '图像' ? document.getElementById('field-image-provider').value.trim() : '',
+    image_source_url: recordType === '图像' ? imageSourceUrl : '',
+    image_rights: recordType === '图像' ? document.getElementById('field-image-rights').value.trim() : '',
     video_kind: recordType === '影像资料' ? document.getElementById('field-video-kind').value : '',
     video_release_time: recordType === '影像资料' ? document.getElementById('field-video-release-time').value.trim() : '',
     video_location: recordType === '影像资料' ? document.getElementById('field-video-location').value.trim() : '',

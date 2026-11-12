@@ -48,6 +48,7 @@ const ALL_TOPICS = [
 
 const ALL_TYPES = ['报刊文章', '专著', '档案文件', '图像', '文学作品', '影像资料', '广告'];
 const ALL_IMAGE_FORMS = ['插画/漫画/速写', '摄影', '其他图像', '未注明'];
+const IMAGE_SOURCE_CHANNELS = ['纸本文献', '馆藏数字平台', '专业图片库', '网络转载', '私人提供', '待考'];
 const ALL_VIDEO_KINDS = ['同时代影像', '后期纪录片', '影视再现', '来源待考'];
 
 // 类型专属配色（只为需要醒目区分的类型设置；未列出的用默认强调色）
@@ -298,6 +299,7 @@ function searchRecords(records, keyword) {
     const haystack = [
       r.shiliao_id,
       r.title, r.source, r.author, r.time, r.version_info, r.image_form,
+      r.image_source_channel, r.image_provider, r.image_source_url, r.image_rights,
       r.video_kind, r.video_release_time, r.video_location, r.video_original_filename,
       r.video_source_url, r.video_rights,
       ...(r.video_segments || []).map(s => `${s.start || ''} ${s.end || ''} ${s.note || ''}`),
@@ -328,6 +330,36 @@ function filterByType(records, type) {
 function filterByImageForm(records, form) {
   if (!form) return records;
   return records.filter(r => (r.image_form || '未注明') === form);
+}
+
+function filterByImageSourceChannel(records, channel) {
+  if (!channel) return records;
+  return records.filter(r => r.type === '图像' && (r.image_source_channel || '未注明') === channel);
+}
+
+function getImageSources() {
+  const sources = new Set();
+  loadAllRecords().filter(r => r.type === '图像').forEach(r => {
+    [r.source, r.image_provider].forEach(value => {
+      if (value && value.trim()) sources.add(value.trim());
+    });
+  });
+  return Array.from(sources).sort((a, b) => a.localeCompare(b, 'zh-Hans-CN'));
+}
+
+function filterByImageSources(records, sources) {
+  if (!sources || sources.length === 0) return records;
+  const selected = new Set(sources);
+  return records.filter(r => [r.source, r.image_provider].some(value => value && selected.has(value.trim())));
+}
+
+function safeSourceUrl(value) {
+  try {
+    const url = new URL(value);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch (_) {
+    return '';
+  }
 }
 
 function filterByVideoKind(records, kind) {
@@ -363,18 +395,22 @@ function getIncompleteIssues(r) {
   if (!r) return [];
   const issues = [];
   if (!r.title || !r.title.trim()) issues.push('缺少题名');
-  if (r.type !== '档案文件' && (!r.source || !r.source.trim())) issues.push('缺少来源');
+  const hasImageSource = r.type === '图像' && (
+    (r.image_provider && r.image_provider.trim()) || safeSourceUrl(r.image_source_url)
+  );
+  if (r.type !== '档案文件' && !hasImageSource && (!r.source || !r.source.trim())) issues.push('缺少来源');
   if (!r.author || !r.author.trim()) issues.push('缺少作者');
   if (!r.time || !r.time.trim()) issues.push('缺少时间');
   if (!r.core_content || !r.core_content.trim()) issues.push('缺少核心内容');
   if (!r.topics || r.topics.length === 0) issues.push('缺少议题');
   // 没有任何关联文件 或 有 docx 但未提取文字 → 提醒
   const hasDocs = (r.document_paths && r.document_paths.length > 0)
+    || (r.type === '图像' && safeSourceUrl(r.image_source_url))
     || (r.type === '影像资料' && (r.video_media_file || r.video_source_url));
   const hasDocxButNoText = hasDocs
-    && r.document_paths.some(p => p.toLowerCase().endsWith('.docx'))
+    && (r.document_paths || []).some(p => p.toLowerCase().endsWith('.docx'))
     && (!r.docx_preview_text || !r.docx_preview_text.trim());
-  if (!hasDocs) issues.push(r.type === '影像资料' ? '缺少视频或来源链接' : '缺少原文档案');
+  if (!hasDocs) issues.push(r.type === '影像资料' ? '缺少视频或来源链接' : r.type === '图像' ? '缺少原图或来源链接' : '缺少原文档案');
   else if (hasDocxButNoText) issues.push('Word未提取');
   return issues;
 }

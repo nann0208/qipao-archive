@@ -25,12 +25,23 @@ function init() {
 }
 
 function safeVideoSourceUrl(value) {
-  try {
-    const url = new URL(value);
-    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
-  } catch (_) {
-    return '';
-  }
+  return safeSourceUrl(value);
+}
+
+function buildImageSourceSection(r) {
+  if (r.type !== '图像') return '';
+  const sourceUrl = safeSourceUrl(r.image_source_url);
+  return `
+    <div class="detail-section">
+      <div class="detail-label">图像来源</div>
+      <div class="video-metadata">
+        <div><strong>图像形式</strong> ${escapeHtml(r.image_form || '未注明')}</div>
+        <div><strong>来源渠道</strong> ${escapeHtml(r.image_source_channel || '未注明')}</div>
+        ${r.image_provider ? `<div><strong>收藏／提供机构</strong> ${escapeHtml(r.image_provider)}</div>` : ''}
+        ${r.image_rights ? `<div style="white-space: pre-wrap;"><strong>署名与使用说明</strong> ${escapeHtml(r.image_rights)}</div>` : ''}
+        ${sourceUrl ? `<div><a href="${escapeAttr(sourceUrl)}" target="_blank" rel="noopener noreferrer">打开资源详情页 ↗</a></div>` : ''}
+      </div>
+    </div>`;
 }
 
 function videoTimeSeconds(value) {
@@ -167,7 +178,7 @@ function renderDetail() {
     <div class="detail-meta-row">
       ${r.type !== '档案文件' ? `
       <div class="detail-meta-item">
-        <div class="label">来源</div>
+        <div class="label">${r.type === '图像' ? '原始出处' : '来源'}</div>
         <div>${escapeHtml(r.source || '—')}</div>
       </div>` : ''}
       <div class="detail-meta-item">
@@ -179,7 +190,7 @@ function renderDetail() {
         <div>${escapeHtml(r.time || '—')}</div>
       </div>
       <div class="detail-meta-item" style="grid-column: span 2;">
-        <div class="label">${r.type === '影像资料' ? '馆藏编号／片号' : '版次/期号/档案号'}</div>
+        <div class="label">${r.type === '影像资料' ? '馆藏编号／片号' : r.type === '图像' ? '版次／页码／馆藏号／资源编号' : '版次/期号/档案号'}</div>
         <div>${escapeHtml(r.version_info || '—')}</div>
       </div>
       ${r.type === '档案文件' ? `
@@ -193,6 +204,7 @@ function renderDetail() {
       <button id="btn-cite" class="btn">🔗 引用</button>
     </div>
 
+    ${buildImageSourceSection(r)}
     ${buildVideoSection(r)}
 
     ${r.core_content ? `
@@ -328,6 +340,17 @@ function renderPreview(index) {
       toolbar.innerHTML = '<span>AI 识别原文 · 可选择文字添加批注</span>';
       preview.innerHTML = renderDocxPanel(currentRecord);
       if (!window.READ_ONLY) bindDocxAnnotationEvents(currentRecord, preview);
+      return;
+    }
+    const imageSourceUrl = currentRecord.type === '图像' ? safeSourceUrl(currentRecord.image_source_url) : '';
+    if (imageSourceUrl) {
+      toolbar.innerHTML = '<span>图像来源页面</span>';
+      preview.innerHTML = `<div class="preview-empty">
+        <div style="font-size: 36px; margin-bottom: 12px;">🖼️</div>
+        <div>已保存图像来源页面</div>
+        <p><a href="${escapeAttr(imageSourceUrl)}" target="_blank" rel="noopener noreferrer">打开资源详情页 ↗</a></p>
+        <div style="font-size: 12px;">下载原图后，可在编辑页面补充本地文件路径</div>
+      </div>`;
       return;
     }
     preview.innerHTML = `
@@ -880,8 +903,22 @@ function buildCitations(r) {
       label: '影像资料（请按目标期刊格式调整）',
       text: `${author}. ${title}[V]. ${source || '【馆藏机构／平台】'}, ${r.video_release_time || time || '【制作／发行时间】'}${r.video_source_url ? `. ${r.video_source_url}` : ''}.`
     });
+  } else if (r.type === '图像') {
+    const parts = [`${author}. ${title}[Z].`];
+    if (time) parts.push(`${time}.`);
+    if (source) parts.push(`原始出处 ${source}.`);
+    if (r.image_provider) parts.push(`收藏／提供机构 ${r.image_provider}.`);
+    if (vinfo) parts.push(`版次／页码／资源编号 ${vinfo}.`);
+    const imageSourceUrl = safeSourceUrl(r.image_source_url);
+    if (imageSourceUrl) parts.push(imageSourceUrl);
+    if (r.image_rights) parts.push(`署名与使用说明 ${r.image_rights}`);
+    items.push({
+      icon: '🖼️',
+      label: '图像来源信息（请按目标期刊格式调整）',
+      text: parts.join(' ')
+    });
   } else {
-    // 图像或其他类型 —— 提供一个通用参考格式
+    // 其他类型使用通用参考格式。
     items.push({
       icon: '🖼️',
       label: '图像/其他',
@@ -918,7 +955,7 @@ function openCiteModal(r) {
     <div class="cite-modal-overlay"></div>
     <div class="cite-modal-content">
       <div class="cite-modal-header">
-        <h3>🔗 引用格式（GB/T 7714）</h3>
+        <h3>🔗 ${r.type === '图像' ? '图像来源信息' : '引用格式（GB/T 7714）'}</h3>
         <button class="btn-close" id="btn-cite-close">&times;</button>
       </div>
       <div class="cite-modal-body">

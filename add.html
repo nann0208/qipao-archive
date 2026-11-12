@@ -40,7 +40,7 @@
         </select>
       </div>
       <div class="form-group" id="source-group">
-        <label class="form-label">来源</label>
+        <label id="field-source-label" class="form-label">来源</label>
         <select id="field-source-select" class="form-select" style="margin-bottom: 6px;">
           <option value="">— 从已有来源中选择 —</option>
         </select>
@@ -56,8 +56,37 @@
         <option value="摄影">摄影</option>
         <option value="其他图像">其他图像</option>
       </select>
-      <div class="form-help">用于区分报刊中的绘画、连环画、钢笔速写与摄影材料</div>
+      <div class="form-help">用于区分摄影、插画、漫画、速写等图像形式</div>
     </div>
+
+    <section id="image-source-fields" class="video-form-section" style="display: none;" aria-labelledby="image-source-title">
+      <h3 id="image-source-title">图像来源</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="field-image-source-channel">来源渠道</label>
+          <select id="field-image-source-channel" class="form-select">
+            <option value="">— 尚未注明 —</option>
+          </select>
+          <div class="form-help">按本次获取图片的直接渠道选择；原刊物、图书或档案系列填写在“原始出处”中</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field-image-provider">收藏／提供机构</label>
+          <input id="field-image-provider" class="form-input" list="image-provider-options" placeholder="如：上海市档案馆 / Granger" />
+          <datalist id="image-provider-options"></datalist>
+          <div class="form-help">填写实际收藏机构、数字馆藏平台、图片数据库或提供者</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="field-image-source-url">资源详情页链接</label>
+        <input id="field-image-source-url" class="form-input" type="url" placeholder="https://…，请填写这张图片的具体页面地址" />
+        <div class="form-help">暂未下载原图时，也可以先保存来源页面</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="field-image-rights">署名与使用说明</label>
+        <textarea id="field-image-rights" class="form-textarea" rows="2" placeholder="完整保留页面署名、版权及使用说明，如：Albert Harlingue／Roger-Viollet／Granger"></textarea>
+        <div class="form-help">确认摄影者后填入“作者／责任人”；原始署名可以完整保留在这里</div>
+      </div>
+    </section>
 
     <div id="archive-holder-row" class="form-group" style="display: none;">
       <label class="form-label">收藏机构（档案馆）</label>
@@ -86,7 +115,7 @@
       </div>
       <div class="form-group">
         <label id="field-version-label" class="form-label">版次/期号/档案号/页码</label>
-        <input id="field-version" class="form-input" placeholder="如：第3版 / 第5卷-第2期 / 第168页" />
+      <input id="field-version" class="form-input" placeholder="如：第3版 / 第5卷-第2期 / 第168页" />
       </div>
     </div>
 
@@ -284,7 +313,7 @@
   </div>
 
   <script src="data/data.js"></script>
-  <script src="assets/storage.js?v=4"></script>
-  <script src="assets/add.js?v=7"></script>
+  <script src="assets/storage.js?v=20261112-image-source"></script>
+  <script src="assets/add.js?v=20261112-image-source"></script>
 </body>
 </html>

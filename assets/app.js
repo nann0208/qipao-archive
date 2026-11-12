@@ -2,6 +2,7 @@
 
 let currentTypeFilter = '';
 let currentImageFormFilter = '';
+let currentImageSourceChannelFilter = '';
 let currentVideoKindFilter = '';
 let currentTopicFilter = '';
 let currentKeyword = '';
@@ -226,6 +227,7 @@ function saveState() {
     opinions: currentOpinionFilters,
     female: currentFemaleFilter,
     imageForm: currentImageFormFilter,
+    imageSourceChannel: currentImageSourceChannelFilter,
     videoKind: currentVideoKindFilter,
     page: currentPage,
     view: currentView
@@ -249,6 +251,7 @@ function restoreState() {
     currentOpinionFilters = state.opinions || [];
     currentFemaleFilter = state.female || '';
     currentImageFormFilter = state.imageForm || '';
+    currentImageSourceChannelFilter = state.imageSourceChannel || '';
     currentVideoKindFilter = state.videoKind || '';
     currentPage = state.page || 1;
     currentView = state.view || 'card';
@@ -336,6 +339,7 @@ function clearAllFilters() {
   tempSources = [];
   currentKeyword = '';
   currentImageFormFilter = '';
+  currentImageSourceChannelFilter = '';
   currentVideoKindFilter = '';
   currentSort = 'asc';
 
@@ -397,7 +401,7 @@ function createListRow(record) {
   ).join('');
 
   const authorText = record.author || '';
-  const sourceText = record.source || '';
+  const sourceText = record.source || (record.type === '图像' ? record.image_provider : '') || '';
   const timeText = record.time || '';
   const versionText = record.version_info || '';
 
@@ -411,7 +415,7 @@ function createListRow(record) {
     <span class="list-meta" data-copy="${escapeHtml(timeText)}">${timeText ? `📅 ${escapeHtml(timeText)}` : ''}<span class="copy-hint">${escapeHtml(timeText)}</span></span>
     <span class="list-meta" data-copy="${escapeHtml(versionText)}">${versionText ? `📑 ${escapeHtml(versionText)}` : ''}<span class="copy-hint">${escapeHtml(versionText)}</span></span>
     <span class="list-importance">${importance}${opinionDots ? `<span class="list-opinion-dots">${opinionDots}</span>` : ''}${record.female_authored ? '<span class="card-female-icon" title="女性署名史料" style="font-size:12px;">♀</span>' : ''}</span>
-    <span class="list-docs">${record.type === '影像资料' && (record.video_media_file || record.video_source_url) ? '▶' : (docCount > 0 ? `📎${docCount}` : '')}</span>
+    <span class="list-docs">${record.type === '影像资料' && (record.video_media_file || record.video_source_url) ? '▶' : (docCount > 0 ? `📎${docCount}` : (record.type === '图像' && safeSourceUrl(record.image_source_url) ? '↗' : ''))}</span>
   `;
 
   row.querySelectorAll('.list-meta[data-copy]').forEach(el => {
@@ -441,6 +445,7 @@ function renderFilters() {
   const topicBar = document.getElementById('topic-filters');
   const importanceBar = document.getElementById('importance-filters');
   const imageFormBar = document.getElementById('image-form-filters');
+  const imageSourceChannelBar = document.getElementById('image-source-channel-filters');
   const videoKindBar = document.getElementById('video-kind-filters');
 
   // 类型筛选
@@ -468,6 +473,15 @@ function renderFilters() {
       const chip = createChip(form, '', () => setImageFormFilter(form));
       if (currentImageFormFilter === form) chip.classList.add('active');
       imageFormBar.appendChild(chip);
+    });
+  }
+
+  if (imageSourceChannelBar) {
+    imageSourceChannelBar.innerHTML = '';
+    ['', ...IMAGE_SOURCE_CHANNELS, '未注明'].forEach(channel => {
+      const chip = createChip(channel || '全部', '', () => setImageSourceChannelFilter(channel));
+      if (currentImageSourceChannelFilter === channel) chip.classList.add('active');
+      imageSourceChannelBar.appendChild(chip);
     });
   }
 
@@ -562,6 +576,7 @@ function setTypeFilter(type) {
   }
   currentTypeFilter = type;
   if (type !== '图像') currentImageFormFilter = '';
+  if (type !== '图像') currentImageSourceChannelFilter = '';
   if (type !== '影像资料') currentVideoKindFilter = '';
   resetPage();
   updateSourceFilterVisibility();
@@ -576,6 +591,15 @@ function setTypeFilter(type) {
 function updateImageFormFilterVisibility() {
   const row = document.getElementById('image-form-filter-row');
   if (row) row.style.display = currentTypeFilter === '图像' ? '' : 'none';
+  const channelRow = document.getElementById('image-source-channel-filter-row');
+  if (channelRow) channelRow.style.display = currentTypeFilter === '图像' ? '' : 'none';
+}
+
+function setImageSourceChannelFilter(channel) {
+  currentImageSourceChannelFilter = channel;
+  resetPage();
+  renderFilters();
+  render();
 }
 
 function setImageFormFilter(form) {
@@ -680,9 +704,9 @@ function getSourceFilterConfig(type) {
   }
   if (type === '图像') {
     return {
-      label: '图像来源',
-      btn: '选择图像来源',
-      modalTitle: '选择图像来源（按拼音排序）'
+      label: '出处／机构',
+      btn: '选择出处或机构',
+      modalTitle: '选择图像原始出处或收藏／提供机构'
     };
   }
   if (type === '影像资料') {
@@ -845,6 +869,8 @@ function renderSourceModal() {
     allSources = getArchiveHolders();
   } else if (currentTypeFilter === '文学作品') {
     allSources = getAuthorsByType('文学作品');
+  } else if (currentTypeFilter === '图像') {
+    allSources = getImageSources();
   } else {
     allSources = getSourcesByType(currentTypeFilter);
   }
@@ -1007,6 +1033,7 @@ function render() {
   let records = loadAllRecords();
   records = filterByType(records, currentTypeFilter);
   records = filterByImageForm(records, currentImageFormFilter);
+  if (currentTypeFilter === '图像') records = filterByImageSourceChannel(records, currentImageSourceChannelFilter);
   records = filterByVideoKind(records, currentVideoKindFilter);
   records = filterByTopic(records, currentTopicFilter);
   records = filterByImportance(records, currentImportance);
@@ -1015,7 +1042,9 @@ function render() {
   if (currentFemaleFilter === 'yes') records = records.filter(r => !!r.female_authored);
   else if (currentFemaleFilter === 'no') records = records.filter(r => !r.female_authored);
   // 应用来源筛选：报刊文章/图像用 source，档案文件用 archive_holder，文学作品用 author
-  if (currentTypeFilter === '报刊文章' || currentTypeFilter === '图像' || currentTypeFilter === '影像资料') {
+  if (currentTypeFilter === '图像') {
+    records = filterByImageSources(records, currentSources);
+  } else if (currentTypeFilter === '报刊文章' || currentTypeFilter === '影像资料') {
     records = filterBySources(records, currentSources);
   } else if (currentTypeFilter === '档案文件') {
     records = filterByArchiveHolders(records, currentSources);
@@ -1292,7 +1321,7 @@ function makeEmpty() {
   const hasActiveFilters = Boolean(
     currentKeyword || currentTypeFilter || currentTopicFilter || currentImportance ||
     currentYears.length || currentSources.length || currentOpinionFilters.length ||
-    currentFemaleFilter || currentImageFormFilter || currentVideoKindFilter
+    currentFemaleFilter || currentImageFormFilter || currentImageSourceChannelFilter || currentVideoKindFilter
   );
   empty.innerHTML = `
     <div class="icon">📭</div>
@@ -1319,11 +1348,15 @@ function createCard(record) {
   ).join('');
   const imageFormTag = record.type === '图像' && record.image_form
     ? `<span class="card-topic-tag image-form-tag">${escapeHtml(record.image_form)}</span>` : '';
+  const imageChannelTag = record.type === '图像' && record.image_source_channel
+    ? `<span class="card-topic-tag image-form-tag">${escapeHtml(record.image_source_channel)}</span>` : '';
   const videoKindTag = record.type === '影像资料' && record.video_kind
     ? `<span class="card-topic-tag image-form-tag">${escapeHtml(record.video_kind)}</span>` : '';
 
   const docCount = (record.document_paths || []).length;
-  const hasDocs = docCount > 0 || (record.type === '影像资料' && (record.video_media_file || record.video_source_url));
+  const imageSourceUrl = record.type === '图像' ? safeSourceUrl(record.image_source_url) : '';
+  const sourceText = record.source || (record.type === '图像' ? record.image_provider : '') || '';
+  const hasDocs = docCount > 0 || imageSourceUrl || (record.type === '影像资料' && (record.video_media_file || record.video_source_url));
 
   // 如果有搜索关键词，对标题和内容进行高亮
   const kw = record._searchKeyword || '';
@@ -1360,11 +1393,11 @@ function createCard(record) {
         ${femaleIcon}
       </span>
     </div>
-    ${(topics || imageFormTag || videoKindTag) ? `<div class="card-topics">${topics}${imageFormTag}${videoKindTag}</div>` : ''}
+    ${(topics || imageFormTag || imageChannelTag || videoKindTag) ? `<div class="card-topics">${topics}${imageFormTag}${imageChannelTag}${videoKindTag}</div>` : ''}
     <h3 class="card-title">${titleText}</h3>
     <div class="card-meta">
       ${record.author ? `<span>✍️ ${escapeHtml(record.author)}</span>` : ''}
-      ${record.source && record.type !== '档案文件' ? `<span>📍 ${escapeHtml(record.source)}</span>` : ''}
+      ${sourceText && record.type !== '档案文件' ? `<span>📍 ${escapeHtml(sourceText)}</span>` : ''}
       ${record.time ? `<span>📅 ${escapeHtml(record.time)}</span>` : ''}
       ${record.version_info ? `<span>📑 ${escapeHtml(record.version_info)}</span>` : ''}
     </div>
@@ -1372,7 +1405,7 @@ function createCard(record) {
     ${docxSnippet}
     <div class="card-actions">
       <a href="detail.html?id=${encodeURIComponent(record.shiliao_id)}${kwParam}" class="card-btn primary">查看详情</a>
-      ${hasDocs ? `<a href="detail.html?id=${encodeURIComponent(record.shiliao_id)}&open=1${kwParam}" class="card-btn">${record.type === '影像资料' ? '🎞️ 查看资料' : `📎 ${docCount} 个原文`}</a>` : '<span class="card-btn" style="opacity:0.5;cursor:default;">无原文</span>'}
+      ${hasDocs ? `<a href="detail.html?id=${encodeURIComponent(record.shiliao_id)}&open=1${kwParam}" class="card-btn">${record.type === '影像资料' ? '🎞️ 查看资料' : docCount > 0 ? `📎 ${docCount} 个原文` : '↗ 来源页面'}</a>` : '<span class="card-btn" style="opacity:0.5;cursor:default;">无原文</span>'}
     </div>
   `;
 
